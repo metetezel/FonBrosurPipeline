@@ -189,9 +189,9 @@
   <h2>Haftada bir yaptığın tek şey</h2>
   <div class="routine">
     <div class="big">Her perşembe öğleden sonra → <code>Tum_Verileri_Yenile.bat</code></div>
-    <p class="note"><strong>Broşür tarihi her zaman T-1.</strong> TEFAS o günün fiyatını öğleden sonra bazen yayınlamış oluyor bazen olmuyor; tarih buna bağlı kalsaydı broşürler kimi hafta perşembe kimi hafta çarşamba çıkardı. Onun yerine bugünün verisi hesaba hiç katılmıyor — sonuç TEFAS'ın ne zaman yayınladığından bağımsız. Tarih her yerde gün adıyla basılıyor: <span class="mono">27 Ağustos 2026, Perşembe</span>.</p>
+    <p class="note"><strong>İki ayrı tarih var.</strong> Başlıktaki rozet <em>yayın tarihi</em>: PDF'i ürettiğin gün. Rakamlar ise her zaman <em>T-1</em> — bugünün verisi hesaba hiç katılmıyor, böylece sonuç TEFAS'ın o günü yayınlayıp yayınlamamasından bağımsız. İkisi karışmıyor çünkü bilgi kartındaki <span class="mono">Birim Fiyat (28.08.2026)</span> satırı veri gününü yazıyor.</p>
     <p class="note">Emin olmak istersen önce <code>node fetch_arsiv.js --dene</code> — hiçbir şeye dokunmadan hangi tarihe kadar veri geleceğini gösterir.</p>
-    <p class="note">Sonuç: <span class="mono">Brosurler\&lt;tarih&gt;\&lt;KOD&gt;.pdf</span> — ağ klasöründe, 15 dosya.</p>
+    <p class="note">Sonuç: <span class="mono">Brosurler\&lt;yayın tarihi&gt;\&lt;KOD&gt;.pdf</span> — ağ klasöründe, 15 dosya.</p>
   </div>
 </section>
 
@@ -302,7 +302,11 @@
   <div class="guards">
     <div class="guard">
       <div class="name">T-1 kesimi</div>
-      <div class="desc">Bugünün verisi arşive yazılıyor ama broşürde kullanılmıyor. Kesim etikette değil verinin kendisinde: aksi halde broşür "çarşamba" yazıp perşembe fiyatını gösterirdi. Sabit bir güne kilitlemek gerekirse <code>RAPOR_TARIHI=2026-08-26</code>.</div>
+      <div class="desc">Bugünün verisi arşive yazılıyor ama hesaba katılmıyor — kesim etikette değil verinin kendisinde. Eski bir seti yeniden üretmek için: <code>YAYIN_TARIHI=2026-08-27</code> (rozet ve klasör adı), <code>RAPOR_TARIHI=2026-08-26</code> (veri kesimi).</div>
+    </div>
+    <div class="guard">
+      <div class="name">Seri kaynağı sabit</div>
+      <div class="desc">Hangi fonun serisinin hangi dosyadan geldiği <span class="mono">render_a.js</span>'te açıkça yazılı. AAS ve YLC bir süre kimsenin yenilemediği bir dosyayı okuyup 31.07 verisinde çakılı kalmıştı; 29.08.2026'da düzeltildi.</div>
     </div>
     <div class="guard">
       <div class="name">Bayat veri uyarısı</div>
