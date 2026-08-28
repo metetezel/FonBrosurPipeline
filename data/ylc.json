@@ -26,9 +26,7 @@
   ],
   "benchmarkMissing": [],
   "benchmarkApproximate": false,
-  "benchmarkFromBistCache": [
-    "XGIDA_CFNNTLTL"
-  ],
+  "benchmarkFromBistCache": [],
   "growth": [
     {
       "date": "2022-02-11",

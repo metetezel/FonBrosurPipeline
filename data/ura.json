@@ -26,9 +26,7 @@
   ],
   "benchmarkMissing": [],
   "benchmarkApproximate": false,
-  "benchmarkFromBistCache": [
-    "XELKT_CFNNTLTL"
-  ],
+  "benchmarkFromBistCache": [],
   "growth": [
     {
       "date": "2024-12-11",

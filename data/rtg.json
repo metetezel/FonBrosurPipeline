@@ -26,9 +26,7 @@
   ],
   "benchmarkMissing": [],
   "benchmarkApproximate": false,
-  "benchmarkFromBistCache": [
-    "XBLSM_CFNNTLTL"
-  ],
+  "benchmarkFromBistCache": [],
   "growth": [
     {
       "date": "2022-11-02",
