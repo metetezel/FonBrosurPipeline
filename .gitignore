@@ -4,3 +4,4 @@ node_modules/
 !assets/**
 scratch_*
 output*.html
+data/bist_indices_cache.json

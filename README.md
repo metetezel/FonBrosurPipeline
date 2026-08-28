@@ -231,6 +231,15 @@ haline getirildi:
   verisini ve "Fon'un Güncel Bilgileri" tablosunu yeniden hesaplar, her iki
   PDF'i yeniden üretir. Ne zaman: Elmas'tan yeni bir tablo geldiğinde ya da
   kur/fiyatlarda büyük hareket olduğunda.
+## `data/bist_indices_cache.json` Artık Gerekli Değil (28.08.2026)
+
+Borsa İstanbul'dan çekilen 19 seri kalıcı olarak `Bench_Sabit_Arsiv`'e işlendiği için
+bu 4,3 MB'lık yerel önbellek ölü ağırlıktı — git'ten çıkarıldı ve `.gitignore`'a alındı.
+`extract_fund.js`/`extract_monthly.js`'teki fallback kodu duruyor (dosya yoksa sessizce
+atlıyor), yani ileride Excel'de olmayan yeni bir sembol gerekirse `fetch_bist_indices.js`
+onu yeniden üretebilir. Kaldırma sonrası JET/URA/AED yeniden çekildi: hepsi
+`fromBistCache: []` ile, tamamen Excel'den.
+
 ## Kart Bilgileri KAP'tan (28.08.2026)
 
 `fetch_kap_fund_info.js` — KAP'ın fon genel bilgi sayfası
