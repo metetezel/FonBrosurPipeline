@@ -14,6 +14,16 @@ bulundu, hem KYD/BIST fiyat endeksleri hem de gerçek "Getiri" (temettü
 dahil toplam getiri) endeksleri canlı `Bench_Sabit_Arsiv`'e işlendi
 (`fetch_bist_indices.js` + `append_bist_indices.ps1`).
 
+## Kılavuz sayfası
+
+`kilavuz.html` — pipeline'ın nasıl çalıştığını anlatan tek sayfalık kılavuz (haftalık tur,
+veri kaynakları, otomatik olan/olmayan alanlar, kontroller, "şunu değiştirmek gerekirse
+hangi dosya" tarifleri). Yayımlanmış hali:
+<https://claude.ai/code/artifact/fa66b70d-b63d-4d97-b37a-3627f9956908>
+
+Güncellerken bu dosyayı düzenleyip **aynı URL'e** yeniden yayımlayın; yeni bir yayın
+ikinci bir sayfa oluşturur.
+
 ## Kurulum (yeni bir makinede/oturumda)
 
 ```

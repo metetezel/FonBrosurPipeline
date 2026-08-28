@@ -1,0 +1,379 @@
+<!-- Pipeline kilavuzu. Yayimlanmis hali (Artifact):
+     https://claude.ai/code/artifact/fa66b70d-b63d-4d97-b37a-3627f9956908
+     Guncellemek icin: bu dosyayi duzenle, sonra Artifact araciyla AYNI URL'e yeniden
+     yayimla (url parametresiyle) - yoksa ikinci bir sayfa olusur. -->
+<title>Fon Broşürü Pipeline</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F5F8F9;
+    --surface: #FFFFFF;
+    --surface-2: #EDF3F4;
+    --ink: #0F2429;
+    --ink-muted: #587076;
+    --ink-faint: #86999E;
+    --teal: #00677E;
+    --teal-soft: #DCEBEF;
+    --orange: #D2661C;
+    --orange-soft: #FBEADC;
+    --rule: #DBE5E7;
+    --rule-strong: #C2D2D5;
+    --shadow: 0 1px 2px rgba(15, 36, 41, .06), 0 8px 24px -16px rgba(15, 36, 41, .25);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1517;
+      --surface: #131F23;
+      --surface-2: #1A292E;
+      --ink: #E7EEF0;
+      --ink-muted: #9BAFB4;
+      --ink-faint: #71878D;
+      --teal: #5FB3C9;
+      --teal-soft: #16333C;
+      --orange: #EE9455;
+      --orange-soft: #35241A;
+      --rule: #23353A;
+      --rule-strong: #2F464C;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1517;
+    --surface: #131F23;
+    --surface-2: #1A292E;
+    --ink: #E7EEF0;
+    --ink-muted: #9BAFB4;
+    --ink-faint: #71878D;
+    --teal: #5FB3C9;
+    --teal-soft: #16333C;
+    --orange: #EE9455;
+    --orange-soft: #35241A;
+    --rule: #23353A;
+    --rule-strong: #2F464C;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 56px 28px 96px; }
+
+  h1, h2, h3 { font-family: Archivo, "IBM Plex Sans", sans-serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+  h2 { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+  h3 { font-size: 15px; font-weight: 600; }
+  p { margin: 0; }
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .875em; }
+  code { background: var(--surface-2); padding: .12em .38em; border-radius: 3px; color: var(--ink); }
+  a { color: var(--teal); }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .14em; color: var(--ink-faint);
+  }
+
+  header { border-bottom: 2px solid var(--rule-strong); padding-bottom: 28px; margin-bottom: 44px; }
+  header .lede { margin-top: 14px; color: var(--ink-muted); max-width: 62ch; font-size: 16px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+  .meta b { color: var(--ink-muted); font-weight: 600; }
+
+  section { margin-bottom: 52px; }
+  section > h2 { padding-bottom: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
+  .sub { color: var(--ink-muted); margin-bottom: 20px; max-width: 68ch; }
+
+  /* Routine callout */
+  .routine {
+    background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--teal);
+    border-radius: 4px; padding: 22px 24px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .routine .big { font-family: Archivo, sans-serif; font-size: 19px; font-weight: 600; }
+  .routine .note { color: var(--ink-muted); font-size: 14px; }
+
+  /* Flow strip */
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .stage {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 14px; display: flex; flex-direction: column; gap: 6px; position: relative;
+  }
+  .stage .eyebrow { color: var(--teal); }
+  .stage .what { font-weight: 600; font-size: 14px; }
+  .stage .detail { font-size: 12.5px; color: var(--ink-muted); line-height: 1.45; }
+  .stage:not(:last-child)::after {
+    content: ""; position: absolute; right: -8px; top: 50%; width: 6px; height: 6px;
+    border-top: 1.5px solid var(--rule-strong); border-right: 1.5px solid var(--rule-strong);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  @media (max-width: 760px) {
+    .flow { grid-template-columns: 1fr; }
+    .stage:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -9px; transform: translateX(-50%) rotate(135deg); }
+  }
+
+  /* Tables */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600;
+    color: var(--ink-faint); background: var(--surface-2); white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink-muted); }
+  td .mono { color: var(--ink-muted); }
+
+  .step-no {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 500;
+    color: var(--teal); background: var(--teal-soft); border-radius: 3px;
+    padding: 2px 6px; white-space: nowrap;
+  }
+
+  /* Two-column split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 18px 20px; }
+  .panel h3 { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .dot.auto { background: var(--teal); }
+  .dot.manual { background: var(--orange); }
+  .panel ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; font-size: 14px; color: var(--ink-muted); }
+  .panel li strong { color: var(--ink); font-weight: 600; }
+
+  /* Guard list */
+  .guards { display: flex; flex-direction: column; gap: 12px; }
+  .guard { display: grid; grid-template-columns: 190px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--rule); }
+  .guard:first-child { border-top: 0; padding-top: 0; }
+  .guard .name { font-weight: 600; font-size: 14px; }
+  .guard .desc { color: var(--ink-muted); font-size: 14px; }
+  @media (max-width: 640px) { .guard { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Recipes */
+  .recipes { display: flex; flex-direction: column; gap: 2px; }
+  .recipe { background: var(--surface); border: 1px solid var(--rule); padding: 14px 18px; }
+  .recipe:first-child { border-radius: 4px 4px 0 0; }
+  .recipe:last-child { border-radius: 0 0 4px 4px; }
+  .recipe + .recipe { border-top: 0; }
+  .recipe .q { font-weight: 600; font-size: 14.5px; margin-bottom: 5px; }
+  .recipe .a { color: var(--ink-muted); font-size: 14px; }
+
+  .flag {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
+    background: var(--orange-soft); color: var(--orange);
+  }
+
+  footer { margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13px; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Ata Portföy · fon bilgi kartları</div>
+  <h1>Fon Broşürü Pipeline</h1>
+  <p class="lede">15 fonun tek sayfalık broşürü, her perşembe öğleden sonra, tek komutla üretiliyor. Veri altı kaynaktan otomatik geliyor; sayfa HTML/CSS ile kuruluyor ve headless Chromium ile PDF'e basılıyor.</p>
+  <div class="meta">
+    <span><b>Depo:</b> github.com/metetezel/FonBrosurPipeline</span>
+    <span><b>Çalışma kopyası:</b> <span class="mono">C:\Users\metete\FonBrosurPipeline</span></span>
+    <span><b>Üretim:</b> haftalık, perşembe öğleden sonra</span>
+    <span><b>Son güncelleme:</b> 28.08.2026</span>
+  </div>
+</header>
+
+<section>
+  <h2>Haftada bir yaptığın tek şey</h2>
+  <div class="routine">
+    <div class="big">Her perşembe öğleden sonra → <code>Tum_Verileri_Yenile.bat</code></div>
+    <p class="note"><strong>Broşür tarihi her zaman T-1.</strong> TEFAS o günün fiyatını öğleden sonra bazen yayınlamış oluyor bazen olmuyor; tarih buna bağlı kalsaydı broşürler kimi hafta perşembe kimi hafta çarşamba çıkardı. Onun yerine bugünün verisi hesaba hiç katılmıyor — sonuç TEFAS'ın ne zaman yayınladığından bağımsız. Tarih her yerde gün adıyla basılıyor: <span class="mono">27 Ağustos 2026, Perşembe</span>.</p>
+    <p class="note">Emin olmak istersen önce <code>node fetch_arsiv.js --dene</code> — hiçbir şeye dokunmadan hangi tarihe kadar veri geleceğini gösterir.</p>
+    <p class="note">Sonuç: <span class="mono">Brosurler\&lt;tarih&gt;\&lt;KOD&gt;.pdf</span> — ağ klasöründe, 15 dosya.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Zincir</h2>
+  <p class="sub">Veri kaynaklardan arşive iniyor, arşivden fon başına hesaplanıyor, sayfa kuruluyor, PDF basılıyor, yayın klasörüne kopyalanıyor.</p>
+  <div class="flow">
+    <div class="stage">
+      <span class="eyebrow">Kaynak</span>
+      <span class="what">API'ler</span>
+      <span class="detail">TEFAS, Borsa İstanbul, Nasdaq, Yahoo, KAP</span>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Arşiv</span>
+      <span class="what">data/*.json</span>
+      <span class="detail">Fiyat + benchmark serileri; sadece büyür, okuma T-1'de kesilir</span>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Hesap</span>
+      <span class="what">extract_*.js</span>
+      <span class="detail">Endeksleme, getiri tabloları, grafik serileri</span>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Sayfa</span>
+      <span class="what">render_a / render_b2</span>
+      <span class="detail">HTML/CSS + Playwright → tek A4 PDF</span>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Yayın</span>
+      <span class="what">export_pdfs.js</span>
+      <span class="detail">Brosurler/&lt;tarih&gt;/ klasörüne temiz isimlerle</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Dokuz adım</h2>
+  <p class="sub">Bat dosyası bunları sırayla çalıştırıyor. Sıra önemli: veri gelmeden hesap, hesap bitmeden render olmaz.</p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Adım</th><th>Ne yapar</th><th>Dosya</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="step-no">1</span></td><td>Arşivi büyütür: fon fiyatları TEFAS'tan, endeksler Borsa İstanbul/Nasdaq/Yahoo'dan. Var olan tarihe dokunmaz.</td><td><span class="mono">fetch_arsiv.js</span></td></tr>
+        <tr><td><span class="step-no">2</span></td><td>Kart bilgilerini KAP'tan tazeler: risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi kuruluşu.</td><td><span class="mono">fetch_kap_fund_info.js</span></td></tr>
+        <tr><td><span class="step-no">3</span></td><td>Net Varlık Tutarı'nı TEFAS'tan yazar; rapor tarihine denk gelen kayıt yoksa dosyaya dokunmaz.</td><td><span class="mono">fetch_tefas_net_varlik.js</span></td></tr>
+        <tr><td><span class="step-no">4</span></td><td>USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi için).</td><td><span class="mono">fetch_usdtry.js</span></td></tr>
+        <tr><td><span class="step-no">5</span></td><td>14 fonun fiyat serisini ve ağırlıklı bileşik karşılaştırma ölçütünü hesaplar.</td><td><span class="mono">extract_fund.js</span></td></tr>
+        <tr><td><span class="step-no">6</span></td><td>Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ): 2010'a uzanan aylık getiri tablosu + büyüme serisi. Yeni ay ancak gerçekten kapandığında ekleniyor.</td><td><span class="mono">build_monthly_data.js</span></td></tr>
+        <tr><td><span class="step-no">7</span></td><td>Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ'nin eurobond YTM tablosu.</td><td><span class="mono">extract_aya_dividend.js</span> ·<br><span class="mono">extract_anz_uanz_chart.js</span> ·<br><span class="mono">update_anz_guncel_bilgiler.js</span></td></tr>
+        <tr><td><span class="step-no">8</span></td><td>15 PDF üretilir. B2 ailesi (JET, RTG, PKF, PKP, URA) ayrı motor, diğer 10 fon ayrı motor.</td><td><span class="mono">render_b2.js</span> · <span class="mono">render_a.js</span></td></tr>
+        <tr><td><span class="step-no">9</span></td><td>PDF'ler ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalanır.</td><td><span class="mono">export_pdfs.js</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Veri nereden geliyor</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Kaynak</th><th>Ne veriyor</th><th>Nasıl</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>TEFAS</strong></td><td>Günlük birim fiyat (14 fon), net varlık tutarı, yatırımcı sayısı</td><td><span class="mono">/api/funds/*</span> — site tarafı bot korumasında, sadece API açık</td></tr>
+        <tr><td><strong>Borsa İstanbul</strong></td><td>KYD ve BIST endeksleri, gerçek "Getiri" (temettü dahil) varyantlarıyla, 1997'ye kadar</td><td><span class="mono">graphic.php</span> chart endpoint'i</td></tr>
+        <tr><td><strong>Nasdaq</strong></td><td>NQROBO, NQUSB502010T, NQXAUAGR endeksleri</td><td><span class="mono">indexes.nasdaq.com/Index/HistoryData</span></td></tr>
+        <tr><td><strong>Yahoo Finance</strong></td><td>USD/TRY kuru, URA proxy ETF'i</td><td>chart API</td></tr>
+        <tr><td><strong>KAP</strong></td><td>Risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi kuruluşu, ISIN, yönetici tecrübesi</td><td>Fon genel bilgi sayfası (değerler düz metin, tarayıcı gerekmiyor)</td></tr>
+        <tr><td><strong>Ata içi dosyalar</strong></td><td>ANZ'nin eurobond portföyü (Farshad), AYA'nın temettü olayları (Ferruh Erim)</td><td>Ağ paylaşımındaki canlı Excel dosyaları</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:16px">2021 öncesi aylık getiriler hiçbir API'de yok — onlar <span class="mono">aylik_getiri_grid.json</span>'da dondurulmuş durumda. Yeni aylar fiyattan otomatik hesaplanıyor.</p>
+</section>
+
+<section>
+  <h2>Ne otomatik, ne değil</h2>
+  <div class="split">
+    <div class="panel">
+      <h3><span class="dot auto"></span> Kendiliğinden gelenler</h3>
+      <ul>
+        <li><strong>Bütün rakamlar:</strong> birim fiyat, net varlık, dönemsel performans, aylık getiri tablosu, büyüme grafikleri</li>
+        <li><strong>Risk değeri</strong> ve <strong>yönetim komisyonu</strong> — KAP'tan</li>
+        <li><strong>Kurucu, denetçi, portföy yöneticisi</strong> — KAP'tan, tek dosyada</li>
+        <li><strong>Rapor tarihi</strong> — verinin son gününden türetiliyor</li>
+        <li><strong>ANZ/UANZ'ın "Güncel Bilgiler" tablosu</strong> — mevduat eşleniği dahil</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3><span class="dot manual"></span> Hâlâ elle yazılan</h3>
+      <ul>
+        <li><strong>Strateji ve pazarlama metinleri</strong> — "Neden yatırım yapmalıyım", avantajlar, sektör listeleri</li>
+        <li><strong>Vergi oranı tablosu</strong> ve <strong>disclaimer</strong> (disclaimer artık tek dosyada)</li>
+        <li><strong>Portföy dağılımı yüzdeleri</strong> — KAP'tan çekilebilir, henüz yapılmadı</li>
+        <li><strong>Kart satırları:</strong> Kuruluş Tarihi, Para Birimi, Saklama, Alım/Satım Valörü</li>
+      </ul>
+    </div>
+  </div>
+  <p class="sub" style="margin-top:18px">Elle yazılanların hepsi <span class="mono">data/&lt;kod&gt;_static.json</span>'da; şirket geneli olanlar (disclaimer, iletişim, CTA, risk yöneticisi, kurucu/denetçi) tek bir <span class="mono">data/ortak.json</span>'da. Fon kendi değerini yazmışsa o kazanıyor — PKP'nin farklı denetçisi, JET'in Euroclear'lı saklaması böyle korunuyor.</p>
+</section>
+
+<section>
+  <h2>Yanlış çıktıyı engelleyen kontroller</h2>
+  <div class="guards">
+    <div class="guard">
+      <div class="name">T-1 kesimi</div>
+      <div class="desc">Bugünün verisi arşive yazılıyor ama broşürde kullanılmıyor. Kesim etikette değil verinin kendisinde: aksi halde broşür "çarşamba" yazıp perşembe fiyatını gösterirdi. Sabit bir güne kilitlemek gerekirse <code>RAPOR_TARIHI=2026-08-26</code>.</div>
+    </div>
+    <div class="guard">
+      <div class="name">Bayat veri uyarısı</div>
+      <div class="desc">Verinin son günü bir haftadan eskiyse <span class="mono">export_pdfs.js</span> uyarıyor — bu genelde arşiv büyütme adımının atlandığı ya da hata verdiği, yani geçen haftanın broşürünün basılmak üzere olduğu anlamına gelir.</div>
+    </div>
+    <div class="guard">
+      <div class="name">Arşiv sadece büyür</div>
+      <div class="desc">TEFAS yalnızca son 5 yılı veriyor. Arşiv birikimli olduğu için kayan pencere geçmişi silmiyor; var olan bir tarihin değeri hiçbir zaman değiştirilmiyor.</div>
+    </div>
+    <div class="guard">
+      <div class="name">Net varlık tarih eşleşmesi</div>
+      <div class="desc">TEFAS sadece bugünün fon büyüklüğünü veriyor. Broşürün rapor tarihine ait kayıt yoksa script hiçbir dosyaya dokunmuyor, sadece karşılaştırma tablosu basıyor.</div>
+    </div>
+    <div class="guard">
+      <div class="name">KAP'ın yazmadıkları</div>
+      <div class="desc">Fon yöneticisi <em>ismi</em> ve tecrübe yılı otomatik değiştirilmiyor: KAP her fonun kendi yöneticilerini listeliyor ve tecrübe yılında kendi içinde tutarsız. Fark varsa rapora düşüyor, kararı sen veriyorsun.</div>
+    </div>
+    <div class="guard">
+      <div class="name">Kuru çalıştırma</div>
+      <div class="desc"><code>node fetch_arsiv.js --dene</code> hiçbir dosyaya yazmadan ne ekleneceğini gösterir.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Bir şey değiştirmek gerekirse</h2>
+  <div class="recipes">
+    <div class="recipe">
+      <div class="q">Disclaimer veya iletişim bilgisi değişti</div>
+      <div class="a"><span class="mono">data/ortak.json</span> — tek yerde. 15 dosyayı tek tek düzenlemeye gerek yok.</div>
+    </div>
+    <div class="recipe">
+      <div class="q">Bir fonun strateji metni / avantajları değişti</div>
+      <div class="a"><span class="mono">data/&lt;kod&gt;_static.json</span>, sonra <code>Tum_Fonlari_Yenile.bat</code> (veri çekmez, sadece yeniden çizer).</div>
+    </div>
+    <div class="recipe">
+      <div class="q">Sayfa tasarımında bir düzeltme</div>
+      <div class="a"><span class="mono">lib/blocks.js</span> (ortak bileşenler + CSS) veya <span class="mono">lib/charts.js</span> (grafikler), sonra <code>Tum_Fonlari_Yenile.bat</code> ile 15'i birden yenile.</div>
+    </div>
+    <div class="recipe">
+      <div class="q">Elmas'tan yeni eurobond tablosu geldi</div>
+      <div class="a"><code>ANZ_UANZ_Guncelle.bat</code> — kuru tazeler, tabloyu yeniden hesaplar, iki PDF'i basar.</div>
+    </div>
+    <div class="recipe">
+      <div class="q">Yeni bir karşılaştırma ölçütü bileşeni eklenecek</div>
+      <div class="a"><span class="mono">data/benchmark_tanimlari.json</span> (formal ve grafik ölçütleri burada) + gerekirse <span class="mono">fetch_arsiv.js</span>'e sembolün kaynağı.</div>
+    </div>
+    <div class="recipe">
+      <div class="q">Değişiklikleri kaydetmek</div>
+      <div class="a"><code>GitHub_Kaydet_Yukle.bat</code> — commit'ler ve push eder. Diğer makinede <code>git pull</code>.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Açık kalanlar</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Konu</th><th>Durum</th></tr></thead>
+      <tbody>
+        <tr><td>PKF'in yayımlanmış net varlık tutarı YLC'ninkiyle birebir aynı (85.552.765 TL)</td><td><span class="flag">teyit</span> TEFAS'a göre PKF ~412 mn TL — fon tarafına sorulacak</td></tr>
+        <tr><td>JET'in fon yöneticisi: broşürde Farshad Mirzazadeh, KAP'ta Batuhan Özşahin</td><td><span class="flag">karar</span> içerik kararı, otomatik değiştirilmedi</td></tr>
+        <tr><td>ANZ eurobond YTM hesabının Elmas'ın rakamlarıyla kalibrasyonu</td><td><span class="flag">beklemede</span> senin kararınla arka planda</td></tr>
+        <tr><td>Portföy dağılımı yüzdelerinin KAP'tan otomatik çekilmesi</td><td><span class="flag">sırada</span> araştırma gerekiyor</td></tr>
+        <tr><td>PDF'lerin siteye yüklenmesi / dağıtım mimarisi</td><td><span class="flag">konuşulmadı</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  Detaylı teknik geçmiş: <span class="mono">Proje_Gelistirme/20_HTML_Pipeline_Pilotu.md</span> · Çalıştırma talimatları ve tuzaklar: deponun <span class="mono">README.md</span>'si.
+</footer>
+
+</div>
