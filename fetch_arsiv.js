@@ -17,13 +17,13 @@
 //   node fetch_arsiv.js --sadece-fiyat | --sadece-bench
 //   node fetch_arsiv.js --dene       hicbir dosyaya yazmadan ne eklenecegini raporlar
 //
-// NOT: arsivi buyutmek brosurun rapor tarihini de ilerletir (rapor tarihi = verinin son
-// gunu). Tur persembe ogleden sonra calisiyor; TEFAS o gunun fiyatini heniz
-// yayinlamadiysa brosurler carsamba tarihli olur. Script hangi tarihe dustugunu gun
-// adiyla birlikte basiyor.
+// NOT: bugunun verisi de arsive yaziliyor ama BROSURDE KULLANILMIYOR - brosurler her
+// zaman T-1 tarihli (bkz. lib/arsiv.js kesimTarihi). Script hem arsivin son gununu hem
+// brosurun tasiyacagi tarihi gun adiyla basiyor.
 const fs = require('fs');
 const path = require('path');
-const { isoToTR, isoToTRUzun } = require('./lib/static');
+const { isoToTRUzun } = require('./lib/static');
+const { kesimTarihi } = require('./lib/arsiv');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const FIYAT_PATH = path.join(DATA_DIR, 'fiyat_arsiv.json');
@@ -145,8 +145,14 @@ async function main() {
     }
     if (!dene) fs.writeFileSync(FIYAT_PATH, JSON.stringify(fiyat));
     const sonGun = Object.values(fiyat).map(a => a[a.length - 1][0]).sort().pop();
-    console.log(`  toplam ${toplam} yeni fiyat satırı`);
-    console.log(`  >>> Broşürler şu tarihle üretilecek: ${isoToTRUzun(sonGun)}`);
+    // Broşür tarihi her zaman T-1: bugünün satırı arşive girse de okuma anında dışarıda
+    // bırakılıyor (bkz. lib/arsiv.js kesimTarihi), böylece hafta hafta kaymıyor.
+    const kesim = kesimTarihi();
+    const raporGunu = Object.values(fiyat)
+      .map(a => { const r = a.filter(([d]) => d < kesim); return r.length ? r[r.length - 1][0] : null; })
+      .filter(Boolean).sort().pop();
+    console.log(`  toplam ${toplam} yeni fiyat satırı — arşivin son günü: ${isoToTRUzun(sonGun)}`);
+    console.log(`  >>> Broşür tarihi (T-1): ${isoToTRUzun(raporGunu)}`);
   }
 
   if (!sadeceFiyat) {

@@ -261,14 +261,19 @@ zincirinin yerini alır). **Yalnızca ekler**, var olan tarihe dokunmaz — TEFA
 bağlı. `--dene` ile önce ne ekleneceği görülebilir.
 
 > **Ne zaman çalıştırmalı:** broşürler **haftalık** üretiliyor — her perşembe öğleden
-> sonra. Arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin son
-> günü); TEFAS o günün fiyatını henüz yayınlamadıysa broşürler çarşamba tarihli olur.
-> Gözden kaçmasın diye hem `fetch_arsiv.js` hem `export_pdfs.js` tarihi **gün adıyla**
-> basıyor ("26 Ağustos 2026, Çarşamba").
+> sonra.
 >
-> `export_pdfs.js` tarihe karışmıyor ama veri bir haftadan bayatsa uyarıyor — bu genelde
-> `fetch_arsiv.js` adımının atlandığı ya da hata verdiği anlamına gelir (uzun tatil
-> haftalarında normal olabilir).
+> **Broşür tarihi her zaman T-1.** TEFAS o günün fiyatını bazen öğleden sonra yayınlıyor,
+> bazen yayınlamıyor; rapor tarihi "arşivin son günü" olsaydı broşürler kimi hafta
+> perşembe kimi hafta çarşamba tarihli çıkardı. Onun yerine `lib/arsiv.js` okuma anında
+> bugünün satırlarını dışarıda bırakıyor (`kesimTarihi`), böylece sonuç TEFAS'ın ne zaman
+> yayınladığından bağımsız. Kesim arşivde değil okumada: bugünün verisi yine kaydediliyor,
+> gelecek hafta T-1 olarak kullanılıyor. Sabit bir güne kilitlemek için:
+> `RAPOR_TARIHI=2026-08-26` (o gün dahil).
+>
+> Tarih her yerde **gün adıyla** basılıyor ("27 Ağustos 2026, Perşembe"). `export_pdfs.js`
+> ayrıca veri bir haftadan bayatsa uyarıyor — genelde `fetch_arsiv.js` adımının atlandığı
+> anlamına gelir (uzun tatil haftalarında normal olabilir).
 
 Yan kazanımlar: `extract_fund.js` ~6 sn yerine 0,1 sn sürüyor; benchmark tanımları üç
 yerdeyken (Excel + `build_monthly_data.js` + `GETIRI_OVERRIDES`) tek dosyaya indi;

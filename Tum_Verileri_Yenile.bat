@@ -3,9 +3,11 @@ REM ============================================================
 REM HAFTALIK TUR: Butun verileri yenile + 15 PDF'i uret
 REM ============================================================
 REM Haftalik broşur turunun tek adimda calistirilabilir hali.
-REM NE ZAMAN: her persembe ogleden sonra. TEFAS o gunun fiyatini heniz
-REM yayinlamadiysa brosurler carsamba tarihli olur - 1. adim hangi tarihe
-REM dustugunu gun adiyla birlikte basiyor. Sira onemli: once veri, sonra render.
+REM NE ZAMAN: her persembe ogleden sonra.
+REM BROSUR TARIHI HER ZAMAN T-1: bugunun verisi arsive yazilir ama brosurde
+REM kullanilmaz, yani TEFAS o gunu yayinlamis olsun ya da olmasin sonuc ayni.
+REM 1. adim hem arsivin son gununu hem brosur tarihini gun adiyla basiyor.
+REM Sira onemli: once veri, sonra render.
 REM
 REM ON KOSUL YOK: Excel'e ihtiyac kalmadi. Arsiv data/*.json dosyalarinda
 REM ve ilk adim onu dogrudan TEFAS/Borsa Istanbul/Nasdaq'tan buyutuyor.
