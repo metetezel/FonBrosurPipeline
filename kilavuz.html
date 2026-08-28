@@ -280,7 +280,7 @@
         <li><strong>Risk değeri</strong> ve <strong>yönetim komisyonu</strong> — KAP'tan</li>
         <li><strong>Kurucu, denetçi, portföy yöneticisi</strong> — KAP'tan, tek dosyada</li>
         <li><strong>Rapor tarihi</strong> — verinin son gününden türetiliyor</li>
-        <li><strong>ANZ/UANZ'ın "Güncel Bilgiler" tablosu</strong> — mevduat eşleniği dahil</li>
+        <li><strong>Mevduat Eşleniği formülü</strong> — piyasa verisi değil, net getiri ÷ (1 − mevduat stopajı)</li>
       </ul>
     </div>
     <div class="panel">
@@ -288,7 +288,8 @@
       <ul>
         <li><strong>Strateji ve pazarlama metinleri</strong> — "Neden yatırım yapmalıyım", avantajlar, sektör listeleri</li>
         <li><strong>Vergi oranı tablosu</strong> ve <strong>disclaimer</strong> (disclaimer artık tek dosyada)</li>
-        <li><strong>Portföy dağılımı yüzdeleri</strong> — KAP'tan çekilebilir, henüz yapılmadı</li>
+        <li><strong>Portföy dağılımı yüzdeleri</strong> — kamu kaynağında yok, arandı bulunamadı</li>
+        <li><strong>ANZ/UANZ'ın "Güncel Bilgiler" tablosu</strong> — hesap Elmas'ın rakamlarını üretemiyor, kalibrasyona kadar elle</li>
         <li><strong>Kart satırları:</strong> Kuruluş Tarihi, Para Birimi, Saklama, Alım/Satım Valörü</li>
       </ul>
     </div>
@@ -312,12 +313,12 @@
       <div class="desc">TEFAS yalnızca son 5 yılı veriyor. Arşiv birikimli olduğu için kayan pencere geçmişi silmiyor; var olan bir tarihin değeri hiçbir zaman değiştirilmiyor.</div>
     </div>
     <div class="guard">
-      <div class="name">Net varlık tarih eşleşmesi</div>
-      <div class="desc">TEFAS sadece bugünün fon büyüklüğünü veriyor. Broşürün rapor tarihine ait kayıt yoksa script hiçbir dosyaya dokunmuyor, sadece karşılaştırma tablosu basıyor.</div>
+      <div class="name">Net varlık: hep TEFAS</div>
+      <div class="desc">Önce broşürün rapor tarihine ait kayıt aranıyor, yoksa en yeni snapshot yazılıyor ve hangi tarihten geldiği çıktıda belirtiliyor. TEFAS geçmişe dönük fon büyüklüğü vermediği için her çalıştırma bir snapshot biriktiriyor.</div>
     </div>
     <div class="guard">
       <div class="name">KAP'ın yazmadıkları</div>
-      <div class="desc">Fon yöneticisi <em>ismi</em> ve tecrübe yılı otomatik değiştirilmiyor: KAP her fonun kendi yöneticilerini listeliyor ve tecrübe yılında kendi içinde tutarsız. Fark varsa rapora düşüyor, kararı sen veriyorsun.</div>
+      <div class="desc">Fon yöneticisi <em>ismi</em> ve tecrübe yılı otomatik değiştirilmiyor: KAP her fonun kendi yöneticilerini listeliyor ve tecrübe yılında kendi içinde tutarsız olabiliyor. Fark rapora düşüyor, kararı sen veriyorsun; teyit ettiklerin istisna olarak kaydediliyor ve bir daha uyarı üretmiyor.</div>
     </div>
     <div class="guard">
       <div class="name">Kuru çalıştırma</div>
@@ -362,11 +363,9 @@
     <table>
       <thead><tr><th>Konu</th><th>Durum</th></tr></thead>
       <tbody>
-        <tr><td>PKF'in yayımlanmış net varlık tutarı YLC'ninkiyle birebir aynı (85.552.765 TL)</td><td><span class="flag">teyit</span> TEFAS'a göre PKF ~412 mn TL — fon tarafına sorulacak</td></tr>
-        <tr><td>JET'in fon yöneticisi: broşürde Farshad Mirzazadeh, KAP'ta Batuhan Özşahin</td><td><span class="flag">karar</span> içerik kararı, otomatik değiştirilmedi</td></tr>
-        <tr><td>ANZ eurobond YTM hesabının Elmas'ın rakamlarıyla kalibrasyonu</td><td><span class="flag">beklemede</span> senin kararınla arka planda</td></tr>
-        <tr><td>Portföy dağılımı yüzdelerinin KAP'tan otomatik çekilmesi</td><td><span class="flag">sırada</span> araştırma gerekiyor</td></tr>
-        <tr><td>PDF'lerin siteye yüklenmesi / dağıtım mimarisi</td><td><span class="flag">konuşulmadı</span></td></tr>
+        <tr><td><strong>ANZ getiri tablosu:</strong> Book2.xlsx'in fiyat ve kupon kolonları tam olarak ne? Hesap %4,57 veriyor, Elmas %7,39 — fark girdide.</td><td><span class="flag">Farshad'a soru</span></td></tr>
+        <tr><td><strong>Dağıtım:</strong> PDF'ler siteye nasıl yüklenecek?</td><td><span class="flag">konuşulmadı</span></td></tr>
+        <tr><td><strong>PKF net varlık:</strong> TEFAS baz alındı, yayımlanan 31.07 rakamı (YLC ile aynıydı) atıldı. Fon tarafının teyidi hâlâ iyi olur.</td><td><span class="flag">opsiyonel</span></td></tr>
       </tbody>
     </table>
   </div>
