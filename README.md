@@ -231,6 +231,46 @@ haline getirildi:
   verisini ve "Fon'un Güncel Bilgileri" tablosunu yeniden hesaplar, her iki
   PDF'i yeniden üretir. Ne zaman: Elmas'tan yeni bir tablo geldiğinde ya da
   kur/fiyatlarda büyük hareket olduğunda.
+## Kart Bilgileri KAP'tan (28.08.2026)
+
+`fetch_kap_fund_info.js` — KAP'ın fon genel bilgi sayfası
+(`kap.org.tr/tr/fon-bilgileri/genel/<fundOid>`) Next.js RSC payload'ı olmasına rağmen
+tüm değerleri sunucu tarafında düz metin olarak basıyor; JS/tarayıcı gerekmeden `fetch`
+ile okunabiliyor. Payload sıralı bir `children":"<metin>"` akışı: etiketi değeri takip
+ediyor, tablolar da başlık-bloğu-sonra-satır-bloğu şeklinde geliyor.
+
+**KAP'tan gelen alanlar:** Risk Değeri, Yönetim Ücreti Oranı (yıllık), Kurucunun Ünvanı,
+Bağımsız Denetim Kuruluşu, Portföy Yöneticisi Kuruluşu, ISIN, karşılaştırma ölçütü
+bileşenleri + oranları, fon portföy yöneticilerinin adı ve sermaye piyasası tecrübesi.
+
+**Doğrulama turu sonucu (31.07.2026 broşürlerine karşı):** 14 fonun yönetim ücreti,
+kurucusu ve portföy yöneticisi kuruluşu KAP ile birebir tuttu. Düzeltilen 17 alan:
+- **Denetçi** (15 fon): KAP'ın resmi unvanı yazıldı — "Güreli Yeminli Mali Müşavirlik ve
+  Bağımsız Denetim Hizmetleri A.Ş." (broşürlerde "Baker Tilly Güreli…" yazıyordu; bu karar
+  `12_KAP_Fon_Yoneticisi_Arastirmasi.md`'de 04.08.2026'da alınmış ama uygulanmamıştı).
+  PKP'de KAP verisi yok, eski değer korundu.
+- **Risk değeri:** AAS 6→5, YLC 6→5. ANZ/AYA/TLZ/UANZ için KAP risk değeri yayınlamıyor,
+  broşürdeki değerler korundu.
+
+**Bilerek otomatik yazılmayan iki nokta (rapora düşüyor):**
+1. **Fon yöneticisi ismi** — KAP her fonun *kendi* portföy yöneticilerini yazıyor
+   (AAV: Samet Zağlı + Farshad Mirzazadeh), broşürlerde ise çoğunlukla tek isim var.
+   JET'te broşür "Farshad Mirzazadeh" diyor, KAP "Batuhan Özşahin". Bu bir içerik kararı,
+   otomatik değiştirilmiyor.
+2. **Tecrübe yılı** — KAP kendi içinde tutarsız: aynı kişi AAV sayfasında 10 yıl, URA
+   sayfasında 9 yıl. Otomatik yazmak aynı kişiyi broşürler arasında farklı gösterirdi.
+
+**Tuzak:** KAP boş alanlara "Bilgi Mevcut Değil" yazıyor — bu bir değer değil, parser
+`null` döndürüyor (ilk turda PKP'nin denetçi alanına bu metin yazılmış, geri alındı).
+
+### Broşürde hâlâ sadece `data/<kod>_static.json`'da olan alanlar
+
+Bunların KAP/TEFAS'ta karşılığı yok, master kopya static json'lar (git'te versiyonlu):
+strateji başlığı ve metinleri, "Neden Yatırım Yapmalıyım"/avantajlar/sektör listeleri,
+vergi oranı tablosu, disclaimer ve iletişim/CTA metinleri, portföy dağılımı kalemleri,
+ANZ/UANZ'ın "Dönemsel Performans (Dolar Bazında)" tablosu, ve şu bilgi kartı satırları:
+Kuruluş Tarihi, Para Birimi, Getiri Hesaplaması, Saklama, Yasal Adres, Alım/Satım Valörü.
+
 - **`Tum_Verileri_Yenile.bat`** — aylık tam tur: net varlık + USD/TRY + 14 fonun
   fiyat/benchmark serisi + aylık ızgara + AYA/ANZ özel blokları + 15 PDF, doğru
   sırayla tek adımda. Ön koşul: Excel arşivi güncel olmalı; rapor tarihi
