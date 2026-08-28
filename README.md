@@ -231,6 +231,10 @@ haline getirildi:
   verisini ve "Fon'un Güncel Bilgileri" tablosunu yeniden hesaplar, her iki
   PDF'i yeniden üretir. Ne zaman: Elmas'tan yeni bir tablo geldiğinde ya da
   kur/fiyatlarda büyük hareket olduğunda.
+- **`Tum_Verileri_Yenile.bat`** — aylık tam tur: net varlık + USD/TRY + 14 fonun
+  fiyat/benchmark serisi + aylık ızgara + AYA/ANZ özel blokları + 15 PDF, doğru
+  sırayla tek adımda. Ön koşul: Excel arşivi güncel olmalı; rapor tarihi
+  değiştiyse `data/<kod>_static.json`'daki `reportDate` elle güncellenmeli.
 - **`Net_Varlik_Guncelle.bat`** — 15 fonun "Net Varlık Tutarı" satırını TEFAS'tan
   tazeler (bkz. yukarıdaki bölüm). Ne zaman: ay sonu broşür turundan hemen önce,
   `Tum_Fonlari_Yenile.bat`'tan önce.

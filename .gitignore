@@ -3,3 +3,4 @@ node_modules/
 *.png
 !assets/**
 scratch_*
+output*.html
