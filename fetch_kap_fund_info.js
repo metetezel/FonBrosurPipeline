@@ -166,6 +166,23 @@ const pct = v => '%' + v.toFixed(2).replace('.', ',');
 // (or. PKP'nin denetcisi) o fonun dosyasina, yazmamissa ortak.json'a yaziyoruz.
 const ORTAK_ALANLAR = ['Kurucu', 'Denetçi', 'Portföy Yöneticisi'];
 
+// KAP ile broşür arasında Mete'nin teyit ettiği, KAP tarafı eksik olan durumlar.
+// Buraya girenler "KONTROL ET" diye raporlanmıyor; her hafta aynı uyarıyı üretmesinler.
+const TEYITLI_ISTISNALAR = {
+  JET: {
+    ad: 'Farshad Mirzazadeh',
+    not: 'Mete teyit etti (28.08.2026): JET\'in fon yöneticisi Farshad Mirzazadeh (CFA, 10 yıl). '
+       + 'KAP bu fonda sadece Batuhan Özşahin listeliyor — eksik olan KAP tarafı.',
+  },
+};
+
+// Tecrübe yılı KAP'ta fon sayfaları arasında tutarsız (Farshad: AAV'de 10, URA'da 9).
+// Mete'nin teyit ettiği doğru değerler burada; broşür bunlarla uyuşuyorsa KAP'ın farklı
+// yazdığı sayfa raporlanmıyor.
+const TEYITLI_TECRUBE = {
+  'Farshad Mirzazadeh': '10 yıl',  // Mete teyit etti (28.08.2026), CFA sahibi
+};
+
 function compare(all, { yaz }) {
   const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
   const ortakPath = path.join(DATA_DIR, 'ortak.json');
@@ -216,14 +233,25 @@ function compare(all, { yaz }) {
       const kapYon = kap.yoneticiler.find(y => norm(y.ad) === norm(brosurYonetici.name));
       if (kapYon) {
         const kapTec = kapYon.tecrubeYil + ' yıl';
-        if (norm(brosurYonetici.experience) !== norm(kapTec)) {
+        const teyitli = TEYITLI_TECRUBE[kapYon.ad];
+        if (teyitli && norm(brosurYonetici.experience) === norm(teyitli)) {
+          satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
+        } else if (norm(brosurYonetici.experience) !== norm(kapTec)) {
           // Tecrube yili otomatik YAZILMIYOR: KAP'in kendisi fon sayfalari arasinda
           // tutarsiz (ayni kisi AAV sayfasinda 10 yil, URA sayfasinda 9 yil) - otomatik
           // yazmak brosurler arasinda ayni kisiyi farkli gostermeye yol acardi.
           satirlar.push([`Fon Yöneticisi tecrübe (${kapYon.ad}) - bilgi`, brosurYonetici.experience, kapTec, 'KONTROL ET']);
         } else satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
       } else {
-        satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
+        const istisna = TEYITLI_ISTISNALAR[code];
+        if (!kap.yoneticiler.length) {
+          // KAP bu fon icin hic yonetici listelemiyor - celiski degil, dogrulanamiyor
+          satirlar.push(['Fon Yöneticisi (KAP listelemiyor, doğrulanamadı)', brosurYonetici.name, '—', 'ayni']);
+        } else if (istisna && norm(istisna.ad) === norm(brosurYonetici.name)) {
+          satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar + ' — teyitli istisna, KAP eksik', 'ayni']);
+        } else {
+          satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
+        }
       }
     }
     const kotu = satirlar.filter(r => r[3] !== 'ayni');
