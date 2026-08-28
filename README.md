@@ -180,7 +180,4 @@ Netleşince `compute_anz_table.js` kalibre edilip `--yaz` ile otomatiğe alınab
 ## Açık işler
 
 - **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın).
-- **PKF net varlık:** yayımlanan 31.07 broşüründeki 85.552.765 TL, YLC'ninkiyle birebir
-  aynıydı ve pay adedi hesabıyla tutarsızdı; Mete kararıyla TEFAS baz alındı. Fon tarafının
-  teyidi hâlâ iyi olur.
 - **Dağıtım:** PDF'lerin siteye nasıl yükleneceği konuşulmadı.
