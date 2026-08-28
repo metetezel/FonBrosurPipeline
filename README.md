@@ -240,6 +240,38 @@ atlıyor), yani ileride Excel'de olmayan yeni bir sembol gerekirse `fetch_bist_i
 onu yeniden üretebilir. Kaldırma sonrası JET/URA/AED yeniden çekildi: hepsi
 `fromBistCache: []` ile, tamamen Excel'den.
 
+## Excel Render Yolundan Çıktı — Arşiv Artık JSON (28.08.2026)
+
+Projedeki en büyük tekrar workbook'un kendisiydi: Power Query zaten TEFAS'tan çekiyordu,
+pipeline da aynı seriyi Excel'den okuyordu — aynı veri iki yerde, iki ayrı güncelleme
+mekanizmasıyla (haftalık PowerShell + aylık tur).
+
+**Arşiv dosyaları** (`lib/arsiv.js` üzerinden okunur):
+
+| Dosya | İçerik | Kaynağı |
+|---|---|---|
+| `data/fiyat_arsiv.json` | 14 fonun günlük birim fiyatı (14.166 satır) | TEFAS `/api/funds/fonFiyatBilgiGetir` |
+| `data/bench_arsiv.json` | 17 benchmark serisi (~90 bin satır) | Borsa İstanbul + Nasdaq + Yahoo |
+| `data/aylik_getiri_grid.json` | 6 fonun aylık getirileri (2010'a kadar) | **Dondurulmuş** — hiçbir API'de yok |
+| `data/benchmark_tanimlari.json` | `formal` + `grafik` ölçüt tanımları | Excel'den göç, tek kaynak |
+
+**`fetch_arsiv.js`** arşivi büyütür (Excel + Power Query + `Haftalik_Guncelle.ps1`
+zincirinin yerini alır). **Yalnızca ekler**, var olan tarihe dokunmaz — TEFAS sadece son
+5 yılı verdiği için kayan pencere yüzünden geçmişin kaybolmaması bu birikimli dosyaya
+bağlı. `--dene` ile önce ne ekleneceği görülebilir.
+
+> **Dikkat:** arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin
+> son günü). Ay sonu turunu, ayın son iş günü verisi yayınlandıktan sonra çalıştırın.
+
+Yan kazanımlar: `extract_fund.js` ~6 sn yerine 0,1 sn sürüyor; benchmark tanımları üç
+yerdeyken (Excel + `build_monthly_data.js` + `GETIRI_OVERRIDES`) tek dosyaya indi;
+kullanılmayan 8 seri budandı (49.876 satır). ExcelJS bağımlılığı sadece Ferruh Erim'in
+temettü dosyası için kaldı.
+
+**Bu arada bulunan sessiz hata:** `extract_monthly.js`'teki "ay kapama" otomatiği fiyat
+satırlarını `r.value` diye okuyordu ama satırlar `r.price` taşıyor — lookup her zaman
+`undefined` döndüğü için mekanizma bugüne kadar hiç tetiklenmemiş. Düzeltildi.
+
 ## Tek Kaynak: `data/ortak.json` + Türetilen Rapor Tarihi (28.08.2026)
 
 15 statik dosyanın 81 KB'sinin 36 KB'si aynı metnin kopyasıydı: disclaimer (1.545
