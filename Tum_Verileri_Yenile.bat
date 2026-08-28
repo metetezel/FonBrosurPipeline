@@ -4,18 +4,18 @@ REM HAFTALIK TUR: Butun verileri yenile + 15 PDF'i uret
 REM ============================================================
 REM Haftalik broşur turunun tek adimda calistirilabilir hali.
 REM NE ZAMAN: her persembe ogleden sonra.
-REM BROSUR TARIHI HER ZAMAN T-1: bugunun verisi arsive yazilir ama brosurde
-REM kullanilmaz, yani TEFAS o gunu yayinlamis olsun ya da olmasin sonuc ayni.
-REM 1. adim hem arsivin son gununu hem brosur tarihini gun adiyla basiyor.
+REM IKI TARIH VAR: brosurun basligindaki rozet = PDF'i urettigimiz gun (yayin
+REM tarihi); rakamlarin ait oldugu gun = HER ZAMAN T-1 (bugunun verisi arsive
+REM yazilir ama hesaba katilmaz). Bilgi kartindaki "Birim Fiyat (tarih)" satiri
+REM veri tarihini gosterir. Adimlar ikisini de gun adiyla basiyor.
 REM Sira onemli: once veri, sonra render.
 REM
 REM ON KOSUL YOK: Excel'e ihtiyac kalmadi. Arsiv data/*.json dosyalarinda
 REM ve ilk adim onu dogrudan TEFAS/Borsa Istanbul/Nasdaq'tan buyutuyor.
 REM Broşurler her zaman arsivin SON gunune gore uretilir.
 REM
-REM Rapor tarihi ELLE GUNCELLENMEZ: arsivin son gununden turetiliyor
-REM (lib/static.js reportDateFor). Her hafta tarih rozeti ve yayin
-REM klasoru adi kendiliginden ilerler.
+REM Hicbir tarih elle guncellenmez: rozet ve klasor adi yayin gununden,
+REM rakamlar arsivden gelir. Her hafta kendiliginden ilerler.
 REM ============================================================
 cd /d "%~dp0"
 

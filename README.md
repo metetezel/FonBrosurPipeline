@@ -18,7 +18,7 @@ Görsel kılavuz: `kilavuz.html` →
 **Her perşembe öğleden sonra → `Tum_Verileri_Yenile.bat`**
 
 Dokuz adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
-`Brosurler\<rapor tarihi>\<KOD>.pdf`.
+`Brosurler\<yayın tarihi>\<KOD>.pdf`.
 
 | # | Ne yapar | Dosya |
 |---|---|---|
@@ -36,17 +36,26 @@ Dokuz adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın kla
 Sadece bir CSS/metin düzeltmesi yaptıysanız veri çekmeden yeniden çizmek için:
 `Tum_Fonlari_Yenile.bat`.
 
-### Rapor tarihi her zaman T-1
+### İki ayrı tarih: yayın günü ve veri günü
 
-Broşürün taşıdığı tarih = verinin son günü, ama **bugünün verisi hesaba katılmaz**
-(`lib/arsiv.js` → `kesimTarihi`). TEFAS perşembe öğleden sonra o günün fiyatını bazen
-yayınlamış oluyor bazen olmuyor; kesim olmasaydı broşürler kimi hafta perşembe kimi hafta
-çarşamba tarihli çıkardı. Kesim **arşivde değil okumada**: bugünün verisi yine kaydedilir,
-gelecek hafta T-1 olarak kullanılır. Belirli bir günü yeniden üretmek için:
-`RAPOR_TARIHI=2026-08-26` (o gün dahil).
+| | Ne | Nereden |
+|---|---|---|
+| **Yayın tarihi** | Broşürün başlığındaki rozet ve yayın klasörünün adı | PDF'i ürettiğimiz gün (`lib/static.js` → `yayinTarihi`) |
+| **Veri tarihi** | Serilerin bittiği gün — bilgi kartındaki "Birim Fiyat (28.08.2026)" satırı bunu yazar | Her zaman **T-1** (`lib/arsiv.js` → `kesimTarihi`) |
 
-Tarih her yerde gün adıyla basılır ("27 Ağustos 2026, Perşembe"). `export_pdfs.js` veri bir
+Veri tarafında bugünün satırları okuma anında dışarıda bırakılır. TEFAS o günün fiyatını
+bazen yayınlamış oluyor bazen olmuyor; kesim olmasaydı rakamlar kimi hafta bugünün kimi
+hafta dünün olurdu. Kesim **arşivde değil okumada**: bugünün verisi yine kaydedilir,
+gelecek hafta T-1 olarak kullanılır.
+
+Yeniden üretim için: `YAYIN_TARIHI=2026-08-27` (rozet ve klasör adı),
+`RAPOR_TARIHI=2026-08-26` (veri kesimi, o gün dahil).
+
+Tarihler gün adıyla basılır ("27 Ağustos 2026, Perşembe"). `export_pdfs.js` **veri** bir
 haftadan bayatsa uyarır — genelde 1. adımın atlandığı anlamına gelir.
+
+Not: her ikisi de yerel takvim gününü kullanır; `toISOString()` UTC döndürdüğü için
+Türkiye saatiyle gece 00:00-03:00 arasında bir gün geriye kayıyordu.
 
 ## Kurulum (yeni makine)
 
