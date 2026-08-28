@@ -212,7 +212,7 @@ function renderPageHtml(s, monthly, chartHtml, chart2Html) {
     <div class="card chart-section">
       <div class="card-title light">${s.chartTitle || 'Kuruluştan Beri 100 TL Yatırımım Ne Kazandırdı?'}</div>
       <div id="chart-slot" style="flex:1; min-height:0; display:flex; align-items:stretch;">${chartHtml}</div>
-      ${B.chartLegendHTML({ fundCode: s.fundCode, benchmarkApproximate: false, benchmarkAvailable: monthly.benchmarkAvailable })}
+      ${B.chartLegendHTML({ fundCode: s.fundCode, chartCurrency: s.chartCurrency, benchmarkApproximate: false, benchmarkAvailable: monthly.benchmarkAvailable })}
     </div>`);
   }
 

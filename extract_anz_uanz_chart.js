@@ -75,7 +75,11 @@ async function main() {
     });
   }
 
-  const anzGrowth = buildGrowth({ fundInUSD: false });
+  // Her iki sayfanin grafik basligi da "ATA Eurobond Fonu vs. USD Mevduat" ve her ikisi de
+  // dolar bazli bir performans tablosu tasiyor; ANZ'yi TL bazinda cizmek iki sayfayi
+  // birbirinden kopariyordu (ANZ 100->730 TL, UANZ 100->126 USD). Karar (Mete, 29.08.2026):
+  // ikisi de USD bazinda - fon fiyati USD'ye cevrilip MEVUS'a dogrudan kiyaslaniyor.
+  const anzGrowth = buildGrowth({ fundInUSD: true });
   const uanzGrowth = buildGrowth({ fundInUSD: true });
 
   const outDir = path.join(__dirname, 'data');
@@ -85,7 +89,7 @@ async function main() {
     existing.growth = growth;
     existing.lastDate = growth[growth.length - 1].date;
     existing.benchmarkAvailable = ['MEVUS'];
-    existing.fxAdjustment = code === 'anz' ? 'benchmark x USD/TRY (TL terms)' : 'fund price / USD/TRY (USD terms)';
+    existing.fxAdjustment = 'fund price / USD/TRY (USD terms)';
     fs.writeFileSync(path.join(outDir, `${code}_monthly.json`), JSON.stringify(existing, null, 2));
   }
 
