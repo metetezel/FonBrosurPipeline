@@ -240,6 +240,26 @@ atlıyor), yani ileride Excel'de olmayan yeni bir sembol gerekirse `fetch_bist_i
 onu yeniden üretebilir. Kaldırma sonrası JET/URA/AED yeniden çekildi: hepsi
 `fromBistCache: []` ile, tamamen Excel'den.
 
+## Tek Kaynak: `data/ortak.json` + Türetilen Rapor Tarihi (28.08.2026)
+
+15 statik dosyanın 81 KB'sinin 36 KB'si aynı metnin kopyasıydı: disclaimer (1.545
+karakter), iletişim satırı, CTA butonları, risk yöneticisi ve 4-5 bilgi kartı satırı.
+Disclaimer'da tek kelime değişse 15 dosya elle düzenlenecekti.
+
+- **`data/ortak.json`** — şirket geneli her şey burada. `lib/static.js`'in `loadStatic()`
+  fonksiyonu fon dosyasıyla birleştiriyor. **Kural: fon dosyası kendi değerini yazmışsa o
+  kazanır** (PKP'nin farklı denetçisi, JET'in "T. İş Bankası A.Ş. / Euroclear" saklaması
+  gibi); yazmamışsa (`null`) ortak.json'dan gelir. Satır sırası fon dosyasında kalır.
+- **`reportDate` artık elle yazılmıyor** — verinin son gününden türetiliyor
+  (`reportDateFor()`), yani her ay 15 dosyada değiştirilmesi gereken tek alan da otomatik.
+  Arşiv Ağustos'a uzayınca hem tarih rozeti hem yayın klasörü adı kendiliğinden ilerler.
+- **`export_pdfs.js`** — 15 PDF'i `Brosurler_<rapor tarihi>/<KOD>.pdf` olarak ağ klasörüne
+  kopyalar; klasör adındaki tarih de aynı yerden gelir. `Tum_Verileri_Yenile.bat` artık
+  8 adım ve turu bununla bitiriyor.
+
+Sonuç: 81 KB → 45 KB + 3 KB ortak. Refactor sonrası 15 PDF yeniden render edilip metinleri
+refactor öncesiyle karşılaştırıldı: **birebir aynı, 0 fark.**
+
 ## Kart Bilgileri KAP'tan (28.08.2026)
 
 `fetch_kap_fund_info.js` — KAP'ın fon genel bilgi sayfası
