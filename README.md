@@ -164,11 +164,12 @@ toplam net varlık değeri — broşürün "Net Varlık Tutarı" alanının ayn�
 1. **Sadece bugünün değeri var** — eski `BindHistoryInfo` kapatılmış, yerine
    tarihsel fon büyüklüğü veren bir endpoint bulunamadı (~40 makul isim denendi).
    Bu yüzden script her çalıştığında değeri `data/tefas_net_varlik_log.json`'a
-   kaydediyor; haftalık değerler bundan sonra birikiyor. **Varsayılan davranış
-   güvenli:** broşürün `reportDate`'ine denk gelen kayıt yoksa hiçbir dosyayı
-   değiştirmiyor, sadece karşılaştırma tablosunu basıyor (`--guncel` ile zorlanır).
-   Pratikte: haftalık turda ilk adım arşivi büyüttüğü için rapor tarihi ile TEFAS'ın
-   son yayınladığı gün örtüşür ve değer otomatik yazılır.
+   kaydediyor; haftalık değerler bundan sonra birikiyor. **Karar (Mete, 28.08.2026):
+   "hep TEFAS'ı baz alalım"** — değer her zaman yazılıyor: önce broşürün rapor tarihine
+   ait kayıt aranıyor, yoksa en yeni snapshot kullanılıp hangi tarihten geldiği ekrana
+   basılıyor. Önceki "tarih tutmuyorsa hiç yazma" davranışı haftalık akışta tıkanıyordu:
+   rapor tarihi T-1 iken TEFAS o günü yayınlamışsa snapshot T oluyor, tarihler tutmuyor
+   ve değer hiçbir zaman yazılmıyordu.
 2. **UANZ'ın TEFAS'ta ayrı kaydı yok** (ANZ'nin pay sınıfı) — ANZ'nin değerini
    alıyor, broşürlerin kendi varsayımıyla aynı.
 
