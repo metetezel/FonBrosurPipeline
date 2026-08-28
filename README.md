@@ -260,13 +260,15 @@ zincirinin yerini alır). **Yalnızca ekler**, var olan tarihe dokunmaz — TEFA
 5 yılı verdiği için kayan pencere yüzünden geçmişin kaybolmaması bu birikimli dosyaya
 bağlı. `--dene` ile önce ne ekleneceği görülebilir.
 
-> **Ne zaman çalıştırmalı:** broşürler **haftalık** üretiliyor — her perşembe. Arşivi
-> büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin son günü) ve TEFAS
-> verisi T-1 geldiği için perşembe sabahı çalıştırılınca broşürler çarşamba tarihli olur;
-> perşembe kapanışı isteniyorsa akşam çalıştırılır.
+> **Ne zaman çalıştırmalı:** broşürler **haftalık** üretiliyor — her perşembe öğleden
+> sonra. Arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin son
+> günü); TEFAS o günün fiyatını henüz yayınlamadıysa broşürler çarşamba tarihli olur.
+> Gözden kaçmasın diye hem `fetch_arsiv.js` hem `export_pdfs.js` tarihi **gün adıyla**
+> basıyor ("26 Ağustos 2026, Çarşamba").
 >
-> `export_pdfs.js` tarihe karışmıyor ama veri 10 günden bayatsa uyarıyor — bu genelde
-> `fetch_arsiv.js` adımının atlandığı ya da hata verdiği anlamına gelir.
+> `export_pdfs.js` tarihe karışmıyor ama veri bir haftadan bayatsa uyarıyor — bu genelde
+> `fetch_arsiv.js` adımının atlandığı ya da hata verdiği anlamına gelir (uzun tatil
+> haftalarında normal olabilir).
 
 Yan kazanımlar: `extract_fund.js` ~6 sn yerine 0,1 sn sürüyor; benchmark tanımları üç
 yerdeyken (Excel + `build_monthly_data.js` + `GETIRI_OVERRIDES`) tek dosyaya indi;
@@ -337,7 +339,7 @@ vergi oranı tablosu, disclaimer ve iletişim/CTA metinleri, portföy dağılım
 ANZ/UANZ'ın "Dönemsel Performans (Dolar Bazında)" tablosu, ve şu bilgi kartı satırları:
 Kuruluş Tarihi, Para Birimi, Getiri Hesaplaması, Saklama, Yasal Adres, Alım/Satım Valörü.
 
-- **`Tum_Verileri_Yenile.bat`** — haftalık tam tur (her perşembe): net varlık + USD/TRY + 14 fonun
+- **`Tum_Verileri_Yenile.bat`** — haftalık tam tur (her perşembe öğleden sonra): net varlık + USD/TRY + 14 fonun
   fiyat/benchmark serisi + aylık ızgara + AYA/ANZ özel blokları + 15 PDF, doğru
   sırayla tek adımda. Ön koşul: Excel arşivi güncel olmalı; rapor tarihi
   değiştiyse `data/<kod>_static.json`'daki `reportDate` elle güncellenmeli.

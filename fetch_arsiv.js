@@ -18,11 +18,12 @@
 //   node fetch_arsiv.js --dene       hicbir dosyaya yazmadan ne eklenecegini raporlar
 //
 // NOT: arsivi buyutmek brosurun rapor tarihini de ilerletir (rapor tarihi = verinin son
-// gunu). Haftalik tur persembe gunu calistiginda TEFAS'in son yayinladigi gun carsamba
-// olur, brosurler de o tarihi tasir.
+// gunu). Tur persembe ogleden sonra calisiyor; TEFAS o gunun fiyatini heniz
+// yayinlamadiysa brosurler carsamba tarihli olur. Script hangi tarihe dustugunu gun
+// adiyla birlikte basiyor.
 const fs = require('fs');
 const path = require('path');
-const { isoToTR } = require('./lib/static');
+const { isoToTR, isoToTRUzun } = require('./lib/static');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const FIYAT_PATH = path.join(DATA_DIR, 'fiyat_arsiv.json');
@@ -144,8 +145,8 @@ async function main() {
     }
     if (!dene) fs.writeFileSync(FIYAT_PATH, JSON.stringify(fiyat));
     const sonGun = Object.values(fiyat).map(a => a[a.length - 1][0]).sort().pop();
-    console.log(`  toplam ${toplam} yeni fiyat satırı — arşivin son günü: ${isoToTR(sonGun)}`);
-    console.log(`  Broşürler bu tarihle üretilecek (rapor tarihi = verinin son günü).`);
+    console.log(`  toplam ${toplam} yeni fiyat satırı`);
+    console.log(`  >>> Broşürler şu tarihle üretilecek: ${isoToTRUzun(sonGun)}`);
   }
 
   if (!sadeceFiyat) {

@@ -7,7 +7,7 @@
 //   node export_pdfs.js "D:/başka/yol"  başka bir hedef köke
 const fs = require('fs');
 const path = require('path');
-const { reportDateFor, isoToTR } = require('./lib/static');
+const { reportDateFor, isoToTRUzun } = require('./lib/static');
 
 const VARSAYILAN_HEDEF = 'Z:/Mete Tezel/Fon Broşür [Cursor & Claude]';
 const KODLAR = ['AAL', 'AAS', 'AAV', 'AED', 'ANZ', 'AYA', 'DGH', 'JET', 'PKF', 'PKP', 'RTG', 'TLZ', 'UANZ', 'URA', 'YLC'];
@@ -21,14 +21,15 @@ function main() {
   }
   const iso = reportDateFor('AAL').iso;              // ör. 2026-07-31
 
-  // Broşür haftalık üretiliyor (her perşembe), o yüzden tarih için bir kısıt yok.
-  // Tek kontrol: veri bayatsa uyar - genelde fetch_arsiv adımının atlandığı ya da
-  // hata verdiği anlamına gelir, sessizce geçen haftanın broşürünü basmayalım.
+  // Broşür haftalık üretiliyor (perşembe öğleden sonra), o yüzden tarihe kısıt yok:
+  // normalde veri dünden ya da bugünden. Bir haftadan bayat veri, fetch_arsiv adımının
+  // atlandığı/hata verdiği anlamına gelir - sessizce geçen haftanın broşürü basılmasın.
   const gunFarki = Math.round((Date.now() - new Date(iso + 'T00:00:00Z').getTime()) / 86400000);
-  if (gunFarki > 10) {
-    console.warn(`UYARI: verinin son günü ${isoToTR(iso)} - ${gunFarki} gün önce.`);
-    console.warn('fetch_arsiv.js çalıştı mı? Eski veriyle yayınlıyor olabilirsiniz.');
+  if (gunFarki > 7) {
+    console.warn(`UYARI: verinin son günü ${isoToTRUzun(iso)} — ${gunFarki} gün önce.`);
+    console.warn('fetch_arsiv.js çalıştı mı? (Uzun bir tatil haftasıysa normal olabilir.)');
   }
+  console.log(`Rapor tarihi: ${isoToTRUzun(iso)}`);
   // Haftalik uretim yilda ~52 klasor demek; hepsi tek bir Brosurler/ altinda toplaniyor.
   const trTarih = iso.split('-').reverse().join('.'); // 27.08.2026
   const hedef = path.join(kok, 'Brosurler', trTarih);
