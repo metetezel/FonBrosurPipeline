@@ -1,0 +1,65 @@
+{
+  "fundCode": "URA",
+  "fundName": "Ata Portföy Enerji Değişken Fon",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 6,
+  "info": [
+    ["Kuruluş Tarihi", "09.12.2024"],
+    ["Para Birimi", "TL"],
+    ["Net Varlık Tutarı", "744.437.786 TL"],
+    ["Yönetim Komisyonu", "%2,50"],
+    ["Getiri Hesaplaması", "Günlük"],
+    ["Saklama", "T. İş Bankası A.Ş. / Euroclear"],
+    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
+    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
+    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
+    ["Yasal Adres", "Türkiye"],
+    ["Alım / Satım Valörü", "T+1 / T+3"]
+  ],
+  "managers": [
+    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
+    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+  ],
+  "strategyParagraphs": [
+    "Ata Portföy Enerji Değişken Fon; Fon, öncelikli olarak nükleer enerji ile birlikte güneş, rüzgar, hidroelektrik, biyokütle gibi alternatif ve temiz enerji kaynaklarına yatırım yapmayı hedefler. Bu kapsamda:",
+    "Global: Uranyum madenciliği, nükleer santral teknolojisi ve inşaatı, ayrıca yeni nesil SMR (Küçük Modüler Reaktör) geliştiren şirketlere yatırım yapılır.",
+    "Yerli: Biyogaz, jeotermal, güneş ve rüzgar enerjisi sektörlerinde faaliyet gösteren şirketlere yatırım yapılır.",
+    "Fon, yüksek büyüme potansiyeline sahip şirketleri seçerek uzun vadede sürdürülebilir kazanç sağlamayı amaçlar."
+  ],
+  "benchmarkText": "Fon'un karşılaştırma ölçütü: %65 Solactive Global Uranium & Nuclear Components Total Return Index (SOLURANT) + %35 BIST Elektrik Getiri Endeksi (XELKT_CFNNTL)",
+  "investmentObjective": {
+    "title": "Yatırım Hedefi Nedir?",
+    "paragraphs": [
+      "Fon, başta nükleer olmak üzere temiz enerji sektöründe faaliyet gösteren şirketlere yatırım yaparak: teknolojik yeniliklere ve ekonomik büyümeye ortak olmayı, düşük karbon ayak izi hedefleri doğrultusunda yenilenebilir enerji kaynaklarına katkı sağlamayı ve nükleer enerji üretimi ve tedarik zinciri alanında lider şirketlerle büyüme elde etmeyi hedefler."
+    ]
+  },
+  "sectors": [
+    "Uranyum Madenciliği",
+    "Nükleer Santral İnşaat ve Teknolojileri",
+    "Rüzgar Türbini ve Enerjisi",
+    "Güneş Panelleri ve Enerjisi",
+    "İleri Teknoloji SMR",
+    "Biyogaz ve Biyokütle Enerjisi"
+  ],
+  "advantages": [
+    "Tek işlemle dünyadaki farklı borsalarda işlem gören şirketlere tek fon ile yatırım yapabilirsiniz.",
+    "Stratejik önemi artan nükleer, yenilenebilir ve diğer alternatif enerji şirketlerine yatırım imkânı sağlar.",
+    "Herhangi bir yatırım alt limiti olmadan TEFAS'a üye tüm banka ve aracı kurumdan alıp satabilirsiniz."
+  ],
+  "assetAllocation": [
+    { "label": "Yerli Varlıklar", "pct": 20 },
+    { "label": "Yabancı Varlıklar", "pct": 80 }
+  ],
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}

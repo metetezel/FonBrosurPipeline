@@ -1,0 +1,62 @@
+{
+  "fundCode": "PKP",
+  "fundName": "Ata Portföy Para Piyasası Katılım Serbest Fon",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 1,
+  "info": [
+    ["Kuruluş Tarihi", "15.01.2026"],
+    ["Para Birimi", "TL"],
+    ["Net Varlık Tutarı", "362.578.426 TL"],
+    ["Yönetim Komisyonu", "%0,80"],
+    ["Getiri Hesaplaması", "Günlük"],
+    ["Saklama", "T. İş Bankası A.Ş."],
+    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
+    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
+    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
+    ["Yasal Adres", "Türkiye"],
+    ["Alım / Satım Valörü", "T+0 / T+0"]
+  ],
+  "managers": [
+    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
+    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+  ],
+  "strategyParagraphs": [
+    "Katılım Para Piyasası Fonu'nun yatırım stratejisi; faizsiz finans ilkeleri doğrultusunda, kısa vadeli, yüksek likiditeye sahip ve düşük riskli yatırım araçları aracılığıyla istikrarlı getiri sağlamaktır. Fon, yatırımcıların nakit yönetimi ihtiyaçlarına etkin bir çözüm sunmayı ve sermayenin korunmasını önceliklendirmeyi hedefler.",
+    "Fon portföyü ağırlıklı olarak; faizsiz finans esaslarına uygun olarak ihraç edilen kira sertifikaları (sukuk), katılım esaslı hesaplar ve Borsa İstanbul bünyesinde gerçekleştirilen faizsiz para piyasası işlemlerinden oluşur. Yatırımların tamamı, ilgili mevzuat ve katılım finans prensipleri çerçevesinde seçilir.",
+    "Portföyün ortalama vadesi 45 günü geçemez ve piyasa koşullarına bağlı olarak aktif bir vade ve likidite yönetimi uygulanır. Bu sayede fon, günlük alım-satım imkânı sunarken, piyasa dalgalanmalarına karşı sınırlı bir duyarlılık sergilemeyi amaçlar. Fon yönetiminde; likidite, karşı taraf riski ve yoğunlaşma riski yakından takip edilir. Portföy dağılımı, risklerin dengelenmesi ve sürdürülebilir getiri hedefi doğrultusunda düzenli olarak gözden geçirilir.",
+    "Katılım Para Piyasası Fonu, faiz hassasiyeti bulunan yatırımcılar için düşük risk profiline sahip, şeffaf ve disiplinli bir yatırım stratejisi ile nakit değerlendirmenin etkin bir yolunu sunar."
+  ],
+  "benchmarkText": "Karşılaştırma Ölçütü: %100 BIST-KYD 1 Aylık Kar Payı TL Endeksi",
+  "advantagesTitle": "Fon Avantajları Nelerdir?",
+  "advantages": [
+    "PKP Katılım Para Piyasası Fonu, faizsiz finans ilkelerine uygun olarak kısa vadeli ve düşük risk yatırım araçlarına odaklanır.",
+    "Fon portföyü, yüksek likidite ve sermaye korunumu hedefiyle, katılım esaslı para piyasası enstrümanlarından oluşur.",
+    "Günlük nakit yönetimi ihtiyacı olan yatırımcılar için istikrarlı getiri ve kolay erişim imkânı sunar.",
+    "PKP, Katılım esaslarına uygunluk açısından düzenli olarak gözetim ve denetime tabidir.",
+    "Piyasa koşullarına hızlı uyum sağlayan portföy yapısı sayesinde, kısa vadede dalgalanmalara karşı kontrollü bir risk profili sunmayı amaçlar.",
+    "Faiz hassasiyeti bulunan yatırımcılar için, nakit değerlendirmede şeffaf ve güvenilir bir alternatif oluşturur.",
+    "%17,5 stopaja tabidir.",
+    "Fona nitelikli yatırımcılar yatırım yapabilmektedir."
+  ],
+  "whyInvest": {
+    "title": "Neden Yatırım Yapmalıyım?",
+    "items": [
+      "Alt limit olmadan, dilediğiniz banka veya aracı kurumdan yatırım yapabilirsiniz.",
+      "Sabit getirili ürünlere yatırım yaptığınız için risklerden korunursunuz.",
+      "Gün içinde dilediğiniz zaman nakde dönüştürebilirsiniz. Böylece vade beklemeden getiri sağlarsınız."
+    ]
+  },
+  "chartNote": null,
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}

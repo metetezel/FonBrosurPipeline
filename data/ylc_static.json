@@ -1,0 +1,67 @@
+{
+  "fundCode": "YLC",
+  "fundName": "Ata Portföy Tarım ve Gıda Değişken Fon",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 6,
+  "info": [
+    ["Kuruluş Tarihi", "10.02.2022"],
+    ["Para Birimi", "TL"],
+    ["Net Varlık Tutarı", "85.552.765 TL"],
+    ["Yönetim Komisyonu", "%1,75"],
+    ["Getiri Hesaplaması", "Günlük"],
+    ["Saklama", "T. İş Bankası A.Ş. / Euroclear"],
+    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
+    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
+    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
+    ["Yasal Adres", "Türkiye"],
+    ["Alım / Satım Valörü", "T+1 / T+3"]
+  ],
+  "managers": [
+    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
+    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+  ],
+  "strategyTitle": "Dünyadaki Tarım ve Gıda Kaynaklarına Yatırım Yaparken Sürdürülebilir Bir Geleceğe Ortak Olun!",
+  "strategyParagraphs": [
+    "Ata Portföy Tarım ve Gıda Değişken Fon, Ata Portföy ve Nasdaq uzmanlığını kullanarak seçilen Global tarım ve gıda sektörü hisse senetleri ve tarımsal emtialara yatırım yapmayı hedefler. Hızla yükselen dünya nüfusu, iklim değişiklikleri ve teknolojik dönüşümün yarattığı fırsatları yatırımcılara bir sepet olarak sunarak yükselen global enflasyona karşı stratejik bir koruma sağlamayı hedefler.",
+    "Artan nüfus, azalan kaynaklar ve gelişen teknolojiyle stratejik önemi her geçen gün artan tarım ve gıda sektörüne yatırım yaparak portföyünüzü çeşitlendirirken tarım ve gıda sektörlerinin geleceğine ortak olabilirsiniz."
+  ],
+  "benchmarkText": "Karşılaştırma Ölçütü: %65 Nasdaq Global Ex-Australia Agriculture Index + %35 BIST Gıda ve İçecek Getiri Endeksi",
+  "whyInvest": {
+    "title": "Neden Yatırım Yapmalıyım?",
+    "items": [
+      "Fon ile tek işlemle dünyadaki farklı borsalarda işlem gören şirketlere tek fon ile yatırım yaparsınız.",
+      "Dünya'nın geleceğinde stratejik önemi artan tarım ve gıda şirketlerine tek fon ile yatırım imkânı sağlar.",
+      "Herhangi bir yatırım alt limiti olmadan dilediğiniz banka ve aracı kurumdan alıp satabilirsiniz.",
+      "Birikimlerinizi kolayca nakde çevirebilirsiniz."
+    ]
+  },
+  "countryDistribution": {
+    "title": "Hangi Ülkelere Yatırım Yapıyor?",
+    "items": [
+      { "name": "ABD", "pct": 30 },
+      { "name": "Türkiye", "pct": 30 },
+      { "name": "İngiltere", "pct": 19 },
+      { "name": "Norveç", "pct": 8 },
+      { "name": "Japonya", "pct": 6 },
+      { "name": "Danimarka", "pct": 3 },
+      { "name": "Hollanda", "pct": 3 },
+      { "name": "İspanya", "pct": 1 }
+    ]
+  },
+  "assetAllocation": [
+    { "label": "Yerli Varlıklar", "pct": 30 },
+    { "label": "Yabancı Varlıklar", "pct": 70 }
+  ],
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}

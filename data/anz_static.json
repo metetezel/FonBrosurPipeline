@@ -1,0 +1,213 @@
+{
+  "fundCode": "ANZ",
+  "fundName": "Ata Portföy Dördüncü Serbest Fon",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 6,
+  "compact": true,
+  "info": [
+    [
+      "Kuruluş Tarihi",
+      "22.04.2016"
+    ],
+    [
+      "Para Birimi",
+      "TL - USD"
+    ],
+    [
+      "Birim Fiyat (TL)",
+      "21,485668 TL"
+    ],
+    [
+      "Birim Fiyat (USD)",
+      "0,452922 USD"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "266.977.824 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%0,75"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+2"
+    ]
+  ],
+  "managers": [
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
+  ],
+  "strategyTitle": "Eurobond Getirilerine Ortak Olurken Vergi Avantajı Sağlayın!",
+  "strategyParagraphs": [
+    "Ata Portföy Dördüncü Serbest Fon, birikimlerinin bir kısmına dolar cinsi eurobondlar eklemek isteyen yatırımcılar için alternatif sunmaktadır. Fon, portföy büyüklüğünün en az %80'i ile; Türkiye Cumhuriyeti Hazine'sinin ya da büyük ölçekli ve borç ödeme kapasitesi yüksek Türk banka ve şirketlerinin yurtdışında USD cinsinden ihraç etmiş olduğu tahvillere (Eurobond) yatırım yapmaktadır.",
+    "Fon, TL ve USD olarak fiyat açıklamaktadır.",
+    "TL fiyat için fonun eşik değeri BIST-KYD 1 Aylık Gösterge Mevduat USD Endeksi'nin ilgili gün için TCMB tarafından açıklanan Amerikan Doları (USD) döviz alış kuru üzerinden TL'ye çevrilmesiyle hesaplanmaktadır. USD fiyat için fonun eşik değeri KYD 1 Aylık Gösterge Dolar Mevduat Endeksi'dir."
+  ],
+  "extraNote": "Eurobond fiyatlarında yaşanan fiyat hareketleri fon fiyat ve getirisinde oynaklık yaratabilir. Eurobond getirileri döviz mevduatı gibi sabit değildir.",
+  "guncelBilgiler": {
+    "title": "Fon'un Güncel Bilgileri (Yıllık)",
+    "rows": [
+      [
+        "Ortalama Getiri",
+        "%5,46"
+      ],
+      [
+        "Yönetim Komisyon Sonrası Getiri",
+        "%4,71"
+      ],
+      [
+        "Net Getiri (Stopaj Sonrası)",
+        "%3,89"
+      ],
+      [
+        "Mevduat Eşleniği",
+        "%7,20"
+      ],
+      [
+        "Ortalama Vade (Yıl)",
+        "3,76"
+      ]
+    ]
+  },
+  "taxTable": {
+    "title": "Vergi Oranı",
+    "columns": [
+      "Döviz Mevduatında",
+      "Eurobond Alım/Satımında",
+      "Eurobond Fonu Alırsa"
+    ],
+    "rows": [
+      {
+        "label": "Beyanname",
+        "values": [
+          "Beyan edilmez",
+          "Beyan edilir(*)",
+          "Beyan edilmez"
+        ]
+      },
+      {
+        "label": "1. Stopaj",
+        "values": [
+          "%25 Faiz vergisinden kesilir",
+          "Yok",
+          "%17,5 (Fon'dan çıkarken Dolar değer kazancı üzerinden)"
+        ]
+      },
+      {
+        "label": "2. Gelir Vergisi",
+        "values": [
+          "Yok",
+          "%20 - %40 Gelir Vergisi",
+          "Yok"
+        ]
+      }
+    ],
+    "note": "* 2025'te yıllık 330.000 TL sermaye kazancı sınırı aşılırsa; faiz (kupon) ve itfada elde edilen faiz gelirinin tamamı beyan edilir. Alım satım kazancında maliyet ÜFE ile endekslenebilir."
+  },
+  "comparisonTable": {
+    "title": "Dönemsel Performans (Dolar Bazında)",
+    "columns": [
+      "Fon (Vergi Öncesi)",
+      "KYD Mevduat USD (Vergi Öncesi)",
+      "Fon (Vergi Sonrası)",
+      "KYD Mevduat USD (Vergi Sonrası)",
+      "Alfa"
+    ],
+    "rows": [
+      {
+        "label": "12 Aylık",
+        "values": [
+          "%5,3",
+          "%93,3",
+          "%4,4",
+          "%77,0",
+          "-%72,6"
+        ]
+      },
+      {
+        "label": "3 Aylık",
+        "values": [
+          "%0,0",
+          "%32,6",
+          "%0,0",
+          "%26,9",
+          "-%26,9"
+        ]
+      },
+      {
+        "label": "Yıl Başından Beri",
+        "values": [
+          "%0,9",
+          "%97,4",
+          "%0,7",
+          "%80,3",
+          "-%79,6"
+        ]
+      }
+    ]
+  },
+  "portfolioPieSize": 130,
+  "portfolioPie": {
+    "title": "Fon Portföy Dağılımı",
+    "items": [
+      {
+        "label": "Kamu Dış Borçlanma Araçları",
+        "pct": 21
+      },
+      {
+        "label": "Nakit Teminat",
+        "pct": 3
+      },
+      {
+        "label": "Özel Sektör Dış Borçlanma Araçları",
+        "pct": 76
+      }
+    ]
+  },
+  "chartTitle": "ATA Eurobond Fonu vs. USD Mevduat",
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}

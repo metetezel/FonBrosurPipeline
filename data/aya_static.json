@@ -1,0 +1,63 @@
+{
+  "fundCode": "AYA",
+  "fundName": "Ata Portföy Kâr Payı Ödeyen Hisse Senedi Fonu",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 6,
+  "info": [
+    ["Kuruluş Tarihi", "17.06.2010"],
+    ["Para Birimi", "TL"],
+    ["Net Varlık Tutarı", "1.074.287.612 TL"],
+    ["Yönetim Komisyonu", "%2,50"],
+    ["Getiri Hesaplaması", "Günlük"],
+    ["Saklama", "T. İş Bankası A.Ş."],
+    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
+    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
+    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
+    ["Yasal Adres", "Türkiye"],
+    ["Alım / Satım Valörü", "T+1 / T+2"]
+  ],
+  "managers": [
+    { "role": "Fon Yöneticisi", "name": "Batuhan Özşahin", "experience": "28 yıl" },
+    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+  ],
+  "strategyTitle": "Fon Yatırımınızda Nakit Temettü Alma Dönemi!",
+  "strategyParagraphs": [
+    "Fon, BIST Temettü 25 Endeksi'nde yer alan hisselerin yanı sıra Ata Portföy'ün uzman fon yöneticileri tarafından belirlenen temettü verimi yüksek hisselere yatırım yapar. Fon'da aktif yönetim modeli uygulanmakta olup içinde yer alan hisseler piyasa koşullarına ve temettü verimliliğine göre güncellenecektir.",
+    "Fon, yılda dört kez olmak üzere Ocak, Nisan, Temmuz ve Ekim aylarının başında yatırımcılara nakit temettü ödemektedir."
+  ],
+  "benchmarkText": "Karşılaştırma Ölçütü: BIST-Temettü 25 Getiri Endeksi",
+  "dividendTable": {
+    "title": "Dönemsel Temettü Verimi",
+    "rows": [
+      ["2023 Temmuz", "8,33"],
+      ["2024 Ocak", "1,16"],
+      ["2024 Nisan", "1,09"],
+      ["2024 Temmuz", "3,32"],
+      ["2024 Ekim", "1,94"],
+      ["2025 Ocak", "0,99"],
+      ["2025 Nisan", "2,52"],
+      ["2025 Temmuz", "5,03"],
+      ["2025 Ekim", "0,76"],
+      ["2026 Ocak", "0,59"],
+      ["2026 Nisan", "1,83"],
+      ["2026 Temmuz", "1,47"]
+    ]
+  },
+  "dividendByYear": { "2022": 4.9, "2023": 9.5, "2024": 7.3, "2025": 9.3 },
+  "whyInvest": null,
+  "secondChart": {
+    "title": "Kâr Payı Dağıtmasaydı Ne Olurdu?"
+  },
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}

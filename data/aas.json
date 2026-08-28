@@ -1,0 +1,6310 @@
+{
+  "fundCode": "AAS",
+  "inceptionDate": "2021-08-02",
+  "inceptionPrice": 3.412894,
+  "lastDate": "2026-07-31",
+  "lastPrice": 11.914634,
+  "priceRowCount": 1257,
+  "droppedZeroRows": 0,
+  "benchmarkComponents": [
+    {
+      "weight": 0,
+      "name": "Karsilastirma olcutu yok (fon sepeti)",
+      "sourceType": "-",
+      "symbol": "-"
+    }
+  ],
+  "benchmarkAvailable": [],
+  "benchmarkMissing": [
+    "-"
+  ],
+  "benchmarkApproximate": true,
+  "benchmarkFromBistCache": [],
+  "growth": [
+    {
+      "date": "2021-08-02",
+      "fundIndex": 100,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-03",
+      "fundIndex": 100.73954831295669,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-04",
+      "fundIndex": 100.90105347543756,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-05",
+      "fundIndex": 101.52603626130785,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-06",
+      "fundIndex": 100.80107967021536,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-09",
+      "fundIndex": 100.3941815948576,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-10",
+      "fundIndex": 100.72407757170308,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-11",
+      "fundIndex": 100.8957500584548,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-12",
+      "fundIndex": 100.90864234283279,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-13",
+      "fundIndex": 100.72272974197264,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-16",
+      "fundIndex": 101.13982444224754,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-17",
+      "fundIndex": 101.17727066823639,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-18",
+      "fundIndex": 101.34492896644313,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-19",
+      "fundIndex": 101.00644790022777,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-20",
+      "fundIndex": 101.44753982983357,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-23",
+      "fundIndex": 101.12637544558957,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-24",
+      "fundIndex": 101.94957710377174,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-25",
+      "fundIndex": 101.82387733108615,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-26",
+      "fundIndex": 101.43347551960301,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-27",
+      "fundIndex": 101.11644252648927,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-08-31",
+      "fundIndex": 101.1813727587203,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-01",
+      "fundIndex": 101.6001961971277,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-02",
+      "fundIndex": 102.1784151514814,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-03",
+      "fundIndex": 102.07129198855868,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-06",
+      "fundIndex": 102.20970824174441,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-07",
+      "fundIndex": 102.3088323282235,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-08",
+      "fundIndex": 102.39002441915864,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-09",
+      "fundIndex": 102.25770270040616,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-10",
+      "fundIndex": 102.68642975726759,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-13",
+      "fundIndex": 102.68420290814775,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-14",
+      "fundIndex": 102.73439491528305,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-15",
+      "fundIndex": 103.26863359951994,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-16",
+      "fundIndex": 103.66961294432231,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-17",
+      "fundIndex": 104.0738153602192,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-20",
+      "fundIndex": 104.07662822226533,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-21",
+      "fundIndex": 103.23965526031573,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-22",
+      "fundIndex": 103.12447441965675,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-23",
+      "fundIndex": 102.85657861041098,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-24",
+      "fundIndex": 103.4093060024718,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-27",
+      "fundIndex": 102.97876230553894,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-28",
+      "fundIndex": 103.13153587541832,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-29",
+      "fundIndex": 103.83489789017766,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-09-30",
+      "fundIndex": 103.97050128131727,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-01",
+      "fundIndex": 104.19388940881258,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-04",
+      "fundIndex": 104.45891375471959,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-05",
+      "fundIndex": 104.77459891810292,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-06",
+      "fundIndex": 104.6462034859565,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-07",
+      "fundIndex": 104.20889133972517,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-08",
+      "fundIndex": 104.0703285833079,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-11",
+      "fundIndex": 104.23766457440517,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-12",
+      "fundIndex": 103.90697748010925,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-13",
+      "fundIndex": 103.92347374398383,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-14",
+      "fundIndex": 103.6270684058749,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-15",
+      "fundIndex": 104.03493340256101,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-18",
+      "fundIndex": 104.14416621201832,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-19",
+      "fundIndex": 104.09617175335653,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-20",
+      "fundIndex": 104.72449481290657,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-21",
+      "fundIndex": 104.44241749084502,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-22",
+      "fundIndex": 104.54959925506036,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-25",
+      "fundIndex": 104.64936795575836,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-26",
+      "fundIndex": 104.61537920603452,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-27",
+      "fundIndex": 104.39480394058532,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-10-28",
+      "fundIndex": 104.895112476391,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-01",
+      "fundIndex": 105.43453737502541,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-02",
+      "fundIndex": 104.93085926489367,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-03",
+      "fundIndex": 105.10379167943687,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-04",
+      "fundIndex": 104.39093625527191,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-05",
+      "fundIndex": 104.39480394058532,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-08",
+      "fundIndex": 104.09400350552932,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-09",
+      "fundIndex": 104.11536367669198,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-10",
+      "fundIndex": 104.55504917527472,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-11",
+      "fundIndex": 104.65505228114323,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-12",
+      "fundIndex": 105.24880057804313,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-15",
+      "fundIndex": 104.97393121497474,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-16",
+      "fundIndex": 101.5368481997976,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-17",
+      "fundIndex": 104.0091781344513,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-18",
+      "fundIndex": 104.02971788751717,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-19",
+      "fundIndex": 103.53125529242924,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-22",
+      "fundIndex": 104.51499519176393,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-23",
+      "fundIndex": 105.7947302201592,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-24",
+      "fundIndex": 105.8859431321336,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-25",
+      "fundIndex": 106.39416284244399,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-26",
+      "fundIndex": 106.58830892491827,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-29",
+      "fundIndex": 106.9829300294706,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-11-30",
+      "fundIndex": 107.40169486658537,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-01",
+      "fundIndex": 107.91463198095224,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-02",
+      "fundIndex": 107.2086915093173,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-03",
+      "fundIndex": 107.9207851166781,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-06",
+      "fundIndex": 108.24567068300392,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-07",
+      "fundIndex": 107.66997158423321,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-08",
+      "fundIndex": 106.82986345312804,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-09",
+      "fundIndex": 107.14616393008399,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-10",
+      "fundIndex": 107.38830447122001,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-13",
+      "fundIndex": 107.21461023987267,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-14",
+      "fundIndex": 105.58320885442089,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-15",
+      "fundIndex": 103.69240884715434,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-16",
+      "fundIndex": 103.40962830958125,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-17",
+      "fundIndex": 103.03375961866968,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-20",
+      "fundIndex": 102.77122582769931,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-21",
+      "fundIndex": 102.31047316441706,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-22",
+      "fundIndex": 102.24800418647632,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-23",
+      "fundIndex": 104.44098175917564,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-24",
+      "fundIndex": 102.07855854884447,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-27",
+      "fundIndex": 101.8692347315797,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-28",
+      "fundIndex": 102.5779001633218,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-29",
+      "fundIndex": 102.96422918496737,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-30",
+      "fundIndex": 102.30481813967852,
+      "benchIndex": null
+    },
+    {
+      "date": "2021-12-31",
+      "fundIndex": 103.26555703165701,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-03",
+      "fundIndex": 104.26013817012776,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-04",
+      "fundIndex": 102.65583988251612,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-05",
+      "fundIndex": 102.85959657698129,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-06",
+      "fundIndex": 101.68188639905019,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-07",
+      "fundIndex": 101.70913600012187,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-10",
+      "fundIndex": 101.15347854342971,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-11",
+      "fundIndex": 102.5688462636109,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-12",
+      "fundIndex": 102.20326209955539,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-13",
+      "fundIndex": 102.79062285555894,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-14",
+      "fundIndex": 103.13162377735728,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-17",
+      "fundIndex": 103.01330776754274,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-18",
+      "fundIndex": 103.17677607332662,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-19",
+      "fundIndex": 104.19418241527572,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-20",
+      "fundIndex": 102.07934966629493,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-21",
+      "fundIndex": 103.06121432426556,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-24",
+      "fundIndex": 102.90747383305781,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-25",
+      "fundIndex": 103.20086120459646,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-26",
+      "fundIndex": 101.04969565418673,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-27",
+      "fundIndex": 101.89783216238185,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-28",
+      "fundIndex": 102.00533623370664,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-01-31",
+      "fundIndex": 103.41683626857441,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-01",
+      "fundIndex": 103.22928283152069,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-02",
+      "fundIndex": 103.94339818347713,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-03",
+      "fundIndex": 103.26710996591162,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-04",
+      "fundIndex": 102.75106698303551,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-07",
+      "fundIndex": 102.97838139713687,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-08",
+      "fundIndex": 103.36084273346901,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-09",
+      "fundIndex": 103.13763040985158,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-10",
+      "fundIndex": 103.13868523311886,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-11",
+      "fundIndex": 103.61988974752805,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-14",
+      "fundIndex": 103.40130692602816,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-15",
+      "fundIndex": 101.98128040308315,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-16",
+      "fundIndex": 101.93984928919562,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-17",
+      "fundIndex": 101.95561303691237,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-18",
+      "fundIndex": 101.30768784497847,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-21",
+      "fundIndex": 101.14336982045151,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-22",
+      "fundIndex": 100.95426344914316,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-23",
+      "fundIndex": 100.04529879920089,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-24",
+      "fundIndex": 100.5252140851723,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-25",
+      "fundIndex": 96.57768451056494,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-02-28",
+      "fundIndex": 98.60391210509322,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-01",
+      "fundIndex": 97.66819596506659,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-02",
+      "fundIndex": 97.55486106512538,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-03",
+      "fundIndex": 97.42883898533034,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-04",
+      "fundIndex": 97.68853061360826,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-07",
+      "fundIndex": 97.60619579746688,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-08",
+      "fundIndex": 97.18986291399617,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-09",
+      "fundIndex": 97.65433675936023,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-10",
+      "fundIndex": 96.23595107260876,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-11",
+      "fundIndex": 96.88244053287328,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-14",
+      "fundIndex": 96.7773684151925,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-15",
+      "fundIndex": 96.42227388251729,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-16",
+      "fundIndex": 95.87329697318464,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-17",
+      "fundIndex": 96.64516389902529,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-18",
+      "fundIndex": 96.01944859699715,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-21",
+      "fundIndex": 96.91376292378257,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-22",
+      "fundIndex": 96.61990674190291,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-23",
+      "fundIndex": 96.98856747382133,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-24",
+      "fundIndex": 97.08487869825431,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-25",
+      "fundIndex": 97.73283319083453,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-28",
+      "fundIndex": 98.40009680933541,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-29",
+      "fundIndex": 99.57704517046237,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-30",
+      "fundIndex": 98.5910198207152,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-03-31",
+      "fundIndex": 98.44346176587962,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-01",
+      "fundIndex": 98.92109160143855,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-04",
+      "fundIndex": 98.04201361073622,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-05",
+      "fundIndex": 96.80007641608559,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-06",
+      "fundIndex": 96.99097012681905,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-07",
+      "fundIndex": 96.92337353577345,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-08",
+      "fundIndex": 97.0144399445163,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-11",
+      "fundIndex": 96.3469712214912,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-12",
+      "fundIndex": 96.95334809695233,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-13",
+      "fundIndex": 97.08291555495131,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-14",
+      "fundIndex": 96.37975864471619,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-15",
+      "fundIndex": 96.63438126118186,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-18",
+      "fundIndex": 97.02349384422722,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-19",
+      "fundIndex": 97.16003485604885,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-20",
+      "fundIndex": 96.97746252886846,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-21",
+      "fundIndex": 97.39238898131615,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-22",
+      "fundIndex": 97.45444775020846,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-25",
+      "fundIndex": 97.79325112353328,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-26",
+      "fundIndex": 97.1090517314631,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-27",
+      "fundIndex": 97.13474839828017,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-28",
+      "fundIndex": 96.8042078072158,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-04-29",
+      "fundIndex": 97.46988919081578,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-05",
+      "fundIndex": 97.67059861806432,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-06",
+      "fundIndex": 98.56215868409625,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-09",
+      "fundIndex": 98.46174536917935,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-10",
+      "fundIndex": 98.70640576589838,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-11",
+      "fundIndex": 99.06070918112312,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-12",
+      "fundIndex": 97.53279767845119,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-13",
+      "fundIndex": 95.74677678240226,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-16",
+      "fundIndex": 97.0086677171925,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-17",
+      "fundIndex": 96.35620092508,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-18",
+      "fundIndex": 96.45781556649575,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-20",
+      "fundIndex": 96.38049116087403,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-23",
+      "fundIndex": 95.77622393194748,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-24",
+      "fundIndex": 95.75917095579294,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-25",
+      "fundIndex": 95.87739906366853,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-26",
+      "fundIndex": 96.7529023755206,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-27",
+      "fundIndex": 97.56485258551834,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-30",
+      "fundIndex": 97.29971103702606,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-05-31",
+      "fundIndex": 99.58762270378159,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-01",
+      "fundIndex": 100.25365569513731,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-02",
+      "fundIndex": 100.7485729120213,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-03",
+      "fundIndex": 101.40238753386421,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-06",
+      "fundIndex": 101.48170438343529,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-07",
+      "fundIndex": 102.87263536459088,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-08",
+      "fundIndex": 103.312731072222,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-09",
+      "fundIndex": 100.30185525832329,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-10",
+      "fundIndex": 101.28562445830428,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-13",
+      "fundIndex": 100.78502291603549,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-14",
+      "fundIndex": 99.87667357966582,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-15",
+      "fundIndex": 99.62890731443754,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-16",
+      "fundIndex": 100.7359443334601,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-17",
+      "fundIndex": 99.9425414325789,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-20",
+      "fundIndex": 101.22359499005829,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-21",
+      "fundIndex": 101.81889622121285,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-22",
+      "fundIndex": 103.00747693892632,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-23",
+      "fundIndex": 103.17950103343378,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-24",
+      "fundIndex": 102.94439264741303,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-27",
+      "fundIndex": 103.4479242543132,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-28",
+      "fundIndex": 102.83108704811809,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-29",
+      "fundIndex": 101.8155852481794,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-06-30",
+      "fundIndex": 99.24524465160651,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-01",
+      "fundIndex": 98.6734132381492,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-04",
+      "fundIndex": 100.48205423315227,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-05",
+      "fundIndex": 99.7922877182825,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-06",
+      "fundIndex": 98.58741584121863,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-07",
+      "fundIndex": 99.75147191796758,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-08",
+      "fundIndex": 100.64508302924145,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-13",
+      "fundIndex": 100.92320476405068,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-14",
+      "fundIndex": 100.9414883673504,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-18",
+      "fundIndex": 100.53289085450645,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-19",
+      "fundIndex": 102.15837350940286,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-20",
+      "fundIndex": 103.15995750234259,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-21",
+      "fundIndex": 103.82314833100588,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-22",
+      "fundIndex": 104.2039981317908,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-25",
+      "fundIndex": 104.3342688053013,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-26",
+      "fundIndex": 104.83812271931095,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-27",
+      "fundIndex": 104.75019147972367,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-28",
+      "fundIndex": 105.25630154349945,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-07-29",
+      "fundIndex": 105.6430407741934,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-01",
+      "fundIndex": 106.81351369248502,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-02",
+      "fundIndex": 108.64161031664035,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-03",
+      "fundIndex": 106.55856876890991,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-04",
+      "fundIndex": 105.99787160105178,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-05",
+      "fundIndex": 105.88084481967503,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-08",
+      "fundIndex": 106.62862661424586,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-09",
+      "fundIndex": 106.86578604550859,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-10",
+      "fundIndex": 106.60386756811081,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-11",
+      "fundIndex": 107.3547552311909,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-12",
+      "fundIndex": 107.20247977229882,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-15",
+      "fundIndex": 108.40705864289954,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-16",
+      "fundIndex": 107.43383767559145,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-17",
+      "fundIndex": 107.4978888884331,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-18",
+      "fundIndex": 107.37482617391574,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-19",
+      "fundIndex": 108.67445634115795,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-22",
+      "fundIndex": 109.21839353932468,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-23",
+      "fundIndex": 108.68945827207055,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-24",
+      "fundIndex": 110.31239177073769,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-25",
+      "fundIndex": 110.70376050354918,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-26",
+      "fundIndex": 112.6410313358692,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-29",
+      "fundIndex": 110.60173565308502,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-08-31",
+      "fundIndex": 108.93857236702927,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-01",
+      "fundIndex": 108.34239211648531,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-02",
+      "fundIndex": 107.04917879078575,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-05",
+      "fundIndex": 108.25469528206852,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-06",
+      "fundIndex": 109.14057102271562,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-07",
+      "fundIndex": 109.13013999262795,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-08",
+      "fundIndex": 109.18592842320916,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-09",
+      "fundIndex": 110.03705359732825,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-12",
+      "fundIndex": 112.64607104703515,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-13",
+      "fundIndex": 114.43938780401619,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-14",
+      "fundIndex": 110.41898752202674,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-15",
+      "fundIndex": 110.70880021471513,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-16",
+      "fundIndex": 108.39982138326008,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-19",
+      "fundIndex": 107.541693354672,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-20",
+      "fundIndex": 106.76440580926334,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-21",
+      "fundIndex": 106.38302859684478,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-22",
+      "fundIndex": 105.27842353146626,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-23",
+      "fundIndex": 104.7157339196588,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-26",
+      "fundIndex": 101.90706186597065,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-27",
+      "fundIndex": 100.68674854829949,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-28",
+      "fundIndex": 101.6173077745749,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-29",
+      "fundIndex": 103.612037174316,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-09-30",
+      "fundIndex": 102.49858331375074,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-03",
+      "fundIndex": 102.3882663803798,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-04",
+      "fundIndex": 106.48285589883541,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-05",
+      "fundIndex": 109.40366152596593,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-06",
+      "fundIndex": 109.81820707001155,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-07",
+      "fundIndex": 110.06371718547368,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-10",
+      "fundIndex": 108.65634854173614,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-11",
+      "fundIndex": 107.55678318752355,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-12",
+      "fundIndex": 106.71412590018912,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-13",
+      "fundIndex": 106.44327072566566,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-14",
+      "fundIndex": 107.72370896957246,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-17",
+      "fundIndex": 105.53225503048145,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-18",
+      "fundIndex": 107.04882718303,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-19",
+      "fundIndex": 107.84943804290434,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-20",
+      "fundIndex": 107.59135795017365,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-21",
+      "fundIndex": 107.28572290847592,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-24",
+      "fundIndex": 108.99518121570726,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-25",
+      "fundIndex": 109.8608102097516,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-26",
+      "fundIndex": 111.38166025666195,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-27",
+      "fundIndex": 111.88317011896649,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-28",
+      "fundIndex": 111.95231964426671,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-10-31",
+      "fundIndex": 112.26674487985858,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-01",
+      "fundIndex": 112.11133425181092,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-02",
+      "fundIndex": 112.75225658927583,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-03",
+      "fundIndex": 111.75955069216916,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-04",
+      "fundIndex": 111.79772943431585,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-07",
+      "fundIndex": 113.18783999737465,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-08",
+      "fundIndex": 114.02202939792446,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-09",
+      "fundIndex": 114.44627345589988,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-10",
+      "fundIndex": 113.07072531405898,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-11",
+      "fundIndex": 116.16882915203344,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-14",
+      "fundIndex": 116.99018486949785,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-15",
+      "fundIndex": 117.15968910842236,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-16",
+      "fundIndex": 118.54013045819765,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-17",
+      "fundIndex": 117.20264385591818,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-18",
+      "fundIndex": 116.68850541505245,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-21",
+      "fundIndex": 116.82797649150545,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-22",
+      "fundIndex": 116.16795013264402,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-23",
+      "fundIndex": 117.50731197628757,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-24",
+      "fundIndex": 117.66659028964861,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-25",
+      "fundIndex": 118.07697514191769,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-28",
+      "fundIndex": 118.24378372138133,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-29",
+      "fundIndex": 117.07665107676945,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-11-30",
+      "fundIndex": 117.312111070546,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-01",
+      "fundIndex": 119.34639634281052,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-02",
+      "fundIndex": 119.66096808163395,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-05",
+      "fundIndex": 119.8352776265539,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-06",
+      "fundIndex": 118.24199638195618,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-07",
+      "fundIndex": 117.49685164555359,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-08",
+      "fundIndex": 116.34624456546263,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-09",
+      "fundIndex": 117.56731969993794,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-12",
+      "fundIndex": 117.64859969281201,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-13",
+      "fundIndex": 117.50069003022068,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-14",
+      "fundIndex": 118.14580236010845,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-15",
+      "fundIndex": 118.24187917937094,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-16",
+      "fundIndex": 116.65138149617304,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-19",
+      "fundIndex": 116.33115473261108,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-20",
+      "fundIndex": 115.59392117071319,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-21",
+      "fundIndex": 115.96908664611323,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-22",
+      "fundIndex": 117.33221131391716,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-23",
+      "fundIndex": 116.47894719261716,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-26",
+      "fundIndex": 116.25421123539144,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-27",
+      "fundIndex": 116.42392057884013,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-28",
+      "fundIndex": 117.81218520118118,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-29",
+      "fundIndex": 115.95171136284922,
+      "benchIndex": null
+    },
+    {
+      "date": "2022-12-30",
+      "fundIndex": 117.69773687668004,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-02",
+      "fundIndex": 117.74965762194782,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-03",
+      "fundIndex": 117.6788086591614,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-04",
+      "fundIndex": 118.81154234500104,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-05",
+      "fundIndex": 120.93211802065929,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-06",
+      "fundIndex": 120.06393987038564,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-09",
+      "fundIndex": 121.19714236656631,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-10",
+      "fundIndex": 121.18193533112954,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-11",
+      "fundIndex": 120.34625159761774,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-12",
+      "fundIndex": 120.4088084774974,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-13",
+      "fundIndex": 120.63454065669781,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-16",
+      "fundIndex": 121.97610004881487,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-17",
+      "fundIndex": 122.6620867803102,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-18",
+      "fundIndex": 121.89616788567122,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-19",
+      "fundIndex": 121.52220373677002,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-20",
+      "fundIndex": 122.05846416560257,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-23",
+      "fundIndex": 123.07376086101706,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-24",
+      "fundIndex": 123.89318273582477,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-25",
+      "fundIndex": 123.85380266717922,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-26",
+      "fundIndex": 123.73419742892689,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-27",
+      "fundIndex": 124.56276110538447,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-30",
+      "fundIndex": 124.26102304964644,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-01-31",
+      "fundIndex": 122.63363585273963,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-01",
+      "fundIndex": 121.98697058859725,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-02",
+      "fundIndex": 123.13581962990938,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-03",
+      "fundIndex": 122.75584884851389,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-06",
+      "fundIndex": 122.1639171916854,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-07",
+      "fundIndex": 121.10818560435806,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-08",
+      "fundIndex": 120.78880855953919,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-09",
+      "fundIndex": 120.17012541262635,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-10",
+      "fundIndex": 121.3267098245653,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-13",
+      "fundIndex": 119.79334840167905,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-14",
+      "fundIndex": 120.06352966133727,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-15",
+      "fundIndex": 119.70694079570008,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-16",
+      "fundIndex": 120.3598763981536,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-17",
+      "fundIndex": 119.65440473685969,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-20",
+      "fundIndex": 118.21937628300205,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-21",
+      "fundIndex": 118.35008646620729,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-22",
+      "fundIndex": 117.36391461322853,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-23",
+      "fundIndex": 116.89484056639321,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-24",
+      "fundIndex": 116.82589614561718,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-27",
+      "fundIndex": 115.57628218163237,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-02-28",
+      "fundIndex": 116.03263974796756,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-01",
+      "fundIndex": 115.99961791957205,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-02",
+      "fundIndex": 117.81022205787815,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-03",
+      "fundIndex": 117.99970933758857,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-06",
+      "fundIndex": 117.7120355920811,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-07",
+      "fundIndex": 117.71051195847278,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-08",
+      "fundIndex": 117.74669825667014,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-09",
+      "fundIndex": 117.5923717525361,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-10",
+      "fundIndex": 117.86428175032684,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-13",
+      "fundIndex": 118.2995135506699,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-14",
+      "fundIndex": 119.19605472657516,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-15",
+      "fundIndex": 118.79018217383839,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-16",
+      "fundIndex": 119.22608788904667,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-17",
+      "fundIndex": 118.85728065389667,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-20",
+      "fundIndex": 119.2738479425379,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-21",
+      "fundIndex": 119.1182322099661,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-22",
+      "fundIndex": 118.75235503944745,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-23",
+      "fundIndex": 119.15711416762431,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-24",
+      "fundIndex": 119.48548651086143,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-27",
+      "fundIndex": 119.54722297264433,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-28",
+      "fundIndex": 119.42527368268689,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-29",
+      "fundIndex": 119.43394667399572,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-30",
+      "fundIndex": 119.5282947551257,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-03-31",
+      "fundIndex": 119.7657764934979,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-03",
+      "fundIndex": 119.8000875503312,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-04",
+      "fundIndex": 119.68906740144874,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-05",
+      "fundIndex": 119.93094423676797,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-06",
+      "fundIndex": 119.985502040204,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-07",
+      "fundIndex": 119.9505170685055,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-10",
+      "fundIndex": 119.9444811353649,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-11",
+      "fundIndex": 119.63242925212442,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-12",
+      "fundIndex": 119.72170832144215,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-13",
+      "fundIndex": 119.93824009770009,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-14",
+      "fundIndex": 120.06347106004465,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-17",
+      "fundIndex": 120.02247945585182,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-18",
+      "fundIndex": 119.95016546074974,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-19",
+      "fundIndex": 119.91295363993137,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-20",
+      "fundIndex": 119.84148936357238,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-24",
+      "fundIndex": 119.9153562929291,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-25",
+      "fundIndex": 119.87984390959694,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-26",
+      "fundIndex": 120.15345334487388,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-27",
+      "fundIndex": 120.07519131857009,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-04-28",
+      "fundIndex": 119.98561924278926,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-02",
+      "fundIndex": 120.01978379639098,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-03",
+      "fundIndex": 120.24812373311329,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-04",
+      "fundIndex": 120.42143705605856,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-05",
+      "fundIndex": 120.4379919212258,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-08",
+      "fundIndex": 120.41710056040418,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-09",
+      "fundIndex": 120.44669421318095,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-10",
+      "fundIndex": 120.43362612492507,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-11",
+      "fundIndex": 120.69797655596687,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-12",
+      "fundIndex": 121.0211626848065,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-15",
+      "fundIndex": 121.07797663800868,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-16",
+      "fundIndex": 121.06775071244522,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-17",
+      "fundIndex": 121.13757415261065,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-18",
+      "fundIndex": 121.24194305477988,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-22",
+      "fundIndex": 121.09485381028533,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-23",
+      "fundIndex": 121.30162847132083,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-24",
+      "fundIndex": 121.37265323798512,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-25",
+      "fundIndex": 121.50655719163852,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-26",
+      "fundIndex": 121.67635443702616,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-29",
+      "fundIndex": 121.90586639960104,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-30",
+      "fundIndex": 122.47257019995348,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-05-31",
+      "fundIndex": 124.36419062531681,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-01",
+      "fundIndex": 126.61981297983469,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-02",
+      "fundIndex": 126.72019699410528,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-05",
+      "fundIndex": 127.18434853235992,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-06",
+      "fundIndex": 129.18118757863562,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-07",
+      "fundIndex": 131.12235539691534,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-08",
+      "fundIndex": 140.51119079584657,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-09",
+      "fundIndex": 142.59056976278782,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-12",
+      "fundIndex": 143.17599667613467,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-13",
+      "fundIndex": 144.32077292760923,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-14",
+      "fundIndex": 144.40014837847292,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-15",
+      "fundIndex": 144.13090473949674,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-16",
+      "fundIndex": 141.07223957146047,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-19",
+      "fundIndex": 144.33882212573843,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-20",
+      "fundIndex": 144.36545641323755,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-21",
+      "fundIndex": 144.03696686741515,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-22",
+      "fundIndex": 143.77654272297937,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-23",
+      "fundIndex": 144.11566840341365,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-26",
+      "fundIndex": 154.14170495772794,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-06-27",
+      "fundIndex": 157.66504907565252,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-03",
+      "fundIndex": 157.59326249218407,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-04",
+      "fundIndex": 158.31842418780073,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-05",
+      "fundIndex": 158.13678948130237,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-06",
+      "fundIndex": 158.346845814725,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-07",
+      "fundIndex": 158.0407126620399,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-10",
+      "fundIndex": 158.07182994842498,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-11",
+      "fundIndex": 158.3484280496259,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-12",
+      "fundIndex": 158.62974355488336,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-13",
+      "fundIndex": 159.06758311274828,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-14",
+      "fundIndex": 159.38824938600496,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-17",
+      "fundIndex": 159.48412110074324,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-18",
+      "fundIndex": 159.98908843931278,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-19",
+      "fundIndex": 163.55260374333338,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-20",
+      "fundIndex": 163.95126833707695,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-21",
+      "fundIndex": 163.83816784230626,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-24",
+      "fundIndex": 163.90309807453733,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-25",
+      "fundIndex": 164.0900947993111,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-26",
+      "fundIndex": 163.98042248015906,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-27",
+      "fundIndex": 164.03597650556975,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-28",
+      "fundIndex": 164.09993981647247,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-07-31",
+      "fundIndex": 164.22810084344837,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-01",
+      "fundIndex": 164.26504895844994,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-02",
+      "fundIndex": 163.82656478636605,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-03",
+      "fundIndex": 163.8236933230273,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-04",
+      "fundIndex": 163.96726648996423,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-07",
+      "fundIndex": 164.1180476158943,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-08",
+      "fundIndex": 164.26654329141192,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-09",
+      "fundIndex": 164.76896147375217,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-10",
+      "fundIndex": 164.79621107482387,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-11",
+      "fundIndex": 164.87664134895488,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-14",
+      "fundIndex": 164.77441139396652,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-15",
+      "fundIndex": 164.7417411733268,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-16",
+      "fundIndex": 164.75970246951707,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-17",
+      "fundIndex": 164.78402200595738,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-18",
+      "fundIndex": 165.02792058587227,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-21",
+      "fundIndex": 164.95235421902933,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-22",
+      "fundIndex": 165.30331736057434,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-23",
+      "fundIndex": 165.4715030704147,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-24",
+      "fundIndex": 165.65990622621155,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-25",
+      "fundIndex": 165.14960617001287,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-28",
+      "fundIndex": 161.1961871654965,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-29",
+      "fundIndex": 161.8994612783169,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-08-31",
+      "fundIndex": 162.36176687585376,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-01",
+      "fundIndex": 163.03119874218186,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-04",
+      "fundIndex": 162.74068283398194,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-05",
+      "fundIndex": 163.03333768936278,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-06",
+      "fundIndex": 163.14470944600095,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-07",
+      "fundIndex": 163.09023954450387,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-08",
+      "fundIndex": 163.2690320883098,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-11",
+      "fundIndex": 163.41360147722136,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-12",
+      "fundIndex": 163.80795887595687,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-13",
+      "fundIndex": 163.85516221716816,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-14",
+      "fundIndex": 164.10978483363385,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-15",
+      "fundIndex": 164.17826044406888,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-18",
+      "fundIndex": 164.23677383475726,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-19",
+      "fundIndex": 164.52113660723126,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-20",
+      "fundIndex": 164.5659665960912,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-21",
+      "fundIndex": 164.63634674853657,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-22",
+      "fundIndex": 164.62319075834174,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-25",
+      "fundIndex": 165.2936481472908,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-26",
+      "fundIndex": 165.7246313539184,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-27",
+      "fundIndex": 165.92794853868887,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-28",
+      "fundIndex": 166.26373394544336,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-09-29",
+      "fundIndex": 166.89533867738052,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-02",
+      "fundIndex": 166.99633800522372,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-03",
+      "fundIndex": 166.63204306960603,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-04",
+      "fundIndex": 166.82973453028427,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-05",
+      "fundIndex": 167.25878389425512,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-06",
+      "fundIndex": 167.4007162249985,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-09",
+      "fundIndex": 167.53218822500787,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-10",
+      "fundIndex": 168.48847341874668,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-11",
+      "fundIndex": 168.68256089992832,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-12",
+      "fundIndex": 168.7586839790512,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-13",
+      "fundIndex": 168.8244932306717,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-16",
+      "fundIndex": 169.06469992915106,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-17",
+      "fundIndex": 169.57048768581737,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-18",
+      "fundIndex": 169.65660228533318,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-19",
+      "fundIndex": 170.18796950623135,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-20",
+      "fundIndex": 170.1773040709732,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-23",
+      "fundIndex": 170.38349271908237,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-24",
+      "fundIndex": 170.634745761222,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-25",
+      "fundIndex": 170.92048566407277,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-26",
+      "fundIndex": 171.10774609466336,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-27",
+      "fundIndex": 171.31387614147994,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-30",
+      "fundIndex": 171.51338424222962,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-10-31",
+      "fundIndex": 171.98910953577814,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-01",
+      "fundIndex": 172.17554954827193,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-02",
+      "fundIndex": 172.06573072588836,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-03",
+      "fundIndex": 172.45540002121368,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-06",
+      "fundIndex": 172.82162879948805,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-07",
+      "fundIndex": 173.15372232480703,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-08",
+      "fundIndex": 173.4635180582813,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-09",
+      "fundIndex": 173.94952787868593,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-10",
+      "fundIndex": 173.97381811447997,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-13",
+      "fundIndex": 173.96696176324255,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-14",
+      "fundIndex": 174.21302859098466,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-15",
+      "fundIndex": 174.78137322753065,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-16",
+      "fundIndex": 174.90428943881645,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-17",
+      "fundIndex": 175.4599761961549,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-20",
+      "fundIndex": 175.46302346337154,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-21",
+      "fundIndex": 175.75808097175008,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-22",
+      "fundIndex": 176.09445239143085,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-23",
+      "fundIndex": 176.23327885366496,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-24",
+      "fundIndex": 176.32381785077413,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-27",
+      "fundIndex": 176.4496641266913,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-28",
+      "fundIndex": 176.79673028227657,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-29",
+      "fundIndex": 176.96834416773567,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-11-30",
+      "fundIndex": 177.0182138677615,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-01",
+      "fundIndex": 176.93520513675492,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-04",
+      "fundIndex": 176.6025841998023,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-05",
+      "fundIndex": 176.7306866254856,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-06",
+      "fundIndex": 176.87672104671287,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-07",
+      "fundIndex": 176.95656530791757,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-08",
+      "fundIndex": 176.8405347485155,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-11",
+      "fundIndex": 177.86810841473542,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-12",
+      "fundIndex": 178.5237689772961,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-13",
+      "fundIndex": 178.79145968201763,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-14",
+      "fundIndex": 179.1208575478758,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-15",
+      "fundIndex": 179.19888516900906,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-18",
+      "fundIndex": 179.03430343866523,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-19",
+      "fundIndex": 179.09434046296192,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-20",
+      "fundIndex": 179.21927841884337,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-21",
+      "fundIndex": 179.50548713203514,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-22",
+      "fundIndex": 179.79987072554846,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-25",
+      "fundIndex": 180.02407927114058,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-26",
+      "fundIndex": 180.57654295738456,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-27",
+      "fundIndex": 180.89600790414235,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-28",
+      "fundIndex": 181.28541349365085,
+      "benchIndex": null
+    },
+    {
+      "date": "2023-12-29",
+      "fundIndex": 181.70382672300985,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-02",
+      "fundIndex": 181.8734481645196,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-03",
+      "fundIndex": 183.19944891344414,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-04",
+      "fundIndex": 183.23425808126476,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-05",
+      "fundIndex": 182.74271043870684,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-08",
+      "fundIndex": 182.81537604156472,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-09",
+      "fundIndex": 183.24609554237546,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-10",
+      "fundIndex": 183.5856021312118,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-11",
+      "fundIndex": 183.92871269954472,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-12",
+      "fundIndex": 184.69146712438183,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-15",
+      "fundIndex": 186.01055292077632,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-16",
+      "fundIndex": 185.08125362229242,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-17",
+      "fundIndex": 182.8872505269721,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-18",
+      "fundIndex": 180.55333684550413,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-19",
+      "fundIndex": 180.41591681429307,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-22",
+      "fundIndex": 181.06486752884797,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-23",
+      "fundIndex": 184.11143152995666,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-24",
+      "fundIndex": 184.10111770245427,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-25",
+      "fundIndex": 185.96891670236462,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-26",
+      "fundIndex": 185.47933220310972,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-29",
+      "fundIndex": 185.3490615295992,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-30",
+      "fundIndex": 185.86967541330026,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-01-31",
+      "fundIndex": 186.30112743026882,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-01",
+      "fundIndex": 185.87656106518398,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-02",
+      "fundIndex": 185.40350213045,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-05",
+      "fundIndex": 186.40403130012243,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-06",
+      "fundIndex": 187.0661087042258,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-07",
+      "fundIndex": 188.24414118926634,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-08",
+      "fundIndex": 189.47008023102973,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-09",
+      "fundIndex": 189.08562645074824,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-12",
+      "fundIndex": 190.09151763869608,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-13",
+      "fundIndex": 192.1618427059264,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-14",
+      "fundIndex": 189.45179662773,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-15",
+      "fundIndex": 190.2486570048762,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-16",
+      "fundIndex": 191.95914083472854,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-19",
+      "fundIndex": 192.73976865381698,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-20",
+      "fundIndex": 192.9833742272687,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-21",
+      "fundIndex": 192.76247665471004,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-22",
+      "fundIndex": 192.25390533664392,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-23",
+      "fundIndex": 194.56601933725452,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-26",
+      "fundIndex": 195.5001532423802,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-27",
+      "fundIndex": 195.52552760208786,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-28",
+      "fundIndex": 196.06363397163813,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-02-29",
+      "fundIndex": 195.65028975409138,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-01",
+      "fundIndex": 196.71463573143498,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-04",
+      "fundIndex": 197.28385938737034,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-05",
+      "fundIndex": 199.8771130893605,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-06",
+      "fundIndex": 199.7233725981528,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-07",
+      "fundIndex": 201.19177448816168,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-08",
+      "fundIndex": 202.4079857153489,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-11",
+      "fundIndex": 204.0053397497842,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-12",
+      "fundIndex": 201.2266422572749,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-13",
+      "fundIndex": 201.91303919781865,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-14",
+      "fundIndex": 202.27416966363444,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-15",
+      "fundIndex": 202.13335075745098,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-18",
+      "fundIndex": 201.26479169877527,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-19",
+      "fundIndex": 202.6581839342212,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-20",
+      "fundIndex": 201.56737947325644,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-21",
+      "fundIndex": 203.46946022935373,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-22",
+      "fundIndex": 206.84937768357292,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-25",
+      "fundIndex": 203.56410131694687,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-26",
+      "fundIndex": 203.51276658460532,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-27",
+      "fundIndex": 204.55346694037377,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-28",
+      "fundIndex": 204.79343923368262,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-03-29",
+      "fundIndex": 206.67322219793522,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-01",
+      "fundIndex": 206.37289057322027,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-02",
+      "fundIndex": 205.8354874191815,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-03",
+      "fundIndex": 202.5927262903565,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-04",
+      "fundIndex": 202.25049474141298,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-05",
+      "fundIndex": 203.50010870539782,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-08",
+      "fundIndex": 201.41196884520878,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-09",
+      "fundIndex": 203.5616400626565,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-15",
+      "fundIndex": 203.2219576699423,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-16",
+      "fundIndex": 200.457646794773,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-17",
+      "fundIndex": 196.78908867371797,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-18",
+      "fundIndex": 196.92173269957988,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-19",
+      "fundIndex": 196.75800068797918,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-22",
+      "fundIndex": 195.62057889872935,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-24",
+      "fundIndex": 195.64847311401994,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-25",
+      "fundIndex": 198.71657309016922,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-26",
+      "fundIndex": 195.90253901820566,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-29",
+      "fundIndex": 198.5140177222029,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-04-30",
+      "fundIndex": 199.45178490747148,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-02",
+      "fundIndex": 198.72706272154952,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-03",
+      "fundIndex": 198.63945378907167,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-06",
+      "fundIndex": 199.42430090122926,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-07",
+      "fundIndex": 201.93785684524624,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-08",
+      "fundIndex": 201.9280118280849,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-09",
+      "fundIndex": 200.87424338406055,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-10",
+      "fundIndex": 200.58194013643552,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-13",
+      "fundIndex": 200.59468591758196,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-14",
+      "fundIndex": 200.92595902480417,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-15",
+      "fundIndex": 201.48715430364962,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-16",
+      "fundIndex": 203.4719214836441,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-17",
+      "fundIndex": 203.8451238157411,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-20",
+      "fundIndex": 204.41247223031246,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-21",
+      "fundIndex": 205.04554199456533,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-22",
+      "fundIndex": 204.28938021514878,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-23",
+      "fundIndex": 202.83126285199597,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-24",
+      "fundIndex": 202.07120408661973,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-27",
+      "fundIndex": 202.0535357968926,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-28",
+      "fundIndex": 202.16455594577508,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-29",
+      "fundIndex": 202.86428468039145,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-30",
+      "fundIndex": 200.098743178077,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-05-31",
+      "fundIndex": 200.13009486963264,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-03",
+      "fundIndex": 198.8963325553035,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-04",
+      "fundIndex": 199.7646279081624,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-05",
+      "fundIndex": 198.61255579575575,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-06",
+      "fundIndex": 201.26429358778796,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-07",
+      "fundIndex": 201.38504155124656,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-10",
+      "fundIndex": 200.08356544328655,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-11",
+      "fundIndex": 200.25825589660857,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-12",
+      "fundIndex": 198.13439854856318,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-13",
+      "fundIndex": 200.60078045201521,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-14",
+      "fundIndex": 198.90383352075978,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-20",
+      "fundIndex": 199.1021402950106,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-21",
+      "fundIndex": 202.80254821860862,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-24",
+      "fundIndex": 202.8755068279296,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-25",
+      "fundIndex": 203.8733696387875,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-26",
+      "fundIndex": 203.32204867774973,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-27",
+      "fundIndex": 203.62698050393595,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-06-28",
+      "fundIndex": 204.26048977788352,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-01",
+      "fundIndex": 205.08583038324656,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-02",
+      "fundIndex": 202.41375794267267,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-03",
+      "fundIndex": 202.97887950812418,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-04",
+      "fundIndex": 205.03253250760207,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-05",
+      "fundIndex": 205.52900265874064,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-08",
+      "fundIndex": 206.93722102122126,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-09",
+      "fundIndex": 207.97129943092284,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-10",
+      "fundIndex": 209.0122634925081,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-11",
+      "fundIndex": 211.4553806827871,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-12",
+      "fundIndex": 213.07427069226296,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-16",
+      "fundIndex": 213.3952006713364,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-17",
+      "fundIndex": 214.76957678732478,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-18",
+      "fundIndex": 213.07588222781018,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-19",
+      "fundIndex": 210.88240654412354,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-22",
+      "fundIndex": 208.46390189674807,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-23",
+      "fundIndex": 208.8309510931192,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-24",
+      "fundIndex": 208.34403295267884,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-25",
+      "fundIndex": 205.7089379277528,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-26",
+      "fundIndex": 204.06101097778014,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-29",
+      "fundIndex": 204.722941878652,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-30",
+      "fundIndex": 204.7826858964855,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-07-31",
+      "fundIndex": 205.1053446136915,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-01",
+      "fundIndex": 208.5723435887549,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-02",
+      "fundIndex": 206.00209089412093,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-05",
+      "fundIndex": 196.23102856402807,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-06",
+      "fundIndex": 189.93657582098945,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-07",
+      "fundIndex": 193.44327717180784,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-08",
+      "fundIndex": 198.56497154614235,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-09",
+      "fundIndex": 197.56602461137086,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-12",
+      "fundIndex": 198.58595080890294,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-13",
+      "fundIndex": 200.09355696367948,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-14",
+      "fundIndex": 202.93947013883235,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-15",
+      "fundIndex": 203.06511131022526,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-16",
+      "fundIndex": 207.13409206380274,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-19",
+      "fundIndex": 207.64741008657168,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-20",
+      "fundIndex": 210.03327381395377,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-21",
+      "fundIndex": 210.87218061856007,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-22",
+      "fundIndex": 211.34708549401182,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-23",
+      "fundIndex": 211.23257856821803,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-26",
+      "fundIndex": 213.22924181061586,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-27",
+      "fundIndex": 212.75671028751555,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-28",
+      "fundIndex": 212.58808506798044,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-08-29",
+      "fundIndex": 211.0159588900212,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-02",
+      "fundIndex": 211.1985019165553,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-03",
+      "fundIndex": 211.25736691499944,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-04",
+      "fundIndex": 207.5575450043277,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-05",
+      "fundIndex": 207.22893825592004,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-06",
+      "fundIndex": 205.63764945527168,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-09",
+      "fundIndex": 202.8394670329638,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-10",
+      "fundIndex": 202.43535251900587,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-11",
+      "fundIndex": 202.0387975717968,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-12",
+      "fundIndex": 200.8019586896048,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-13",
+      "fundIndex": 205.42557137725345,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-16",
+      "fundIndex": 207.72933469366467,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-17",
+      "fundIndex": 207.79447003041992,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-18",
+      "fundIndex": 209.7368391751985,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-19",
+      "fundIndex": 208.89031420255066,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-20",
+      "fundIndex": 211.2803386217093,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-23",
+      "fundIndex": 211.2576013201699,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-24",
+      "fundIndex": 212.91499237890184,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-25",
+      "fundIndex": 213.71053422696397,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-26",
+      "fundIndex": 214.14646924281854,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-27",
+      "fundIndex": 216.62219805244462,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-09-30",
+      "fundIndex": 216.65419435821914,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-01",
+      "fundIndex": 214.6810009335186,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-02",
+      "fundIndex": 212.99803041055475,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-03",
+      "fundIndex": 213.6498232878021,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-04",
+      "fundIndex": 211.99876116867387,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-07",
+      "fundIndex": 213.7910817036802,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-08",
+      "fundIndex": 213.6367551995462,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-09",
+      "fundIndex": 213.4865307858961,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-10",
+      "fundIndex": 214.067855608759,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-11",
+      "fundIndex": 212.7774844457519,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-14",
+      "fundIndex": 213.4860033742624,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-15",
+      "fundIndex": 214.90843255020516,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-16",
+      "fundIndex": 214.1219153012077,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-17",
+      "fundIndex": 214.47988129722165,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-18",
+      "fundIndex": 214.83734918224826,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-21",
+      "fundIndex": 215.3942372660856,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-22",
+      "fundIndex": 214.40815331504584,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-23",
+      "fundIndex": 212.45251097748712,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-24",
+      "fundIndex": 211.46672003291047,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-25",
+      "fundIndex": 211.48966243897408,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-28",
+      "fundIndex": 212.55506323958494,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-30",
+      "fundIndex": 211.2117165080427,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-10-31",
+      "fundIndex": 213.4069795311545,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-01",
+      "fundIndex": 209.68820010231786,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-04",
+      "fundIndex": 209.775838335442,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-05",
+      "fundIndex": 209.40711900223096,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-06",
+      "fundIndex": 210.35877469385218,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-07",
+      "fundIndex": 212.6710644983407,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-08",
+      "fundIndex": 216.422133239415,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-11",
+      "fundIndex": 216.1249367838556,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-12",
+      "fundIndex": 216.49819771724523,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-13",
+      "fundIndex": 215.24284082658295,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-14",
+      "fundIndex": 214.0105435445695,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-15",
+      "fundIndex": 213.0454974575829,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-18",
+      "fundIndex": 210.99289928137233,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-19",
+      "fundIndex": 212.46314711209897,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-20",
+      "fundIndex": 212.3009387341066,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-21",
+      "fundIndex": 212.64703796836352,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-22",
+      "fundIndex": 213.2055375877481,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-25",
+      "fundIndex": 214.76099169795484,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-26",
+      "fundIndex": 217.3381300444725,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-27",
+      "fundIndex": 216.6617832256144,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-28",
+      "fundIndex": 216.4710653187588,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-11-29",
+      "fundIndex": 215.19543238084745,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-02",
+      "fundIndex": 215.59972269868325,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-03",
+      "fundIndex": 216.7464034921682,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-04",
+      "fundIndex": 216.91883779572407,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-05",
+      "fundIndex": 218.72451942544947,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-06",
+      "fundIndex": 219.21134966395087,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-09",
+      "fundIndex": 219.109910826413,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-10",
+      "fundIndex": 219.47151010256985,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-11",
+      "fundIndex": 218.12368037214162,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-12",
+      "fundIndex": 219.3677858146195,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-13",
+      "fundIndex": 219.9237362777748,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-16",
+      "fundIndex": 219.38050229511964,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-17",
+      "fundIndex": 219.00776877336358,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-18",
+      "fundIndex": 216.1318810370319,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-19",
+      "fundIndex": 216.41700562631013,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-20",
+      "fundIndex": 210.91138488332777,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-23",
+      "fundIndex": 209.3997059387136,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-24",
+      "fundIndex": 211.937493517232,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-25",
+      "fundIndex": 213.5550649976237,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-26",
+      "fundIndex": 215.01242054397233,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-27",
+      "fundIndex": 214.37053128517908,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-30",
+      "fundIndex": 213.10043616942102,
+      "benchIndex": null
+    },
+    {
+      "date": "2024-12-31",
+      "fundIndex": 211.2423942847331,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-02",
+      "fundIndex": 211.8076623534162,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-03",
+      "fundIndex": 212.38860626787707,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-06",
+      "fundIndex": 213.5239770118849,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-07",
+      "fundIndex": 217.19397086460935,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-08",
+      "fundIndex": 217.4249478594999,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-09",
+      "fundIndex": 213.3053062884461,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-10",
+      "fundIndex": 213.44222820866983,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-13",
+      "fundIndex": 212.3341949676726,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-14",
+      "fundIndex": 209.50427994540703,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-15",
+      "fundIndex": 211.09266798207034,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-16",
+      "fundIndex": 214.26668979464347,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-17",
+      "fundIndex": 214.54270188291815,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-20",
+      "fundIndex": 216.17058719081226,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-21",
+      "fundIndex": 217.40464251160452,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-22",
+      "fundIndex": 217.69545142626754,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-23",
+      "fundIndex": 218.75645712993136,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-24",
+      "fundIndex": 219.96165131410467,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-27",
+      "fundIndex": 221.4292913873094,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-28",
+      "fundIndex": 217.66785021744005,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-29",
+      "fundIndex": 217.9140049471211,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-30",
+      "fundIndex": 219.5398685104196,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-01-31",
+      "fundIndex": 220.153746351337,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-03",
+      "fundIndex": 221.4419492665169,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-04",
+      "fundIndex": 217.93266945882291,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-05",
+      "fundIndex": 220.01020248504642,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-06",
+      "fundIndex": 220.20197521516928,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-07",
+      "fundIndex": 222.16397579297805,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-10",
+      "fundIndex": 223.06992247634997,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-11",
+      "fundIndex": 221.6888072117095,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-12",
+      "fundIndex": 221.71347835590555,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-13",
+      "fundIndex": 221.39128844904064,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-14",
+      "fundIndex": 222.3329233196226,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-17",
+      "fundIndex": 224.96233401916376,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-18",
+      "fundIndex": 224.6844466895251,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-19",
+      "fundIndex": 225.20066547627908,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-20",
+      "fundIndex": 225.1081926365132,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-21",
+      "fundIndex": 224.49856338931124,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-24",
+      "fundIndex": 225.16131470827983,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-25",
+      "fundIndex": 222.67275221556838,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-26",
+      "fundIndex": 221.2018890712691,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-27",
+      "fundIndex": 220.6021634425212,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-02-28",
+      "fundIndex": 220.05336233706646,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-03",
+      "fundIndex": 216.7992911587644,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-04",
+      "fundIndex": 220.48900434645788,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-05",
+      "fundIndex": 214.80514777194952,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-06",
+      "fundIndex": 213.65832047523304,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-07",
+      "fundIndex": 212.8357927319161,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-10",
+      "fundIndex": 213.15382194700453,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-11",
+      "fundIndex": 210.83593571907008,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-12",
+      "fundIndex": 208.48491046015494,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-13",
+      "fundIndex": 208.30122470841462,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-14",
+      "fundIndex": 206.81448061381337,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-17",
+      "fundIndex": 208.92207610315467,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-18",
+      "fundIndex": 210.91094537363304,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-19",
+      "fundIndex": 210.00874917298927,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-20",
+      "fundIndex": 216.9396998558994,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-21",
+      "fundIndex": 218.9302978645103,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-24",
+      "fundIndex": 215.39376845574458,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-25",
+      "fundIndex": 220.72420063441763,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-26",
+      "fundIndex": 221.87770847849362,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-27",
+      "fundIndex": 220.89174173003906,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-03-28",
+      "fundIndex": 219.86744973620625,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-02",
+      "fundIndex": 214.81827446149805,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-03",
+      "fundIndex": 216.73201687482822,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-04",
+      "fundIndex": 208.72664079224256,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-07",
+      "fundIndex": 198.21286567939117,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-08",
+      "fundIndex": 197.12633911278814,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-09",
+      "fundIndex": 201.24841263748593,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-10",
+      "fundIndex": 193.13049277240958,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-11",
+      "fundIndex": 204.86619273847944,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-14",
+      "fundIndex": 203.01406958434688,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-15",
+      "fundIndex": 209.92380659932596,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-16",
+      "fundIndex": 209.36937976977896,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-17",
+      "fundIndex": 206.66009550838675,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-18",
+      "fundIndex": 204.51347155815563,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-21",
+      "fundIndex": 204.8388845361151,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-22",
+      "fundIndex": 201.66459901772512,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-24",
+      "fundIndex": 204.5758819348037,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-25",
+      "fundIndex": 211.82752819161684,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-28",
+      "fundIndex": 213.27802738672807,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-29",
+      "fundIndex": 215.66852061622774,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-04-30",
+      "fundIndex": 215.65536462603293,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-02",
+      "fundIndex": 213.89351676319274,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-05",
+      "fundIndex": 221.17967918136338,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-06",
+      "fundIndex": 221.24525402781333,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-07",
+      "fundIndex": 220.2938327413626,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-08",
+      "fundIndex": 219.8378853840758,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-09",
+      "fundIndex": 221.67269185623698,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-12",
+      "fundIndex": 222.01339977157218,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-13",
+      "fundIndex": 228.04511361911622,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-14",
+      "fundIndex": 231.7526415997684,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-15",
+      "fundIndex": 231.4286643534783,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-16",
+      "fundIndex": 230.9997028914464,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-20",
+      "fundIndex": 232.78604609460473,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-21",
+      "fundIndex": 235.16540507850522,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-22",
+      "fundIndex": 233.48137973227412,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-23",
+      "fundIndex": 230.60924247867058,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-26",
+      "fundIndex": 229.14283303261104,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-27",
+      "fundIndex": 230.03245925598628,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-28",
+      "fundIndex": 233.86474938864202,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-29",
+      "fundIndex": 235.13396548501063,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-05-30",
+      "fundIndex": 235.0808141125977,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-02",
+      "fundIndex": 235.317094524471,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-03",
+      "fundIndex": 235.14835210235066,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-04",
+      "fundIndex": 237.01178530596025,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-05",
+      "fundIndex": 238.59363929849567,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-10",
+      "fundIndex": 238.2433207711696,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-11",
+      "fundIndex": 241.55051402123826,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-12",
+      "fundIndex": 242.05885093413394,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-13",
+      "fundIndex": 241.92412656238372,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-16",
+      "fundIndex": 240.13145441962158,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-17",
+      "fundIndex": 242.95682784170856,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-18",
+      "fundIndex": 241.64981391159523,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-19",
+      "fundIndex": 242.23521152429583,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-20",
+      "fundIndex": 241.1025071391025,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-23",
+      "fundIndex": 241.95372021516047,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-24",
+      "fundIndex": 242.7721751686399,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-25",
+      "fundIndex": 245.19571952718135,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-26",
+      "fundIndex": 246.88249913416593,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-27",
+      "fundIndex": 248.11031341729333,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-06-30",
+      "fundIndex": 250.18052128193844,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-01",
+      "fundIndex": 250.6561000722554,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-02",
+      "fundIndex": 251.27481251981453,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-03",
+      "fundIndex": 252.1549746344305,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-04",
+      "fundIndex": 254.7575752425947,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-07",
+      "fundIndex": 254.8813997739162,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-08",
+      "fundIndex": 254.44813111687617,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-09",
+      "fundIndex": 254.0113756829248,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-10",
+      "fundIndex": 254.5052673771878,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-11",
+      "fundIndex": 256.10065826832005,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-14",
+      "fundIndex": 255.5332512524561,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-16",
+      "fundIndex": 256.102709313562,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-17",
+      "fundIndex": 256.52997133810777,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-18",
+      "fundIndex": 257.8111420981724,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-21",
+      "fundIndex": 258.68016996718916,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-22",
+      "fundIndex": 260.6016770517924,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-23",
+      "fundIndex": 259.33430689614147,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-24",
+      "fundIndex": 260.61664968205866,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-25",
+      "fundIndex": 262.77095040162396,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-28",
+      "fundIndex": 263.12027270697536,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-29",
+      "fundIndex": 264.3852402096285,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-30",
+      "fundIndex": 264.39192075698804,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-07-31",
+      "fundIndex": 264.15174335915503,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-01",
+      "fundIndex": 265.08365041516083,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-04",
+      "fundIndex": 259.55016475753416,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-05",
+      "fundIndex": 262.14752055000827,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-06",
+      "fundIndex": 262.3418131357141,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-07",
+      "fundIndex": 262.80825012438123,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-08",
+      "fundIndex": 264.0865494211071,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-11",
+      "fundIndex": 265.0452958691363,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-12",
+      "fundIndex": 265.80356729508736,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-13",
+      "fundIndex": 266.7623723444092,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-14",
+      "fundIndex": 268.60007958055536,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-15",
+      "fundIndex": 269.2075698805764,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-18",
+      "fundIndex": 269.1653183485921,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-19",
+      "fundIndex": 269.40423581863365,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-20",
+      "fundIndex": 269.0148595297715,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-21",
+      "fundIndex": 266.1613574872234,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-22",
+      "fundIndex": 267.523046423358,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-25",
+      "fundIndex": 270.82174248599574,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-26",
+      "fundIndex": 270.70905220027345,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-27",
+      "fundIndex": 270.33025344473043,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-28",
+      "fundIndex": 271.86994380722047,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-08-29",
+      "fundIndex": 272.02497352686606,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-01",
+      "fundIndex": 271.3912591483943,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-02",
+      "fundIndex": 271.86212053465476,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-03",
+      "fundIndex": 269.64154175312797,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-04",
+      "fundIndex": 271.25524554820635,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-05",
+      "fundIndex": 272.7591012202547,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-08",
+      "fundIndex": 272.40286396237326,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-09",
+      "fundIndex": 274.9340588954711,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-10",
+      "fundIndex": 274.3200345513221,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-11",
+      "fundIndex": 276.7836328933743,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-12",
+      "fundIndex": 278.2697909750493,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-15",
+      "fundIndex": 278.85688802523606,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-16",
+      "fundIndex": 280.41899338215603,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-17",
+      "fundIndex": 279.85729999232325,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-18",
+      "fundIndex": 279.53417246477625,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-19",
+      "fundIndex": 281.9646024752014,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-22",
+      "fundIndex": 281.2925628513514,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-23",
+      "fundIndex": 282.985143986306,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-24",
+      "fundIndex": 284.17451582147,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-25",
+      "fundIndex": 282.0919430840806,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-26",
+      "fundIndex": 281.3320601225822,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-29",
+      "fundIndex": 281.5325058440139,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-09-30",
+      "fundIndex": 284.2206057381214,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-01",
+      "fundIndex": 283.39066493128706,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-02",
+      "fundIndex": 285.01925345469266,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-03",
+      "fundIndex": 286.6228485267928,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-06",
+      "fundIndex": 288.1384244573667,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-07",
+      "fundIndex": 288.09854627773376,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-08",
+      "fundIndex": 287.61737106397095,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-09",
+      "fundIndex": 288.8772402541655,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-10",
+      "fundIndex": 288.5568962880183,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-13",
+      "fundIndex": 287.0303619157231,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-14",
+      "fundIndex": 284.702601369981,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-15",
+      "fundIndex": 283.9448280550172,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-16",
+      "fundIndex": 288.314169733956,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-17",
+      "fundIndex": 287.8959616091211,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-20",
+      "fundIndex": 285.3037920310446,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-21",
+      "fundIndex": 289.9075974817853,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-22",
+      "fundIndex": 290.15808870712067,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-23",
+      "fundIndex": 289.72484935072697,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-24",
+      "fundIndex": 289.76384851097043,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-27",
+      "fundIndex": 292.678676806253,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-28",
+      "fundIndex": 295.7933062087484,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-30",
+      "fundIndex": 296.83907557632904,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-10-31",
+      "fundIndex": 296.86081665589376,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-03",
+      "fundIndex": 296.4708836547517,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-04",
+      "fundIndex": 297.5365481611794,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-05",
+      "fundIndex": 294.4916835975568,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-06",
+      "fundIndex": 295.20137455191986,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-07",
+      "fundIndex": 294.95129353563283,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-10",
+      "fundIndex": 291.7126051966454,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-11",
+      "fundIndex": 296.12888651097865,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-12",
+      "fundIndex": 297.09747797616916,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-13",
+      "fundIndex": 298.5866247237682,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-14",
+      "fundIndex": 296.46273807507646,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-17",
+      "fundIndex": 294.227333166515,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-18",
+      "fundIndex": 294.67592606157706,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-19",
+      "fundIndex": 290.0950044156074,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-20",
+      "fundIndex": 291.7203405672722,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-21",
+      "fundIndex": 295.4659886887785,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-24",
+      "fundIndex": 288.918202557712,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-25",
+      "fundIndex": 292.1994354351468,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-26",
+      "fundIndex": 293.8055210621836,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-27",
+      "fundIndex": 297.6080124375383,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-11-28",
+      "fundIndex": 298.5683704211147,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-01",
+      "fundIndex": 298.8349770019227,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-02",
+      "fundIndex": 298.48307623969566,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-03",
+      "fundIndex": 299.4653511067147,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-04",
+      "fundIndex": 298.8618749952387,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-05",
+      "fundIndex": 300.03381294584597,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-08",
+      "fundIndex": 300.9576916247618,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-09",
+      "fundIndex": 301.4709803468845,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-10",
+      "fundIndex": 301.11011358688546,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-11",
+      "fundIndex": 300.01755108714184,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-12",
+      "fundIndex": 300.0177854923124,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-15",
+      "fundIndex": 302.0866162265807,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-16",
+      "fundIndex": 301.55539550891416,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-17",
+      "fundIndex": 298.7451119196787,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-18",
+      "fundIndex": 299.1252585049521,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-19",
+      "fundIndex": 299.6755832440152,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-22",
+      "fundIndex": 300.9498390515498,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-23",
+      "fundIndex": 303.50725806309833,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-24",
+      "fundIndex": 303.8003231275275,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-25",
+      "fundIndex": 305.25096882587036,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-26",
+      "fundIndex": 305.80612817157527,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-29",
+      "fundIndex": 306.1277320655139,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-30",
+      "fundIndex": 305.4484844826707,
+      "benchIndex": null
+    },
+    {
+      "date": "2025-12-31",
+      "fundIndex": 305.75889552971756,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-02",
+      "fundIndex": 305.2097135158607,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-05",
+      "fundIndex": 304.3866583609101,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-06",
+      "fundIndex": 307.3951608224574,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-07",
+      "fundIndex": 308.2791027204478,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-08",
+      "fundIndex": 309.4005556574567,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-09",
+      "fundIndex": 308.61131344835206,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-12",
+      "fundIndex": 308.9276432259543,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-13",
+      "fundIndex": 310.6368085267225,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-14",
+      "fundIndex": 311.1406917413784,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-15",
+      "fundIndex": 308.7504915183419,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-16",
+      "fundIndex": 311.6750183275543,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-19",
+      "fundIndex": 311.1455556486665,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-20",
+      "fundIndex": 311.1526464050744,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-21",
+      "fundIndex": 307.346082239882,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-22",
+      "fundIndex": 306.3386088170333,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-23",
+      "fundIndex": 310.2139708997701,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-26",
+      "fundIndex": 310.25748235954586,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-27",
+      "fundIndex": 311.7098860966675,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-28",
+      "fundIndex": 312.3467063436485,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-29",
+      "fundIndex": 314.4409993395634,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-01-30",
+      "fundIndex": 312.6060463641707,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-02",
+      "fundIndex": 312.9060849824225,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-03",
+      "fundIndex": 313.91604896020795,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-04",
+      "fundIndex": 313.4170296528401,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-05",
+      "fundIndex": 312.5032303962561,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-06",
+      "fundIndex": 308.3156699270472,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-09",
+      "fundIndex": 310.28698811038373,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-10",
+      "fundIndex": 312.92310865793075,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-11",
+      "fundIndex": 314.4082412169848,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-12",
+      "fundIndex": 315.55328117427615,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-13",
+      "fundIndex": 314.09900219579043,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-16",
+      "fundIndex": 309.21229900489146,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-17",
+      "fundIndex": 310.0807115603356,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-18",
+      "fundIndex": 309.51752383754075,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-19",
+      "fundIndex": 311.66183303671306,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-20",
+      "fundIndex": 311.49695829990617,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-23",
+      "fundIndex": 311.0883314864159,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-24",
+      "fundIndex": 314.13914408124015,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-25",
+      "fundIndex": 310.9001627357896,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-26",
+      "fundIndex": 315.1407866754725,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-02-27",
+      "fundIndex": 315.86301830645783,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-02",
+      "fundIndex": 311.5452457650311,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-03",
+      "fundIndex": 312.38110530242074,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-04",
+      "fundIndex": 309.15252568641154,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-05",
+      "fundIndex": 312.02020924177543,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-06",
+      "fundIndex": 312.2641078216903,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-09",
+      "fundIndex": 310.4660443600065,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-10",
+      "fundIndex": 305.11152705006367,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-11",
+      "fundIndex": 310.5682450143485,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-12",
+      "fundIndex": 310.56209187862265,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-13",
+      "fundIndex": 306.8490846771098,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-16",
+      "fundIndex": 306.2981153238278,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-17",
+      "fundIndex": 307.50541915453573,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-18",
+      "fundIndex": 309.42554910876225,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-19",
+      "fundIndex": 307.19251755255215,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-23",
+      "fundIndex": 305.3949229012093,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-24",
+      "fundIndex": 305.4980025749408,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-25",
+      "fundIndex": 302.3834317737381,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-26",
+      "fundIndex": 305.2034724781959,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-27",
+      "fundIndex": 303.59697664211075,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-30",
+      "fundIndex": 297.7812964598373,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-03-31",
+      "fundIndex": 297.38518102232297,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-01",
+      "fundIndex": 299.18051952389965,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-02",
+      "fundIndex": 304.8605084130946,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-03",
+      "fundIndex": 304.87407461233784,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-06",
+      "fundIndex": 305.5458212297247,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-07",
+      "fundIndex": 306.4217054499788,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-08",
+      "fundIndex": 304.68558355460203,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-09",
+      "fundIndex": 312.72749754314077,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-10",
+      "fundIndex": 313.68767972283933,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-13",
+      "fundIndex": 317.0279534025961,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-14",
+      "fundIndex": 316.4452221487101,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-15",
+      "fundIndex": 321.9248825190586,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-16",
+      "fundIndex": 325.13394790462286,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-17",
+      "fundIndex": 325.97027625235353,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-20",
+      "fundIndex": 330.9748559433724,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-21",
+      "fundIndex": 329.9701074806308,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-22",
+      "fundIndex": 331.2405542041446,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-24",
+      "fundIndex": 331.2346647742356,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-27",
+      "fundIndex": 332.071901442002,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-28",
+      "fundIndex": 333.81370766276365,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-29",
+      "fundIndex": 331.93278197330477,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-04-30",
+      "fundIndex": 332.3186421846093,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-04",
+      "fundIndex": 332.693866261302,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-05",
+      "fundIndex": 341.67723931654484,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-06",
+      "fundIndex": 342.5249070143989,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-07",
+      "fundIndex": 344.58644188773513,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-08",
+      "fundIndex": 347.13518790797485,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-11",
+      "fundIndex": 346.3266365729495,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-12",
+      "fundIndex": 349.1684183569721,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-13",
+      "fundIndex": 346.85132324648816,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-14",
+      "fundIndex": 348.0510675104472,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-15",
+      "fundIndex": 351.1612139140565,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-18",
+      "fundIndex": 348.4130769956524,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-20",
+      "fundIndex": 346.3573436502862,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-21",
+      "fundIndex": 346.8199715549326,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-22",
+      "fundIndex": 345.70112637544554,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-25",
+      "fundIndex": 349.9799876585677,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-05-26",
+      "fundIndex": 350.5759042032949,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-01",
+      "fundIndex": 350.22992217162323,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-02",
+      "fundIndex": 357.96183532216355,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-03",
+      "fundIndex": 361.2567223007805,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-04",
+      "fundIndex": 358.11976580579415,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-05",
+      "fundIndex": 355.74641345438795,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-08",
+      "fundIndex": 352.9080598459841,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-09",
+      "fundIndex": 349.6443487550448,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-10",
+      "fundIndex": 346.3818975918971,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-11",
+      "fundIndex": 345.3343701855375,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-12",
+      "fundIndex": 341.0210806429968,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-15",
+      "fundIndex": 347.436193447555,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-16",
+      "fundIndex": 355.66167598524885,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-17",
+      "fundIndex": 355.7393812992727,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-18",
+      "fundIndex": 354.1385404879261,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-19",
+      "fundIndex": 353.73105639964206,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-22",
+      "fundIndex": 354.0395336040322,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-23",
+      "fundIndex": 354.867276862393,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-24",
+      "fundIndex": 349.8021327354439,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-25",
+      "fundIndex": 348.0960733031849,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-26",
+      "fundIndex": 348.288051137832,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-29",
+      "fundIndex": 345.90901446104095,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-06-30",
+      "fundIndex": 347.2632903336581,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-01",
+      "fundIndex": 351.7062645367831,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-02",
+      "fundIndex": 354.056234972431,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-03",
+      "fundIndex": 354.4782814819329,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-06",
+      "fundIndex": 352.7914432736557,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-07",
+      "fundIndex": 355.32735561081006,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-08",
+      "fundIndex": 351.8173725876045,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-09",
+      "fundIndex": 349.42576593354494,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-10",
+      "fundIndex": 352.9829522979618,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-13",
+      "fundIndex": 355.0826073121521,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-14",
+      "fundIndex": 355.1783618243051,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-16",
+      "fundIndex": 355.2156908477087,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-17",
+      "fundIndex": 355.30113153235936,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-20",
+      "fundIndex": 351.23891922808036,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-21",
+      "fundIndex": 351.18398051624223,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-22",
+      "fundIndex": 353.04764812502236,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-23",
+      "fundIndex": 354.31525268584375,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-24",
+      "fundIndex": 349.94324464809046,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-27",
+      "fundIndex": 348.95132986843424,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-28",
+      "fundIndex": 350.2475611607041,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-29",
+      "fundIndex": 348.03802872283757,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-30",
+      "fundIndex": 345.891082465497,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-07-31",
+      "fundIndex": 349.10647679066506,
+      "benchIndex": null
+    }
+  ]
+}

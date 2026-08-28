@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<title>JET Fon Bilgi Kartı</title>
+<style>
+  @font-face { font-family:'Inter'; font-weight:400; src:url('./assets/fonts/inter-400.ttf') format('truetype'); }
+  @font-face { font-family:'Inter'; font-weight:500; src:url('./assets/fonts/inter-500.ttf') format('truetype'); }
+  @font-face { font-family:'Inter'; font-weight:600; src:url('./assets/fonts/inter-600.ttf') format('truetype'); }
+  @font-face { font-family:'Inter'; font-weight:700; src:url('./assets/fonts/inter-700.ttf') format('truetype'); }
+  @font-face { font-family:'Inter'; font-weight:800; src:url('./assets/fonts/inter-800.ttf') format('truetype'); }
+
+  :root {
+    --teal: #00677E;
+    --teal-dark: #024a58;
+    --teal-tint: #EAF3F4;
+    --orange: #E8792A;
+    --orange-tint: #FDF1E7;
+    --ink: #1B2B2E;
+    --muted: #62767A;
+    --line: #E2E8E9;
+    --card-bg: #F8FAFA;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.2px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 11mm 12mm 8mm 12mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 7px;
+    border-bottom: 2.5px solid var(--teal);
+    margin-bottom: 8px;
+  }
+  .header-left { display:flex; align-items:center; gap:12px; }
+  .header-left img { height: 22px; display:block; }
+  .fund-title { font-size: 14.5px; font-weight: 700; color: var(--teal-dark); line-height:1.2; }
+  .fund-title .ticker { color: var(--orange); font-weight:800; }
+  .header-right { text-align:right; }
+  .date-badge {
+    display:inline-block; background: var(--teal); color:#fff; font-weight:600;
+    font-size: 9.5px; padding: 4px 11px; border-radius: 20px; letter-spacing:.2px;
+  }
+  .eyebrow { font-size:7.6px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); font-weight:600; margin-bottom:2px; }
+
+  /* Layout */
+  .main-grid { display:grid; grid-template-columns: 56mm 1fr; gap: 6mm; flex:1; min-height:0; }
+  .col-left { display:flex; flex-direction:column; gap: 7px; }
+  .col-right { display:flex; flex-direction:column; gap: 7px; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 9px 11px;
+  }
+  .card-title {
+    font-size: 9.6px; font-weight:700; color:#fff; background:var(--teal);
+    margin: -9px -11px 8px -11px; padding: 6px 11px; border-radius: 10px 10px 0 0;
+  }
+  .card-title.light {
+    color: var(--teal-dark); background: none; border-bottom: 1px solid var(--line);
+    padding: 0 0 6px 0; margin: -1px 0 8px 0; border-radius:0;
+  }
+
+  .info-row {
+    display:flex; justify-content:space-between; gap:8px;
+    padding: 3.6px 0; border-bottom: 1px solid var(--line);
+    font-size: 8.6px;
+  }
+  .info-row:last-child { border-bottom:none; }
+  .info-label { color: var(--muted); }
+  .info-value { font-weight:600; text-align:right; }
+
+  .manager-row { display:flex; justify-content:space-between; font-size:8.6px; padding:3px 0; }
+  .manager-role { color:var(--muted); }
+  .manager-name { font-weight:600; }
+  .manager-exp { color: var(--orange); font-weight:600; }
+
+  /* Risk gauge */
+  .risk-level-num { font-size: 26px; font-weight:800; color: var(--orange); line-height:1; }
+  .risk-gauge { display:flex; gap:3px; margin: 8px 0 6px 0; }
+  .risk-seg {
+    flex:1; height:20px; border-radius:5px; background: var(--seg-color);
+    display:flex; align-items:center; justify-content:center; position:relative;
+    opacity: 0.32;
+  }
+  .risk-seg span { font-size:7.6px; font-weight:700; color:#fff; }
+  .risk-seg.active { opacity:1; height:26px; margin-top:-3px; box-shadow: 0 2px 5px rgba(0,0,0,0.18); }
+  .risk-seg.active span { font-size:9px; }
+  .risk-pointer {
+    position:absolute; top:-7px; left:50%; transform:translateX(-50%);
+    width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent;
+    border-top: 5px solid var(--seg-color);
+  }
+  .risk-caption { font-size:7.4px; color:var(--muted); line-height:1.4; margin-top:4px; }
+
+  /* CTA */
+  .cta-btn {
+    display:block; text-align:center; font-weight:700; font-size:9.2px;
+    padding: 8px 10px; border-radius: 7px; margin-bottom:6px; letter-spacing:.2px;
+  }
+  .cta-primary { background: var(--orange); color:#fff; }
+  .cta-secondary { background:#fff; color: var(--teal-dark); border: 1.5px solid var(--teal); }
+  .cta-note { font-size:7.4px; color:var(--muted); line-height:1.4; }
+
+  /* Strategy / lists */
+  .strategy-text { font-size:8.6px; line-height:1.5; color:#33454A; text-align:justify; margin-bottom:6px; }
+  .benchmark-box {
+    background: var(--teal-tint); border-left: 3px solid var(--teal); border-radius:0 6px 6px 0;
+    padding: 6px 9px; font-size: 8.2px; font-weight:600; color:var(--teal-dark);
+  }
+
+  .two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .check-list { list-style:none; margin:0; padding:0; }
+  .check-list li {
+    position:relative; padding: 2.5px 0 2.5px 15px; font-size:8.3px; line-height:1.4;
+  }
+  .check-list li::before {
+    content:''; position:absolute; left:0; top:6px; width:7px; height:7px;
+    border-radius:50%; background: var(--icon-color);
+  }
+
+  .asset-card { display:flex; align-items:center; gap: 12px; }
+  .donut-wrap { flex-shrink:0; width:100px; }
+  .donut-chart { width:100%; height:auto; }
+  .legend { display:flex; flex-direction:column; gap:6px; }
+  .legend-item { display:flex; align-items:center; gap:6px; font-size:8.4px; }
+  .legend-dot { width:9px; height:9px; border-radius:2px; }
+  .legend-pct { font-weight:700; }
+
+  /* Chart */
+  .chart-section { flex:1; display:flex; flex-direction:column; min-height:0; }
+  .chart-note { font-size:7.2px; color:var(--muted); font-style:italic; margin: 2px 0 4px 0; }
+  .growth-chart { width:100%; height:auto; flex:1; }
+  .grid-line { stroke:#EEF2F3; stroke-width:1; }
+  .axis-line { stroke:#C9D3D4; stroke-width:1; }
+  .axis-label { font-size:8px; fill:#8A9A9D; font-family:'Inter'; }
+  .chart-legend { display:flex; gap:16px; justify-content:center; margin-top:2px; }
+  .chart-legend .legend-item { font-size:8.2px; }
+  .legend-line { width:14px; height:2.6px; border-radius:2px; }
+
+  /* Footer */
+  .footer { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); }
+  .contact-row { display:flex; gap:18px; font-size:7.6px; color:var(--muted); margin-bottom:4px; flex-wrap:wrap; }
+  .contact-row b { color: var(--ink); }
+  .disclaimer { font-size:5.6px; line-height:1.35; color:#9AA5A7; text-align:justify; }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <div class="header">
+    <div class="header-left">
+      <img src="data:image/png;base64,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" alt="Ata Portföy"/>
+      <div>
+        <div class="eyebrow">Fon Bilgi Kartı</div>
+        <div class="fund-title">Ata Portföy Havacılık ve Savunma Teknolojileri Değişken Fon <span class="ticker">(JET)</span></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="date-badge">31 Temmuz 2026</span>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="col-left">
+      
+  <div class="card">
+    <div class="card-title">Fon Bilgi Kartı</div>
+    
+    <div class="info-row">
+      <span class="info-label">Kuruluş Tarihi</span>
+      <span class="info-value">25.04.2024</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Birim Fiyat (31.07.2026)</span>
+      <span class="info-value">2,209815 TL</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Para Birimi</span>
+      <span class="info-value">TL</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Net Varlık Tutarı</span>
+      <span class="info-value">837.155.715 TL</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Yönetim Komisyonu</span>
+      <span class="info-value">%2,50</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Getiri Hesaplaması</span>
+      <span class="info-value">Günlük</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Saklama</span>
+      <span class="info-value">T. İş Bankası A.Ş. / Euroclear</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Kurucu</span>
+      <span class="info-value">Ata Portföy Yönetimi A.Ş</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Denetçi</span>
+      <span class="info-value">Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş.</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Portföy Yöneticisi</span>
+      <span class="info-value">Ata Portföy Yönetimi A.Ş</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Yasal Adres</span>
+      <span class="info-value">Türkiye</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Alım / Satım Valörü</span>
+      <span class="info-value">T+1 / T+3</span>
+    </div>
+  </div>
+      
+  <div class="card">
+    <div class="card-title">Fon Yöneticileri</div>
+    
+    <div class="manager-row">
+      <span class="manager-role">Fon Yöneticisi</span>
+      <span class="manager-name">Farshad Mirzazadeh</span>
+    </div>
+    <div class="manager-row" style="margin-top:-2px;">
+      <span></span><span class="manager-exp">10 yıl tecrübe</span>
+    </div>
+  
+    <div class="manager-row">
+      <span class="manager-role">Risk Yöneticisi</span>
+      <span class="manager-name">Seyhan Dönmezkuş</span>
+    </div>
+    <div class="manager-row" style="margin-top:-2px;">
+      <span></span><span class="manager-exp">16 yıl tecrübe</span>
+    </div>
+  
+  </div>
+      
+  <div class="card">
+    <div class="card-title light">Fon Risk Seviyesi</div>
+    <div class="risk-level-num">6<span style="font-size:14px;color:var(--muted);font-weight:600;">/7</span></div>
+    <div class="risk-gauge"><div class="risk-seg " style="--seg-color:#66A3B3">
+      
+      <span>1</span>
+    </div><div class="risk-seg " style="--seg-color:#338599">
+      
+      <span>2</span>
+    </div><div class="risk-seg " style="--seg-color:#006680">
+      
+      <span>3</span>
+    </div><div class="risk-seg " style="--seg-color:#FFC83E">
+      
+      <span>4</span>
+    </div><div class="risk-seg " style="--seg-color:#FF9327">
+      
+      <span>5</span>
+    </div><div class="risk-seg active" style="--seg-color:#FF4D06">
+      <div class="risk-pointer"></div>
+      <span>6</span>
+    </div><div class="risk-seg " style="--seg-color:#FF0100">
+      
+      <span>7</span>
+    </div></div>
+    <div class="risk-caption">Risk değerleri; fonların volatilitesi dikkate alınarak, haftalık getiriler kullanılmak suretiyle hesaplanır. En az risk 1, en fazla risk 7 olmak üzere risk değeri 1-7 arasındadır.</div>
+  </div>
+      
+  <div class="card">
+    <div class="cta-btn cta-primary">ATA YATIRIM'DA HESAP AÇ</div>
+    <div class="cta-btn cta-secondary">BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM</div>
+    <div class="cta-note">Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz.</div>
+  </div>
+    </div>
+
+    <div class="col-right">
+      <div class="card">
+        <div class="card-title light">Fon Stratejisi Nedir?</div>
+        <div class="strategy-text">Ata Portföy Havacılık ve Savunma Teknolojileri Değişken Fon; havacılık, uzay ve savunma alanlarında gelişen teknolojiler, artan stratejik işbirlikleri ve yükselen kamu harcamaları ile ortaya çıkan uzun vadeli küresel büyüme potansiyeline yatırım imkânı sunmayı hedefler. Fon, havacılık ve savunma endüstrisinin tüm paydaş sektörlerinden oluşan bir yatırım evrenine sahiptir. Temaya uygunluk gözetilerek oluşturulan yatırım evreni içinden, finansal veriler ve piyasa performansları kriterleri ile seçilen şirketler fon portföyüne dahil edilecektir.</div><div class="strategy-text">Havacılık ve savunma teknolojilerinin stratejik önemi nedeniyle ekonomik döngülerden bağımsız hareket eden ve makroekonomik dalgalanmalar ile düşük korelasyona sahip bir yatırım teması ile küresel yatırım portföyleri için çeşitlilik sunmak hedeflenmektedir.</div>
+        <div class="benchmark-box">Fon'un karşılaştırma ölçütü: %65 Nasdaq US Benchmark Aerospace and Defense Total Return Index + %35 BIST Teknoloji Ağırlık Sınırlamalı Getiri Endeksi</div>
+      </div>
+
+      
+
+      
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title light" style="font-size:8.8px;">Fon Hangi Sektörlere Yatırım Yapıyor?</div>
+          <ul class="check-list" style="--icon-color:#00677E"><li>İnsanlı ve İnsansız Hava Araçları</li><li>Havacılık Teknolojileri ve Elektronik Sistemleri</li><li>Gelişmiş Savunma Sistemleri ve Savunma Araçları</li><li>Uzay Havacılığı ve Uydular</li><li>Uzay Bazlı İletişim ve Görüntüleme Teknolojileri</li><li>Siber Güvenlik ve Güvenli İletişim Ağı Teknolojileri</li><li>Savunma Hizmetleri ve Danışmanlık Faaliyetleri</li></ul>
+        </div>
+        <div class="card">
+          <div class="card-title light" style="font-size:8.8px;">Fonun Avantajları Nelerdir?</div>
+          <ul class="check-list" style="--icon-color:#E8792A"><li>Tek işlemle dünyadaki farklı borsalarda işlem gören şirketlere tek fon ile yatırım yapabilirsiniz.</li><li>Stratejik önemi artan savunma, havacılık ve uzay teknolojileri şirketlerine yatırım imkânı sağlar.</li><li>Herhangi bir yatırım alt limiti olmadan TEFAS'a üye tüm banka ve aracı kurumdan alıp satabilirsiniz.</li></ul>
+          
+    <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--line);">
+      <div style="font-size:8.4px; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Varlık Dağılımı</div>
+      <div class="asset-card">
+        <div class="donut-wrap">
+<svg viewBox="0 0 168 168" xmlns="http://www.w3.org/2000/svg" class="donut-chart">
+  <circle cx="84" cy="84" r="73" fill="none" stroke="#EEF2F3" stroke-width="22"/>
+  <circle cx="84" cy="84" r="73" fill="none" stroke="#00677E" stroke-width="22"
+      stroke-dasharray="91.73 366.94"
+      stroke-dashoffset="0.00" transform="rotate(-90 84 84)" stroke-linecap="butt"/><circle cx="84" cy="84" r="73" fill="none" stroke="#E8792A" stroke-width="22"
+      stroke-dasharray="366.94 91.73"
+      stroke-dashoffset="-91.73" transform="rotate(-90 84 84)" stroke-linecap="butt"/>
+</svg></div>
+        <div class="legend">
+          
+            <div class="legend-item" style="align-items:flex-start;">
+              <span class="legend-dot" style="background:#00677E; margin-top:2px;"></span>
+              <span>
+                <span class="legend-pct">%20</span> Yerli Varlıklar
+                
+              </span>
+            </div>
+            <div class="legend-item" style="align-items:flex-start;">
+              <span class="legend-dot" style="background:#E8792A; margin-top:2px;"></span>
+              <span>
+                <span class="legend-pct">%80</span> Yabancı Varlıklar
+                
+              </span>
+            </div>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+      
+
+      
+      <div class="card chart-section">
+        <div class="card-title light">Kuruluştan Beri 100 TL Yatırımım Ne Kazandırdı?</div>
+        
+        <div id="chart-slot" style="flex:1; min-height:0; display:flex; align-items:stretch;">
+<svg viewBox="0 0 445 371" xmlns="http://www.w3.org/2000/svg" class="growth-chart">
+  <defs>
+    <linearGradient id="fundArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00677E" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00677E" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <line x1="44" y1="335.0" x2="421" y2="335.0" class="grid-line" /><line x1="44" y1="282.5" x2="421" y2="282.5" class="grid-line" /><line x1="44" y1="230.0" x2="421" y2="230.0" class="grid-line" /><line x1="44" y1="177.5" x2="421" y2="177.5" class="grid-line" /><line x1="44" y1="125.0" x2="421" y2="125.0" class="grid-line" /><line x1="44" y1="72.5" x2="421" y2="72.5" class="grid-line" /><line x1="44" y1="20.0" x2="421" y2="20.0" class="grid-line" />
+  <path d="M44.0,282.5 L44.7,280.9 L45.3,281.1 L46.0,281.7 L46.7,281.0 L47.3,279.3 L48.0,279.8 L48.7,279.5 L49.4,279.7 L50.0,279.7 L50.7,280.9 L51.4,281.7 L52.0,280.7 L52.7,279.8 L53.4,278.9 L54.0,277.2 L54.7,277.6 L55.4,277.9 L56.1,277.5 L56.7,278.0 L57.4,277.4 L58.1,278.3 L58.7,280.6 L59.4,279.9 L60.1,280.5 L60.7,278.3 L61.4,278.8 L62.1,278.1 L62.7,279.0 L63.4,278.8 L64.1,280.4 L64.8,281.1 L65.4,279.7 L66.1,280.6 L66.8,282.9 L67.4,277.5 L68.1,276.7 L68.8,275.6 L69.4,278.6 L70.1,280.2 L70.8,279.2 L71.5,278.8 L72.1,281.3 L72.8,281.2 L73.5,279.3 L74.1,277.7 L74.8,278.4 L75.5,277.1 L76.1,276.7 L76.8,275.4 L77.5,273.8 L78.2,272.9 L78.8,270.5 L79.5,270.4 L80.2,270.8 L80.8,272.9 L81.5,273.1 L82.2,271.4 L82.8,273.6 L83.5,272.8 L84.2,270.8 L84.8,272.0 L85.5,270.0 L86.2,269.1 L86.9,269.7 L87.5,274.8 L88.2,279.5 L88.9,275.6 L89.5,272.2 L90.2,271.5 L90.9,270.5 L91.5,269.8 L92.2,268.2 L92.9,267.7 L93.6,265.9 L94.2,266.0 L94.9,264.5 L95.6,264.8 L96.2,264.6 L96.9,264.0 L97.6,264.2 L98.2,264.6 L98.9,263.4 L99.6,261.9 L100.2,260.6 L100.9,259.9 L101.6,264.3 L102.3,264.2 L102.9,265.7 L103.6,266.8 L104.3,266.4 L104.9,266.0 L105.6,269.4 L106.3,265.3 L106.9,263.0 L107.6,262.9 L108.3,263.2 L109.0,263.1 L109.6,260.3 L110.3,259.7 L111.0,258.9 L111.6,258.3 L112.3,258.5 L113.0,259.0 L113.6,258.6 L114.3,259.7 L115.0,259.2 L115.7,259.9 L116.3,260.6 L117.0,259.7 L117.7,260.5 L118.3,260.2 L119.0,260.0 L119.7,262.5 L120.3,261.1 L121.0,260.8 L121.7,259.5 L122.3,258.9 L123.0,256.3 L123.7,256.0 L124.4,256.2 L125.0,258.6 L125.7,258.7 L126.4,258.6 L127.0,259.0 L127.7,259.7 L128.4,260.3 L129.0,262.6 L129.7,262.5 L130.4,262.4 L131.1,261.5 L131.7,257.0 L132.4,255.1 L133.1,252.8 L133.7,248.8 L134.4,249.3 L135.1,250.7 L135.7,251.8 L136.4,254.4 L137.1,255.4 L137.7,255.3 L138.4,256.6 L139.1,253.8 L139.8,253.1 L140.4,251.4 L141.1,252.4 L141.8,250.9 L142.4,250.8 L143.1,250.5 L143.8,249.7 L144.4,248.7 L145.1,246.8 L145.8,246.9 L146.5,246.9 L147.1,247.8 L147.8,250.4 L148.5,249.3 L149.1,249.1 L149.8,249.2 L150.5,249.3 L151.1,249.0 L151.8,249.0 L152.5,252.1 L153.1,253.3 L153.8,251.4 L154.5,250.5 L155.2,249.1 L155.8,249.1 L156.5,249.3 L157.2,252.1 L157.8,252.8 L158.5,252.6 L159.2,252.9 L159.8,252.7 L160.5,253.0 L161.2,253.4 L161.9,252.7 L162.5,253.1 L163.2,254.7 L163.9,252.3 L164.5,250.8 L165.2,249.2 L165.9,247.1 L166.5,245.2 L167.2,243.9 L167.9,240.2 L168.6,237.6 L169.2,236.6 L169.9,239.2 L170.6,239.8 L171.2,239.3 L171.9,238.6 L172.6,237.2 L173.2,240.4 L173.9,237.9 L174.6,237.5 L175.2,238.6 L175.9,234.9 L176.6,236.6 L177.3,235.9 L177.9,236.3 L178.6,234.4 L179.3,233.9 L179.9,231.2 L180.6,228.1 L181.3,228.3 L181.9,230.4 L182.6,230.7 L183.3,231.1 L184.0,231.4 L184.6,229.9 L185.3,226.9 L186.0,227.2 L186.6,217.2 L187.3,219.8 L188.0,214.7 L188.6,211.6 L189.3,213.6 L190.0,216.3 L190.6,215.3 L191.3,213.2 L192.0,211.6 L192.7,206.6 L193.3,201.3 L194.0,200.4 L194.7,199.3 L195.3,198.1 L196.0,205.3 L196.7,199.7 L197.3,197.3 L198.0,197.1 L198.7,199.1 L199.4,202.8 L200.0,203.7 L200.7,205.1 L201.4,217.6 L202.0,219.4 L202.7,213.5 L203.4,218.0 L204.0,207.7 L204.7,207.5 L205.4,201.9 L206.0,200.7 L206.7,202.1 L207.4,201.7 L208.1,202.2 L208.7,202.7 L209.4,205.8 L210.1,201.9 L210.7,200.3 L211.4,198.1 L212.1,197.6 L212.7,198.6 L213.4,191.4 L214.1,190.0 L214.8,190.6 L215.4,190.5 L216.1,186.0 L216.8,187.9 L217.4,189.1 L218.1,187.7 L218.8,188.3 L219.4,186.6 L220.1,184.3 L220.8,180.0 L221.5,180.2 L222.1,180.8 L222.8,180.6 L223.5,177.8 L224.1,175.4 L224.8,173.6 L225.5,175.8 L226.1,175.4 L226.8,175.8 L227.5,173.0 L228.1,170.8 L228.8,169.4 L229.5,172.7 L230.2,171.9 L230.8,169.1 L231.5,170.1 L232.2,167.8 L232.8,168.7 L233.5,169.4 L234.2,172.4 L234.8,170.4 L235.5,169.7 L236.2,169.2 L236.9,166.6 L237.5,162.1 L238.2,160.7 L238.9,156.2 L239.5,159.6 L240.2,160.6 L240.9,158.2 L241.5,157.2 L242.2,155.0 L242.9,156.3 L243.5,156.4 L244.2,154.3 L244.9,153.7 L245.6,151.3 L246.2,152.9 L246.9,149.8 L247.6,147.1 L248.2,145.0 L248.9,147.4 L249.6,144.4 L250.2,141.8 L250.9,143.7 L251.6,145.3 L252.3,145.1 L252.9,144.9 L253.6,145.2 L254.3,149.7 L254.9,144.3 L255.6,143.2 L256.3,142.2 L256.9,145.9 L257.6,145.8 L258.3,146.7 L259.0,145.5 L259.6,143.8 L260.3,142.7 L261.0,144.6 L261.6,142.6 L262.3,146.3 L263.0,147.1 L263.6,143.7 L264.3,141.9 L265.0,140.6 L265.6,139.4 L266.3,139.8 L267.0,139.6 L267.7,139.9 L268.3,137.9 L269.0,143.5 L269.7,143.5 L270.3,143.8 L271.0,147.1 L271.7,145.0 L272.3,145.9 L273.0,141.4 L273.7,139.6 L274.4,138.9 L275.0,130.9 L275.7,129.7 L276.4,132.1 L277.0,132.2 L277.7,130.8 L278.4,126.3 L279.0,125.2 L279.7,123.9 L280.4,124.3 L281.0,124.9 L281.7,121.8 L282.4,121.8 L283.1,119.7 L283.7,118.4 L284.4,118.9 L285.1,121.1 L285.7,122.1 L286.4,120.0 L287.1,120.7 L287.7,124.5 L288.4,126.2 L289.1,127.5 L289.8,125.5 L290.4,126.2 L291.1,132.7 L291.8,126.1 L292.4,124.7 L293.1,125.7 L293.8,123.4 L294.4,120.7 L295.1,119.5 L295.8,118.3 L296.4,118.3 L297.1,118.0 L297.8,117.2 L298.5,121.8 L299.1,123.3 L299.8,125.7 L300.5,129.1 L301.1,124.5 L301.8,127.1 L302.5,126.9 L303.1,128.7 L303.8,132.7 L304.5,130.2 L305.2,135.1 L305.8,136.7 L306.5,134.0 L307.2,144.5 L307.8,146.7 L308.5,146.8 L309.2,141.4 L309.8,139.5 L310.5,139.3 L311.2,140.2 L311.9,139.6 L312.5,140.7 L313.2,136.8 L313.9,137.0 L314.5,130.7 L315.2,127.0 L315.9,129.5 L316.5,129.2 L317.2,125.5 L317.9,124.5 L318.5,128.5 L319.2,129.4 L319.9,126.6 L320.6,123.6 L321.2,120.1 L321.9,117.6 L322.6,117.9 L323.2,117.9 L323.9,118.1 L324.6,122.0 L325.2,119.4 L325.9,120.3 L326.6,117.8 L327.3,104.6 L327.9,98.5 L328.6,94.1 L329.3,90.6 L329.9,87.9 L330.6,82.8 L331.3,80.3 L331.9,83.4 L332.6,77.5 L333.3,75.2 L333.9,72.4 L334.6,71.9 L335.3,79.1 L336.0,80.0 L336.6,79.4 L337.3,76.8 L338.0,78.2 L338.6,77.3 L339.3,74.5 L340.0,77.6 L340.6,81.0 L341.3,79.0 L342.0,78.2 L342.7,88.5 L343.3,83.8 L344.0,74.3 L344.7,74.8 L345.3,75.2 L346.0,72.8 L346.7,71.3 L347.3,70.9 L348.0,72.1 L348.7,66.0 L349.3,69.4 L350.0,65.9 L350.7,67.3 L351.4,71.3 L352.0,70.0 L352.7,70.3 L353.4,68.9 L354.0,62.5 L354.7,72.3 L355.4,70.0 L356.0,71.4 L356.7,79.8 L357.4,79.3 L358.1,70.9 L358.7,74.5 L359.4,77.0 L360.1,83.2 L360.7,80.2 L361.4,76.7 L362.1,71.7 L362.7,76.5 L363.4,79.4 L364.1,86.4 L364.8,81.8 L365.4,86.6 L366.1,96.0 L366.8,98.9 L367.4,95.4 L368.1,80.2 L368.8,79.4 L369.4,80.5 L370.1,77.8 L370.8,80.8 L371.4,65.5 L372.1,63.8 L372.8,64.3 L373.5,60.3 L374.1,56.5 L374.8,57.0 L375.5,61.4 L376.1,54.3 L376.8,60.3 L377.5,67.0 L378.1,73.7 L378.8,81.6 L379.5,78.7 L380.2,84.0 L380.8,83.6 L381.5,80.2 L382.2,75.7 L382.8,78.7 L383.5,70.4 L384.2,69.9 L384.8,74.8 L385.5,78.0 L386.2,81.2 L386.8,84.9 L387.5,83.5 L388.2,88.4 L388.9,90.9 L389.5,86.3 L390.2,90.0 L390.9,82.6 L391.5,78.5 L392.2,80.4 L392.9,72.4 L393.5,66.9 L394.2,80.7 L394.9,76.6 L395.6,74.7 L396.2,76.7 L396.9,77.9 L397.6,77.9 L398.2,75.1 L398.9,71.4 L399.6,66.8 L400.2,63.7 L400.9,62.0 L401.6,63.1 L402.3,62.0 L402.9,66.0 L403.6,67.1 L404.3,75.7 L404.9,72.2 L405.6,78.6 L406.3,74.1 L406.9,72.4 L407.6,63.7 L408.3,54.8 L408.9,54.0 L409.6,48.4 L410.3,56.9 L411.0,68.3 L411.6,71.1 L412.3,70.3 L413.0,74.7 L413.6,73.8 L414.3,74.4 L415.0,75.2 L415.6,75.3 L416.3,74.0 L417.0,68.0 L417.7,61.2 L418.3,61.4 L419.0,61.4 L419.7,62.8 L420.3,67.6 L421.0,72.3  L421.0,335.0 L44.0,335.0 Z" fill="url(#fundArea)" stroke="none"/>
+  <path d="M44.0,282.5 L44.7,284.8 L45.3,282.1 L46.0,281.6 L46.7,280.2 L47.3,280.3 L48.0,280.1 L48.7,279.3 L49.4,280.2 L50.0,282.9 L50.7,283.9 L51.4,283.9 L52.0,281.8 L52.7,280.8 L53.4,280.3 L54.0,280.7 L54.7,279.6 L55.4,282.6 L56.1,282.5 L56.7,283.1 L57.4,285.0 L58.1,288.5 L58.7,285.7 L59.4,284.3 L60.1,283.4 L60.7,283.5 L61.4,282.6 L62.1,281.2 L62.7,282.4 L63.4,284.3 L64.1,286.3 L64.8,286.0 L65.4,285.0 L66.1,285.9 L66.8,282.6 L67.4,281.6 L68.1,282.3 L68.8,284.7 L69.4,285.6 L70.1,283.9 L70.8,285.0 L71.5,287.5 L72.1,286.2 L72.8,285.5 L73.5,284.7 L74.1,285.4 L74.8,284.0 L75.5,283.2 L76.1,283.6 L76.8,282.8 L77.5,282.8 L78.2,280.0 L78.8,279.9 L79.5,280.1 L80.2,281.6 L80.8,280.2 L81.5,275.6 L82.2,277.7 L82.8,273.8 L83.5,272.9 L84.2,273.9 L84.8,270.4 L85.5,269.6 L86.2,270.5 L86.9,275.4 L87.5,281.4 L88.2,280.7 L88.9,279.3 L89.5,276.6 L90.2,277.6 L90.9,278.5 L91.5,276.6 L92.2,276.4 L92.9,274.0 L93.6,274.4 L94.2,273.2 L94.9,275.3 L95.6,276.2 L96.2,276.3 L96.9,276.9 L97.6,278.3 L98.2,276.8 L98.9,275.9 L99.6,273.8 L100.2,271.9 L100.9,276.0 L101.6,276.2 L102.3,276.7 L102.9,279.1 L103.6,276.7 L104.3,277.6 L104.9,279.3 L105.6,278.2 L106.3,276.6 L106.9,276.9 L107.6,277.2 L108.3,278.1 L109.0,276.2 L109.6,275.8 L110.3,274.3 L111.0,273.5 L111.6,274.9 L112.3,276.6 L113.0,276.0 L113.6,275.8 L114.3,275.8 L115.0,277.1 L115.7,277.0 L116.3,274.2 L117.0,275.4 L117.7,275.8 L118.3,275.5 L119.0,278.1 L119.7,276.8 L120.3,277.0 L121.0,276.5 L121.7,274.3 L122.3,273.4 L123.0,273.2 L123.7,273.6 L124.4,277.0 L125.0,276.0 L125.7,276.8 L126.4,276.5 L127.0,277.6 L127.7,277.5 L128.4,279.8 L129.0,277.7 L129.7,279.0 L130.4,277.7 L131.1,274.9 L131.7,275.0 L132.4,270.3 L133.1,268.3 L133.7,270.6 L134.4,270.1 L135.1,274.4 L135.7,275.2 L136.4,275.1 L137.1,274.8 L137.7,275.6 L138.4,273.8 L139.1,272.0 L139.8,272.6 L140.4,272.1 L141.1,272.2 L141.8,271.2 L142.4,270.1 L143.1,271.2 L143.8,271.2 L144.4,269.4 L145.1,270.7 L145.8,270.8 L146.5,272.3 L147.1,272.1 L147.8,273.9 L148.5,274.9 L149.1,273.7 L149.8,273.3 L150.5,274.0 L151.1,276.6 L151.8,276.3 L152.5,274.7 L153.1,274.0 L153.8,272.7 L154.5,271.9 L155.2,271.2 L155.8,272.1 L156.5,273.7 L157.2,274.3 L157.8,274.7 L158.5,273.1 L159.2,273.9 L159.8,273.1 L160.5,272.7 L161.2,271.8 L161.9,272.9 L162.5,272.0 L163.2,270.9 L163.9,270.5 L164.5,268.5 L165.2,266.7 L165.9,265.9 L166.5,263.0 L167.2,263.2 L167.9,259.6 L168.6,260.3 L169.2,261.3 L169.9,260.8 L170.6,262.5 L171.2,259.6 L171.9,260.2 L172.6,261.1 L173.2,261.5 L173.9,262.0 L174.6,262.0 L175.2,262.2 L175.9,263.6 L176.6,263.3 L177.3,266.0 L177.9,266.7 L178.6,267.9 L179.3,267.2 L179.9,265.0 L180.6,265.6 L181.3,266.5 L181.9,270.5 L182.6,269.4 L183.3,270.2 L184.0,267.8 L184.6,264.9 L185.3,261.1 L186.0,260.1 L186.6,262.5 L187.3,257.5 L188.0,256.0 L188.6,256.7 L189.3,256.3 L190.0,253.6 L190.6,253.8 L191.3,253.2 L192.0,251.0 L192.7,247.3 L193.3,247.0 L194.0,251.1 L194.7,249.2 L195.3,254.2 L196.0,246.6 L196.7,245.1 L197.3,246.9 L198.0,247.3 L198.7,248.6 L199.4,247.4 L200.0,253.1 L200.7,264.3 L201.4,264.4 L202.0,261.9 L202.7,252.7 L203.4,251.9 L204.0,251.5 L204.7,249.9 L205.4,252.2 L206.0,251.4 L206.7,248.1 L207.4,247.9 L208.1,251.4 L208.7,251.1 L209.4,243.9 L210.1,241.8 L210.7,239.7 L211.4,239.0 L212.1,240.0 L212.7,238.0 L213.4,238.3 L214.1,236.5 L214.8,234.1 L215.4,227.2 L216.1,229.0 L216.8,230.5 L217.4,231.4 L218.1,231.3 L218.8,228.3 L219.4,226.6 L220.1,227.9 L220.8,230.1 L221.5,228.7 L222.1,229.0 L222.8,229.0 L223.5,225.7 L224.1,227.1 L224.8,227.5 L225.5,227.8 L226.1,227.4 L226.8,226.7 L227.5,222.4 L228.1,220.1 L228.8,220.4 L229.5,219.0 L230.2,219.3 L230.8,220.6 L231.5,222.3 L232.2,218.8 L232.8,221.5 L233.5,221.5 L234.2,219.7 L234.8,217.3 L235.5,219.8 L236.2,217.5 L236.9,219.2 L237.5,213.8 L238.2,210.1 L238.9,213.5 L239.5,214.9 L240.2,211.4 L240.9,210.7 L241.5,210.0 L242.2,210.3 L242.9,209.0 L243.5,208.0 L244.2,206.6 L244.9,202.7 L245.6,199.3 L246.2,198.3 L246.9,195.8 L247.6,192.2 L248.2,194.7 L248.9,189.1 L249.6,187.9 L250.2,186.5 L250.9,187.4 L251.6,189.4 L252.3,188.4 L252.9,186.6 L253.6,187.9 L254.3,184.3 L254.9,186.2 L255.6,187.8 L256.3,188.6 L256.9,188.7 L257.6,189.2 L258.3,190.9 L259.0,191.0 L259.6,193.3 L260.3,193.4 L261.0,191.9 L261.6,193.9 L262.3,189.2 L263.0,188.8 L263.6,187.7 L264.3,187.7 L265.0,182.0 L265.6,183.6 L266.3,182.4 L267.0,184.3 L267.7,185.6 L268.3,188.1 L269.0,187.3 L269.7,184.2 L270.3,188.0 L271.0,189.6 L271.7,190.5 L272.3,187.1 L273.0,189.2 L273.7,189.5 L274.4,181.5 L275.0,175.6 L275.7,177.2 L276.4,175.7 L277.0,170.0 L277.7,165.5 L278.4,165.1 L279.0,165.1 L279.7,166.1 L280.4,165.1 L281.0,166.1 L281.7,163.8 L282.4,162.2 L283.1,162.8 L283.7,163.4 L284.4,161.2 L285.1,162.5 L285.7,158.2 L286.4,160.6 L287.1,167.1 L287.7,165.0 L288.4,165.2 L289.1,169.5 L289.8,172.5 L290.4,177.0 L291.1,170.2 L291.8,167.0 L292.4,168.3 L293.1,165.6 L293.8,164.6 L294.4,161.2 L295.1,161.3 L295.8,165.4 L296.4,165.3 L297.1,165.5 L297.8,170.6 L298.5,173.0 L299.1,177.0 L299.8,177.8 L300.5,175.7 L301.1,178.8 L301.8,179.4 L302.5,185.4 L303.1,185.9 L303.8,181.8 L304.5,183.2 L305.2,184.6 L305.8,188.1 L306.5,189.2 L307.2,187.8 L307.8,189.1 L308.5,186.6 L309.2,186.9 L309.8,186.3 L310.5,189.5 L311.2,186.5 L311.9,186.7 L312.5,184.6 L313.2,185.0 L313.9,180.8 L314.5,178.3 L315.2,175.9 L315.9,173.1 L316.5,172.3 L317.2,168.6 L317.9,171.3 L318.5,177.2 L319.2,173.1 L319.9,166.1 L320.6,161.4 L321.2,157.7 L321.9,156.0 L322.6,156.7 L323.2,156.7 L323.9,160.1 L324.6,157.4 L325.2,157.9 L325.9,151.8 L326.6,143.9 L327.3,134.4 L327.9,135.9 L328.6,135.1 L329.3,123.2 L329.9,118.5 L330.6,114.7 L331.3,114.5 L331.9,106.3 L332.6,101.4 L333.3,98.7 L333.9,95.8 L334.6,107.4 L335.3,110.7 L336.0,110.8 L336.6,103.5 L337.3,105.4 L338.0,109.0 L338.6,105.1 L339.3,111.4 L340.0,113.9 L340.6,113.2 L341.3,116.0 L342.0,124.5 L342.7,117.0 L343.3,114.0 L344.0,113.1 L344.7,116.8 L345.3,111.5 L346.0,108.5 L346.7,110.1 L347.3,107.9 L348.0,100.4 L348.7,100.3 L349.3,97.1 L350.0,100.3 L350.7,99.5 L351.4,102.7 L352.0,100.0 L352.7,93.9 L353.4,81.6 L354.0,92.6 L354.7,86.4 L355.4,86.7 L356.0,90.0 L356.7,96.8 L357.4,91.5 L358.1,91.8 L358.7,98.9 L359.4,103.2 L360.1,101.5 L360.7,93.2 L361.4,91.5 L362.1,97.7 L362.7,95.1 L363.4,96.2 L364.1,98.2 L364.8,103.5 L365.4,110.5 L366.1,117.7 L366.8,111.6 L367.4,106.5 L368.1,101.0 L368.8,103.6 L369.4,98.0 L370.1,98.8 L370.8,83.3 L371.4,78.4 L372.1,71.2 L372.8,62.5 L373.5,61.8 L374.1,60.5 L374.8,65.5 L375.5,61.9 L376.1,64.8 L376.8,75.9 L377.5,78.4 L378.1,83.6 L378.8,73.8 L379.5,73.3 L380.2,71.0 L380.8,68.0 L381.5,66.0 L382.2,65.1 L382.8,55.9 L383.5,57.8 L384.2,55.0 L384.8,51.9 L385.5,57.8 L386.2,60.9 L386.8,58.7 L387.5,65.3 L388.2,67.9 L388.9,69.3 L389.5,79.5 L390.2,62.6 L390.9,63.5 L391.5,67.7 L392.2,63.9 L392.9,53.7 L393.5,66.7 L394.2,70.2 L394.9,72.6 L395.6,73.1 L396.2,74.8 L396.9,71.4 L397.6,61.7 L398.2,65.5 L398.9,60.3 L399.6,51.4 L400.2,48.3 L400.9,47.7 L401.6,50.1 L402.3,55.9 L402.9,56.3 L403.6,66.1 L404.3,62.3 L404.9,65.7 L405.6,64.4 L406.3,66.2 L406.9,54.1 L407.6,44.6 L408.3,41.6 L408.9,39.8 L409.6,49.5 L410.3,56.0 L411.0,63.6 L411.6,59.4 L412.3,67.5 L413.0,69.0 L413.6,70.1 L414.3,70.8 L415.0,69.4 L415.6,67.3 L416.3,61.2 L417.0,51.5 L417.7,46.9 L418.3,49.6 L419.0,50.6 L419.7,61.1 L420.3,68.3 L421.0,61.4 " fill="none" stroke="#E8792A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M44.0,282.5 L44.7,280.9 L45.3,281.1 L46.0,281.7 L46.7,281.0 L47.3,279.3 L48.0,279.8 L48.7,279.5 L49.4,279.7 L50.0,279.7 L50.7,280.9 L51.4,281.7 L52.0,280.7 L52.7,279.8 L53.4,278.9 L54.0,277.2 L54.7,277.6 L55.4,277.9 L56.1,277.5 L56.7,278.0 L57.4,277.4 L58.1,278.3 L58.7,280.6 L59.4,279.9 L60.1,280.5 L60.7,278.3 L61.4,278.8 L62.1,278.1 L62.7,279.0 L63.4,278.8 L64.1,280.4 L64.8,281.1 L65.4,279.7 L66.1,280.6 L66.8,282.9 L67.4,277.5 L68.1,276.7 L68.8,275.6 L69.4,278.6 L70.1,280.2 L70.8,279.2 L71.5,278.8 L72.1,281.3 L72.8,281.2 L73.5,279.3 L74.1,277.7 L74.8,278.4 L75.5,277.1 L76.1,276.7 L76.8,275.4 L77.5,273.8 L78.2,272.9 L78.8,270.5 L79.5,270.4 L80.2,270.8 L80.8,272.9 L81.5,273.1 L82.2,271.4 L82.8,273.6 L83.5,272.8 L84.2,270.8 L84.8,272.0 L85.5,270.0 L86.2,269.1 L86.9,269.7 L87.5,274.8 L88.2,279.5 L88.9,275.6 L89.5,272.2 L90.2,271.5 L90.9,270.5 L91.5,269.8 L92.2,268.2 L92.9,267.7 L93.6,265.9 L94.2,266.0 L94.9,264.5 L95.6,264.8 L96.2,264.6 L96.9,264.0 L97.6,264.2 L98.2,264.6 L98.9,263.4 L99.6,261.9 L100.2,260.6 L100.9,259.9 L101.6,264.3 L102.3,264.2 L102.9,265.7 L103.6,266.8 L104.3,266.4 L104.9,266.0 L105.6,269.4 L106.3,265.3 L106.9,263.0 L107.6,262.9 L108.3,263.2 L109.0,263.1 L109.6,260.3 L110.3,259.7 L111.0,258.9 L111.6,258.3 L112.3,258.5 L113.0,259.0 L113.6,258.6 L114.3,259.7 L115.0,259.2 L115.7,259.9 L116.3,260.6 L117.0,259.7 L117.7,260.5 L118.3,260.2 L119.0,260.0 L119.7,262.5 L120.3,261.1 L121.0,260.8 L121.7,259.5 L122.3,258.9 L123.0,256.3 L123.7,256.0 L124.4,256.2 L125.0,258.6 L125.7,258.7 L126.4,258.6 L127.0,259.0 L127.7,259.7 L128.4,260.3 L129.0,262.6 L129.7,262.5 L130.4,262.4 L131.1,261.5 L131.7,257.0 L132.4,255.1 L133.1,252.8 L133.7,248.8 L134.4,249.3 L135.1,250.7 L135.7,251.8 L136.4,254.4 L137.1,255.4 L137.7,255.3 L138.4,256.6 L139.1,253.8 L139.8,253.1 L140.4,251.4 L141.1,252.4 L141.8,250.9 L142.4,250.8 L143.1,250.5 L143.8,249.7 L144.4,248.7 L145.1,246.8 L145.8,246.9 L146.5,246.9 L147.1,247.8 L147.8,250.4 L148.5,249.3 L149.1,249.1 L149.8,249.2 L150.5,249.3 L151.1,249.0 L151.8,249.0 L152.5,252.1 L153.1,253.3 L153.8,251.4 L154.5,250.5 L155.2,249.1 L155.8,249.1 L156.5,249.3 L157.2,252.1 L157.8,252.8 L158.5,252.6 L159.2,252.9 L159.8,252.7 L160.5,253.0 L161.2,253.4 L161.9,252.7 L162.5,253.1 L163.2,254.7 L163.9,252.3 L164.5,250.8 L165.2,249.2 L165.9,247.1 L166.5,245.2 L167.2,243.9 L167.9,240.2 L168.6,237.6 L169.2,236.6 L169.9,239.2 L170.6,239.8 L171.2,239.3 L171.9,238.6 L172.6,237.2 L173.2,240.4 L173.9,237.9 L174.6,237.5 L175.2,238.6 L175.9,234.9 L176.6,236.6 L177.3,235.9 L177.9,236.3 L178.6,234.4 L179.3,233.9 L179.9,231.2 L180.6,228.1 L181.3,228.3 L181.9,230.4 L182.6,230.7 L183.3,231.1 L184.0,231.4 L184.6,229.9 L185.3,226.9 L186.0,227.2 L186.6,217.2 L187.3,219.8 L188.0,214.7 L188.6,211.6 L189.3,213.6 L190.0,216.3 L190.6,215.3 L191.3,213.2 L192.0,211.6 L192.7,206.6 L193.3,201.3 L194.0,200.4 L194.7,199.3 L195.3,198.1 L196.0,205.3 L196.7,199.7 L197.3,197.3 L198.0,197.1 L198.7,199.1 L199.4,202.8 L200.0,203.7 L200.7,205.1 L201.4,217.6 L202.0,219.4 L202.7,213.5 L203.4,218.0 L204.0,207.7 L204.7,207.5 L205.4,201.9 L206.0,200.7 L206.7,202.1 L207.4,201.7 L208.1,202.2 L208.7,202.7 L209.4,205.8 L210.1,201.9 L210.7,200.3 L211.4,198.1 L212.1,197.6 L212.7,198.6 L213.4,191.4 L214.1,190.0 L214.8,190.6 L215.4,190.5 L216.1,186.0 L216.8,187.9 L217.4,189.1 L218.1,187.7 L218.8,188.3 L219.4,186.6 L220.1,184.3 L220.8,180.0 L221.5,180.2 L222.1,180.8 L222.8,180.6 L223.5,177.8 L224.1,175.4 L224.8,173.6 L225.5,175.8 L226.1,175.4 L226.8,175.8 L227.5,173.0 L228.1,170.8 L228.8,169.4 L229.5,172.7 L230.2,171.9 L230.8,169.1 L231.5,170.1 L232.2,167.8 L232.8,168.7 L233.5,169.4 L234.2,172.4 L234.8,170.4 L235.5,169.7 L236.2,169.2 L236.9,166.6 L237.5,162.1 L238.2,160.7 L238.9,156.2 L239.5,159.6 L240.2,160.6 L240.9,158.2 L241.5,157.2 L242.2,155.0 L242.9,156.3 L243.5,156.4 L244.2,154.3 L244.9,153.7 L245.6,151.3 L246.2,152.9 L246.9,149.8 L247.6,147.1 L248.2,145.0 L248.9,147.4 L249.6,144.4 L250.2,141.8 L250.9,143.7 L251.6,145.3 L252.3,145.1 L252.9,144.9 L253.6,145.2 L254.3,149.7 L254.9,144.3 L255.6,143.2 L256.3,142.2 L256.9,145.9 L257.6,145.8 L258.3,146.7 L259.0,145.5 L259.6,143.8 L260.3,142.7 L261.0,144.6 L261.6,142.6 L262.3,146.3 L263.0,147.1 L263.6,143.7 L264.3,141.9 L265.0,140.6 L265.6,139.4 L266.3,139.8 L267.0,139.6 L267.7,139.9 L268.3,137.9 L269.0,143.5 L269.7,143.5 L270.3,143.8 L271.0,147.1 L271.7,145.0 L272.3,145.9 L273.0,141.4 L273.7,139.6 L274.4,138.9 L275.0,130.9 L275.7,129.7 L276.4,132.1 L277.0,132.2 L277.7,130.8 L278.4,126.3 L279.0,125.2 L279.7,123.9 L280.4,124.3 L281.0,124.9 L281.7,121.8 L282.4,121.8 L283.1,119.7 L283.7,118.4 L284.4,118.9 L285.1,121.1 L285.7,122.1 L286.4,120.0 L287.1,120.7 L287.7,124.5 L288.4,126.2 L289.1,127.5 L289.8,125.5 L290.4,126.2 L291.1,132.7 L291.8,126.1 L292.4,124.7 L293.1,125.7 L293.8,123.4 L294.4,120.7 L295.1,119.5 L295.8,118.3 L296.4,118.3 L297.1,118.0 L297.8,117.2 L298.5,121.8 L299.1,123.3 L299.8,125.7 L300.5,129.1 L301.1,124.5 L301.8,127.1 L302.5,126.9 L303.1,128.7 L303.8,132.7 L304.5,130.2 L305.2,135.1 L305.8,136.7 L306.5,134.0 L307.2,144.5 L307.8,146.7 L308.5,146.8 L309.2,141.4 L309.8,139.5 L310.5,139.3 L311.2,140.2 L311.9,139.6 L312.5,140.7 L313.2,136.8 L313.9,137.0 L314.5,130.7 L315.2,127.0 L315.9,129.5 L316.5,129.2 L317.2,125.5 L317.9,124.5 L318.5,128.5 L319.2,129.4 L319.9,126.6 L320.6,123.6 L321.2,120.1 L321.9,117.6 L322.6,117.9 L323.2,117.9 L323.9,118.1 L324.6,122.0 L325.2,119.4 L325.9,120.3 L326.6,117.8 L327.3,104.6 L327.9,98.5 L328.6,94.1 L329.3,90.6 L329.9,87.9 L330.6,82.8 L331.3,80.3 L331.9,83.4 L332.6,77.5 L333.3,75.2 L333.9,72.4 L334.6,71.9 L335.3,79.1 L336.0,80.0 L336.6,79.4 L337.3,76.8 L338.0,78.2 L338.6,77.3 L339.3,74.5 L340.0,77.6 L340.6,81.0 L341.3,79.0 L342.0,78.2 L342.7,88.5 L343.3,83.8 L344.0,74.3 L344.7,74.8 L345.3,75.2 L346.0,72.8 L346.7,71.3 L347.3,70.9 L348.0,72.1 L348.7,66.0 L349.3,69.4 L350.0,65.9 L350.7,67.3 L351.4,71.3 L352.0,70.0 L352.7,70.3 L353.4,68.9 L354.0,62.5 L354.7,72.3 L355.4,70.0 L356.0,71.4 L356.7,79.8 L357.4,79.3 L358.1,70.9 L358.7,74.5 L359.4,77.0 L360.1,83.2 L360.7,80.2 L361.4,76.7 L362.1,71.7 L362.7,76.5 L363.4,79.4 L364.1,86.4 L364.8,81.8 L365.4,86.6 L366.1,96.0 L366.8,98.9 L367.4,95.4 L368.1,80.2 L368.8,79.4 L369.4,80.5 L370.1,77.8 L370.8,80.8 L371.4,65.5 L372.1,63.8 L372.8,64.3 L373.5,60.3 L374.1,56.5 L374.8,57.0 L375.5,61.4 L376.1,54.3 L376.8,60.3 L377.5,67.0 L378.1,73.7 L378.8,81.6 L379.5,78.7 L380.2,84.0 L380.8,83.6 L381.5,80.2 L382.2,75.7 L382.8,78.7 L383.5,70.4 L384.2,69.9 L384.8,74.8 L385.5,78.0 L386.2,81.2 L386.8,84.9 L387.5,83.5 L388.2,88.4 L388.9,90.9 L389.5,86.3 L390.2,90.0 L390.9,82.6 L391.5,78.5 L392.2,80.4 L392.9,72.4 L393.5,66.9 L394.2,80.7 L394.9,76.6 L395.6,74.7 L396.2,76.7 L396.9,77.9 L397.6,77.9 L398.2,75.1 L398.9,71.4 L399.6,66.8 L400.2,63.7 L400.9,62.0 L401.6,63.1 L402.3,62.0 L402.9,66.0 L403.6,67.1 L404.3,75.7 L404.9,72.2 L405.6,78.6 L406.3,74.1 L406.9,72.4 L407.6,63.7 L408.3,54.8 L408.9,54.0 L409.6,48.4 L410.3,56.9 L411.0,68.3 L411.6,71.1 L412.3,70.3 L413.0,74.7 L413.6,73.8 L414.3,74.4 L415.0,75.2 L415.6,75.3 L416.3,74.0 L417.0,68.0 L417.7,61.2 L418.3,61.4 L419.0,61.4 L419.7,62.8 L420.3,67.6 L421.0,72.3 " fill="none" stroke="#00677E" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <line x1="44" y1="335" x2="421" y2="335" class="axis-line"/>
+  <text x="36" y="338.0" text-anchor="end" class="axis-label">70</text><text x="36" y="285.5" text-anchor="end" class="axis-label">100</text><text x="36" y="233.0" text-anchor="end" class="axis-label">130</text><text x="36" y="180.5" text-anchor="end" class="axis-label">160</text><text x="36" y="128.0" text-anchor="end" class="axis-label">190</text><text x="36" y="75.5" text-anchor="end" class="axis-label">220</text><text x="36" y="23.0" text-anchor="end" class="axis-label">250</text>
+  <text x="44.0" y="353" text-anchor="middle" class="axis-label">Nis '24</text><text x="127.7" y="353" text-anchor="middle" class="axis-label">Eki '24</text><text x="211.4" y="353" text-anchor="middle" class="axis-label">Nis '25</text><text x="295.8" y="353" text-anchor="middle" class="axis-label">Eki '25</text><text x="380.2" y="353" text-anchor="middle" class="axis-label">Nis '26</text>
+  
+</svg></div>
+        
+  <div class="chart-legend">
+    <div class="legend-item"><span class="legend-line" style="background:#00677E"></span> JET Endeks (100 TL)</div>
+    <div class="legend-item"><span class="legend-line" style="background:#E8792A"></span> Karşılaştırma Ölçütü</div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="footer">
+    <div class="contact-row">
+      <span><b>Ata Portföy Yönetimi A.Ş</b></span>
+      <span>Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey</span>
+      <span>py@ataportfoy.com.tr</span>
+      <span>+90 212 310 63 60</span>
+    </div>
+    <div class="disclaimer">Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz.</div>
+  </div>
+</div>
+</body>
+</html>

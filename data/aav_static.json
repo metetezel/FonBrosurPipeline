@@ -1,0 +1,64 @@
+{
+  "fundCode": "AAV",
+  "fundName": "Ata Portföy İkinci Hisse Senedi Fonu",
+  "reportDate": "31 Temmuz 2026",
+  "riskLevel": 6,
+  "info": [
+    ["Kuruluş Tarihi", "16.11.2012"],
+    ["Para Birimi", "TL"],
+    ["Net Varlık Tutarı", "123.753.055 TL"],
+    ["Yönetim Komisyonu", "%2,25"],
+    ["Getiri Hesaplaması", "Günlük"],
+    ["Saklama", "T. İş Bankası A.Ş."],
+    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
+    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
+    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
+    ["Yasal Adres", "Türkiye"],
+    ["Alım / Satım Valörü", "T+1 / T+2"]
+  ],
+  "managers": [
+    { "role": "Fon Yöneticisi", "name": "Samet Zağlı", "experience": "17 yıl" },
+    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
+    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+  ],
+  "strategyTitle": "Hisse Senedi Portföyünüzde Aktif Yönetim!",
+  "strategyParagraphs": [
+    "Ata Portföy İkinci Hisse Senedi Fonu, Ata Portföy'ün uzman fon yöneticileri tarafından piyasa şartlarına göre seçilmiş, büyüme potansiyeli olan sektör ve şirket hisselerine aktif yönetim modeliyle yatırım yapmanıza olanak sağlar. Fon'da, getiri potansiyeli yüksek hisse senetlerine yer verilerek BIST-100 Getiri Endeksi'nin üzerinde getiri hedeflenmektedir. Fon'un içeriği, tecrübeli fon yöneticilerinin analizleri, komite kararları ve piyasa gelişmelerine göre güncellenir."
+  ],
+  "benchmarkText": "Karşılaştırma Ölçütü: BIST-100 Getiri Endeksi",
+  "comparisonTable": {
+    "columns": ["Fon", "BIST 100 Getiri Endeksi"],
+    "rows": [
+      { "label": "Haftalık", "values": ["-%2,09", "-%4,67"] },
+      { "label": "Aylık", "values": ["-%3,42", "-%7,36"] },
+      { "label": "Yılbaşından Beri", "values": ["%13,42", "%19,39"] },
+      { "label": "Kuruluştan Beri* (Kümülatif)", "values": ["%5798,47", "%2563,81"] },
+      { "label": "Yıllık Ortalama", "values": ["%34,64", "%27,05"] }
+    ]
+  },
+  "extraNote": "*16/11/2012 tarihi itibari ile",
+  "whyInvest": {
+    "title": "Neden Yatırım Yapmalıyım?",
+    "items": [
+      "Alt limit olmadan, dilediğiniz banka veya aracı kurumdan yatırım yapabilirsiniz.",
+      "Tek işlemle uzman portföy yöneticileri tarafından seçilen, potansiyeli yüksek hisse senetlerine aktif yönetim modeliyle yatırım yapabilirsiniz.",
+      "Kazancınız üzerinden %0 stopaj uygulanır."
+    ]
+  },
+  "assetAllocation": [
+    { "label": "Yatırım Fonları Katılma Payı", "pct": 2 },
+    { "label": "Hisse Senedi", "pct": 98 }
+  ],
+  "contact": {
+    "email": "py@ataportfoy.com.tr",
+    "company": "Ata Portföy Yönetimi A.Ş",
+    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
+    "phone": "+90 212 310 63 60"
+  },
+  "cta": {
+    "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
+  },
+  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+}
