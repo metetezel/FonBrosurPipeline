@@ -1,14 +1,19 @@
 // Computes ANZ/UANZ's "Fon'un Güncel Bilgileri (Yıllık)" table from raw eurobond
 // holdings in Farshad's Book2.xlsx, replacing Elmas Öztürk's manual monthly email.
 //
-// Not automated here (needs a data source beyond Book2.xlsx / not reliably derivable):
-//   - Mevduat Eşleniği: a USD deposit-equivalent market rate. The only cached KYD
-//     deposit series we have (MEVUS = "BIST-KYD 1 Aylık Mevduat USD (TL)") implies
-//     an annualized yield of ~2.7% as of the report date, nowhere near the ~7.2%
-//     the brochure shows — it's very likely the wrong index (ANZ's own strategy
-//     text distinguishes a TL-converted index from a pure-USD "KYD 1 Aylık Gösterge
-//     Dolar Mevduat Endeksi", and we may only have cached the former). Left manual
-//     until the correct series is identified.
+// "Mevduat Eslenigi" (deposit equivalent) is derived, not looked up from a market
+// index. Reverse-engineered from ANZ.pdf/UANZ.pdf (31.07.2026) and verified against
+// every other figure in the same table:
+//     Ortalama Getiri              7,29%
+//     - Yonetim komisyonu 0,75  ->  6,54%   (matches)
+//     x (1 - 0,175) fon stopaji ->  5,40%   (matches)
+//     / (1 - 0,25) mevduat stopaji -> 7,20% (matches the published "Mevduat Eslenigi")
+// Meaning: the gross rate a USD deposit would have to pay for the investor to keep the
+// same net return as this fund, given deposit interest is withheld at 25% while the fund
+// is withheld at 17,5%. Both rates come from the fund's own tax table in
+// data/<kod>_static.json ("Doviz Mevduatinda" / "Eurobond Fonu Alirsa", row "1. Stopaj").
+// An earlier attempt looked for a KYD USD deposit index (~2,7% at the time, nowhere near
+// 7,2%) - that was the wrong track: this row is arithmetic, not market data.
 const ExcelJS = require('exceljs');
 const { bondYTM, macaulayDuration, yearsBetween } = require('./bond_ytm');
 
@@ -19,6 +24,7 @@ function parseTRDate(s) {
 
 const YONETIM_KOMISYONU = { ANZ: 0.0075, UANZ: 0.0075 }; // from data/<kod>_static.json "info"
 const STOPAJ_ORANI = 0.175; // from data/<kod>_static.json taxTable, "Eurobond Fonu Alırsa" / 1. Stopaj
+const MEVDUAT_STOPAJI = 0.25; // from the same taxTable, "Döviz Mevduatında" / 1. Stopaj
 
 async function computeAnzTable(fundCode) {
   const wb = new ExcelJS.Workbook();
@@ -62,6 +68,10 @@ async function computeAnzTable(fundCode) {
   const komisyon = YONETIM_KOMISYONU[fundCode];
   const komisyonSonrasi = fonOrtalamaGetiri - komisyon;
   const netGetiri = komisyonSonrasi * (1 - STOPAJ_ORANI);
+  // The brochure divides the *displayed* (2-decimal) net return, so round first to
+  // reproduce the published figure exactly (5,40 / 0,75 = 7,20, not 5,3955 -> 7,19).
+  const netGetiriGosterilen = Math.round(netGetiri * 10000) / 10000;
+  const mevduatEsligi = netGetiriGosterilen / (1 - MEVDUAT_STOPAJI);
 
   return {
     asOf: asOf.toISOString().slice(0, 10),
@@ -71,7 +81,8 @@ async function computeAnzTable(fundCode) {
     yonetimKomisyonuSonrasi: komisyonSonrasi,
     netGetiriStopajSonrasi: netGetiri,
     fonunOrtalamaVadesi: fonOrtalamaVade,
-    mevduatEsligi: null, // not automated - see header comment
+    mevduatStopaji: MEVDUAT_STOPAJI,
+    mevduatEsligi,
   };
 }
 
@@ -86,7 +97,7 @@ async function main() {
   console.log('Yönetim Komisyonu Sonrası:      ', pct(r.yonetimKomisyonuSonrasi));
   console.log('Net Getiri (Stopaj Sonrası):    ', pct(r.netGetiriStopajSonrasi));
   console.log('Fonun Ortalama Vadesi (Yıl):    ', r.fonunOrtalamaVadesi.toFixed(2));
-  console.log('Mevduat Eşleniği:                OTOMATİKLEŞMEDİ (bkz. dosya başı yorum)');
+  console.log('Mevduat Eşleniği:               ', pct(r.mevduatEsligi));
 }
 
 if (require.main === module) main().catch(e => { console.error(e); process.exit(1); });

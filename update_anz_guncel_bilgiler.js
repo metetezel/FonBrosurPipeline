@@ -3,9 +3,10 @@
 // Elmas Öztürk's manual monthly email. ANZ and UANZ share the same underlying eurobond
 // portfolio (Book2.xlsx), so the same computed table applies to both share classes.
 //
-// "Mevduat Eşleniği" is left untouched - it's a USD deposit-equivalent market rate that
-// isn't derivable from Book2.xlsx (see compute_anz_table.js header comment), so it stays
-// whatever was last entered manually until a correct data source is found.
+// "Mevduat Eşleniği" is written too, as of 28.08.2026 - it is derived from the net return
+// and the deposit withholding rate, not looked up from a market index (see the header
+// comment in compute_anz_table.js for the derivation and its verification against the
+// published 31.07.2026 brochure). Nothing in this table is manual any more.
 const fs = require('fs');
 const path = require('path');
 const { computeAnzTable } = require('./compute_anz_table');
@@ -29,8 +30,8 @@ async function main() {
     set('Ortalama Getiri', fmtPct(r.fonunOrtalamaGetirisi));
     set('Yönetim Komisyon Sonrası Getiri', fmtPct(r.yonetimKomisyonuSonrasi));
     set('Net Getiri (Stopaj Sonrası)', fmtPct(r.netGetiriStopajSonrasi));
+    set('Mevduat Eşleniği', fmtPct(r.mevduatEsligi));
     set('Ortalama Vade (Yıl)', r.fonunOrtalamaVadesi.toFixed(2).replace('.', ','));
-    // Mevduat Eşleniği intentionally left as-is.
     fs.writeFileSync(file, JSON.stringify(s, null, 2));
     console.log(`updated ${file}`);
   }

@@ -112,12 +112,80 @@ Elmas'ın ekran görüntüsünü sana atarım öyle kalibre ederiz" dedi. Bunun
 üzerine `update_anz_guncel_bilgiler.js` yazıldı — `compute_anz_table.js`'in
 çıktısını doğrudan `data/anz_static.json` ve `data/uanz_static.json`'ın
 `guncelBilgiler.rows`'una yazıyor (ANZ ve UANZ aynı eurobond portföyünü
-paylaştığı için tek hesap ikisine de uygulanıyor). **"Mevduat Eşleniği"
-satırı hâlâ manuel** (bkz. az sonraki bölüm — doğru KYD endeksi net değil).
+paylaştığı için tek hesap ikisine de uygulanıyor). **"Mevduat Eşleniği" satırı
+da 28.08.2026'dan beri otomatik** (bkz. bir sonraki bölüm) — tablonun tamamı
+artık hesaplanıyor, elle girilen satır kalmadı.
 Mete'nin göndereceği Elmas ekran görüntüsüyle hesaplama kalibre edilip
 satır 25-27'deki olası floater bonoların etkisi giderilebilirse,
 `bond_ytm.js`'teki varsayımlar buna göre güncellenmeli. Kullanım (aylık,
 Elmas'ın kendi cadence'i ile): `node update_anz_guncel_bilgiler.js`.
+
+## "Mevduat Eşleniği" Çözüldü: Piyasa Verisi Değil, Aritmetik (28.08.2026)
+
+Bu satır aylardır "doğru KYD endeksi bulunamadı" diye manuel bırakılmıştı —
+elimizdeki KYD USD mevduat endeksi ~%2,7 ima ediyordu, broşürdeki değer %7,20'ydi.
+**Yanlış iz:** bu satır bir piyasa faizi değil, fonun kendi net getirisinden
+türetiliyor. Orijinal ANZ.pdf/UANZ.pdf (31.07.2026) tablosunun tamamı zinciri
+doğruluyor:
+
+| Satır | PDF | Hesap |
+|---|---|---|
+| Ortalama Getiri | %7,29 | (Book2.xlsx'ten YTM) |
+| Yönetim Komisyon Sonrası Getiri | %6,54 | 7,29 − 0,75 (yönetim komisyonu) |
+| Net Getiri (Stopaj Sonrası) | %5,40 | 6,54 × (1 − 0,175) — fon stopajı |
+| **Mevduat Eşleniği** | **%7,20** | **5,40 ÷ (1 − 0,25) — döviz mevduatı stopajı** |
+
+Anlamı: yatırımcının cebinde aynı net getiriyi bırakabilmesi için bir USD
+mevduatın **brüt** ne vermesi gerektiği — çünkü mevduat faizinden %25, fondan
+%17,5 stopaj kesiliyor. İki oran da fonun kendi "Vergi Oranı" tablosunda zaten
+yazıyor (`data/<kod>_static.json` → `taxTable`, "1. Stopaj" satırı), yani sayfanın
+kendi içinde tutarlı.
+
+Bir incelik: broşür bölmeyi **ekranda gösterilen yuvarlanmış** net getiriyle
+yapıyor (5,40 ÷ 0,75 = 7,20; yuvarlanmamış 5,3955 kullanılsa 7,19 çıkardı) —
+`compute_anz_table.js` yayımlanmış rakamı birebir üretebilmek için aynı sırayı
+izliyor. `update_anz_guncel_bilgiler.js` artık bu satırı da yazıyor.
+
+## Net Varlık Tutarı Artık TEFAS'tan Otomatik (28.08.2026)
+
+Broşür bilgi kartındaki son elle yazılan rakamdı. Kaynak:
+
+```
+POST https://www.tefas.gov.tr/api/funds/fonBilgiGetir   {"fonKodu":"AAL","dil":"TR"}
+-> { sonFiyat, payAdet, portBuyukluk, yatirimciSayi, fonKategori, pazarPayi, ... }
+```
+
+`portBuyukluk` = `payAdet × sonFiyat` (14 fonun hepsinde doğrulandı), yani fonun
+toplam net varlık değeri — broşürün "Net Varlık Tutarı" alanının aynısı.
+`fetch_tefas_net_varlik.js` bunu çekip `data/<kod>_static.json`'a yazıyor;
+`Net_Varlik_Guncelle.bat` ile çift tıklanabilir.
+
+**İki TEFAS kısıtı ve tasarım sonucu:**
+1. **Sadece bugünün değeri var** — eski `BindHistoryInfo` kapatılmış, yerine
+   tarihsel fon büyüklüğü veren bir endpoint bulunamadı (~40 makul isim denendi).
+   Bu yüzden script her çalıştığında değeri `data/tefas_net_varlik_log.json`'a
+   kaydediyor; ay sonu değerleri bundan sonra birikiyor. **Varsayılan davranış
+   güvenli:** broşürün `reportDate`'ine denk gelen kayıt yoksa hiçbir dosyayı
+   değiştirmiyor, sadece karşılaştırma tablosunu basıyor (`--guncel` ile zorlanır).
+   Pratikte: ay sonu turundan hemen önce çalıştırılınca tarihler örtüşür ve
+   otomatik yazar.
+2. **UANZ'ın TEFAS'ta ayrı kaydı yok** (ANZ'nin pay sınıfı) — ANZ'nin değerini
+   alıyor, broşürlerin kendi varsayımıyla aynı.
+
+Ayrıca TEFAS'ın site tarafı (`tefas.gov.tr/tr/fon-detayli-analiz/<kod>` ve eski
+`FonAnaliz.aspx`) artık F5 bot korumasının arkasında — Playwright ile bile
+"The requested URL was rejected" dönüyor. **Sadece `/api/funds/*` uçları açık**,
+onlar da düz `curl`/`fetch` ile sorunsuz çalışıyor. Workbook'taki
+`TEFAS_RiskDegeri_TumFonlar` Power Query sorgusu eski HTML sayfasını okuduğu için
+büyük ihtimalle artık boş dönüyordur — kontrol edilmeli.
+
+**Bulunan veri hatası (Mete'nin teyidi gerekiyor):** PKF.pdf ve YLC.pdf'in ikisi
+de Net Varlık Tutarı olarak **birebir aynı** rakamı basıyor: 85.552.765 TL.
+TEFAS'a göre 28.08.2026'da PKF 412.771.367 TL, YLC 74.561.260 TL — yani YLC'nin
+rakamı tutarlı, PKF'inki değil (PKF'in fiyatı aynı dönemde sadece %14 arttı,
+büyüklüğü 5 katına çıkmış olamaz). Yayımlanmış PKF broşüründeki değer büyük
+ihtimalle YLC'den kopyalanmış. Bu, tam da bu alanı otomatikleştirmenin önlediği
+hata tipi.
 
 ## ANZ/UANZ "ATA Eurobond Fonu vs. USD Mevduat" Grafiği (Para Birimi Düzeltmesi, 28.08.2026)
 
@@ -163,6 +231,9 @@ haline getirildi:
   verisini ve "Fon'un Güncel Bilgileri" tablosunu yeniden hesaplar, her iki
   PDF'i yeniden üretir. Ne zaman: Elmas'tan yeni bir tablo geldiğinde ya da
   kur/fiyatlarda büyük hareket olduğunda.
+- **`Net_Varlik_Guncelle.bat`** — 15 fonun "Net Varlık Tutarı" satırını TEFAS'tan
+  tazeler (bkz. yukarıdaki bölüm). Ne zaman: ay sonu broşür turundan hemen önce,
+  `Tum_Fonlari_Yenile.bat`'tan önce.
 - **`Tum_Fonlari_Yenile.bat`** — 15 fonun PDF'ini mevcut `data/*.json`'dan
   yeniden render eder (veri çekmez, sadece render). Bir CSS/şablon
   düzeltmesinden sonra tüm fonları tek seferde yenilemek için.

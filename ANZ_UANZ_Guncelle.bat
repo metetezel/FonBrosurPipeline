@@ -42,8 +42,8 @@ call node render_a.js UANZ
 
 echo.
 echo TAMAMLANDI. ANZ_Brosur_Modern.pdf ve UANZ_Brosur_Modern.pdf guncellendi.
-echo Not: "Mevduat Esligi" satiri hala manuel - dogru KYD endeksi netlesene kadar
-echo elle kontrol edilmeli (bkz. README.md).
+echo Not: "Mevduat Esligi" satiri da (28.08.2026'dan beri) otomatik hesaplaniyor -
+echo net getiri / (1 - mevduat stopaji %25). Tablonun tamami artik otomatik.
 goto son
 
 :hata
