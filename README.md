@@ -81,6 +81,7 @@ Excel'e ihtiyaç yok. Ağ paylaşımına erişim iki şey için gerekli: ANZ'nin
 | Nasdaq | NQROBO, NQUSB502010T, NQXAUAGR | `POST indexes.nasdaq.com/Index/HistoryData` |
 | Yahoo Finance | USD/TRY, URA proxy ETF'i | chart API |
 | KAP | Risk değeri, yönetim ücreti, kurucu, denetçi, PY kuruluşu, ISIN, yönetici tecrübesi | `kap.org.tr/tr/fon-bilgileri/genel/<oid>` |
+| TEFAS | Portföy dağılımı (enstrüman kırılımı) | `POST /api/funds/dagilimSiraliGetirT` |
 | Ağ dosyaları | ANZ eurobond portföyü (Farshad), AYA temettü olayları (Ferruh Erim) | canlı Excel |
 
 **TEFAS'ın site tarafı F5 bot korumasında** — `tefas.gov.tr` sayfaları curl'e de headless
@@ -113,10 +114,16 @@ Excel arşivi 28.08.2026'da emekliye ayrıldı (`Proje_Gelistirme/Yedek/` altın
 (PKP'nin farklı denetçisi, JET'in "T. İş Bankası A.Ş. / Euroclear" saklaması böyle korunur);
 yazmamışsa (`null`) `ortak.json`'dan gelir.
 
-**Elle yazılan alanlar** (kamu kaynağında karşılığı yok, arandı ve bulunamadı): strateji ve
-pazarlama metinleri, "Neden Yatırım Yapmalıyım"/avantajlar/sektörler, vergi oranı tablosu,
-portföy dağılımı yüzdeleri, ve şu kart satırları: Kuruluş Tarihi, Para Birimi, Getiri
-Hesaplaması, Saklama, Alım/Satım Valörü.
+**Elle yazılan alanlar** (kamu kaynağında karşılığı yok): strateji ve pazarlama metinleri,
+"Neden Yatırım Yapmalıyım"/avantajlar/sektörler, vergi oranı tablosu, ve şu kart satırları:
+Kuruluş Tarihi, Para Birimi, Getiri Hesaplaması, Saklama, Alım/Satım Valörü.
+
+**Portföy dağılımı artık otomatik** (`fetch_tefas_dagilim.js`): pastalar TEFAS'ın enstrüman
+kırılımını gösteriyor. %1 altındaki kalemler "Diğer"de toplanıyor, yüzdeler tam sayıya
+yuvarlanıp fark en büyük dilime ekleniyor. Pasta taşımayan fonlara (AAL, AYA, DGH, PKP)
+eklenmiyor. **API adı tahmin edilemezdi:** TEFAS kısaltma kullanıyor
+(`dagilimSiraliGetirT`) ve 17 alanlı sabit bir sorgu gövdesi istiyor; eksik gövdeyle
+`NullPointerException` dönüyor.
 
 ---
 
