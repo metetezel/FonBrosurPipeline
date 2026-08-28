@@ -15,7 +15,6 @@ const { fiyatSerisi, benchSerisi } = require('./lib/arsiv');
 const fs = require('fs');
 const path = require('path');
 
-const SRC = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx";
 const USDTRY_CACHE = path.join(__dirname, 'data', 'usdtry_cache.json');
 
 function excelDateToISO(v) {

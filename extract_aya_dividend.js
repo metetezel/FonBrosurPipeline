@@ -12,7 +12,6 @@ const { fiyatSerisi } = require('./lib/arsiv');
 const fs = require('fs');
 const path = require('path');
 
-const ARCHIVE = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx";
 const SOURCE = "//atafiles/Ata.Portföy/Ferruh Erim/Hisse Senedi Fonları/AYA/AYA Temettü Dahil Getiri.xlsx";
 
 function excelDateToISO(v) {

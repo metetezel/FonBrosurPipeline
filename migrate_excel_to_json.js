@@ -16,7 +16,7 @@ const ExcelJS = require('exceljs');
 const fs = require('fs');
 const path = require('path');
 
-const SRC = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx";
+const SRC = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Yedek/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi_SON_20260828.xlsx";
 const DATA_DIR = path.join(__dirname, 'data');
 
 // Benchmark_Tanimlari'nın Sembol sütunu hâlâ fiyat endekslerini gösteriyor (Yahoo dönemi
