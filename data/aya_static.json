@@ -1,7 +1,6 @@
 {
   "fundCode": "AYA",
   "fundName": "Ata Portföy Kâr Payı Ödeyen Hisse Senedi Fonu",
-  "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
     [
@@ -22,7 +21,7 @@
     ],
     [
       "Getiri Hesaplaması",
-      "Günlük"
+      null
     ],
     [
       "Saklama",
@@ -30,19 +29,19 @@
     ],
     [
       "Kurucu",
-      "Ata Portföy Yönetimi A.Ş"
+      null
     ],
     [
       "Denetçi",
-      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+      null
     ],
     [
       "Portföy Yöneticisi",
-      "Ata Portföy Yönetimi A.Ş"
+      null
     ],
     [
       "Yasal Adres",
-      "Türkiye"
+      null
     ],
     [
       "Alım / Satım Valörü",
@@ -54,11 +53,6 @@
       "role": "Fon Yöneticisi",
       "name": "Batuhan Özşahin",
       "experience": "28 yıl"
-    },
-    {
-      "role": "Risk Yöneticisi",
-      "name": "Seyhan Dönmezkuş",
-      "experience": "16 yıl"
     }
   ],
   "strategyTitle": "Fon Yatırımınızda Nakit Temettü Alma Dönemi!",
@@ -129,17 +123,5 @@
   "whyInvest": null,
   "secondChart": {
     "title": "Kâr Payı Dağıtmasaydı Ne Olurdu?"
-  },
-  "contact": {
-    "email": "py@ataportfoy.com.tr",
-    "company": "Ata Portföy Yönetimi A.Ş",
-    "address": "Dikilitaş Mah. Emirhan Cad. No:109 Atakule Beşiktaş 34349 İstanbul/Turkey",
-    "phone": "+90 212 310 63 60"
-  },
-  "cta": {
-    "primary": "ATA YATIRIM'DA HESAP AÇ",
-    "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
-    "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
-  },
-  "disclaimer": "Bu sunumda yer alan bilgiler Ata Portföy tarafından bilgilendirme amacıyla hazırlanmıştır. Yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Burada yer alan yorum ve tavsiyeler, yorum ve tavsiyede bulunanların kişisel görüşlerine dayanmaktadır. Bu görüşlere ilişkin bilgiler güvenilirliğine inanılan kaynaklardan elde edilmiş olup, Ata Yatırım bu bilgilerin doğruluğu hakkında garanti vermemektedir. Bu görüşler, mali durumunuz ile risk ve getiri tercihinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir. Bu durumda, ortaya çıkabilecek sonuçlardan dolayı Ata Yatırım sorumluluk kabul etmez. Ata Yatırım, hiçbir şekil ve surette ön ihbara ve/veya ihtara gerek kalmaksızın söz konusu bilgileri, tavsiyeleri değiştirebilir, ortadan kaldırabilir. Ata Yatırım, mesajın ve bilgilerinin size, değişikliğe uğrayarak, geç ulaşmasından, bütünlük ve gizliliğinin korunamamasından, virüs içermesinden ve bilgisayar sisteminize verebileceği herhangi bir zarardan sorumlu tutulamaz. Bu e-postanın virüs içermemesi için alınması gereken tedbirler alınmıştır. İşbu e-posta ve eklerinin kullanımdan kaynaklı zarar veya kayıplardan sorumlu olmadığımız için kullanmadan önce virüs kontrol programlarınızı uygulamanızı tavsiye ederiz."
+  }
 }

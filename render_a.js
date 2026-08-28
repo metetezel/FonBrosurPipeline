@@ -3,6 +3,7 @@ const path = require('path');
 const { chromium } = require('playwright');
 const { growthChartSVG, donutChartSVG } = require('./lib/charts');
 const B = require('./lib/blocks');
+const { loadStatic } = require('./lib/static');
 
 const ROOT = __dirname;
 const MONTH_LABELS = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
@@ -258,7 +259,7 @@ function renderPageHtml(s, monthly, chartHtml, chart2Html) {
 
 async function renderFund(code, opts = {}) {
   const lc = code.toLowerCase();
-  const s = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}_static.json`), 'utf-8'));
+  const s = loadStatic(code); // ortak.json + data/<kod>_static.json, rapor tarihi veriden
   const monthly = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}_monthly.json`), 'utf-8'));
 
   const outHtmlPath = path.join(ROOT, `output_${lc}.html`);

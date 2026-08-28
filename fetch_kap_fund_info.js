@@ -22,6 +22,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const { loadStatic } = require('./lib/static');
+
 const KAP_URL = 'https://www.kap.org.tr/tr/fon-bilgileri/genel/';
 const FUND_OIDS = {
   AAL: '33E5FED7E36300EAE0530A4A622B2AEA',
@@ -159,8 +161,16 @@ function baslikBuyuk(s) {
 }
 const pct = v => '%' + v.toFixed(2).replace('.', ',');
 
+// Kurucu/Denetci/Portfoy Yoneticisi sirket geneli alanlar: 15 fon dosyasinda degil,
+// data/ortak.json'da duruyorlar (bkz. lib/static.js). Bir fon kendi degerini yazmissa
+// (or. PKP'nin denetcisi) o fonun dosyasina, yazmamissa ortak.json'a yaziyoruz.
+const ORTAK_ALANLAR = ['Kurucu', 'Denetçi', 'Portföy Yöneticisi'];
+
 function compare(all, { yaz }) {
   const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
+  const ortakPath = path.join(DATA_DIR, 'ortak.json');
+  const ortak = JSON.parse(fs.readFileSync(ortakPath, 'utf-8'));
+  let ortakDegisti = false;
   let fark = 0, yazilan = 0;
   for (const file of files) {
     const p = path.join(DATA_DIR, file);
@@ -169,16 +179,25 @@ function compare(all, { yaz }) {
     const kap = all[ALIASES[code] || code];
     if (!kap) { console.log(`${code}: KAP kaydı yok, atlandı`); continue; }
     const satirlar = [];
-    const infoRow = label => (s.info || []).find(x => Array.isArray(x) && x[0] === label);
+    const merged = loadStatic(code); // ortak.json ile birlesmis, gercekte basilan degerler
+    const ownRow = label => (s.info || []).find(x => Array.isArray(x) && x[0] === label);
+    const infoRow = label => (merged.info || []).find(x => Array.isArray(x) && x[0] === label);
+    // ortak alan icin: fonun kendi degeri varsa fona, yoksa ortak.json'a yaz
+    const setInfo = label => v => {
+      const own = ownRow(label);
+      if (own && own[1] !== null) { own[1] = v; return; }
+      if (ORTAK_ALANLAR.includes(label)) { ortak.infoOrtak[label] = v; ortakDegisti = true; return; }
+      if (own) own[1] = v;
+    };
 
     const kontrol = [
       ['Risk Değeri', s.riskLevel, kap.riskDegeri, v => { s.riskLevel = v; }],
       ['Yönetim Komisyonu', infoRow('Yönetim Komisyonu')?.[1], kap.yonetimUcretiYillik == null ? null : pct(kap.yonetimUcretiYillik),
-        v => { const r = infoRow('Yönetim Komisyonu'); if (r) r[1] = v; }],
-      ['Kurucu', infoRow('Kurucu')?.[1], baslikBuyuk(kap.kurucu), v => { const r = infoRow('Kurucu'); if (r) r[1] = v; }],
-      ['Denetçi', infoRow('Denetçi')?.[1], baslikBuyuk(kap.denetci), v => { const r = infoRow('Denetçi'); if (r) r[1] = v; }],
+        setInfo('Yönetim Komisyonu')],
+      ['Kurucu', infoRow('Kurucu')?.[1], baslikBuyuk(kap.kurucu), setInfo('Kurucu')],
+      ['Denetçi', infoRow('Denetçi')?.[1], baslikBuyuk(kap.denetci), setInfo('Denetçi')],
       ['Portföy Yöneticisi', infoRow('Portföy Yöneticisi')?.[1], baslikBuyuk(kap.portfoyYoneticisiKurulus),
-        v => { const r = infoRow('Portföy Yöneticisi'); if (r) r[1] = v; }],
+        setInfo('Portföy Yöneticisi')],
     ];
     for (const [ad, mevcut, kapDeger, uygula] of kontrol) {
       if (kapDeger == null) { satirlar.push([ad, mevcut, '(KAP\'ta yok)', 'atlandi']); continue; }
@@ -214,6 +233,10 @@ function compare(all, { yaz }) {
       console.log(`   ${ad}\n      broşür: ${mevcut}\n      KAP   : ${kapDeger}   [${durum}]`);
     }
     if (yaz) fs.writeFileSync(p, JSON.stringify(s, null, 2));
+  }
+  if (yaz && ortakDegisti) {
+    fs.writeFileSync(ortakPath, JSON.stringify(ortak, null, 2));
+    console.log(`\nŞirket geneli alanlar data/ortak.json'a yazıldı (15 dosyaya değil).`);
   }
   console.log(`\nToplam ${fark} fark${yaz ? `, ${yazilan} alan yazıldı` : ' (yazmak için --yaz)'}.`);
 }

@@ -24,11 +24,11 @@
 //   node fetch_tefas_net_varlik.js --sadece-getir   fetch + log only, touch no static file
 const fs = require('fs');
 const path = require('path');
+const { reportDateFor } = require('./lib/static');
 
 const API = 'https://www.tefas.gov.tr/api/funds/';
 const FUND_CODES = ['AAL', 'AAS', 'AAV', 'AED', 'ANZ', 'AYA', 'DGH', 'JET', 'PKF', 'PKP', 'RTG', 'TLZ', 'URA', 'YLC'];
 const ALIASES = { UANZ: 'ANZ' };
-const AYLAR = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
 const DATA_DIR = path.join(__dirname, 'data');
 const LOG_FILE = path.join(DATA_DIR, 'tefas_net_varlik_log.json');
 const LABEL = 'Net Varlık Tutarı';
@@ -43,15 +43,6 @@ async function post(method, body) {
   if (json.faultCode) throw new Error(method + ' -> ' + json.faultString);
   if (json.errorMessage) throw new Error(method + ' -> ' + json.errorMessage);
   return json.resultList || [];
-}
-
-// "31 Temmuz 2026" -> "2026-07-31"
-function parseReportDate(s) {
-  const parts = String(s || '').trim().split(' ');
-  if (parts.length !== 3) return null;
-  const ay = AYLAR.indexOf(parts[1]);
-  if (ay < 0) return null;
-  return parts[2] + '-' + String(ay + 1).padStart(2, '0') + '-' + parts[0].padStart(2, '0');
 }
 
 function formatTL(v) {
@@ -131,7 +122,8 @@ function updateStatics(log, { guncel }) {
     const source = ALIASES[code] || code;
     const row = (s.info || []).find(x => Array.isArray(x) && x[0] === LABEL);
     if (!row) continue;
-    const isoDate = parseReportDate(s.reportDate);
+    // Rapor tarihi artik static json'da elle yazili degil, veriden turetiliyor
+    const isoDate = reportDateFor(code).iso;
     const hit = lookup(log, source, isoDate);
     const mevcut = row[1];
     if (!hit) {

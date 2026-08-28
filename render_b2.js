@@ -3,6 +3,7 @@ const path = require('path');
 const { chromium } = require('playwright');
 const { growthChartSVG, donutChartSVG } = require('./lib/charts');
 const B = require('./lib/blocks');
+const { loadStatic } = require('./lib/static');
 
 const ROOT = __dirname;
 
@@ -116,7 +117,7 @@ function renderPageHtml(s, growth, chartHtml) {
 async function renderFund(code) {
   const lc = code.toLowerCase();
   const growth = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}.json`), 'utf-8'));
-  const s = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}_static.json`), 'utf-8'));
+  const s = loadStatic(code); // ortak.json + data/<kod>_static.json, rapor tarihi veriden
 
   const outHtmlPath = path.join(ROOT, `output_${lc}.html`);
   const browser = await chromium.launch();
