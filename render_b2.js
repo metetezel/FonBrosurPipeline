@@ -9,7 +9,7 @@ const ROOT = __dirname;
 
 function assetAllocationHTML(s, { bordered = true } = {}) {
   if (!s.assetAllocation || s.assetAllocation.length === 0) return '';
-  const segs = s.assetAllocation.map((a, i) => ({ ...a, color: i === 0 ? B.TEAL : B.ORANGE }));
+  const segs = s.assetAllocation.map((a, i) => ({ ...a, color: B.DONUT_PALETTE[i % B.DONUT_PALETTE.length] }));
   const donutSvg = donutChartSVG(segs, { size: 168, strokeWidth: 22 });
   return `
     <div style="${bordered ? 'margin-top:8px; padding-top:8px; border-top:1px solid var(--line);' : ''}">

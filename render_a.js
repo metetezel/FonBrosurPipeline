@@ -81,7 +81,7 @@ function extraCss() {
   `;
 }
 
-const DONUT_PALETTE = [B.TEAL, B.ORANGE, '#FFC83E', '#006680', '#FF4D06'];
+const DONUT_PALETTE = B.DONUT_PALETTE;
 function assetAllocationHTML(s) {
   if (!s.assetAllocation || s.assetAllocation.length === 0) return '';
   const segs = s.assetAllocation.map((a, i) => ({ ...a, color: DONUT_PALETTE[i % DONUT_PALETTE.length] }));

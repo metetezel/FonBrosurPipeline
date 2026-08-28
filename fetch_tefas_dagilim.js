@@ -70,8 +70,27 @@ function ayristir(satir) {
     .sort((a, b) => b.pct - a.pct);
 }
 
+/**
+ * TEFAS kalemlerini pasta dilimlerine cevirir: %1'in altindakiler "Diğer"de toplanir
+ * (donut'ta okunmayan kil payi dilimler olusmasin), yuzdeler tam sayiya yuvarlanir ve
+ * yuvarlama farki en buyuk dilime eklenerek toplam 100'e sabitlenir.
+ */
+function pastaYap(kalemler) {
+  const buyuk = kalemler.filter(k => k.pct >= 1);
+  const kalan = kalemler.filter(k => k.pct < 1).reduce((s, k) => s + k.pct, 0);
+  const dilimler = buyuk.map(k => ({ label: k.label, pct: Math.round(k.pct) }));
+  if (kalan >= 0.5) dilimler.push({ label: 'Diğer', pct: Math.round(kalan) });
+  const fark = 100 - dilimler.reduce((s, d) => s + d.pct, 0);
+  if (fark !== 0 && dilimler.length) {
+    const enBuyuk = dilimler.reduce((a, b) => (a.pct >= b.pct ? a : b));
+    enBuyuk.pct += fark;
+  }
+  return dilimler.filter(d => d.pct > 0);
+}
+
 async function main() {
-  const tarih = process.argv[2] || new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const yaz = process.argv.includes('--yaz');
+  const tarih = process.argv.find(a => /^[0-9]{8}$/.test(a)) || new Date().toISOString().slice(0, 10).replace(/-/g, '');
   console.log(`TEFAS varlık dağılımı çekiliyor (${tarih})...`);
   let list = await cek(tarih);
   if (!list.length) {
@@ -107,9 +126,31 @@ async function main() {
     console.log('  TEFAS  : ' + tefas.map(x => `%${x.pct} ${x.label}`).join(' · '));
     console.log('  Broşür : ' + (brosur ? brosur.map(x => `%${x.pct} ${x.label}`).join(' · ') : '(pasta yok)'));
   }
-  console.log('\nNot: TEFAS enstrüman türüne göre, broşür ise kendi gruplamasına göre yazıyor.');
-  console.log('Otomatik yazmadan önce her fon için hangi TEFAS kalemlerinin hangi broşür');
-  console.log('dilimine gireceğine karar verilmeli.');
+  if (!yaz) {
+    console.log('');
+    console.log('(Sadece karsilastirma - dosya degistirilmedi. Yazmak icin: --yaz)');
+    return;
+  }
+  console.log('');
+  console.log('Pastalar yaziliyor:');
+  let yazilan = 0;
+  for (const kod of [...KODLAR, 'UANZ']) {
+    const tefas = out.fonlar[kod];
+    if (!tefas) continue;
+    const p2 = path.join(DATA_DIR, `${kod.toLowerCase()}_static.json`);
+    if (!fs.existsSync(p2)) continue;
+    const s2 = JSON.parse(fs.readFileSync(p2, 'utf-8'));
+    const dilimler = pastaYap(tefas);
+    if (s2.portfolioPie && Array.isArray(s2.portfolioPie.items)) s2.portfolioPie.items = dilimler;
+    else if (Array.isArray(s2.assetAllocation)) s2.assetAllocation = dilimler;
+    else continue; // bu fonun brosurunde pasta yok, eklemiyoruz
+    s2.portfoyDagilimTarihi = out.tarih;
+    fs.writeFileSync(p2, JSON.stringify(s2, null, 2));
+    yazilan++;
+    console.log(`  ${kod.padEnd(5)} ` + dilimler.map(d => `%${d.pct} ${d.label}`).join(' - '));
+  }
+  console.log('');
+  console.log(`${yazilan} fonun pastasi guncellendi (deger tarihi ${out.tarih}).`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

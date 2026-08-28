@@ -68,14 +68,15 @@
     "title": "Portföy Dağılımı",
     "items": [
       {
-        "label": "S&P500",
-        "pct": 79
+        "label": "Yabancı Hisse Senedi",
+        "pct": 70
       },
       {
-        "label": "TL Sabit Getirili",
-        "pct": 21
+        "label": "Yatırım Fonu",
+        "pct": 30
       }
     ]
   },
-  "extraNote": "*20.01.2025 fon dönüşümü itibariyle"
+  "extraNote": "*20.01.2025 fon dönüşümü itibariyle",
+  "portfoyDagilimTarihi": "2026-08-28"
 }

@@ -83,12 +83,21 @@
   ],
   "assetAllocation": [
     {
-      "label": "Yerli Varlıklar",
-      "pct": 20
+      "label": "Yabancı Hisse Senedi",
+      "pct": 71
     },
     {
-      "label": "Yabancı Varlıklar",
-      "pct": 80
+      "label": "Hisse Senedi",
+      "pct": 17
+    },
+    {
+      "label": "Yatırım Fonu",
+      "pct": 11
+    },
+    {
+      "label": "Finansman Bonosu",
+      "pct": 1
     }
-  ]
+  ],
+  "portfoyDagilimTarihi": "2026-08-28"
 }

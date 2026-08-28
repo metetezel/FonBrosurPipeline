@@ -113,16 +113,25 @@
   },
   "assetAllocation": [
     {
-      "label": "Yatırım Fonları Katılma Payı",
-      "pct": 20
-    },
-    {
-      "label": "Borçlanma Araçları",
-      "pct": 25
-    },
-    {
       "label": "Hisse Senedi",
-      "pct": 55
+      "pct": 56
+    },
+    {
+      "label": "Vadeli İşlemler Nakit Teminatı",
+      "pct": 18
+    },
+    {
+      "label": "Yatırım Fonu",
+      "pct": 13
+    },
+    {
+      "label": "Devlet Tahvili",
+      "pct": 10
+    },
+    {
+      "label": "Finansman Bonosu",
+      "pct": 3
     }
-  ]
+  ],
+  "portfoyDagilimTarihi": "2026-08-28"
 }
