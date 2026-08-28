@@ -22,6 +22,7 @@
 // once calistirin (ornegin 1 Eylul'de, 31 Agustos verisi yayinlandiktan sonra).
 const fs = require('fs');
 const path = require('path');
+const { ayKapandiMi, isoToTR } = require('./lib/static');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const FIYAT_PATH = path.join(DATA_DIR, 'fiyat_arsiv.json');
@@ -142,7 +143,11 @@ async function main() {
       }
     }
     if (!dene) fs.writeFileSync(FIYAT_PATH, JSON.stringify(fiyat));
-    console.log(`  toplam ${toplam} yeni fiyat satırı\n`);
+    const sonGun = Object.values(fiyat).map(a => a[a.length - 1][0]).sort().pop();
+    console.log(`  toplam ${toplam} yeni fiyat satırı — arşivin son günü: ${isoToTR(sonGun)}`);
+    console.log(ayKapandiMi(sonGun)
+      ? '  Ay kapanmış: broşürler bu tarihle üretilebilir.'
+      : '  UYARI: bu ay henüz kapanmadı — şimdi render edilirse broşürler ay ortası tarihli olur.');
   }
 
   if (!sadeceFiyat) {

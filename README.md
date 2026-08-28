@@ -260,8 +260,13 @@ zincirinin yerini alır). **Yalnızca ekler**, var olan tarihe dokunmaz — TEFA
 5 yılı verdiği için kayan pencere yüzünden geçmişin kaybolmaması bu birikimli dosyaya
 bağlı. `--dene` ile önce ne ekleneceği görülebilir.
 
-> **Dikkat:** arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin
-> son günü). Ay sonu turunu, ayın son iş günü verisi yayınlandıktan sonra çalıştırın.
+> **Ne zaman çalıştırmalı:** arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor
+> tarihi = verinin son günü). TEFAS verisi pratikte T-1 geliyor, yani **ayın ilk iş günü
+> sabahı** çalıştırıldığında elde son veri o ayın son iş günü olur — doğru cadence bu.
+>
+> Tahmine bırakılmıyor: `fetch_arsiv.js` çektikten sonra ayın kapanıp kapanmadığını
+> söylüyor, `export_pdfs.js` ise ay kapanmamışsa yayın klasörüne **kopyalamayı reddediyor**
+> (`lib/static.js` → `ayKapandiMi`). Bilerek ay ortası yayınlanacaksa: `--yine-de`.
 
 Yan kazanımlar: `extract_fund.js` ~6 sn yerine 0,1 sn sürüyor; benchmark tanımları üç
 yerdeyken (Excel + `build_monthly_data.js` + `GETIRI_OVERRIDES`) tek dosyaya indi;

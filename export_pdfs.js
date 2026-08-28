@@ -7,7 +7,7 @@
 //   node export_pdfs.js "D:/başka/yol"  başka bir hedef köke
 const fs = require('fs');
 const path = require('path');
-const { reportDateFor } = require('./lib/static');
+const { reportDateFor, ayKapandiMi, isoToTR } = require('./lib/static');
 
 const VARSAYILAN_HEDEF = 'Z:/Mete Tezel/Fon Broşür [Cursor & Claude]';
 const KODLAR = ['AAL', 'AAS', 'AAV', 'AED', 'ANZ', 'AYA', 'DGH', 'JET', 'PKF', 'PKP', 'RTG', 'TLZ', 'UANZ', 'URA', 'YLC'];
@@ -20,6 +20,17 @@ function main() {
     process.exit(1);
   }
   const iso = reportDateFor('AAL').iso;              // ör. 2026-07-31
+
+  // Broşür her zaman ay sonu olmalı. Rapor tarihi verinin son gününden geldiği için
+  // tur ay ortasında çalıştırılırsa ay ortası tarihli broşür üretilir - onu yayın
+  // klasörüne kopyalamayı reddediyoruz (bilerek isteniyorsa --yine-de).
+  if (!ayKapandiMi(iso) && !process.argv.includes('--yine-de')) {
+    console.error(`DURDURULDU: verinin son günü ${isoToTR(iso)} - bu ay henüz kapanmadı.`);
+    console.error('Broşürler ay sonu tarihli olmalı; turu ayın ilk iş günü sabahı çalıştırın.');
+    console.error('(TEFAS verisi T-1 geldiği için o sabah elinizdeki son veri ayın son iş günü olur.)');
+    console.error('Yine de yayınlamak için: node export_pdfs.js --yine-de');
+    process.exit(2);
+  }
   const trTarih = iso.split('-').reverse().join('.'); // 31.07.2026
   const hedef = path.join(kok, `Brosurler_${trTarih}`);
   fs.mkdirSync(hedef, { recursive: true });
