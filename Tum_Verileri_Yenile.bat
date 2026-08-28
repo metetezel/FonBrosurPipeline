@@ -1,25 +1,25 @@
 @echo off
 REM ============================================================
-REM AYLIK TAM TUR: Butun verileri yenile + 15 PDF'i uret
+REM HAFTALIK TUR: Butun verileri yenile + 15 PDF'i uret
 REM ============================================================
-REM Ay sonu broşur turunun tek adimda calistirilabilir hali.
-REM Sirasi onemli: once veri, sonra render.
+REM Haftalik broşur turunun tek adimda calistirilabilir hali.
+REM NE ZAMAN: her persembe. TEFAS verisi T-1 geldigi icin persembe sabahi
+REM calistirilinca son veri carsamba olur; persembe kapanisini istiyorsaniz
+REM aksam calistirin. Sirasi onemli: once veri, sonra render.
 REM
-REM ON KOSUL: Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx guncel olmali
-REM (Haftalik_Guncelle.ps1 / Haftalik_Guncelle_CALISTIR.bat ile).
-REM Broşurler her zaman arşivin SON gunune gore uretilir; arşiv
-REM 31 Temmuz'da bitiyorsa broşur de 31 Temmuz olur.
+REM ON KOSUL YOK: Excel'e ihtiyac kalmadi. Arsiv data/*.json dosyalarinda
+REM ve ilk adim onu dogrudan TEFAS/Borsa Istanbul/Nasdaq'tan buyutuyor.
+REM Broşurler her zaman arsivin SON gunune gore uretilir.
 REM
 REM Rapor tarihi ELLE GUNCELLENMEZ: arsivin son gununden turetiliyor
-REM (lib/static.js reportDateFor). Arsiv Agustos'a uzayinca broşurun
-REM tarih rozeti ve yayin klasoru adi kendiliginden ilerler.
+REM (lib/static.js reportDateFor). Her hafta tarih rozeti ve yayin
+REM klasoru adi kendiliginden ilerler.
 REM ============================================================
 cd /d "%~dp0"
 
 echo [1/9] Arsiv API'lerden buyutuluyor (TEFAS fiyat + BIST/Nasdaq endeks)...
-REM DIKKAT: bu adim brosurun rapor tarihini de ilerletir (rapor tarihi = verinin
-REM son gunu). Ay sonu turu icin ayin son is gunu verisi yayinlandiktan SONRA
-REM calistirin. Ne eklenecegini once gormek icin: node fetch_arsiv.js --dene
+REM NOT: bu adim brosurun rapor tarihini de ilerletir (rapor tarihi = verinin
+REM son gunu). Ne eklenecegini once gormek icin: node fetch_arsiv.js --dene
 call node fetch_arsiv.js
 if errorlevel 1 goto hata
 
@@ -59,7 +59,7 @@ call node export_pdfs.js
 
 echo.
 echo TAMAMLANDI. 15 PDF bu klasorde: *_Brosur_Modern.pdf
-echo Yayin kopyalari: "Fon Brosur [Cursor ^& Claude]\Brosurler_<rapor tarihi>\"
+echo Yayin kopyalari: "Fon Brosur [Cursor ^& Claude]\Brosurler\<rapor tarihi>\"
 goto son
 
 :hata

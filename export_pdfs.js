@@ -1,5 +1,5 @@
 // Üretilen 15 PDF'i ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalar:
-//   AAL_Brosur_Modern.pdf -> .../Brosurler_31.07.2026/AAL.pdf
+//   AAL_Brosur_Modern.pdf -> .../Brosurler/27.08.2026/AAL.pdf
 // Klasör adındaki tarih elle yazılmaz, verinin son gününden gelir (lib/static.js).
 //
 // Kullanım:
@@ -7,7 +7,7 @@
 //   node export_pdfs.js "D:/başka/yol"  başka bir hedef köke
 const fs = require('fs');
 const path = require('path');
-const { reportDateFor, ayKapandiMi, isoToTR } = require('./lib/static');
+const { reportDateFor, isoToTR } = require('./lib/static');
 
 const VARSAYILAN_HEDEF = 'Z:/Mete Tezel/Fon Broşür [Cursor & Claude]';
 const KODLAR = ['AAL', 'AAS', 'AAV', 'AED', 'ANZ', 'AYA', 'DGH', 'JET', 'PKF', 'PKP', 'RTG', 'TLZ', 'UANZ', 'URA', 'YLC'];
@@ -21,18 +21,17 @@ function main() {
   }
   const iso = reportDateFor('AAL').iso;              // ör. 2026-07-31
 
-  // Broşür her zaman ay sonu olmalı. Rapor tarihi verinin son gününden geldiği için
-  // tur ay ortasında çalıştırılırsa ay ortası tarihli broşür üretilir - onu yayın
-  // klasörüne kopyalamayı reddediyoruz (bilerek isteniyorsa --yine-de).
-  if (!ayKapandiMi(iso) && !process.argv.includes('--yine-de')) {
-    console.error(`DURDURULDU: verinin son günü ${isoToTR(iso)} - bu ay henüz kapanmadı.`);
-    console.error('Broşürler ay sonu tarihli olmalı; turu ayın ilk iş günü sabahı çalıştırın.');
-    console.error('(TEFAS verisi T-1 geldiği için o sabah elinizdeki son veri ayın son iş günü olur.)');
-    console.error('Yine de yayınlamak için: node export_pdfs.js --yine-de');
-    process.exit(2);
+  // Broşür haftalık üretiliyor (her perşembe), o yüzden tarih için bir kısıt yok.
+  // Tek kontrol: veri bayatsa uyar - genelde fetch_arsiv adımının atlandığı ya da
+  // hata verdiği anlamına gelir, sessizce geçen haftanın broşürünü basmayalım.
+  const gunFarki = Math.round((Date.now() - new Date(iso + 'T00:00:00Z').getTime()) / 86400000);
+  if (gunFarki > 10) {
+    console.warn(`UYARI: verinin son günü ${isoToTR(iso)} - ${gunFarki} gün önce.`);
+    console.warn('fetch_arsiv.js çalıştı mı? Eski veriyle yayınlıyor olabilirsiniz.');
   }
-  const trTarih = iso.split('-').reverse().join('.'); // 31.07.2026
-  const hedef = path.join(kok, `Brosurler_${trTarih}`);
+  // Haftalik uretim yilda ~52 klasor demek; hepsi tek bir Brosurler/ altinda toplaniyor.
+  const trTarih = iso.split('-').reverse().join('.'); // 27.08.2026
+  const hedef = path.join(kok, 'Brosurler', trTarih);
   fs.mkdirSync(hedef, { recursive: true });
 
   let kopyalanan = 0, eksik = [];

@@ -6,14 +6,14 @@ REM Her fonun "Net Varlik Tutari" satirini TEFAS'in kendi API'sinden
 REM ceker (fonBilgiGetir -> portBuyukluk) ve data/<kod>_static.json
 REM icine yazar. Broşurdeki tek elle yazilan rakam buydu.
 REM
-REM NE ZAMAN CALISTIRILMALI: ay sonu broşur turundan HEMEN ONCE
-REM (broşurun rapor tarihi ile TEFAS'in yayinladigi son tarih ayni
-REM olmali). Sonrasinda Tum_Fonlari_Yenile.bat ile PDF'ler uretilir.
+REM NE ZAMAN CALISTIRILMALI: normalde gerekmez - haftalik tur
+REM (Tum_Verileri_Yenile.bat) bunu zaten ikinci adimda calistiriyor.
+REM Bu bat sadece tur disinda elle tazelemek icin.
 REM
 REM TEFAS sadece BUGUNUN degerini veriyor, gecmise donuk fon buyuklugu
 REM sorgusu yok. Bu yuzden script her calistiginda degeri
-REM data/tefas_net_varlik_log.json'a da kaydeder; boylece ay sonlari
-REM birikir ve rapor tarihine denk gelen kayit otomatik kullanilir.
+REM data/tefas_net_varlik_log.json'a da kaydeder; boylece haftalik
+REM degerler birikir ve rapor tarihine denk gelen kayit kullanilir.
 REM Rapor tarihine ait kayit yoksa hicbir dosyayi degistirmez, sadece
 REM karsilastirma tablosunu ekrana basar (guvenli varsayilan).
 REM

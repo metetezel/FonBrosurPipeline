@@ -17,12 +17,12 @@
 //   node fetch_arsiv.js --sadece-fiyat | --sadece-bench
 //   node fetch_arsiv.js --dene       hicbir dosyaya yazmadan ne eklenecegini raporlar
 //
-// DIKKAT: arsivi buyutmek brosurun rapor tarihini de ilerletir (rapor tarihi verinin son
-// gunu). Ay ortasinda calistirilirsa brosurler ay ortasi tarihli olur - ay sonu turundan
-// once calistirin (ornegin 1 Eylul'de, 31 Agustos verisi yayinlandiktan sonra).
+// NOT: arsivi buyutmek brosurun rapor tarihini de ilerletir (rapor tarihi = verinin son
+// gunu). Haftalik tur persembe gunu calistiginda TEFAS'in son yayinladigi gun carsamba
+// olur, brosurler de o tarihi tasir.
 const fs = require('fs');
 const path = require('path');
-const { ayKapandiMi, isoToTR } = require('./lib/static');
+const { isoToTR } = require('./lib/static');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const FIYAT_PATH = path.join(DATA_DIR, 'fiyat_arsiv.json');
@@ -145,9 +145,7 @@ async function main() {
     if (!dene) fs.writeFileSync(FIYAT_PATH, JSON.stringify(fiyat));
     const sonGun = Object.values(fiyat).map(a => a[a.length - 1][0]).sort().pop();
     console.log(`  toplam ${toplam} yeni fiyat satırı — arşivin son günü: ${isoToTR(sonGun)}`);
-    console.log(ayKapandiMi(sonGun)
-      ? '  Ay kapanmış: broşürler bu tarihle üretilebilir.'
-      : '  UYARI: bu ay henüz kapanmadı — şimdi render edilirse broşürler ay ortası tarihli olur.');
+    console.log(`  Broşürler bu tarihle üretilecek (rapor tarihi = verinin son günü).`);
   }
 
   if (!sadeceFiyat) {

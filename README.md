@@ -117,7 +117,7 @@ da 28.08.2026'dan beri otomatik** (bkz. bir sonraki bölüm) — tablonun tamam�
 artık hesaplanıyor, elle girilen satır kalmadı.
 Mete'nin göndereceği Elmas ekran görüntüsüyle hesaplama kalibre edilip
 satır 25-27'deki olası floater bonoların etkisi giderilebilirse,
-`bond_ytm.js`'teki varsayımlar buna göre güncellenmeli. Kullanım (aylık,
+`bond_ytm.js`'teki varsayımlar buna göre güncellenmeli. Kullanım (Elmas'ın
 Elmas'ın kendi cadence'i ile): `node update_anz_guncel_bilgiler.js`.
 
 ## "Mevduat Eşleniği" Çözüldü: Piyasa Verisi Değil, Aritmetik (28.08.2026)
@@ -164,11 +164,11 @@ toplam net varlık değeri — broşürün "Net Varlık Tutarı" alanının ayn�
 1. **Sadece bugünün değeri var** — eski `BindHistoryInfo` kapatılmış, yerine
    tarihsel fon büyüklüğü veren bir endpoint bulunamadı (~40 makul isim denendi).
    Bu yüzden script her çalıştığında değeri `data/tefas_net_varlik_log.json`'a
-   kaydediyor; ay sonu değerleri bundan sonra birikiyor. **Varsayılan davranış
+   kaydediyor; haftalık değerler bundan sonra birikiyor. **Varsayılan davranış
    güvenli:** broşürün `reportDate`'ine denk gelen kayıt yoksa hiçbir dosyayı
    değiştirmiyor, sadece karşılaştırma tablosunu basıyor (`--guncel` ile zorlanır).
-   Pratikte: ay sonu turundan hemen önce çalıştırılınca tarihler örtüşür ve
-   otomatik yazar.
+   Pratikte: haftalık turda ilk adım arşivi büyüttüğü için rapor tarihi ile TEFAS'ın
+   son yayınladığı gün örtüşür ve değer otomatik yazılır.
 2. **UANZ'ın TEFAS'ta ayrı kaydı yok** (ANZ'nin pay sınıfı) — ANZ'nin değerini
    alıyor, broşürlerin kendi varsayımıyla aynı.
 
@@ -244,7 +244,7 @@ onu yeniden üretebilir. Kaldırma sonrası JET/URA/AED yeniden çekildi: hepsi
 
 Projedeki en büyük tekrar workbook'un kendisiydi: Power Query zaten TEFAS'tan çekiyordu,
 pipeline da aynı seriyi Excel'den okuyordu — aynı veri iki yerde, iki ayrı güncelleme
-mekanizmasıyla (haftalık PowerShell + aylık tur).
+mekanizmasıyla (haftalık PowerShell + broşür turu).
 
 **Arşiv dosyaları** (`lib/arsiv.js` üzerinden okunur):
 
@@ -260,13 +260,13 @@ zincirinin yerini alır). **Yalnızca ekler**, var olan tarihe dokunmaz — TEFA
 5 yılı verdiği için kayan pencere yüzünden geçmişin kaybolmaması bu birikimli dosyaya
 bağlı. `--dene` ile önce ne ekleneceği görülebilir.
 
-> **Ne zaman çalıştırmalı:** arşivi büyütmek broşürün rapor tarihini de ilerletir (rapor
-> tarihi = verinin son günü). TEFAS verisi pratikte T-1 geliyor, yani **ayın ilk iş günü
-> sabahı** çalıştırıldığında elde son veri o ayın son iş günü olur — doğru cadence bu.
+> **Ne zaman çalıştırmalı:** broşürler **haftalık** üretiliyor — her perşembe. Arşivi
+> büyütmek broşürün rapor tarihini de ilerletir (rapor tarihi = verinin son günü) ve TEFAS
+> verisi T-1 geldiği için perşembe sabahı çalıştırılınca broşürler çarşamba tarihli olur;
+> perşembe kapanışı isteniyorsa akşam çalıştırılır.
 >
-> Tahmine bırakılmıyor: `fetch_arsiv.js` çektikten sonra ayın kapanıp kapanmadığını
-> söylüyor, `export_pdfs.js` ise ay kapanmamışsa yayın klasörüne **kopyalamayı reddediyor**
-> (`lib/static.js` → `ayKapandiMi`). Bilerek ay ortası yayınlanacaksa: `--yine-de`.
+> `export_pdfs.js` tarihe karışmıyor ama veri 10 günden bayatsa uyarıyor — bu genelde
+> `fetch_arsiv.js` adımının atlandığı ya da hata verdiği anlamına gelir.
 
 Yan kazanımlar: `extract_fund.js` ~6 sn yerine 0,1 sn sürüyor; benchmark tanımları üç
 yerdeyken (Excel + `build_monthly_data.js` + `GETIRI_OVERRIDES`) tek dosyaya indi;
@@ -337,13 +337,13 @@ vergi oranı tablosu, disclaimer ve iletişim/CTA metinleri, portföy dağılım
 ANZ/UANZ'ın "Dönemsel Performans (Dolar Bazında)" tablosu, ve şu bilgi kartı satırları:
 Kuruluş Tarihi, Para Birimi, Getiri Hesaplaması, Saklama, Yasal Adres, Alım/Satım Valörü.
 
-- **`Tum_Verileri_Yenile.bat`** — aylık tam tur: net varlık + USD/TRY + 14 fonun
+- **`Tum_Verileri_Yenile.bat`** — haftalık tam tur (her perşembe): net varlık + USD/TRY + 14 fonun
   fiyat/benchmark serisi + aylık ızgara + AYA/ANZ özel blokları + 15 PDF, doğru
   sırayla tek adımda. Ön koşul: Excel arşivi güncel olmalı; rapor tarihi
   değiştiyse `data/<kod>_static.json`'daki `reportDate` elle güncellenmeli.
 - **`Net_Varlik_Guncelle.bat`** — 15 fonun "Net Varlık Tutarı" satırını TEFAS'tan
-  tazeler (bkz. yukarıdaki bölüm). Ne zaman: ay sonu broşür turundan hemen önce,
-  `Tum_Fonlari_Yenile.bat`'tan önce.
+  tazeler (bkz. yukarıdaki bölüm). Haftalık turda zaten çalışıyor; ayrıca elle
+  çalıştırmak için.
 - **`Tum_Fonlari_Yenile.bat`** — 15 fonun PDF'ini mevcut `data/*.json`'dan
   yeniden render eder (veri çekmez, sadece render). Bir CSS/şablon
   düzeltmesinden sonra tüm fonları tek seferde yenilemek için.
