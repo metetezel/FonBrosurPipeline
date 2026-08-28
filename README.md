@@ -304,6 +304,30 @@ Disclaimer'da tek kelime değişse 15 dosya elle düzenlenecekti.
 Sonuç: 81 KB → 45 KB + 3 KB ortak. Refactor sonrası 15 PDF yeniden render edilip metinleri
 refactor öncesiyle karşılaştırıldı: **birebir aynı, 0 fark.**
 
+## ANZ/UANZ Getiri Tablosu: Hesap Kalibre Edilene Kadar Elle (28.08.2026)
+
+`bond_ytm.js`'te **gerçek bir hata bulundu ve düzeltildi:** YTM, gelecek kuponların bugünkü
+değerini **kirli** fiyata (temiz fiyat + tahakkuk etmiş faiz) eşitlemeli; kod temiz fiyatı
+kullanıyordu. Etki kuponu büyük ve kupon tarihine yakın kâğıtlarda dramatik — ANZ'nin %20
+kuponlu satırı %27,5 getiri veriyordu (par fiyatlı bir bononun getirisi kuponuna eşit
+olmalı, ~%20). Düzeltme dört bilinen senaryoyla doğrulandı (%20 yıllık kupon par → %19,93;
+%4 altı aylık par → %4,00; 90'dan %4 kuponlu → %7,80; sıfır kuponlu → %11,12).
+
+**Ama gerçek fark bizim matematiğimizde değil, girdide.** Düzeltmeden sonra portföyün
+ağırlıklı ortalama getirisi %5,59 → **%4,57** oldu; Elmas Öztürk'ün 27.08.2026 tarihli
+rakamı **%7,39**. Book2.xlsx'in kolonları beklenen anlamda değil gibi görünüyor: satır 15
+Hazine'nin 2035 vadeli USD kâğıdı (US900123DN78), kupon %3,25 ve fiyat 97,93 — bu ~%3,5
+USD getiri demek, oysa Türkiye'nin 2035 USD tahvili piyasada ~%7 getiriyle işlem görüyor
+(%3,25 kuponlu bir kâğıt o getiride ~76 fiyatlanır, 98 değil). Yani col13 muhtemelen piyasa
+fiyatı değil (maliyet/itfa edilmiş maliyet olabilir) ya da col5 gerçek kupon değil.
+Aynı şekilde "Ortalama Vade": basit ağırlıklı vade 4,37 yıl, Macaulay 3,76 yıl, Elmas 2,72.
+
+**Karar:** ANZ/UANZ'ın "Fon'un Güncel Bilgileri" tablosu, kalibrasyona kadar **Elmas'ın
+yayımladığı rakamları** taşıyor (%7,29 / %6,54 / %5,40 / %7,20 / 2,72 — kendi içinde
+tutarlı zincir). `update_anz_guncel_bilgiler.js` artık varsayılan olarak sadece raporluyor;
+yazmak için açıkça `--yaz` gerekiyor. Farshad/Elmas ile kolonların anlamı netleşince
+kalibre edilip otomatiğe geri alınabilir.
+
 ## Kart Bilgileri KAP'tan (28.08.2026)
 
 `fetch_kap_fund_info.js` — KAP'ın fon genel bilgi sayfası

@@ -16,9 +16,22 @@ function fmtPct(v) {
 }
 
 async function main() {
+  // 28.08.2026'dan beri VARSAYILAN: sadece raporla, yazma. Gerekce: hesaplanan ortalama
+  // getiri (%4,57) Elmas'in bildirdigi %7,39'dan cok uzak ve fark bizim matematigimizden
+  // degil girdiden geliyor - Book2.xlsx'in fiyat/kupon kolonlari beklenen anlamda degil
+  // (or. Hazine 2035 kagidi %3,25 kupon + 97,93 fiyat => ~%3,5 USD getiri; piyasa ~%7).
+  // Kolonlarin anlami Farshad/Elmas ile netlesip hesap kalibre edilene kadar brosur
+  // Elmas'in yayimladigi rakamlari tasiyor. Yazdirmak icin: --yaz
+  const yaz = process.argv.includes('--yaz');
   const r = await computeAnzTable('ANZ');
   console.log('Computed', r.asOf, JSON.stringify(r, null, 2));
 
+  if (!yaz) {
+    console.log('(Sadece rapor modu — static json değiştirilmedi.)');
+    console.log('Broşür şu an Elmas Öztürk\'ün yayımladığı rakamları taşıyor.');
+    console.log('Hesaplanani yazdirmak icin: node update_anz_guncel_bilgiler.js --yaz');
+    return;
+  }
   for (const code of ['anz', 'uanz']) {
     const file = path.join(__dirname, 'data', `${code}_static.json`);
     const s = JSON.parse(fs.readFileSync(file, 'utf-8'));

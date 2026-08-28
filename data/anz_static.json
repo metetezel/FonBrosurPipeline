@@ -76,25 +76,26 @@
     "rows": [
       [
         "Ortalama Getiri",
-        "%5,46"
+        "%7,29"
       ],
       [
         "Yönetim Komisyon Sonrası Getiri",
-        "%4,71"
+        "%6,54"
       ],
       [
         "Net Getiri (Stopaj Sonrası)",
-        "%3,89"
+        "%5,40"
       ],
       [
         "Mevduat Eşleniği",
-        "%5,19"
+        "%7,20"
       ],
       [
         "Ortalama Vade (Yıl)",
-        "3,76"
+        "2,72"
       ]
-    ]
+    ],
+    "kaynak": "Elmas Öztürk (31.07.2026 yayımlanan broşür). Otomatik hesap kalibre edilene kadar elle: compute_anz_table.js girdi kolonlarının anlamı netleşmeden güvenilir değil (bkz. README)."
   },
   "taxTable": {
     "title": "Vergi Oranı",

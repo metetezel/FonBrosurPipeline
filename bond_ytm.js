@@ -52,10 +52,30 @@ function bondCashflows(bond, asOf) {
   return { freq, cashflows };
 }
 
+/**
+ * Tahakkuk etmiş faiz (accrued interest), 100 nominal başına.
+ *
+ * Kotasyon "temiz fiyat" (accrued hariç) ama alıcı gerçekte temiz fiyat + accrued ödüyor.
+ * YTM, gelecek nakit akışlarının bugünkü değerini KİRLİ fiyata eşitler; temiz fiyatla
+ * karşılaştırmak getiriyi sistematik olarak şişirir. Etki, kuponu büyük ve kupon tarihine
+ * yakın bonolarda dramatik: ANZ'nin %20 kuponlu satırı (bir sonraki kupona ~5 hafta, yani
+ * ~11 aylık accrued) düzeltmeden önce %27,5 getiri veriyordu — par fiyatlı bir bononun
+ * getirisi kuponuna eşit olmalı, yani ~%20.
+ */
+function accruedInterest(bond, asOf) {
+  const freq = 12 / bond.intervalMonths;
+  const schedule = couponSchedule(bond.maturity, bond.intervalMonths, asOf);
+  if (schedule.length === 0) return 0;
+  const donemYil = bond.intervalMonths / 12;
+  const sonrakiKupona = yearsBetween(asOf, schedule[0]);
+  const gecenOran = Math.min(Math.max(1 - sonrakiKupona / donemYil, 0), 1);
+  return (100 * bond.couponRate / freq) * gecenOran;
+}
+
 function bondYTM(bond, asOf) {
   const { freq, cashflows } = bondCashflows(bond, asOf);
   if (cashflows.length === 0) return null;
-  return solveYTM(bond.price, cashflows, freq);
+  return solveYTM(bond.price + accruedInterest(bond, asOf), cashflows, freq);
 }
 
 // Macaulay duration (in years): PV-weighted average time of a bond's remaining
@@ -73,4 +93,4 @@ function macaulayDuration(bond, asOf, ytm) {
   return tPvSum / pvSum;
 }
 
-module.exports = { bondYTM, macaulayDuration, couponSchedule, yearsBetween };
+module.exports = { bondYTM, macaulayDuration, accruedInterest, couponSchedule, yearsBetween };
