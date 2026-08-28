@@ -1,110 +1,30 @@
-const ExcelJS = require('exceljs');
+// Bir fonun fiyat serisini ve ağırlıklı bileşik karşılaştırma ölçütünü JSON arşivinden
+// çıkarıp data/<kod>.json'a yazar. (28.08.2026'ya kadar bu veri Excel'den okunuyordu;
+// bkz. lib/arsiv.js — render yolundaki Excel bağımlılığı kaldırıldı.)
+//
+// Karşılaştırma ölçütü: fonun bileşenlerinden arşivde verisi olanlar ağırlıklarına göre
+// yeniden normalize edilip kuruluş tarihinde 100'e endeksleniyor. Bir/birkaç bileşen
+// eksikse mevcut olanlarla "yaklaşık" bir çizgi üretiliyor, hiçbiri yoksa çizgi yok —
+// durum benchmarkAvailable / benchmarkMissing / benchmarkApproximate alanlarında.
 const fs = require('fs');
 const path = require('path');
-
-const SRC = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx";
-const BIST_CACHE_PATH = path.join(__dirname, 'data', 'bist_indices_cache.json');
-
-function normalizeSymbol(sym) {
-  return String(sym).replace(/\.IS$/i, '');
-}
-
-// Benchmark_Tanimlari (in the live archive) still points BIST-index components at their price-only
-// proxy (e.g. XUTEK.IS, sourced from Yahoo). We now have the TRUE "Getiri" (total-return,
-// dividend-reinvested) series for all of these via Borsa İstanbul's own API — upgrade to those
-// transparently here rather than waiting for the archive's own Sembol column to be edited.
-const GETIRI_OVERRIDES = {
-  'XU100.IS': 'XU100_CFNNTLTL',
-  'XU030.IS': 'XU030_CFNNTLTL',
-  'XUTEK.IS': 'XUTEK_CFNNTLTL',
-  'XBLSM.IS': 'XBLSM_CFNNTLTL',
-  'XELKT.IS': 'XELKT_CFNNTLTL',
-  'XGIDA.IS': 'XGIDA_CFNNTLTL',
-  'XTM25.IS': 'XTM25_CFNNTLTL',
-};
-
-function loadBistCache() {
-  if (!fs.existsSync(BIST_CACHE_PATH)) return {};
-  return JSON.parse(fs.readFileSync(BIST_CACHE_PATH, 'utf-8'));
-}
-
-function excelDateToISO(v) {
-  if (v instanceof Date) return v.toISOString().slice(0, 10);
-  const epoch = new Date(Date.UTC(1899, 11, 30));
-  return new Date(epoch.getTime() + v * 86400000).toISOString().slice(0, 10);
-}
-
-function buildOnOrBeforeLookup(rowsSortedByDate) {
-  const dates = rowsSortedByDate.map(r => r.date);
-  const map = new Map(rowsSortedByDate.map(r => [r.date, r.value]));
-  return function (dateStr) {
-    let lo = 0, hi = dates.length - 1, ans = -1;
-    while (lo <= hi) {
-      const mid = (lo + hi) >> 1;
-      if (dates[mid] <= dateStr) { ans = mid; lo = mid + 1; } else hi = mid - 1;
-    }
-    return ans >= 0 ? map.get(dates[ans]) : null;
-  };
-}
+const { fiyatSerisi, benchSerisi, formalBenchmark, onOrBeforeLookup } = require('./lib/arsiv');
 
 async function extractFund(fundCode) {
-  const wb = new ExcelJS.Workbook();
-  await wb.xlsx.readFile(SRC);
-
-  // 1) fund price series
-  const fiyat = wb.getWorksheet('Fiyat_Sabit_Arsiv');
-  const priceRows = [];
-  fiyat.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== fundCode) return;
-    priceRows.push({ date: excelDateToISO(row.getCell(3).value), price: Number(row.getCell(4).value) });
-  });
-  priceRows.sort((a, b) => a.date.localeCompare(b.date));
+  // 1) fon fiyat serisi (kuruluş öncesi sahte "0" satırları filtrelenir)
+  const priceRows = fiyatSerisi(fundCode);
   const cleanPrice = priceRows.filter(r => r.price > 0);
   const droppedZeroRows = priceRows.length - cleanPrice.length;
+  if (cleanPrice.length === 0) throw new Error(`No price rows found for ${fundCode}`);
 
-  if (cleanPrice.length === 0) {
-    throw new Error(`No price rows found for ${fundCode}`);
-  }
+  // 2) bu fonun karşılaştırma ölçütü bileşenleri
+  const components = formalBenchmark(fundCode);
 
-  // 2) benchmark components for this fund
-  const defSheet = wb.getWorksheet('Benchmark_Tanimlari');
-  const components = [];
-  defSheet.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== fundCode) return;
-    const rawSymbol = row.getCell(6).value;
-    components.push({
-      weight: Number(row.getCell(3).value),
-      name: row.getCell(4).value,
-      sourceType: row.getCell(5).value,
-      symbol: GETIRI_OVERRIDES[rawSymbol] || rawSymbol,
-    });
-  });
-
-  // 3) which components have deep archive data in Bench_Sabit_Arsiv?
-  const bench = wb.getWorksheet('Bench_Sabit_Arsiv');
-  const benchByCode = new Map(); // symbol -> sorted [{date, value}]
-  bench.eachRow((row, idx) => {
-    if (idx === 1) return;
-    const code = row.getCell(1).value;
-    if (!components.some(c => c.symbol === code)) return;
-    if (!benchByCode.has(code)) benchByCode.set(code, []);
-    benchByCode.get(code).push({ date: excelDateToISO(row.getCell(3).value), value: Number(row.getCell(4).value) });
-  });
-  benchByCode.forEach(rows => rows.sort((a, b) => a.date.localeCompare(b.date)));
-
-  // 3b) fall back to the Borsa İstanbul graphic.php cache (data/bist_indices_cache.json) for
-  // components that have no deep archive in Excel yet (previously "anlık-only" KYD/BIST series).
-  const bistCache = loadBistCache();
-  const usedBistCache = [];
+  // 3) hangi bileşenlerin arşivde verisi var?
+  const benchByCode = new Map();
   for (const c of components) {
-    if (benchByCode.has(c.symbol)) continue;
-    const key = normalizeSymbol(c.symbol);
-    if (bistCache[key] && bistCache[key].length > 0) {
-      benchByCode.set(c.symbol, bistCache[key].slice().sort((a, b) => a.date.localeCompare(b.date)));
-      usedBistCache.push(c.symbol);
-    }
+    const rows = benchSerisi(c.symbol);
+    if (rows.length) benchByCode.set(c.symbol, rows);
   }
 
   const inceptionDate = cleanPrice[0].date;
@@ -115,9 +35,9 @@ async function extractFund(fundCode) {
   const weightSum = available.reduce((s, c) => s + c.weight, 0);
 
   let growth = [];
-  let benchmarkApproximate = missing.length > 0;
+  const benchmarkApproximate = missing.length > 0;
   if (available.length > 0) {
-    const lookups = available.map(c => ({ c, fn: buildOnOrBeforeLookup(benchByCode.get(c.symbol)) }));
+    const lookups = available.map(c => ({ c, fn: onOrBeforeLookup(benchByCode.get(c.symbol)) }));
     const inceptionVals = lookups.map(l => l.fn(inceptionDate));
     growth = cleanPrice.map(r => {
       let compositeIndex = null;
@@ -151,7 +71,6 @@ async function extractFund(fundCode) {
     benchmarkAvailable: available.map(c => c.symbol),
     benchmarkMissing: missing.map(c => c.symbol),
     benchmarkApproximate,
-    benchmarkFromBistCache: usedBistCache,
     growth,
   };
 
@@ -170,7 +89,7 @@ if (require.main === module) {
   extractFund(code).then(out => {
     console.log(`${code}: inception ${out.inceptionDate} @ ${out.inceptionPrice}, last ${out.lastDate} @ ${out.lastPrice}`);
     console.log(`  rows: ${out.priceRowCount} (dropped ${out.droppedZeroRows} zero rows)`);
-    console.log(`  benchmark: available=${JSON.stringify(out.benchmarkAvailable)} missing=${JSON.stringify(out.benchmarkMissing)} approximate=${out.benchmarkApproximate} fromBistCache=${JSON.stringify(out.benchmarkFromBistCache)}`);
+    console.log(`  benchmark: available=${JSON.stringify(out.benchmarkAvailable)} missing=${JSON.stringify(out.benchmarkMissing)} approximate=${out.benchmarkApproximate}`);
   }).catch(err => { console.error(err); process.exit(1); });
 }
 

@@ -11,7 +11,7 @@
 // extract_fund.js) used raw MEVUS with no FX adjustment at all - comparing a TL fund index
 // (100 -> 714 over 5 years) against a pure-USD deposit index (100 -> 110), which is not a
 // meaningful comparison.
-const ExcelJS = require('exceljs');
+const { fiyatSerisi, benchSerisi } = require('./lib/arsiv');
 const fs = require('fs');
 const path = require('path');
 
@@ -38,27 +38,8 @@ function buildOnOrBeforeLookup(rowsSortedByDate) {
 }
 
 async function main() {
-  const wb = new ExcelJS.Workbook();
-  await wb.xlsx.readFile(SRC);
-
-  const fiyat = wb.getWorksheet('Fiyat_Sabit_Arsiv');
-  const priceRows = [];
-  fiyat.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== 'ANZ') return;
-    priceRows.push({ date: excelDateToISO(row.getCell(3).value), price: Number(row.getCell(4).value) });
-  });
-  priceRows.sort((a, b) => a.date.localeCompare(b.date));
-  const cleanPrice = priceRows.filter(r => r.price > 0);
-
-  const bench = wb.getWorksheet('Bench_Sabit_Arsiv');
-  const mevusRows = [];
-  bench.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== 'MEVUS') return;
-    mevusRows.push({ date: excelDateToISO(row.getCell(3).value), value: Number(row.getCell(4).value) });
-  });
-  mevusRows.sort((a, b) => a.date.localeCompare(b.date));
+  const cleanPrice = fiyatSerisi('ANZ').filter(r => r.price > 0);
+  const mevusRows = benchSerisi('MEVUS');
 
   const usdtry = JSON.parse(fs.readFileSync(USDTRY_CACHE, 'utf-8'));
 

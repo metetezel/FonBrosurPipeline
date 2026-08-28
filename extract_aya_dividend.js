@@ -7,7 +7,8 @@
 //   TemettusuzEndeks(t)  = 100 * Price(t) / Price(t0)
 //   TemettuDahilEndeks(t) = TemettuDahilEndeks(t-1) * (Price(t)/Price(t-1)) * (1 + yield(t))
 //   where yield(t) is the dividend's "Verim" on its ex-date, else 0.
-const ExcelJS = require('exceljs');
+const ExcelJS = require('exceljs'); // Ferruh Erim'in kaynak dosyasi icin (arsiv artik JSON)
+const { fiyatSerisi } = require('./lib/arsiv');
 const fs = require('fs');
 const path = require('path');
 
@@ -52,16 +53,7 @@ async function extractAyaDividendChart() {
   const yieldByDate = new Map(events.map(e => [e.exDate, e.verim]));
 
   // 2) AYA's own reliable daily price series from our archive
-  const archWb = new ExcelJS.Workbook();
-  await archWb.xlsx.readFile(ARCHIVE);
-  const fiyat = archWb.getWorksheet('Fiyat_Sabit_Arsiv');
-  const priceRows = [];
-  fiyat.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== 'AYA') return;
-    priceRows.push({ date: excelDateToISO(row.getCell(3).value), price: Number(row.getCell(4).value) });
-  });
-  priceRows.sort((a, b) => a.date.localeCompare(b.date));
+  const priceRows = fiyatSerisi('AYA');
   // Ferruh Erim's source file labels dates one trading day earlier than our own archive for the
   // same price (verified: his "2022-06-29" row = 3.715864 = our archive's 2022-06-30; his
   // "2022-06-30" = 3.540099 = our 2022-07-01). So our archive's true equivalent start date is

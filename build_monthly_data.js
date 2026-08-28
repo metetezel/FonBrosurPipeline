@@ -2,17 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { extractMonthly } = require('./extract_monthly');
 
-const BENCH = {
-  AAL: [{ weight: 0.4, symbol: 'TKISA' }, { weight: 0.6, symbol: 'REPBR' }],
-  DGH: [{ weight: 1, symbol: 'REPNT' }],
-  // XU100_CFNNTLTL = the TRUE BIST-100 Getiri (total-return, dividend-reinvested) index, found
-  // 28.08.2026 via Borsa İstanbul's own API — replaces the price-only XU100.IS (Yahoo) proxy
-  // used everywhere until now.
-  AYA: [{ weight: 1, symbol: 'XU100_CFNNTLTL' }], // chart legend in the real PDF plots vs BIST-100 Getiri Endeksi, not the formal Temettü-25 benchmark (XTM25 only has data from 2011-07, AYA inception is 2010-06)
-  AAV: [{ weight: 1, symbol: 'XU100_CFNNTLTL' }],
-  AED: [{ weight: 0.55, symbol: 'XU100_CFNNTLTL' }, { weight: 0.15, symbol: 'REPBR' }, { weight: 0.15, symbol: 'EUSTL' }, { weight: 0.15, symbol: 'ATORT' }],
-  TLZ: [{ weight: 1, symbol: 'XU100_CFNNTLTL' }],
-};
+// Buyume grafiginde cizilen seriler artik data/benchmark_tanimlari.json'un "grafik"
+// bolumunde (tek kaynak: fonun formal olcutu de ayni dosyada). Onceden bu harita burada,
+// formal tanimlar Excel'de, getiri-endeksi cevrimleri extract_fund.js'te duruyordu.
+const { benchmarkTanimlari } = require('./lib/arsiv');
+const BENCH = benchmarkTanimlari().grafik;
 
 (async () => {
   const code = process.argv[2];

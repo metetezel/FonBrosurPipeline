@@ -1,15 +1,12 @@
-const ExcelJS = require('exceljs');
+// Aylik getiri izgarasindan (2021 oncesi tarih dahil) buyume serisi ve performans
+// tablosu uretir. Veri JSON arsivinden geliyor (bkz. lib/arsiv.js); 28.08.2026'ya kadar
+// Excel'den okunuyordu.
 const fs = require('fs');
 const path = require('path');
+const { fiyatSerisi, benchSerisi, aylikIzgara } = require('./lib/arsiv');
 
-const SRC = "//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]/Proje_Gelistirme/Tum_Fonlar_Fiyat_ve_Getiri_Arsivi.xlsx";
+// Aylik tablo basliklari (render_a.js de bu listeyi kullaniyor)
 const MONTH_COLS = ['Oca', 'Sub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Agu', 'Eyl', 'Eki', 'Kas', 'Ara'];
-
-function excelDateToISO(v) {
-  if (v instanceof Date) return v.toISOString().slice(0, 10);
-  const epoch = new Date(Date.UTC(1899, 11, 30));
-  return new Date(epoch.getTime() + v * 86400000).toISOString().slice(0, 10);
-}
 
 function buildOnOrBeforeLookup(rowsSortedByDate) {
   const dates = rowsSortedByDate.map(r => r.date);
@@ -25,33 +22,10 @@ function buildOnOrBeforeLookup(rowsSortedByDate) {
 }
 
 async function extractMonthly(fundCode, benchmarkComponents) {
-  const wb = new ExcelJS.Workbook();
-  await wb.xlsx.readFile(SRC);
-
-  const fiyat = wb.getWorksheet('Fiyat_Sabit_Arsiv');
-  const priceRows = [];
-  fiyat.eachRow((row, i) => {
-    if (i === 1) return;
-    if (row.getCell(1).value !== fundCode) return;
-    priceRows.push({ date: excelDateToISO(row.getCell(3).value), price: Number(row.getCell(4).value) });
-  });
-  priceRows.sort((a, b) => a.date.localeCompare(b.date));
+  const priceRows = fiyatSerisi(fundCode);
   const lastPriceRow = priceRows.filter(r => r.price > 0).pop();
 
-  const grid = wb.getWorksheet('Aylik_Getiri_Grid');
-  const years = [];
-  grid.eachRow((row, idx) => {
-    if (idx === 1) return;
-    if (row.getCell(1).value !== fundCode) return;
-    const yil = row.getCell(2).value;
-    const months = MONTH_COLS.map((_, i) => {
-      const v = row.getCell(3 + i).value;
-      return typeof v === 'number' ? v : null;
-    });
-    const ybbCell = row.getCell(15).value; // YBB_Yayinlanan
-    const ybb = (ybbCell && typeof ybbCell === 'object') ? ybbCell.result : ybbCell;
-    years.push({ year: yil, months, ybb });
-  });
+  const years = (aylikIzgara()[fundCode] || []).map(y => ({ year: y.year, months: y.months.slice(), ybb: y.ybb }));
   years.sort((a, b) => a.year - b.year);
 
   // The grid stores 0 (not blank) for months outside the fund's active lifetime (before
@@ -74,7 +48,10 @@ async function extractMonthly(fundCode, benchmarkComponents) {
   // price data reaching into a LATER month (so the current, still-in-progress month is never
   // guessed at). This lets the pipeline stay current without anyone hand-editing the grid.
   const cleanPriceRows = priceRows.filter(r => r.price > 0);
-  const priceOnOrBefore = buildOnOrBeforeLookup(cleanPriceRows);
+  // buildOnOrBeforeLookup r.value okuyor, fiyat satirlari ise r.price tasiyor - bu esleme
+  // atlandigi icin "ay kapama" otomatigi bugune kadar sessizce hic tetiklenmemisti (lookup
+  // her zaman undefined donuyordu). Alani cevirerek duzeltildi (28.08.2026).
+  const priceOnOrBefore = buildOnOrBeforeLookup(cleanPriceRows.map(r => ({ date: r.date, value: r.price })));
   const monthKey = (y, m) => y * 12 + m;
   const lastPriceMonthKey = monthKey(Number(lastPriceRow.date.slice(0, 4)), Number(lastPriceRow.date.slice(5, 7)) - 1);
 
@@ -123,24 +100,11 @@ async function extractMonthly(fundCode, benchmarkComponents) {
 
   let benchSeries = null;
   if (benchmarkComponents && benchmarkComponents.length > 0) {
-    const bench = wb.getWorksheet('Bench_Sabit_Arsiv');
-    const bistCache = fs.existsSync(path.join(__dirname, 'data', 'bist_indices_cache.json'))
-      ? JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'bist_indices_cache.json'), 'utf-8'))
-      : {};
     const benchByCode = new Map();
-    bench.eachRow((row, i) => {
-      if (i === 1) return;
-      const code = row.getCell(1).value;
-      if (!benchmarkComponents.some(c => c.symbol === code)) return;
-      if (!benchByCode.has(code)) benchByCode.set(code, []);
-      benchByCode.get(code).push({ date: excelDateToISO(row.getCell(3).value), value: Number(row.getCell(4).value) });
-    });
-    benchmarkComponents.forEach(c => {
-      if (benchByCode.has(c.symbol)) return;
-      const key = c.symbol.replace(/\.IS$/i, '');
-      if (bistCache[key]) benchByCode.set(c.symbol, bistCache[key]);
-    });
-    benchByCode.forEach(rows => rows.sort((a, b) => a.date.localeCompare(b.date)));
+    for (const c of benchmarkComponents) {
+      const rows = benchSerisi(c.symbol);
+      if (rows.length) benchByCode.set(c.symbol, rows);
+    }
 
     const lookups = benchmarkComponents.map(c => buildOnOrBeforeLookup(benchByCode.get(c.symbol) || []));
     const weightSum = benchmarkComponents.reduce((s, c) => s + c.weight, 0);
