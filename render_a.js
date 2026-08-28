@@ -8,6 +8,17 @@ const { loadStatic } = require('./lib/static');
 const ROOT = __dirname;
 const MONTH_LABELS = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
 
+// Hangi fon seri verisini nereden alıyor:
+//   <kod>_monthly.json  — aylık ızgaradan üretilenler (build_monthly_data.js) ve
+//                         ANZ/UANZ'ın kur düzeltmeli serisi (extract_anz_uanz_chart.js)
+//   <kod>.json          — geri kalanı, doğrudan extract_fund.js'ten
+// AAS ve YLC bir süre boyunca ellerinde kalmış birer `_monthly.json` okuyordu; o dosyaları
+// hiçbir adım yenilemediği için sayfaları 31.07 verisinde çakılı kalmıştı (YLC'ninki
+// üstelik getiri endeksine geçmeden önceki XGIDA.IS serisini taşıyordu). Kaynak listesi
+// artık burada açıkça yazılı.
+const MONTHLY_KAYNAKLI = ['aal', 'dgh', 'aya', 'aav', 'aed', 'tlz', 'anz', 'uanz'];
+const seriDosyasi = lc => `data/${lc}${MONTHLY_KAYNAKLI.includes(lc) ? '_monthly' : ''}.json`;
+
 function fmtPct(v, decimals = 1) {
   if (v == null) return '';
   const abs = Math.abs(v * 100).toFixed(decimals).replace('.', ',');
@@ -260,7 +271,7 @@ function renderPageHtml(s, monthly, chartHtml, chart2Html) {
 async function renderFund(code, opts = {}) {
   const lc = code.toLowerCase();
   const s = loadStatic(code); // ortak.json + data/<kod>_static.json, rapor tarihi veriden
-  const monthly = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}_monthly.json`), 'utf-8'));
+  const monthly = JSON.parse(fs.readFileSync(path.join(ROOT, seriDosyasi(lc)), 'utf-8'));
 
   const outHtmlPath = path.join(ROOT, `output_${lc}.html`);
   const browser = await chromium.launch();

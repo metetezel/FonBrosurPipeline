@@ -122,6 +122,13 @@ Hesaplaması, Saklama, Alım/Satım Valörü.
 
 ## Render
 
+**Seri verisi hangi dosyadan geliyor:** aylık ızgara fonları (AAL, DGH, AYA, AAV, AED,
+TLZ) ve ANZ/UANZ `data/<kod>_monthly.json`'dan, geri kalan her fon doğrudan
+`data/<kod>.json`'dan (`render_a.js` → `MONTHLY_KAYNAKLI`). AAS ve YLC bir süre boyunca
+kimsenin yenilemediği birer `_monthly.json` okuyordu ve sayfaları 31.07 verisinde çakılı
+kalmıştı (YLC'ninki üstelik getiri endeksine geçmeden önceki `XGIDA.IS` serisini
+taşıyordu) — 29.08.2026'da düzeltildi, o iki dosya silindi.
+
 | Motor | Fonlar | Özellik |
 |---|---|---|
 | `render_b2.js` | JET, RTG, PKF, PKP, URA | Strateji/sektör/avantaj kutuları, varlık dağılımı donut'u |
