@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "09.12.2024"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "744.437.786 TL"],
-    ["Yönetim Komisyonu", "%2,50"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş. / Euroclear"],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+3"]
+    [
+      "Kuruluş Tarihi",
+      "09.12.2024"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "744.437.786 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%2,50"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş. / Euroclear"
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+3"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyParagraphs": [
     "Ata Portföy Enerji Değişken Fon; Fon, öncelikli olarak nükleer enerji ile birlikte güneş, rüzgar, hidroelektrik, biyokütle gibi alternatif ve temiz enerji kaynaklarına yatırım yapmayı hedefler. Bu kapsamda:",
@@ -47,8 +88,14 @@
     "Herhangi bir yatırım alt limiti olmadan TEFAS'a üye tüm banka ve aracı kurumdan alıp satabilirsiniz."
   ],
   "assetAllocation": [
-    { "label": "Yerli Varlıklar", "pct": 20 },
-    { "label": "Yabancı Varlıklar", "pct": 80 }
+    {
+      "label": "Yerli Varlıklar",
+      "pct": 20
+    },
+    {
+      "label": "Yabancı Varlıklar",
+      "pct": 80
+    }
   ],
   "contact": {
     "email": "py@ataportfoy.com.tr",

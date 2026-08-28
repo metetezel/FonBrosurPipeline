@@ -4,22 +4,67 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "16.11.2012"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "123.753.055 TL"],
-    ["Yönetim Komisyonu", "%2,25"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+2"]
+    [
+      "Kuruluş Tarihi",
+      "16.11.2012"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "123.753.055 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%2,25"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+2"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Samet Zağlı", "experience": "17 yıl" },
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Samet Zağlı",
+      "experience": "17 yıl"
+    },
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Hisse Senedi Portföyünüzde Aktif Yönetim!",
   "strategyParagraphs": [
@@ -27,13 +72,46 @@
   ],
   "benchmarkText": "Karşılaştırma Ölçütü: BIST-100 Getiri Endeksi",
   "comparisonTable": {
-    "columns": ["Fon", "BIST 100 Getiri Endeksi"],
+    "columns": [
+      "Fon",
+      "BIST 100 Getiri Endeksi"
+    ],
     "rows": [
-      { "label": "Haftalık", "values": ["-%2,09", "-%4,67"] },
-      { "label": "Aylık", "values": ["-%3,42", "-%7,36"] },
-      { "label": "Yılbaşından Beri", "values": ["%13,42", "%19,39"] },
-      { "label": "Kuruluştan Beri* (Kümülatif)", "values": ["%5798,47", "%2563,81"] },
-      { "label": "Yıllık Ortalama", "values": ["%34,64", "%27,05"] }
+      {
+        "label": "Haftalık",
+        "values": [
+          "-%2,09",
+          "-%4,67"
+        ]
+      },
+      {
+        "label": "Aylık",
+        "values": [
+          "-%3,42",
+          "-%7,36"
+        ]
+      },
+      {
+        "label": "Yılbaşından Beri",
+        "values": [
+          "%13,42",
+          "%19,39"
+        ]
+      },
+      {
+        "label": "Kuruluştan Beri* (Kümülatif)",
+        "values": [
+          "%5798,47",
+          "%2563,81"
+        ]
+      },
+      {
+        "label": "Yıllık Ortalama",
+        "values": [
+          "%34,64",
+          "%27,05"
+        ]
+      }
     ]
   },
   "extraNote": "*16/11/2012 tarihi itibari ile",
@@ -46,8 +124,14 @@
     ]
   },
   "assetAllocation": [
-    { "label": "Yatırım Fonları Katılma Payı", "pct": 2 },
-    { "label": "Hisse Senedi", "pct": 98 }
+    {
+      "label": "Yatırım Fonları Katılma Payı",
+      "pct": 2
+    },
+    {
+      "label": "Hisse Senedi",
+      "pct": 98
+    }
   ],
   "contact": {
     "email": "py@ataportfoy.com.tr",

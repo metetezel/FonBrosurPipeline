@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "11.04.2023"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "85.552.765 TL"],
-    ["Yönetim Komisyonu", "%1,00"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+1"]
+    [
+      "Kuruluş Tarihi",
+      "11.04.2023"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "85.552.765 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%1,00"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+1"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyParagraphs": [
     "Ata Portföy Altın Katılım Fonu, altın ve altına dayalı faizsiz ürünlere yatırım yapar.",
@@ -49,7 +90,10 @@
         "Katılım Endeksi ortaklık payları"
       ]
     },
-    { "label": "Altın ve altına dayalı kira sertifikaları", "pct": 80 }
+    {
+      "label": "Altın ve altına dayalı kira sertifikaları",
+      "pct": 80
+    }
   ],
   "chartNote": null,
   "contact": {

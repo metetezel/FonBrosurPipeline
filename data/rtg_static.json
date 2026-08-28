@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "29.09.2022"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "243.841.688 TL"],
-    ["Yönetim Komisyonu", "%2,50"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş. / Euroclear"],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+3"]
+    [
+      "Kuruluş Tarihi",
+      "29.09.2022"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "243.841.688 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%2,50"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş. / Euroclear"
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+3"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyParagraphs": [
     "Ata Portföy Robotik Teknolojileri Değişken Fon; gelişen teknoloji, artan iş gücü maliyetleri ve düşen robot fiyatlarının etkisiyle stratejik önemi her geçen gün artan yapay zekâ ve robotik teknolojileri sektörüne yatırım imkânı sağlar. Portföyünüzü çeşitlendirirken yapay zekâ sektörünün geleceğine ortak olabilirsiniz."
@@ -44,8 +85,14 @@
     "Herhangi bir yatırım alt limiti olmadan dilediğiniz banka ve aracı kurumdan alıp satabilirsiniz."
   ],
   "assetAllocation": [
-    { "label": "Yerli Varlıklar", "pct": 30 },
-    { "label": "Yabancı Varlıklar", "pct": 70 }
+    {
+      "label": "Yerli Varlıklar",
+      "pct": 30
+    },
+    {
+      "label": "Yabancı Varlıklar",
+      "pct": 70
+    }
   ],
   "chartNote": null,
   "contact": {

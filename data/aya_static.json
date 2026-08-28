@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "17.06.2010"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "1.074.287.612 TL"],
-    ["Yönetim Komisyonu", "%2,50"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+2"]
+    [
+      "Kuruluş Tarihi",
+      "17.06.2010"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "1.074.287.612 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%2,50"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+2"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Batuhan Özşahin", "experience": "28 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Batuhan Özşahin",
+      "experience": "28 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Fon Yatırımınızda Nakit Temettü Alma Dönemi!",
   "strategyParagraphs": [
@@ -29,21 +70,62 @@
   "dividendTable": {
     "title": "Dönemsel Temettü Verimi",
     "rows": [
-      ["2023 Temmuz", "8,33"],
-      ["2024 Ocak", "1,16"],
-      ["2024 Nisan", "1,09"],
-      ["2024 Temmuz", "3,32"],
-      ["2024 Ekim", "1,94"],
-      ["2025 Ocak", "0,99"],
-      ["2025 Nisan", "2,52"],
-      ["2025 Temmuz", "5,03"],
-      ["2025 Ekim", "0,76"],
-      ["2026 Ocak", "0,59"],
-      ["2026 Nisan", "1,83"],
-      ["2026 Temmuz", "1,47"]
+      [
+        "2023 Temmuz",
+        "8,33"
+      ],
+      [
+        "2024 Ocak",
+        "1,16"
+      ],
+      [
+        "2024 Nisan",
+        "1,09"
+      ],
+      [
+        "2024 Temmuz",
+        "3,32"
+      ],
+      [
+        "2024 Ekim",
+        "1,94"
+      ],
+      [
+        "2025 Ocak",
+        "0,99"
+      ],
+      [
+        "2025 Nisan",
+        "2,52"
+      ],
+      [
+        "2025 Temmuz",
+        "5,03"
+      ],
+      [
+        "2025 Ekim",
+        "0,76"
+      ],
+      [
+        "2026 Ocak",
+        "0,59"
+      ],
+      [
+        "2026 Nisan",
+        "1,83"
+      ],
+      [
+        "2026 Temmuz",
+        "1,47"
+      ]
     ]
   },
-  "dividendByYear": { "2022": 4.9, "2023": 9.5, "2024": 7.3, "2025": 9.3 },
+  "dividendByYear": {
+    "2022": 4.9,
+    "2023": 9.5,
+    "2024": 7.3,
+    "2025": 9.3
+  },
   "whyInvest": null,
   "secondChart": {
     "title": "Kâr Payı Dağıtmasaydı Ne Olurdu?"

@@ -1,0 +1,410 @@
+{
+  "cekildi": "2026-08-28T18:02:44.126Z",
+  "fonlar": {
+    "AAL": {
+      "fonUnvan": "ATA PORTFÖY PARA PİYASASI (TL) FONU",
+      "riskDegeri": 1,
+      "isin": "TRMAALWWWWW5",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 1,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-KYD Kamu İç Borçlanma Araçları Endeksleri Kısa Vade",
+          "oran": 40
+        },
+        {
+          "ad": "BIST-KYD O/N Repo Endeksleri Brüt",
+          "oran": 60
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        },
+        {
+          "ad": "Suna Tanrıverdi Fidan",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 22
+        }
+      ]
+    },
+    "AAS": {
+      "fonUnvan": "ATA PORTFÖY FON SEPETİ SERBEST FON",
+      "riskDegeri": 5,
+      "isin": "TRYATAM00028",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 0.75,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-KYD REPO NET endeksi",
+          "oran": 100
+        },
+        {
+          "ad": "Fona İlişkin Kamuyu Aydınlatma Esasları",
+          "oran": 0.002055
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        },
+        {
+          "ad": "Samet Zağlı",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 17
+        }
+      ]
+    },
+    "AAV": {
+      "fonUnvan": "ATA PORTFÖY İKİNCİ HİSSE SENEDİ (TL) FONU (HİSSE SENEDİ YOĞUN FON)",
+      "riskDegeri": 6,
+      "isin": "TRYATAM00069",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 2.25,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST 100 Getiri Endeksi",
+          "oran": 100
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Samet Zağlı",
+          "goreveAtanma": "01/07/2026",
+          "tecrubeYil": 17
+        },
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "01/07/2026",
+          "tecrubeYil": 10
+        }
+      ]
+    },
+    "AED": {
+      "fonUnvan": "ATA PORTFÖY BİRİNCİ DEĞİŞKEN FON",
+      "riskDegeri": 5,
+      "isin": "TRYATAM00010",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 1.75,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-100 Getiri Endeksi",
+          "oran": 55
+        },
+        {
+          "ad": "BIST-KYD Kamu Eurobond USD (TL) Endeksi",
+          "oran": 15
+        },
+        {
+          "ad": "BIST-KYD O/N Repo Endeksleri Bürüt",
+          "oran": 15
+        },
+        {
+          "ad": "BIST-KYD Altın Endeksi",
+          "oran": 15
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Suna Tanrıverdi Fidan",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 22
+        },
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    },
+    "ANZ": {
+      "fonUnvan": "ATA PORTFÖY DÖRDÜNCÜ SERBEST (DÖVİZ) FON",
+      "riskDegeri": null,
+      "isin": "TRYATAP00039",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 0.75,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-KYD 1 AYLIK GÖSTERGE  MEVDUAT USD Endeksi",
+          "oran": 100
+        },
+        {
+          "ad": "Fona İlişkin Kamuyu Aydınlatma Esasları",
+          "oran": 0.002055
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "FARSHAD MİRZAZADEH",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        },
+        {
+          "ad": "Suna Tanrıverdi Fidan",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 22
+        }
+      ]
+    },
+    "AYA": {
+      "fonUnvan": "ATA PORTFÖY KAR PAYI ÖDEYEN HİSSE SENEDİ (TL) FONU (HİSSE SENEDİ YOĞUN FON)",
+      "riskDegeri": null,
+      "isin": "TRMAATWWWWW8",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 2.5,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST Temettü 25 Getiri Endeksi",
+          "oran": 100
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        },
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        }
+      ]
+    },
+    "DGH": {
+      "fonUnvan": "ATA PORTFÖY PARA PİYASASI SERBEST (TL) FON",
+      "riskDegeri": 1,
+      "isin": "TRYDSTK00010",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 0.95,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-KYD REPO NET Endeksi",
+          "oran": 100
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Suna Tanrıverdi Fidan",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 22
+        }
+      ]
+    },
+    "JET": {
+      "fonUnvan": "ATA PORTFÖY HAVACILIK VE SAVUNMA TEKNOLOJİLERİ DEĞİŞKEN FONU",
+      "riskDegeri": 6,
+      "isin": "TRYATAP00153",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "yonetimUcretiYillik": 2.5,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "Nasdaq US Benchmark Aerospace and Defense Total Return Index (NQUSB502010) Net Total Return Endeksi",
+          "oran": 65
+        },
+        {
+          "ad": "35 BIST Teknoloji Ağırlık Sınırlamalı Getiri Endeksi (XTKJS_G)",
+          "oran": 35
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    },
+    "PKF": {
+      "fonUnvan": "ATA PORTFÖY ALTIN KATILIM FONU",
+      "riskDegeri": 6,
+      "isin": "TRYATAP00138",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "yonetimUcretiYillik": 1,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BİST-KYD Altın Fiyat Ağırlıklı Ortalama Endeksi",
+          "oran": 90
+        },
+        {
+          "ad": "BİST-KYD 1 Aylık Kar Payı TL Endeksi",
+          "oran": 10
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Suna Tanrıverdi Fidan",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 22
+        },
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    },
+    "PKP": {
+      "fonUnvan": "ATA PORTFÖY PARA PİYASASI KATILIM SERBEST FON",
+      "riskDegeri": 1,
+      "isin": "TRYATAP00203",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": null,
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 0.8,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST-KYD 1 Aylık Kar Payı TL Endeksi",
+          "oran": 100
+        }
+      ],
+      "yoneticiler": []
+    },
+    "RTG": {
+      "fonUnvan": "ATA PORTFÖY ROBOTİK TEKNOLOJİLERİ DEĞİŞKEN FONU",
+      "riskDegeri": 6,
+      "isin": "TRYATAP00120",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "yonetimUcretiYillik": 2.5,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "Nasdaq CTA Artificial Intelligence & Robotics Index NQROBO nett Total Return Endeksi",
+          "oran": 65
+        },
+        {
+          "ad": "BIST Bilişim Getiri Endeksi (XBLSM_G)",
+          "oran": 35
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        },
+        {
+          "ad": "BATUHAN ÖZŞAHİN",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    },
+    "TLZ": {
+      "fonUnvan": "ATA PORTFÖY KATILIM HİSSE SENEDİ (TL) FONU (HİSSE SENEDİ YOĞUN FON)",
+      "riskDegeri": null,
+      "isin": "TRYATAP00054",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "yonetimUcretiYillik": 2.25,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "BIST Katlım Tüm Getiri Endeksi",
+          "oran": 90
+        },
+        {
+          "ad": "BIST-KYD 1 Aylık Kar Payı TL Eneksi",
+          "oran": 10
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        },
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        }
+      ]
+    },
+    "URA": {
+      "fonUnvan": "ATA PORTFÖY ENERJİ DEĞİŞKEN FON",
+      "riskDegeri": 6,
+      "isin": "TRYATAP00161",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "yonetimUcretiYillik": 2.5,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "Solactive Global Uranium & Nuclear Components Total Return Index (SOLURANT)",
+          "oran": 65
+        },
+        {
+          "ad": "BIST Elektrik Getiri Endeksi (XELKT_CFNNTLTL)",
+          "oran": 35
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 9
+        },
+        {
+          "ad": "BATUHAN ÖZŞAHİN",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    },
+    "YLC": {
+      "fonUnvan": "ATA PORTFÖY TARIM VE GIDA DEĞİŞKEN FON",
+      "riskDegeri": 5,
+      "isin": "TRYATAP00104",
+      "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
+      "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+      "portfoyYoneticisiKurulus": "Ata Portföy Yönetimi A.Ş.",
+      "yonetimUcretiYillik": 1.75,
+      "karsilastirmaOlcutu": [
+        {
+          "ad": "%65 Nasdaq Global Ex-Australia Agriculture Index NQXAUAGR  Net Total Return Endeksi",
+          "oran": 65
+        },
+        {
+          "ad": "%35 BIST Gıda ve İçecek Getiri Endeksi (XGIDA_G)",
+          "oran": 35
+        }
+      ],
+      "yoneticiler": [
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        },
+        {
+          "ad": "Batuhan Özşahin",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 28
+        }
+      ]
+    }
+  }
+}

@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 1,
   "info": [
-    ["Kuruluş Tarihi", "15.01.2026"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "362.578.426 TL"],
-    ["Yönetim Komisyonu", "%0,80"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+0 / T+0"]
+    [
+      "Kuruluş Tarihi",
+      "15.01.2026"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "362.578.426 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%0,80"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+0 / T+0"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyParagraphs": [
     "Katılım Para Piyasası Fonu'nun yatırım stratejisi; faizsiz finans ilkeleri doğrultusunda, kısa vadeli, yüksek likiditeye sahip ve düşük riskli yatırım araçları aracılığıyla istikrarlı getiri sağlamaktır. Fon, yatırımcıların nakit yönetimi ihtiyaçlarına etkin bir çözüm sunmayı ve sermayenin korunmasını önceliklendirmeyi hedefler.",

@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 1,
   "info": [
-    ["Kuruluş Tarihi", "02.05.2013"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "2.155.672.347 TL"],
-    ["Yönetim Komisyonu", "%1,00"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+0 / T+0"]
+    [
+      "Kuruluş Tarihi",
+      "02.05.2013"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "2.155.672.347 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%1,00"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+0 / T+0"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Risklerden Korunurken Birikiminizi Vade Beklemeden Nakde Dönüştürün!",
   "strategyParagraphs": [
@@ -26,12 +67,39 @@
   ],
   "benchmarkText": "Karşılaştırma Ölçütü: %40 BIST-KYD Kamu İç Borçlanma Araçları Endeksleri Kısa Vade + %60 BIST-KYD O/N Repo Endeksi Brüt",
   "comparisonTable": {
-    "columns": ["Para Piyasası Fonu", "Karşılaştırma Ölçütü"],
+    "columns": [
+      "Para Piyasası Fonu",
+      "Karşılaştırma Ölçütü"
+    ],
     "rows": [
-      { "label": "Haftalık", "values": ["%0,42", "%0,53"] },
-      { "label": "Aylık", "values": ["%2,85", "%2,93"] },
-      { "label": "Yıllık", "values": ["%45,89", "%45,60"] },
-      { "label": "Kuruluştan Beri*", "values": ["%1018,24", "%1023,05"] }
+      {
+        "label": "Haftalık",
+        "values": [
+          "%0,42",
+          "%0,53"
+        ]
+      },
+      {
+        "label": "Aylık",
+        "values": [
+          "%2,85",
+          "%2,93"
+        ]
+      },
+      {
+        "label": "Yıllık",
+        "values": [
+          "%45,89",
+          "%45,60"
+        ]
+      },
+      {
+        "label": "Kuruluştan Beri*",
+        "values": [
+          "%1018,24",
+          "%1023,05"
+        ]
+      }
     ]
   },
   "extraNote": "*02/01/2015 tarihinden beri. 01.05.2024 - 31.10.2024 tarihleri arasında (bu tarihler dahil) iktisap edilen (değişken, karma, eurobond, dış borçlanma, yabancı, serbest fonlar ile unvanında \"döviz\" ifadesi geçen yatırım fonları hariç) yatırım fonlarında elde edilen gelir ve kazançlar için stopaj oranı %7,5 olarak uygulanacaktır. (30/04/2024 tarihli 8434 sayılı karar Madde 2-b kapsamında)",

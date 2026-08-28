@@ -2,24 +2,65 @@
   "fundCode": "AAS",
   "fundName": "Ata Portföy Fon Sepeti Serbest Fon",
   "reportDate": "31 Temmuz 2026",
-  "riskLevel": 6,
+  "riskLevel": 5,
   "hasGrowthChart": false,
   "info": [
-    ["Kuruluş Tarihi", "02.05.2013"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "16.582.466 TL"],
-    ["Yönetim Komisyonu", "%0,75"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+3"]
+    [
+      "Kuruluş Tarihi",
+      "02.05.2013"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "16.582.466 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%0,75"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+3"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Gelişmiş Global Piyasalara Yatırım",
   "strategyParagraphs": [
@@ -32,8 +73,14 @@
   "portfolioPie": {
     "title": "Portföy Dağılımı",
     "items": [
-      { "label": "S&P500", "pct": 79 },
-      { "label": "TL Sabit Getirili", "pct": 21 }
+      {
+        "label": "S&P500",
+        "pct": 79
+      },
+      {
+        "label": "TL Sabit Getirili",
+        "pct": 21
+      }
     ]
   },
   "extraNote": "*20.01.2025 fon dönüşümü itibariyle",

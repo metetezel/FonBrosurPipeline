@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 6,
   "info": [
-    ["Kuruluş Tarihi", "16.05.2019"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "65.008.956 TL"],
-    ["Yönetim Komisyonu", "%2,25"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+2"]
+    [
+      "Kuruluş Tarihi",
+      "16.05.2019"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "65.008.956 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%2,25"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+2"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Kimler İçin Uygun?",
   "strategyParagraphs": [
@@ -41,8 +82,14 @@
     ]
   },
   "assetAllocation": [
-    { "label": "Yatırım Fonları Katılma Payı", "pct": 2 },
-    { "label": "Hisse Senedi", "pct": 98 }
+    {
+      "label": "Yatırım Fonları Katılma Payı",
+      "pct": 2
+    },
+    {
+      "label": "Hisse Senedi",
+      "pct": 98
+    }
   ],
   "contact": {
     "email": "py@ataportfoy.com.tr",

@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 5,
   "info": [
-    ["Kuruluş Tarihi", "10.02.2009"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "42.276.726 TL"],
-    ["Yönetim Komisyonu", "%1,75"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+2"]
+    [
+      "Kuruluş Tarihi",
+      "10.02.2009"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "42.276.726 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%1,75"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+2"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Her Dönem Mevduat Üstü Getiri Hedefleyin!",
   "strategyParagraphs": [
@@ -27,12 +68,44 @@
   ],
   "benchmarkText": "Karşılaştırma Ölçütü: %55 BİST-100 Getiri Endeksi + %15 BİST-KYD Repo (Brüt) + %15 BİST-KYD Kamu Eurobond USD (TL) Endeksi + %15 KYD Altın Endeksi",
   "comparisonTable": {
-    "columns": ["Fon", "Benchmark", "KYD Mevduat"],
+    "columns": [
+      "Fon",
+      "Benchmark",
+      "KYD Mevduat"
+    ],
     "rows": [
-      { "label": "Haftalık", "values": ["-%3,55", "-%2,45", "%0,42"] },
-      { "label": "Aylık", "values": ["-%0,64", "-%3,25", "%3,08"] },
-      { "label": "Yıllık", "values": ["%29,72", "%32,11", "%47,08"] },
-      { "label": "Başlangıçtan Beri**", "values": ["%1853,06", "%171,52", "%655,69"] }
+      {
+        "label": "Haftalık",
+        "values": [
+          "-%3,55",
+          "-%2,45",
+          "%0,42"
+        ]
+      },
+      {
+        "label": "Aylık",
+        "values": [
+          "-%0,64",
+          "-%3,25",
+          "%3,08"
+        ]
+      },
+      {
+        "label": "Yıllık",
+        "values": [
+          "%29,72",
+          "%32,11",
+          "%47,08"
+        ]
+      },
+      {
+        "label": "Başlangıçtan Beri**",
+        "values": [
+          "%1853,06",
+          "%171,52",
+          "%655,69"
+        ]
+      }
     ]
   },
   "extraNote": "**02/01/2019 tarihinden beri olan kümülatif getiriyi gösterir.",
@@ -45,9 +118,18 @@
     ]
   },
   "assetAllocation": [
-    { "label": "Yatırım Fonları Katılma Payı", "pct": 20 },
-    { "label": "Borçlanma Araçları", "pct": 25 },
-    { "label": "Hisse Senedi", "pct": 55 }
+    {
+      "label": "Yatırım Fonları Katılma Payı",
+      "pct": 20
+    },
+    {
+      "label": "Borçlanma Araçları",
+      "pct": 25
+    },
+    {
+      "label": "Hisse Senedi",
+      "pct": 55
+    }
   ],
   "contact": {
     "email": "py@ataportfoy.com.tr",

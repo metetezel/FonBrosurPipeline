@@ -4,21 +4,62 @@
   "reportDate": "31 Temmuz 2026",
   "riskLevel": 1,
   "info": [
-    ["Kuruluş Tarihi", "15.12.2015"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "3.408.499.173 TL"],
-    ["Yönetim Komisyonu", "%0,95"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş."],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+0 / T+0"]
+    [
+      "Kuruluş Tarihi",
+      "15.12.2015"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "3.408.499.173 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%0,95"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş."
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+0 / T+0"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Suna Tanrıverdi Fidan", "experience": "22 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Suna Tanrıverdi Fidan",
+      "experience": "22 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyParagraphs": [
     "Ata Portföy Para Piyasası Serbest (TL) Fon, büyüklüğünün %60'ından fazlasını repo, mevduat vb. ürünlerde değerlendirken; kalan kısmını portföy yöneticilerinin kriterlerine uygun özel sektör tahvil ve bonoları ile devlet tahviline yatıran bir fondur. Yatırım kararı, firmaların borçları ödeme gücüne dayanan detaylı kredi analizi sonucu alınır.",
@@ -27,13 +68,52 @@
   ],
   "benchmarkText": "Eşik Değeri: KYD Repo Net Endeksi",
   "comparisonTable": {
-    "columns": ["Fon", "KYD Mevduat", "KYD Repo Net"],
+    "columns": [
+      "Fon",
+      "KYD Mevduat",
+      "KYD Repo Net"
+    ],
     "rows": [
-      { "label": "Haftalık", "values": ["%0,78", "%0,73", "%0,65"] },
-      { "label": "Aylık", "values": ["%3,37", "%3,18", "%2,83"] },
-      { "label": "YBB", "values": ["%25,64", "%24,02", "%21,10"] },
-      { "label": "Son 12 Ay", "values": ["%49,42", "%46,39", "%39,90"] },
-      { "label": "Kuruluştan Beri*", "values": ["%910,91", "%687,58", "%528,56"] }
+      {
+        "label": "Haftalık",
+        "values": [
+          "%0,78",
+          "%0,73",
+          "%0,65"
+        ]
+      },
+      {
+        "label": "Aylık",
+        "values": [
+          "%3,37",
+          "%3,18",
+          "%2,83"
+        ]
+      },
+      {
+        "label": "YBB",
+        "values": [
+          "%25,64",
+          "%24,02",
+          "%21,10"
+        ]
+      },
+      {
+        "label": "Son 12 Ay",
+        "values": [
+          "%49,42",
+          "%46,39",
+          "%39,90"
+        ]
+      },
+      {
+        "label": "Kuruluştan Beri*",
+        "values": [
+          "%910,91",
+          "%687,58",
+          "%528,56"
+        ]
+      }
     ]
   },
   "contact": {

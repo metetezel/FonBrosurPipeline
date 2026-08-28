@@ -2,23 +2,64 @@
   "fundCode": "YLC",
   "fundName": "Ata Portföy Tarım ve Gıda Değişken Fon",
   "reportDate": "31 Temmuz 2026",
-  "riskLevel": 6,
+  "riskLevel": 5,
   "info": [
-    ["Kuruluş Tarihi", "10.02.2022"],
-    ["Para Birimi", "TL"],
-    ["Net Varlık Tutarı", "85.552.765 TL"],
-    ["Yönetim Komisyonu", "%1,75"],
-    ["Getiri Hesaplaması", "Günlük"],
-    ["Saklama", "T. İş Bankası A.Ş. / Euroclear"],
-    ["Kurucu", "Ata Portföy Yönetimi A.Ş"],
-    ["Denetçi", "Baker Tilly Güreli Yeminli Mali Müşavirlik A.Ş."],
-    ["Portföy Yöneticisi", "Ata Portföy Yönetimi A.Ş"],
-    ["Yasal Adres", "Türkiye"],
-    ["Alım / Satım Valörü", "T+1 / T+3"]
+    [
+      "Kuruluş Tarihi",
+      "10.02.2022"
+    ],
+    [
+      "Para Birimi",
+      "TL"
+    ],
+    [
+      "Net Varlık Tutarı",
+      "85.552.765 TL"
+    ],
+    [
+      "Yönetim Komisyonu",
+      "%1,75"
+    ],
+    [
+      "Getiri Hesaplaması",
+      "Günlük"
+    ],
+    [
+      "Saklama",
+      "T. İş Bankası A.Ş. / Euroclear"
+    ],
+    [
+      "Kurucu",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Denetçi",
+      "Güreli Yeminli Mali Müşavirlik ve Bağımsız Denetim Hizmetleri A.Ş."
+    ],
+    [
+      "Portföy Yöneticisi",
+      "Ata Portföy Yönetimi A.Ş"
+    ],
+    [
+      "Yasal Adres",
+      "Türkiye"
+    ],
+    [
+      "Alım / Satım Valörü",
+      "T+1 / T+3"
+    ]
   ],
   "managers": [
-    { "role": "Fon Yöneticisi", "name": "Farshad Mirzazadeh", "experience": "10 yıl" },
-    { "role": "Risk Yöneticisi", "name": "Seyhan Dönmezkuş", "experience": "16 yıl" }
+    {
+      "role": "Fon Yöneticisi",
+      "name": "Farshad Mirzazadeh",
+      "experience": "10 yıl"
+    },
+    {
+      "role": "Risk Yöneticisi",
+      "name": "Seyhan Dönmezkuş",
+      "experience": "16 yıl"
+    }
   ],
   "strategyTitle": "Dünyadaki Tarım ve Gıda Kaynaklarına Yatırım Yaparken Sürdürülebilir Bir Geleceğe Ortak Olun!",
   "strategyParagraphs": [
@@ -38,19 +79,49 @@
   "countryDistribution": {
     "title": "Hangi Ülkelere Yatırım Yapıyor?",
     "items": [
-      { "name": "ABD", "pct": 30 },
-      { "name": "Türkiye", "pct": 30 },
-      { "name": "İngiltere", "pct": 19 },
-      { "name": "Norveç", "pct": 8 },
-      { "name": "Japonya", "pct": 6 },
-      { "name": "Danimarka", "pct": 3 },
-      { "name": "Hollanda", "pct": 3 },
-      { "name": "İspanya", "pct": 1 }
+      {
+        "name": "ABD",
+        "pct": 30
+      },
+      {
+        "name": "Türkiye",
+        "pct": 30
+      },
+      {
+        "name": "İngiltere",
+        "pct": 19
+      },
+      {
+        "name": "Norveç",
+        "pct": 8
+      },
+      {
+        "name": "Japonya",
+        "pct": 6
+      },
+      {
+        "name": "Danimarka",
+        "pct": 3
+      },
+      {
+        "name": "Hollanda",
+        "pct": 3
+      },
+      {
+        "name": "İspanya",
+        "pct": 1
+      }
     ]
   },
   "assetAllocation": [
-    { "label": "Yerli Varlıklar", "pct": 30 },
-    { "label": "Yabancı Varlıklar", "pct": 70 }
+    {
+      "label": "Yerli Varlıklar",
+      "pct": 30
+    },
+    {
+      "label": "Yabancı Varlıklar",
+      "pct": 70
+    }
   ],
   "contact": {
     "email": "py@ataportfoy.com.tr",
