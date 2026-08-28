@@ -26,5 +26,9 @@
       "name": "Seyhan Dönmezkuş",
       "experience": "16 yıl"
     }
-  ]
+  ],
+  "unvanlar": {
+    "Farshad Mirzazadeh": "CFA"
+  },
+  "unvanlarAciklama": "Yonetici adinin yanina basilacak mesleki unvan. Ad alani temiz kaliyor (KAP karsilastirmasi ad uzerinden yapiliyor), unvan render aninda ekleniyor."
 }
