@@ -13,9 +13,9 @@ REM
 REM TEFAS sadece BUGUNUN degerini veriyor, gecmise donuk fon buyuklugu
 REM sorgusu yok. Bu yuzden script her calistiginda degeri
 REM data/tefas_net_varlik_log.json'a da kaydeder; boylece haftalik
-REM degerler birikir ve rapor tarihine denk gelen kayit kullanilir.
-REM Rapor tarihine ait kayit yoksa hicbir dosyayi degistirmez, sadece
-REM karsilastirma tablosunu ekrana basar (guvenli varsayilan).
+REM degerler birikir. Karar (Mete, 28.08.2026): hep TEFAS baz alinir -
+REM once rapor tarihine ait kayit aranir, yoksa en yeni snapshot yazilir
+REM ve hangi tarihten geldigi ekrana basilir.
 REM
 REM Not: UANZ'in TEFAS'ta ayri kaydi yok (ANZ'nin pay sinifi) -
 REM ANZ'nin degerini alir, broşurlerin kendi varsayimiyla ayni.

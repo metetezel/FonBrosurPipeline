@@ -16,12 +16,15 @@
 //   2. UANZ has no TEFAS record of its own (it is a share class of ANZ, as the brochures
 //      themselves already assume) - it takes ANZ's figure.
 //
+// Karar (Mete, 28.08.2026): "hep TEFAS'i baz alalim" - net varlik HER ZAMAN TEFAS'tan
+// yaziliyor. Once brosurun rapor tarihine ait kayit araniyor, yoksa en yeni snapshot
+// kullanilip hangi tarihten geldigi ekrana basiliyor. Onceki davranis (tarih tutmuyorsa
+// hic yazma) haftalik akista tikaniyordu: rapor tarihi T-1 iken TEFAS o gunu yayinlamissa
+// snapshot T oluyor ve deger hicbir zaman yazilmiyordu.
+//
 // Usage:
-//   node fetch_tefas_net_varlik.js            fetch + log + write rows whose date matches
-//                                             the brochure's own reportDate
-//   node fetch_tefas_net_varlik.js --guncel   write the newest snapshot regardless of date
-//                                             (for an off-cycle refresh)
-//   node fetch_tefas_net_varlik.js --sadece-getir   fetch + log only, touch no static file
+//   node fetch_tefas_net_varlik.js                  cek + logla + 15 dosyaya yaz
+//   node fetch_tefas_net_varlik.js --sadece-getir   cek + logla, hicbir dosyaya dokunma
 const fs = require('fs');
 const path = require('path');
 const { reportDateFor } = require('./lib/static');
@@ -111,7 +114,7 @@ function lookup(log, code, isoDate) {
   return { entry: log[son][code], tarih: son, exact: false };
 }
 
-function updateStatics(log, { guncel }) {
+function updateStatics(log) {
   const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
   let yazilan = 0;
   console.log('\nKOD    broşürdeki değer          TEFAS değeri          durum');
@@ -132,32 +135,25 @@ function updateStatics(log, { guncel }) {
     }
     const yeni = formatTL(hit.entry.netVarlik);
     const alias = source !== code ? ` (${source}'den)` : '';
-    if (hit.exact || guncel) {
-      row[1] = yeni;
-      fs.writeFileSync(p, JSON.stringify(s, null, 2));
-      yazilan++;
-      const not = hit.exact ? `yazıldı (${hit.tarih})` : `yazıldı (${hit.tarih}, --guncel)`;
-      console.log(`${code.padEnd(6)} ${String(mevcut).padStart(20)}  ${yeni.padStart(20)}  ${not}${alias}`);
-    } else {
-      console.log(`${code.padEnd(6)} ${String(mevcut).padStart(20)}  ${yeni.padStart(20)}  ATLANDI: elde ${hit.tarih} var, broşür ${isoDate} istiyor${alias}`);
-    }
+    // Karar (Mete, 28.08.2026): "hep TEFAS'ı baz alalım" — her zaman yazılıyor. Önce rapor
+    // tarihine ait kayıt aranıyor, yoksa en yeni snapshot kullanılıp tarihi belirtiliyor.
+    row[1] = yeni;
+    fs.writeFileSync(p, JSON.stringify(s, null, 2));
+    yazilan++;
+    const not = hit.exact ? `yazıldı (${hit.tarih})` : `yazıldı (${hit.tarih} — rapor tarihi ${isoDate})`;
+    console.log(`${code.padEnd(6)} ${String(mevcut).padStart(20)}  ${yeni.padStart(20)}  ${not}${alias}`);
   }
   console.log(`\n${yazilan} dosya güncellendi.`);
-  if (!yazilan) {
-    console.log('Broşürün rapor tarihine ait kayıt henüz birikmedi. Ay sonunda bu script çalıştıkça');
-    console.log('o tarih log\'a girecek ve otomatik yazılacak; şimdi yine de yazdırmak için --guncel.');
-  }
 }
 
 async function main() {
   const args = process.argv.slice(2);
-  const guncel = args.includes('--guncel');
   const sadeceGetir = args.includes('--sadece-getir');
   console.log('TEFAS fon bilgileri çekiliyor...');
   const snapshot = await fetchAll();
   const log = appendToLog(snapshot);
   if (sadeceGetir) return;
-  updateStatics(log, { guncel });
+  updateStatics(log);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
