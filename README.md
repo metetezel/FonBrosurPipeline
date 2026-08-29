@@ -17,7 +17,7 @@ Görsel kılavuz: `kilavuz.html` →
 
 **Her perşembe öğleden sonra → `Tum_Verileri_Yenile.bat`**
 
-On bir adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
+On iki adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
 `Brosurler\<yayın tarihi>\<KOD>.pdf`.
 
 | # | Ne yapar | Dosya |
@@ -33,6 +33,7 @@ On bir adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın kl
 | 9 | 15 PDF — her aile tek Chromium oturumunda; bir render çökerse tur durur | `render_b2.js`, `render_a.js` |
 | 10 | Yayın klasörüne kopyalama | `export_pdfs.js` |
 | 11 | Geçen tura göre ne değişti + veri sağlık kontrolü | `tur_ozeti.js` |
+| 12 | Tur çıktısını commit'ler ve GitHub'a gönderir | `GitHub_Kaydet_Yukle.bat /sessiz` |
 
 Önce ne olacağını görmek için: `node fetch_arsiv.js --dene` (hiçbir dosyaya yazmaz).
 Sadece bir CSS/metin düzeltmesi yaptıysanız veri çekmeden yeniden çizmek için:
@@ -194,7 +195,8 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   adım başarısız olsa bile ekrana "TAMAMLANDI" yazıyordu. Yayın kökü önce `Z:`'de aranır,
   yoksa `//atafiles/...` UNC yoluna düşer: notebook'ta ağ paylaşımı `Z:` olarak eşlenmemiş
   olabilir, iki yol da aynı klasör.
-- **Tur özeti (11. adım) turun en son çıktısıdır.** `tur_ozeti.js` her fonun render
+- **Tur kendi çıktısını kaydeder (12. adım).** Kayıt artık isteğe bağlı bir hijyen değil: `tur_ozeti.js` "geçen tura göre ne değişti"yi git geçmişinden okuduğu için commit'lenmeyen bir tur karşılaştırma penceresini sessizce genişletir (gelecek hafta "geçen tur" diye iki tur öncesini gösterir). Push başarısız olursa tur durmaz, uyarı basar — broşürler zaten üretilmiş ve yayın klasörüne kopyalanmış olur, eksik olan sadece kayıttır.
+- **Tur özeti (11. adım).** `tur_ozeti.js` her fonun render
   edilmiş `output_<kod>.html` metnini `data/brosur_metin.json`'a snapshot olarak yazar ve
   git'teki bir önceki turun snapshot'ıyla karşılaştırır — yani "geçen haftaya göre hangi
   satır değişti" sorusunun cevabı, render'ın gerçekten bastığı metinden gelir, ayrı bir
@@ -240,7 +242,7 @@ Netleşince `compute_anz_table.js` kalibre edilip `--yaz` ile otomatiğe alınab
 | `Tum_Fonlari_Yenile.bat` | Veri çekmeden 15 PDF'i yeniden çizer (CSS/metin düzeltmesi sonrası) |
 | `Net_Varlik_Guncelle.bat` | Sadece net varlık tazelemesi (haftalık tur zaten yapıyor) |
 | `ANZ_UANZ_Guncelle.bat` | ANZ/UANZ verisi + iki PDF |
-| `GitHub_Kaydet_Yukle.bat` | Commit + push |
+| `GitHub_Kaydet_Yukle.bat` | Commit + push. Turun 12. adımı bunu `/sessiz "mesaj"` ile çağırır (beklemez, hata olursa 1 döner); çift tıklayınca elle de çalışır |
 
 
 Ağ klasöründe (`Fon Broşür [Cursor & Claude]\`) iki çift-tıklanabilir kısayol duruyor:

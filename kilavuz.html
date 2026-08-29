@@ -230,7 +230,7 @@
 </section>
 
 <section>
-  <h2>On bir adım</h2>
+  <h2>On iki adım</h2>
   <p class="sub">Bat dosyası bunları sırayla çalıştırıyor. Sıra önemli: veri gelmeden hesap, hesap bitmeden render olmaz.</p>
   <div class="tablewrap">
     <table>
@@ -248,7 +248,8 @@
         <tr><td><span class="step-no">8</span></td><td>Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ'nin eurobond YTM tablosu.</td><td><span class="mono">extract_aya_dividend.js</span> ·<br><span class="mono">extract_anz_uanz_chart.js</span> ·<br><span class="mono">update_anz_guncel_bilgiler.js</span></td></tr>
         <tr><td><span class="step-no">9</span></td><td>15 PDF <span class="mono">out/</span> klasörüne üretilir. B2 ailesi (JET, RTG, PKF, PKP, URA) ayrı motor, diğer 10 fon ayrı motor. Her aile <strong>tek Chromium oturumunda</strong> render ediliyor (15 tarayıcı başlatmak yerine 2) ve bir fon çökerse tur orada duruyor — eskiden döngü devam edip bayat PDF bırakıyordu.</td><td><span class="mono">render_b2.js</span> · <span class="mono">render_a.js</span></td></tr>
         <tr><td><span class="step-no">10</span></td><td>PDF'ler ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalanır.</td><td><span class="mono">export_pdfs.js</span></td></tr>
-        <tr><td><span class="step-no">11</span></td><td>Geçen tura göre broşür metinlerinde ne değiştiğini ve veri sağlığını raporlar — turun ekrandaki son çıktısı.</td><td><span class="mono">tur_ozeti.js</span></td></tr>
+        <tr><td><span class="step-no">11</span></td><td>Geçen tura göre broşür metinlerinde ne değiştiğini ve veri sağlığını raporlar.</td><td><span class="mono">tur_ozeti.js</span></td></tr>
+        <tr><td><span class="step-no">12</span></td><td>Turun çıktısını commit'leyip GitHub'a gönderir. Kayıt işlevsel: 11. adımın karşılaştırması git geçmişini kullanıyor, kaydedilmeyen tur pencereyi genişletir. Push başarısız olursa tur durmaz, uyarır.</td><td><span class="mono">GitHub_Kaydet_Yukle.bat</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -373,7 +374,7 @@
     </div>
     <div class="recipe">
       <div class="q">Değişiklikleri kaydetmek</div>
-      <div class="a"><code>GitHub_Kaydet_Yukle.bat</code> — commit'ler ve push eder. Diğer makinede <code>git pull</code>.</div>
+      <div class="a">Haftalık tur bunu 12. adımda kendisi yapıyor. Tur dışında bir değişiklik yaptıysan: <code>GitHub_Kaydet_BASLAT.bat</code> (ağ klasörü) ya da depodaki <code>GitHub_Kaydet_Yukle.bat</code>. Diğer makinede <code>git pull</code>.</div>
     </div>
   </div>
 </section>
