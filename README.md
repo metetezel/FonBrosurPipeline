@@ -72,12 +72,20 @@ Türkiye saatiyle gece 00:00-03:00 arasında bir gün geriye kayıyordu.
 
 ```
 git clone https://github.com/metetezel/FonBrosurPipeline
-npm install
+npm ci
 npx playwright install chromium
 ```
 
+**`npm install` değil `npm ci`:** bağımlılıklar `package.json`'da `^` ile yazılı, yani
+`npm install` yeni bir Playwright sürümü çekebilir ve Playwright kendi tarayıcı ikilisiyle
+eşleşmek zorunda. `npm ci` `package-lock.json`'daki sürümleri birebir kurar — iki makinede
+aynı çıktıyı garantiler.
+
 Excel'e ihtiyaç yok. Ağ paylaşımına erişim iki şey için gerekli: ANZ'nin eurobond dosyası
 (Farshad) ve AYA'nın temettü dosyası (Ferruh Erim), bir de yayın klasörüne kopyalama.
+
+Üretilen dosyalar (`out/`) ve `node_modules/` git'te tutulmaz; ikisi de tek komutla geri
+gelir.
 
 ---
 

@@ -1,6 +1,6 @@
 // Turun sonunda "bu hafta ne degisti" ozetini basar. Iki isi var:
 //
-//   1) BROSUR METNI DEGISIMI. render adimi her fon icin output_<kod>.html birakiyor;
+//   1) BROSUR METNI DEGISIMI. render adimi her fon icin out/output_<kod>.html birakiyor;
 //      bu dosyalarin gorunur metni data/brosur_metin.json'a snapshot olarak yazilir ve
 //      git'teki bir onceki surumle (yani gecen turun kaydiyla) karsilastirilir. Rapor
 //      render'in bastigi metinden turedigi icin hesaplama mantigindan asla sapmaz:
@@ -101,7 +101,7 @@ function main() {
 
   const yeni = {}, eksikHtml = [];
   for (const kod of KODLAR) {
-    const p = path.join(__dirname, 'output_' + kod.toLowerCase() + '.html');
+    const p = path.join(__dirname, 'out', 'output_' + kod.toLowerCase() + '.html');
     if (!fs.existsSync(p)) { eksikHtml.push(kod); continue; }
     yeni[kod] = metinCikar(fs.readFileSync(p, 'utf8'));
   }

@@ -273,7 +273,11 @@ async function renderFund(code, opts = {}) {
   const s = loadStatic(code); // ortak.json + data/<kod>_static.json, rapor tarihi veriden
   const monthly = JSON.parse(fs.readFileSync(path.join(ROOT, seriDosyasi(lc)), 'utf-8'));
 
-  const outHtmlPath = path.join(ROOT, `output_${lc}.html`);
+  // Uretilen dosyalar out/ altinda toplaniyor: depo kokunde 15 PDF + 15 HTML birikince
+  // asil scriptler gorunmez oluyordu. out/ .gitignore'da.
+  const CIKTI = path.join(ROOT, 'out');
+  fs.mkdirSync(CIKTI, { recursive: true });
+  const outHtmlPath = path.join(CIKTI, `output_${lc}.html`);
   // Tarayici disaridan verilirse (coklu render) paylasilir ve burada kapatilmaz:
   // 15 fon icin 15 Chromium baslatmak yerine aile basina bir tane yetiyor.
   const paylasilan = opts.tarayici || null;
@@ -305,7 +309,7 @@ async function renderFund(code, opts = {}) {
   fs.writeFileSync(outHtmlPath, renderPageHtml(s, monthly, growthSvg, growth2Svg), 'utf-8');
   await page.goto('file:///' + outHtmlPath.replace(/\\/g, '/'), { waitUntil: 'networkidle' });
 
-  const outPdfPath = path.join(ROOT, `${code}_Brosur_Modern.pdf`);
+  const outPdfPath = path.join(CIKTI, `${code}_Brosur_Modern.pdf`);
   await page.pdf({ path: outPdfPath, format: 'A4', printBackground: true, margin: { top: 0, bottom: 0, left: 0, right: 0 } });
   await page.close();
   if (!paylasilan) await browser.close();

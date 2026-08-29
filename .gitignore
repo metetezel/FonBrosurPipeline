@@ -3,5 +3,5 @@ node_modules/
 *.png
 !assets/**
 scratch_*
-output*.html
+out/
 data/bist_indices_cache.json

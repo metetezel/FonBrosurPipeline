@@ -1,5 +1,5 @@
 // Üretilen 15 PDF'i ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalar:
-//   AAL_Brosur_Modern.pdf -> .../Brosurler/27.08.2026/AAL.pdf
+//   out/AAL_Brosur_Modern.pdf -> .../Brosurler/27.08.2026/AAL.pdf
 // Klasör adı ve broşür başlığı yayın gününden (PDF'i ürettiğimiz gün), veriler T-1'den
 // gelir — bkz. lib/static.js yayinTarihi / lib/arsiv.js kesimTarihi.
 //
@@ -49,7 +49,7 @@ function main() {
   // sessizce yayına gitmesin. Render döngüsünün kendi hata kontrolü yok, bu yüzden
   // başarısız bir render geçen turdan kalan PDF'i olduğu yerde bırakır — bayatlık ölçüsü
   // göreli: en yeni PDF'ten bir saatten fazla geride kalan dosya bu turda üretilmemiştir.
-  const kaynaklar = KODLAR.map(kod => ({ kod, src: path.join(__dirname, `${kod}_Brosur_Modern.pdf`) }));
+  const kaynaklar = KODLAR.map(kod => ({ kod, src: path.join(__dirname, 'out', `${kod}_Brosur_Modern.pdf`) }));
   const eksik = kaynaklar.filter(x => !fs.existsSync(x.src)).map(x => x.kod);
   if (eksik.length) {
     console.error(`HATA: şu fonların PDF'i yok, render adımı başarısız olmuş olabilir: ${eksik.join(', ')}`);
