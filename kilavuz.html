@@ -181,7 +181,7 @@
     <span><b>Depo:</b> github.com/metetezel/FonBrosurPipeline</span>
     <span><b>Çalışma kopyası:</b> <span class="mono">C:\Users\metete\FonBrosurPipeline</span></span>
     <span><b>Üretim:</b> haftalık, perşembe öğleden sonra</span>
-    <span><b>Son güncelleme:</b> 28.08.2026</span>
+    <span><b>Son güncelleme:</b> 29.08.2026</span>
   </div>
 </header>
 
@@ -192,6 +192,7 @@
     <p class="note"><strong>İki ayrı tarih var.</strong> Başlıktaki rozet <em>yayın tarihi</em>: PDF'i ürettiğin gün. Rakamlar ise her zaman <em>T-1</em> — bugünün verisi hesaba hiç katılmıyor, böylece sonuç TEFAS'ın o günü yayınlayıp yayınlamamasından bağımsız. İkisi karışmıyor çünkü bilgi kartındaki <span class="mono">Birim Fiyat (28.08.2026)</span> satırı veri gününü yazıyor.</p>
     <p class="note">Emin olmak istersen önce <code>node fetch_arsiv.js --dene</code> — hiçbir şeye dokunmadan hangi tarihe kadar veri geleceğini gösterir.</p>
     <p class="note">Sonuç: <span class="mono">Brosurler\&lt;yayın tarihi&gt;\&lt;KOD&gt;.pdf</span> — ağ klasöründe, 15 dosya.</p>
+    <p class="note"><strong>Son adım elle.</strong> Klasör hazır olduğunda PDF'leri siteye sen yüklüyorsun — yükleme tarafında otomatikleştirilecek bir uç yok, pipeline'ın işi klasörü hazır etmekle bitiyor.</p>
   </div>
 </section>
 
@@ -228,7 +229,7 @@
 </section>
 
 <section>
-  <h2>Dokuz adım</h2>
+  <h2>On adım</h2>
   <p class="sub">Bat dosyası bunları sırayla çalıştırıyor. Sıra önemli: veri gelmeden hesap, hesap bitmeden render olmaz.</p>
   <div class="tablewrap">
     <table>
@@ -238,13 +239,14 @@
       <tbody>
         <tr><td><span class="step-no">1</span></td><td>Arşivi büyütür: fon fiyatları TEFAS'tan, endeksler Borsa İstanbul/Nasdaq/Yahoo'dan. Var olan tarihe dokunmaz.</td><td><span class="mono">fetch_arsiv.js</span></td></tr>
         <tr><td><span class="step-no">2</span></td><td>Kart bilgilerini KAP'tan tazeler: risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi kuruluşu.</td><td><span class="mono">fetch_kap_fund_info.js</span></td></tr>
-        <tr><td><span class="step-no">3</span></td><td>Net Varlık Tutarı'nı TEFAS'tan yazar; rapor tarihine denk gelen kayıt yoksa dosyaya dokunmaz.</td><td><span class="mono">fetch_tefas_net_varlik.js</span></td></tr>
-        <tr><td><span class="step-no">4</span></td><td>USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi için).</td><td><span class="mono">fetch_usdtry.js</span></td></tr>
-        <tr><td><span class="step-no">5</span></td><td>14 fonun fiyat serisini ve ağırlıklı bileşik karşılaştırma ölçütünü hesaplar.</td><td><span class="mono">extract_fund.js</span></td></tr>
-        <tr><td><span class="step-no">6</span></td><td>Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ): 2010'a uzanan aylık getiri tablosu + büyüme serisi. Yeni ay ancak gerçekten kapandığında ekleniyor.</td><td><span class="mono">build_monthly_data.js</span></td></tr>
-        <tr><td><span class="step-no">7</span></td><td>Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ'nin eurobond YTM tablosu.</td><td><span class="mono">extract_aya_dividend.js</span> ·<br><span class="mono">extract_anz_uanz_chart.js</span> ·<br><span class="mono">update_anz_guncel_bilgiler.js</span></td></tr>
-        <tr><td><span class="step-no">8</span></td><td>15 PDF üretilir. B2 ailesi (JET, RTG, PKF, PKP, URA) ayrı motor, diğer 10 fon ayrı motor.</td><td><span class="mono">render_b2.js</span> · <span class="mono">render_a.js</span></td></tr>
-        <tr><td><span class="step-no">9</span></td><td>PDF'ler ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalanır.</td><td><span class="mono">export_pdfs.js</span></td></tr>
+        <tr><td><span class="step-no">3</span></td><td>Portföy dağılımını TEFAS'tan çeker: enstrüman kırılımı ve yüzdeleri. %1 altındaki dilimler "Diğer"de toplanır.</td><td><span class="mono">fetch_tefas_dagilim.js</span></td></tr>
+        <tr><td><span class="step-no">4</span></td><td>Net Varlık Tutarı'nı TEFAS'tan yazar; rapor tarihine denk gelen kayıt yoksa dosyaya dokunmaz.</td><td><span class="mono">fetch_tefas_net_varlik.js</span></td></tr>
+        <tr><td><span class="step-no">5</span></td><td>USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi için).</td><td><span class="mono">fetch_usdtry.js</span></td></tr>
+        <tr><td><span class="step-no">6</span></td><td>14 fonun fiyat serisini ve ağırlıklı bileşik karşılaştırma ölçütünü hesaplar.</td><td><span class="mono">extract_fund.js</span></td></tr>
+        <tr><td><span class="step-no">7</span></td><td>Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ): 2010'a uzanan aylık getiri tablosu + büyüme serisi. Yeni ay ancak gerçekten kapandığında ekleniyor.</td><td><span class="mono">build_monthly_data.js</span></td></tr>
+        <tr><td><span class="step-no">8</span></td><td>Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ'nin eurobond YTM tablosu.</td><td><span class="mono">extract_aya_dividend.js</span> ·<br><span class="mono">extract_anz_uanz_chart.js</span> ·<br><span class="mono">update_anz_guncel_bilgiler.js</span></td></tr>
+        <tr><td><span class="step-no">9</span></td><td>15 PDF üretilir. B2 ailesi (JET, RTG, PKF, PKP, URA) ayrı motor, diğer 10 fon ayrı motor.</td><td><span class="mono">render_b2.js</span> · <span class="mono">render_a.js</span></td></tr>
+        <tr><td><span class="step-no">10</span></td><td>PDF'ler ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalanır.</td><td><span class="mono">export_pdfs.js</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -369,7 +371,6 @@
       <thead><tr><th>Konu</th><th>Durum</th></tr></thead>
       <tbody>
         <tr><td><strong>ANZ getiri tablosu:</strong> Book2.xlsx'in fiyat ve kupon kolonları tam olarak ne? Hesap %4,57 veriyor, Elmas %7,39 — fark girdide.</td><td><span class="flag">Farshad'a soru</span></td></tr>
-        <tr><td><strong>Dağıtım:</strong> PDF'ler siteye nasıl yüklenecek?</td><td><span class="flag">konuşulmadı</span></td></tr>
       </tbody>
     </table>
   </div>

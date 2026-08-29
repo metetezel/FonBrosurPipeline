@@ -17,24 +17,34 @@ Görsel kılavuz: `kilavuz.html` →
 
 **Her perşembe öğleden sonra → `Tum_Verileri_Yenile.bat`**
 
-Dokuz adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
+On adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
 `Brosurler\<yayın tarihi>\<KOD>.pdf`.
 
 | # | Ne yapar | Dosya |
 |---|---|---|
 | 1 | Arşivi büyütür: fiyatlar TEFAS'tan, endeksler Borsa İstanbul / Nasdaq / Yahoo'dan | `fetch_arsiv.js` |
 | 2 | Kart bilgilerini KAP'tan tazeler (risk değeri, yönetim ücreti, kurucu, denetçi) | `fetch_kap_fund_info.js` |
-| 3 | Net Varlık Tutarı'nı TEFAS'tan yazar | `fetch_tefas_net_varlik.js` |
-| 4 | USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi) | `fetch_usdtry.js` |
-| 5 | 14 fonun fiyat serisi + bileşik karşılaştırma ölçütü | `extract_fund.js` |
-| 6 | Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ) | `build_monthly_data.js` |
-| 7 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
-| 8 | 15 PDF | `render_b2.js`, `render_a.js` |
-| 9 | Yayın klasörüne kopyalama | `export_pdfs.js` |
+| 3 | Portföy dağılımını TEFAS'tan çeker (enstrüman kırılımı → pasta grafikleri) | `fetch_tefas_dagilim.js` |
+| 4 | Net Varlık Tutarı'nı TEFAS'tan yazar | `fetch_tefas_net_varlik.js` |
+| 5 | USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi) | `fetch_usdtry.js` |
+| 6 | 14 fonun fiyat serisi + bileşik karşılaştırma ölçütü | `extract_fund.js` |
+| 7 | Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ) | `build_monthly_data.js` |
+| 8 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
+| 9 | 15 PDF | `render_b2.js`, `render_a.js` |
+| 10 | Yayın klasörüne kopyalama | `export_pdfs.js` |
 
 Önce ne olacağını görmek için: `node fetch_arsiv.js --dene` (hiçbir dosyaya yazmaz).
 Sadece bir CSS/metin düzeltmesi yaptıysanız veri çekmeden yeniden çizmek için:
 `Tum_Fonlari_Yenile.bat`.
+
+### Dağıtım: son adım elle
+
+Pipeline'ın işi yayın klasörünü hazır etmekle biter. **PDF'leri siteye Mete elle yükler**
+(29.08.2026 kararı: "sen export ettiğinde ben siteye upload edeceğim") — yükleme tarafında
+otomatikleştirilebilecek bir uç yok. Dolayısıyla haftalık turun teslim noktası
+`Brosurler\<yayın tarihi>\` klasöründeki 15 PDF'tir; pipeline'ın bir sunucuya taşınmasına
+ya da zamanlanmış göreve bağlanmasına da gerek yok — tur Mete'nin makinesinde elle
+başlatılır.
 
 ### İki ayrı tarih: yayın günü ve veri günü
 
@@ -203,4 +213,3 @@ Netleşince `compute_anz_table.js` kalibre edilip `--yaz` ile otomatiğe alınab
 ## Açık işler
 
 - **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın).
-- **Dağıtım:** PDF'lerin siteye nasıl yükleneceği konuşulmadı.
