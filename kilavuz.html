@@ -329,6 +329,10 @@
       <div class="desc">Portföy dağılımı pastası için T-1 kesimi uygulanmaz; TEFAS'ın son yayınladığı gün kullanılır ve hangi gün olduğu çıktıda yazar. Veri bulunana kadar en fazla 10 gün geriye gidilir — hafta sonu ve tatillerde TEFAS "veri yok"u hata mesajı olarak döndürdüğü için, bu ele alınmasaydı tur 3. adımda dururdu.</div>
     </div>
     <div class="guard">
+      <div class="name">Yarım set yayına gitmez</div>
+      <div class="desc">Kopyalamadan önce 15 PDF'in tamamı kontrol edilir: biri eksikse ya da en yeni PDF'ten bir saatten fazla geride kalmışsa (render'ı sessizce başarısız olmuş demektir) hiçbir şey kopyalanmaz ve tur hata verir. Yayın kökü önce <span class="mono">Z:</span>'de aranır, yoksa UNC yoluna düşer — notebook'ta sürücü harfi eşlenmemiş olabilir.</div>
+    </div>
+    <div class="guard">
       <div class="name">KAP'ın yazmadıkları</div>
       <div class="desc">Fon yöneticisi <em>ismi</em> ve tecrübe yılı otomatik değiştirilmiyor: KAP her fonun kendi yöneticilerini listeliyor ve tecrübe yılında kendi içinde tutarsız olabiliyor. Fark rapora düşüyor, kararı sen veriyorsun; teyit ettiklerin istisna olarak kaydediliyor ve bir daha uyarı üretmiyor.</div>
     </div>

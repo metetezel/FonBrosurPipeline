@@ -10,16 +10,23 @@ const fs = require('fs');
 const path = require('path');
 const { reportDateFor, yayinTarihi, isoToTRUzun } = require('./lib/static');
 
-const VARSAYILAN_HEDEF = 'Z:/Mete Tezel/Fon Broşür [Cursor & Claude]';
+// Ofis makinesinde ağ paylaşımı Z: olarak eşlenmiş, notebook'ta eşlenmemiş olabilir;
+// ikisi de aynı klasör. Sırayla denenir, ilk bulunan kullanılır.
+const HEDEFLER = [
+  'Z:/Mete Tezel/Fon Broşür [Cursor & Claude]',
+  '//atafiles/Ata.Portföy/Mete Tezel/Fon Broşür [Cursor & Claude]',
+];
 const KODLAR = ['AAL', 'AAS', 'AAV', 'AED', 'ANZ', 'AYA', 'DGH', 'JET', 'PKF', 'PKP', 'RTG', 'TLZ', 'UANZ', 'URA', 'YLC'];
 
 function main() {
-  const kok = process.argv[2] || VARSAYILAN_HEDEF;
-  if (!fs.existsSync(kok)) {
-    console.error(`Hedef klasör bulunamadı: ${kok}`);
+  const kok = process.argv[2] || HEDEFLER.find(h => fs.existsSync(h));
+  if (!kok || !fs.existsSync(kok)) {
+    console.error('Hedef klasör bulunamadı. Denenen yollar:');
+    for (const h of (process.argv[2] ? [process.argv[2]] : HEDEFLER)) console.error('  ' + h);
     console.error('Ağ sürücüsü bağlı değilse bağlayın ya da hedefi argüman olarak verin.');
     process.exit(1);
   }
+  console.log(`Hedef kök   : ${kok}`);
   const veriIso = reportDateFor('AAL').iso;   // serinin son günü (T-1)
   const iso = yayinTarihi().iso;              // rozet ve klasör adı: yayın günü
 
@@ -38,15 +45,27 @@ function main() {
   const hedef = path.join(kok, 'Brosurler', trTarih);
   fs.mkdirSync(hedef, { recursive: true });
 
-  let kopyalanan = 0, eksik = [];
-  for (const kod of KODLAR) {
-    const src = path.join(__dirname, `${kod}_Brosur_Modern.pdf`);
-    if (!fs.existsSync(src)) { eksik.push(kod); continue; }
-    fs.copyFileSync(src, path.join(hedef, `${kod}.pdf`));
-    kopyalanan++;
+  // Önce 15 PDF'in tamamı kontrol edilir, sonra kopyalanır: yarım ya da bayat bir set
+  // sessizce yayına gitmesin. Render döngüsünün kendi hata kontrolü yok, bu yüzden
+  // başarısız bir render geçen turdan kalan PDF'i olduğu yerde bırakır — bayatlık ölçüsü
+  // göreli: en yeni PDF'ten bir saatten fazla geride kalan dosya bu turda üretilmemiştir.
+  const kaynaklar = KODLAR.map(kod => ({ kod, src: path.join(__dirname, `${kod}_Brosur_Modern.pdf`) }));
+  const eksik = kaynaklar.filter(x => !fs.existsSync(x.src)).map(x => x.kod);
+  if (eksik.length) {
+    console.error(`HATA: şu fonların PDF'i yok, render adımı başarısız olmuş olabilir: ${eksik.join(', ')}`);
+    console.error('Güvenlik için yayın klasörüne hiçbir şey kopyalanmadı.');
+    process.exit(1);
   }
-  console.log(`${kopyalanan} PDF kopyalandı -> ${hedef}`);
-  if (eksik.length) console.warn(`UYARI: şu fonların PDF'i bulunamadı (render edilmemiş olabilir): ${eksik.join(', ')}`);
+  const zamanlar = kaynaklar.map(x => ({ kod: x.kod, src: x.src, mtime: fs.statSync(x.src).mtimeMs }));
+  const enYeni = Math.max(...zamanlar.map(x => x.mtime));
+  const bayat = zamanlar.filter(x => enYeni - x.mtime > 3600000).map(x => x.kod);
+  if (bayat.length) {
+    console.error(`HATA: şu PDF'ler bu turda yenilenmemiş (en yeniden 1 saatten eski): ${bayat.join(', ')}`);
+    console.error('Render adımı sessizce başarısız olmuş olabilir; yayın klasörüne kopyalanmadı.');
+    process.exit(1);
+  }
+  for (const { kod, src } of kaynaklar) fs.copyFileSync(src, path.join(hedef, `${kod}.pdf`));
+  console.log(`${kaynaklar.length} PDF kopyalandı -> ${hedef}`);
 }
 
 main();

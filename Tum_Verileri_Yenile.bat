@@ -62,6 +62,7 @@ for %%F in (AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC) do call node render_a.js %
 
 echo [10/10] PDF'ler ag klasorundeki tarihli yayin klasorune kopyalaniyor...
 call node export_pdfs.js
+if errorlevel 1 goto hata
 
 echo.
 echo TAMAMLANDI. 15 PDF bu klasorde: *_Brosur_Modern.pdf

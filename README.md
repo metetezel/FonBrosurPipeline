@@ -178,6 +178,13 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   geriye gider ve hangi günü kullandığını yazar. TEFAS "veri yok"u iki şekilde döndürüyor —
   boş liste ya da `errorMessage` — ikisi de aynı sayılır; eskiden ikincisi exception'a
   dönüşüp haftalık turu 3. adımda öldürüyordu.
+- **Yayın adımı artık sessiz kalmıyor.** `export_pdfs.js` kopyalamaya başlamadan önce 15
+  PDF'in tamamını kontrol eder: biri eksikse ya da en yeni PDF'ten bir saatten fazla
+  geride kalmışsa (o fonun render'ı sessizce başarısız olmuş demektir) hiçbir şey
+  kopyalamadan hata verir. `Tum_Verileri_Yenile.bat` bu hatayı yakalıyor — eskiden son
+  adım başarısız olsa bile ekrana "TAMAMLANDI" yazıyordu. Yayın kökü önce `Z:`'de aranır,
+  yoksa `//atafiles/...` UNC yoluna düşer: notebook'ta ağ paylaşımı `Z:` olarak eşlenmemiş
+  olabilir, iki yol da aynı klasör.
 - **KAP'tan yazılanlar:** risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi
   kuruluşu. **Yazılmayanlar:** yönetici *ismi* ve tecrübe yılı — KAP fon bazında listeliyor
   ve kendi içinde tutarsız olabiliyor, bu yüzden fark rapora düşer, otomatik değişmez.
