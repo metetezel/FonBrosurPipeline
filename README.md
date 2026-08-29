@@ -222,6 +222,7 @@ Ağ klasöründe (`Fon Broşür [Cursor & Claude]\`) iki çift-tıklanabilir kı
 `Haftalik_Tur_BASLAT.bat` (önce `git pull`, sonra `Tum_Verileri_Yenile.bat`) ve
 `GitHub_Kaydet_BASLAT.bat` (`GitHub_Kaydet_Yukle.bat`'i çağırır). İkisi de yalnızca bu
 klasördeki asıl dosyaları çağırır, kod kopyası taşımaz.
+
 ## Açık işler
 
 - **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın).
