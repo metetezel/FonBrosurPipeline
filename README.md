@@ -30,7 +30,7 @@ On bir adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın kl
 | 6 | 14 fonun fiyat serisi + bileşik karşılaştırma ölçütü | `extract_fund.js` |
 | 7 | Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ) | `build_monthly_data.js` |
 | 8 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
-| 9 | 15 PDF | `render_b2.js`, `render_a.js` |
+| 9 | 15 PDF — her aile tek Chromium oturumunda; bir render çökerse tur durur | `render_b2.js`, `render_a.js` |
 | 10 | Yayın klasörüne kopyalama | `export_pdfs.js` |
 | 11 | Geçen tura göre ne değişti + veri sağlık kontrolü | `tur_ozeti.js` |
 

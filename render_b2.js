@@ -114,13 +114,16 @@ function renderPageHtml(s, growth, chartHtml) {
 </html>`;
 }
 
-async function renderFund(code) {
+async function renderFund(code, opts = {}) {
   const lc = code.toLowerCase();
   const growth = JSON.parse(fs.readFileSync(path.join(ROOT, `data/${lc}.json`), 'utf-8'));
   const s = loadStatic(code); // ortak.json + data/<kod>_static.json, rapor tarihi veriden
 
   const outHtmlPath = path.join(ROOT, `output_${lc}.html`);
-  const browser = await chromium.launch();
+  // Tarayici disaridan verilirse (coklu render) paylasilir ve burada kapatilmaz:
+  // 15 fon icin 15 Chromium baslatmak yerine aile basina bir tane yetiyor.
+  const paylasilan = opts.tarayici || null;
+  const browser = paylasilan || await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 900, height: 1300 } });
 
   if (s.hasGrowthChart === false) {
@@ -143,14 +146,25 @@ async function renderFund(code) {
 
   const outPdfPath = path.join(ROOT, `${code}_Brosur_Modern.pdf`);
   await page.pdf({ path: outPdfPath, format: 'A4', printBackground: true, margin: { top: 0, bottom: 0, left: 0, right: 0 } });
-  await browser.close();
+  await page.close();
+  if (!paylasilan) await browser.close();
   console.log('wrote', outPdfPath);
 }
 
 if (require.main === module) {
-  const code = process.argv[2];
-  if (!code) { console.error('Usage: node render_b2.js <FUNDCODE>'); process.exit(1); }
-  renderFund(code).catch(err => { console.error(err); process.exit(1); });
+  const kodlar = process.argv.slice(2).filter(a => a.indexOf('--') !== 0);
+  if (!kodlar.length) { console.error('Kullanim: node render_b2.js <FONKODU> [FONKODU ...]'); process.exit(1); }
+  (async () => {
+    // Tek tarayici, cok sayfa. Ayrica hata artik butun diziyi durduruyor: eskiden bat
+    // icindeki for dongusu her fonu ayri surecte calistirdigi icin bir render coktugunde
+    // tur devam ediyor ve gecen turdan kalan bayat PDF yayina gidiyordu.
+    const browser = await chromium.launch();
+    try {
+      for (const kod of kodlar) await renderFund(kod, { tarayici: browser });
+    } finally {
+      await browser.close();
+    }
+  })().catch(err => { console.error(err); process.exit(1); });
 }
 
 module.exports = { renderFund };

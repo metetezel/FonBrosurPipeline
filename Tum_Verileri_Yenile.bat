@@ -57,8 +57,10 @@ call node extract_anz_uanz_chart.js
 call node update_anz_guncel_bilgiler.js
 
 echo [9/11] 15 PDF uretiliyor...
-for %%F in (JET RTG PKF PKP URA) do call node render_b2.js %%F
-for %%F in (AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC) do call node render_a.js %%F
+call node render_b2.js JET RTG PKF PKP URA
+if errorlevel 1 goto hata
+call node render_a.js AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC
+if errorlevel 1 goto hata
 
 echo [10/11] PDF'ler ag klasorundeki tarihli yayin klasorune kopyalaniyor...
 call node export_pdfs.js

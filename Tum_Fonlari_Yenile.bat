@@ -19,19 +19,23 @@ REM   A ailesi  (render_a.js) : AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC
 REM ============================================================
 cd /d "%~dp0"
 
-echo === B2 ailesi ===
-for %%F in (JET RTG PKF PKP URA) do (
-  echo   %%F render ediliyor...
-  call node render_b2.js %%F
-)
+echo === B2 ailesi (tek tarayici oturumu) ===
+call node render_b2.js JET RTG PKF PKP URA
+if errorlevel 1 goto hata
 
-echo === A ailesi ===
-for %%F in (AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC) do (
-  echo   %%F render ediliyor...
-  call node render_a.js %%F
-)
+echo === A ailesi (tek tarayici oturumu) ===
+call node render_a.js AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC
+if errorlevel 1 goto hata
 
 echo.
 echo TAMAMLANDI. 15 fonun PDF'i de bu klasorde (*_Brosur_Modern.pdf) guncellendi.
+goto son
+
+:hata
+echo.
+echo HATA: render basarisiz oldu, yukaridaki mesaja bakin. PDF'lerin bir kismi
+echo gecen turdan kalmis olabilir - sorunu duzeltip tekrar calistirin.
+
+:son
 echo.
 pause
