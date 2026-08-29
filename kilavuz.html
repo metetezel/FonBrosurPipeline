@@ -189,6 +189,7 @@
   <h2>Haftada bir yaptığın tek şey</h2>
   <div class="routine">
     <div class="big">Her perşembe öğleden sonra → <code>Tum_Verileri_Yenile.bat</code></div>
+    <p class="note"><strong>Nereden başlatılır?</strong> Depodaki <code>Tum_Verileri_Yenile.bat</code>'a ya da ağ klasöründeki <code>Haftalik_Tur_BASLAT.bat</code> kısayoluna çift tıkla — kısayol önce <span class="mono">git pull</span> yapar. Tur bitince arşivi kaydetmek için: <code>GitHub_Kaydet_BASLAT.bat</code>.</p>
     <p class="note"><strong>İki ayrı tarih var.</strong> Başlıktaki rozet <em>yayın tarihi</em>: PDF'i ürettiğin gün. Rakamlar ise her zaman <em>T-1</em> — bugünün verisi hesaba hiç katılmıyor, böylece sonuç TEFAS'ın o günü yayınlayıp yayınlamamasından bağımsız. İkisi karışmıyor çünkü bilgi kartındaki <span class="mono">Birim Fiyat (28.08.2026)</span> satırı veri gününü yazıyor.</p>
     <p class="note">Emin olmak istersen önce <code>node fetch_arsiv.js --dene</code> — hiçbir şeye dokunmadan hangi tarihe kadar veri geleceğini gösterir.</p>
     <p class="note">Sonuç: <span class="mono">Brosurler\&lt;yayın tarihi&gt;\&lt;KOD&gt;.pdf</span> — ağ klasöründe, 15 dosya.</p>
