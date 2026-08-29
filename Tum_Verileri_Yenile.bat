@@ -70,7 +70,7 @@ echo [11/11] Tur ozeti: gecen tura gore ne degisti + veri saglik kontrolu...
 call node tur_ozeti.js
 
 echo.
-echo TAMAMLANDI. 15 PDF out klasorunde: out*_Brosur_Modern.pdf
+echo TAMAMLANDI. 15 PDF out klasorunde: out\*_Brosur_Modern.pdf
 echo Yayin kopyalari: "Fon Brosur [Cursor ^& Claude]\Brosurler\<rapor tarihi>\"
 goto son
 

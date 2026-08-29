@@ -41,7 +41,7 @@ call node render_a.js ANZ
 call node render_a.js UANZ
 
 echo.
-echo TAMAMLANDI. outANZ_Brosur_Modern.pdf ve outUANZ_Brosur_Modern.pdf guncellendi.
+echo TAMAMLANDI. out\ANZ_Brosur_Modern.pdf ve out\UANZ_Brosur_Modern.pdf guncellendi.
 echo Not: "Mevduat Esligi" satiri da (28.08.2026'dan beri) otomatik hesaplaniyor -
 echo net getiri / (1 - mevduat stopaji %25). Tablonun tamami artik otomatik.
 goto son

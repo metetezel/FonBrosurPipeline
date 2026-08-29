@@ -28,7 +28,7 @@ call node render_a.js AAL AAS AAV AED ANZ AYA DGH TLZ UANZ YLC
 if errorlevel 1 goto hata
 
 echo.
-echo TAMAMLANDI. 15 fonun PDF'i out klasorunde (out*_Brosur_Modern.pdf) guncellendi.
+echo TAMAMLANDI. 15 fonun PDF'i out klasorunde (out\*_Brosur_Modern.pdf) guncellendi.
 goto son
 
 :hata
