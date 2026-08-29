@@ -17,7 +17,7 @@ Görsel kılavuz: `kilavuz.html` →
 
 **Her perşembe öğleden sonra → `Tum_Verileri_Yenile.bat`**
 
-On adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
+On bir adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasörüne kopyalanır:
 `Brosurler\<yayın tarihi>\<KOD>.pdf`.
 
 | # | Ne yapar | Dosya |
@@ -32,6 +32,7 @@ On adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın klasö
 | 8 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
 | 9 | 15 PDF | `render_b2.js`, `render_a.js` |
 | 10 | Yayın klasörüne kopyalama | `export_pdfs.js` |
+| 11 | Geçen tura göre ne değişti + veri sağlık kontrolü | `tur_ozeti.js` |
 
 Önce ne olacağını görmek için: `node fetch_arsiv.js --dene` (hiçbir dosyaya yazmaz).
 Sadece bir CSS/metin düzeltmesi yaptıysanız veri çekmeden yeniden çizmek için:
@@ -185,6 +186,15 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   adım başarısız olsa bile ekrana "TAMAMLANDI" yazıyordu. Yayın kökü önce `Z:`'de aranır,
   yoksa `//atafiles/...` UNC yoluna düşer: notebook'ta ağ paylaşımı `Z:` olarak eşlenmemiş
   olabilir, iki yol da aynı klasör.
+- **Tur özeti (11. adım) turun en son çıktısıdır.** `tur_ozeti.js` her fonun render
+  edilmiş `output_<kod>.html` metnini `data/brosur_metin.json`'a snapshot olarak yazar ve
+  git'teki bir önceki turun snapshot'ıyla karşılaştırır — yani "geçen haftaya göre hangi
+  satır değişti" sorusunun cevabı, render'ın gerçekten bastığı metinden gelir, ayrı bir
+  hesaptan değil. Sapma imkânsız. Aynı adım veri sağlığına da bakar: fiyat ve ölçüt
+  serilerinin son günü rapor tarihinden geride mi? Geride kalan ölçüt serisi varsa
+  etkilenen fonları isim isim yazar — gece yarısı çalışan turda Nasdaq serileri bir gün
+  geride kalabiliyor, bu durumda fon serisi T-1'e kadar giderken ölçüt bir gün eksik
+  kalıyor. Çözüm basit: turu öğleden sonra tekrar çalıştır.
 - **KAP'tan yazılanlar:** risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi
   kuruluşu. **Yazılmayanlar:** yönetici *ismi* ve tecrübe yılı — KAP fon bazında listeliyor
   ve kendi içinde tutarsız olabiliyor, bu yüzden fark rapora düşer, otomatik değişmez.

@@ -230,7 +230,7 @@
 </section>
 
 <section>
-  <h2>On adım</h2>
+  <h2>On bir adım</h2>
   <p class="sub">Bat dosyası bunları sırayla çalıştırıyor. Sıra önemli: veri gelmeden hesap, hesap bitmeden render olmaz.</p>
   <div class="tablewrap">
     <table>
@@ -248,6 +248,7 @@
         <tr><td><span class="step-no">8</span></td><td>Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ'nin eurobond YTM tablosu.</td><td><span class="mono">extract_aya_dividend.js</span> ·<br><span class="mono">extract_anz_uanz_chart.js</span> ·<br><span class="mono">update_anz_guncel_bilgiler.js</span></td></tr>
         <tr><td><span class="step-no">9</span></td><td>15 PDF üretilir. B2 ailesi (JET, RTG, PKF, PKP, URA) ayrı motor, diğer 10 fon ayrı motor.</td><td><span class="mono">render_b2.js</span> · <span class="mono">render_a.js</span></td></tr>
         <tr><td><span class="step-no">10</span></td><td>PDF'ler ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalanır.</td><td><span class="mono">export_pdfs.js</span></td></tr>
+        <tr><td><span class="step-no">11</span></td><td>Geçen tura göre broşür metinlerinde ne değiştiğini ve veri sağlığını raporlar — turun ekrandaki son çıktısı.</td><td><span class="mono">tur_ozeti.js</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -327,6 +328,10 @@
     <div class="guard">
       <div class="name">Dağılım: en yenisi</div>
       <div class="desc">Portföy dağılımı pastası için T-1 kesimi uygulanmaz; TEFAS'ın son yayınladığı gün kullanılır ve hangi gün olduğu çıktıda yazar. Veri bulunana kadar en fazla 10 gün geriye gidilir — hafta sonu ve tatillerde TEFAS "veri yok"u hata mesajı olarak döndürdüğü için, bu ele alınmasaydı tur 3. adımda dururdu.</div>
+    </div>
+    <div class="guard">
+      <div class="name">Tur özeti</div>
+      <div class="desc">Turun son adımı, geçen tura göre hangi broşürde hangi satırın değiştiğini yazar (kaynak: render'ın bastığı metnin kendisi, ayrı bir hesap değil) ve ölçüt serilerinden rapor tarihinin gerisinde kalan varsa etkilenen fonları sıralar. 15 PDF'i tek tek açmak yerine değişen fonlara bakman yeter.</div>
     </div>
     <div class="guard">
       <div class="name">Yarım set yayına gitmez</div>

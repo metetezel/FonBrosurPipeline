@@ -37,8 +37,19 @@ function metinCikar(html) {
 function oncekiSnapshot() {
   // Tabani git'ten al: calisma agacinda kaydedilmemis degisiklik varsa HEAD gecen turdur;
   // tur zaten commit'lenmisse bir onceki commit'e bakilir.
+  // Kaydedilmemis degisiklik varsa taban HEAD'dir (normal sira: tur -> ozet -> commit).
+  // Tur zaten commit'lenmisse, snapshot'i EN SON DEGISTIREN commit'ten bir onceki alinir --
+  // HEAD~1 yanlis olurdu, araya snapshot'a dokunmayan kod commit'leri girebiliyor.
   const kirli = execSync('git status --porcelain data/brosur_metin.json', { cwd: __dirname }).toString().trim();
-  const ref = kirli ? 'HEAD' : 'HEAD~1';
+  let ref;
+  if (kirli) {
+    ref = 'HEAD';
+  } else {
+    const gecmis = execSync('git log -n 2 --format=%H -- data/brosur_metin.json', { cwd: __dirname })
+      .toString().trim().split(NL).map(s => s.trim()).filter(Boolean);
+    if (gecmis.length < 2) return { veri: null, ref: '(onceki tur kaydi yok)' };
+    ref = gecmis[1];
+  }
   try {
     const ham = execSync('git show ' + ref + ':data/brosur_metin.json', { cwd: __dirname, stdio: ['ignore', 'pipe', 'ignore'] }).toString();
     return { veri: JSON.parse(ham), ref };
@@ -109,9 +120,15 @@ function main() {
       if (!f.cikan.length && !f.giren.length) { ayni.push(kod); continue; }
       degisen.push(kod);
       console.log(NL + '   ' + kod + ' - ' + (f.cikan.length + f.giren.length) + ' satir');
-      const goster = (arr, im) => arr.slice(0, 12).forEach(s => console.log('      ' + im + ' ' + s.slice(0, 110)));
-      goster(f.cikan, '-');
-      goster(f.giren, '+');
+      // Degisen satirin kendisi cogu zaman sadece bir sayi ("%1,75"); hangi satir oldugunu
+      // anlatan etiket bir onceki metin ogesinde duruyor, o yuzden baglam olarak basiliyor.
+      const goster = (arr, kaynak, im) => arr.slice(0, 12).forEach(s => {
+        const i = kaynak.indexOf(s);
+        const baglam = i > 0 ? kaynak[i - 1].slice(0, 45) + '  |  ' : '';
+        console.log('      ' + im + ' ' + baglam + s.slice(0, 90));
+      });
+      goster(f.cikan, onceki.veri[kod] || [], '-');
+      goster(f.giren, yeni[kod], '+');
       if (f.cikan.length > 12 || f.giren.length > 12) console.log('      ... (kirpildi)');
     }
     console.log(NL + '   Ozet: ' + Object.keys(yeni).length + ' fondan ' + degisen.length + ' tanesi degisti'
