@@ -88,20 +88,41 @@ function pastaYap(kalemler) {
   return dilimler.filter(d => d.pct > 0);
 }
 
+/**
+ * TEFAS'ta veri bulunan EN YENI gunu bulur: verilen tarihten baslayip gun gun geriye gider.
+ * Kural (Mete, 29.08.2026): dagilim icin "en yenisi" gecerli - net varlikta oldugu gibi -
+ * brosurun T-1 kesimi degil. Portfoy dagilimi gunluk oynamayan bir bilgi, T-1'de veri
+ * yayinlanmamis olmasi yuzunden pastanin bos kalmasi daha kotu.
+ *
+ * "Veri yok" TEFAS'ta iki farkli sekilde geliyor: bazi gunlerde bos liste, hafta sonu ve
+ * tatillerde ise errorMessage (cek() bunu exception'a ceviriyor). Eskiden sadece bos liste
+ * hali ele aliniyordu, bu yuzden geriye gitme dongusune sira gelmeden patliyordu ve
+ * haftalik tur 3. adimda oluyordu (29.08.2026 cumartesi boyle yakalandi).
+ */
+async function enYeniGun(tarih, gerigit = 10) {
+  for (let i = 0; i <= gerigit; i++) {
+    const d = new Date(`${tarih.slice(0, 4)}-${tarih.slice(4, 6)}-${tarih.slice(6)}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - i);
+    const gun = d.toISOString().slice(0, 10).replace(/-/g, '');
+    try {
+      const list = await cek(gun);
+      if (list.length) {
+        if (i > 0) console.log(`  ${tarih} icin veri yok; en yeni yayinlanan gun: ${gun}`);
+        return list;
+      }
+    } catch (e) {
+      console.log(`  ${gun}: veri yok (${e.message})`);
+    }
+  }
+  return [];
+}
+
 async function main() {
   const yaz = process.argv.includes('--yaz');
   const tarih = process.argv.find(a => /^[0-9]{8}$/.test(a)) || new Date().toISOString().slice(0, 10).replace(/-/g, '');
   console.log(`TEFAS varlık dağılımı çekiliyor (${tarih})...`);
-  let list = await cek(tarih);
-  if (!list.length) {
-    // hafta sonu / tatil: bir gün geriye giderek son yayınlanan günü bul
-    for (let i = 1; i <= 7 && !list.length; i++) {
-      const d = new Date(`${tarih.slice(0, 4)}-${tarih.slice(4, 6)}-${tarih.slice(6)}T00:00:00Z`);
-      d.setUTCDate(d.getUTCDate() - i);
-      list = await cek(d.toISOString().slice(0, 10).replace(/-/g, ''));
-    }
-  }
-  if (!list.length) throw new Error('TEFAS boş döndü (tarih hatalı olabilir)');
+  const list = await enYeniGun(tarih);
+  if (!list.length) throw new Error('TEFAS son 10 günde veri döndürmedi (tarih hatalı olabilir)');
 
   const out = { cekildi: new Date().toISOString(), tarih: list[0].tarih, fonlar: {} };
   for (const kod of KODLAR) {

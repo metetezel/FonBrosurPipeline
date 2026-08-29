@@ -171,6 +171,13 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   yeni snapshot yazılır ve hangi tarihten geldiği çıktıda belirtilir. TEFAS geçmişe dönük
   fon büyüklüğü vermediği için her çalıştırma `data/tefas_net_varlik_log.json`'a snapshot
   biriktirir. UANZ'ın TEFAS'ta kaydı yok (ANZ'nin pay sınıfı), ANZ'nin değerini alır.
+- **Portföy dağılımı: en yenisi.** Net varlıkta olduğu gibi, dağılım için broşürün T-1
+  kesimi değil TEFAS'ın **son yayınladığı gün** geçerlidir (Mete, 29.08.2026): dağılım
+  günlük oynayan bir bilgi değil, T-1'de veri yayınlanmadı diye pastanın boş kalması daha
+  kötü. `fetch_tefas_dagilim.js` bugünden başlayıp veri bulunan güne kadar en fazla 10 gün
+  geriye gider ve hangi günü kullandığını yazar. TEFAS "veri yok"u iki şekilde döndürüyor —
+  boş liste ya da `errorMessage` — ikisi de aynı sayılır; eskiden ikincisi exception'a
+  dönüşüp haftalık turu 3. adımda öldürüyordu.
 - **KAP'tan yazılanlar:** risk değeri, yönetim ücreti, kurucu, denetçi, portföy yöneticisi
   kuruluşu. **Yazılmayanlar:** yönetici *ismi* ve tecrübe yılı — KAP fon bazında listeliyor
   ve kendi içinde tutarsız olabiliyor, bu yüzden fark rapora düşer, otomatik değişmez.
