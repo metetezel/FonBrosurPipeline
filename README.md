@@ -253,3 +253,7 @@ klasördeki asıl dosyaları çağırır, kod kopyası taşımaz.
 ## Açık işler
 
 - **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın).
+
+---
+
+Bu pipeline'ın kurgusu ve arkasındaki kararlar: <https://metetezel.com>
