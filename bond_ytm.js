@@ -44,7 +44,12 @@ function solveYTM(targetPrice, cashflows, freq) {
 function bondCashflows(bond, asOf) {
   const freq = 12 / bond.intervalMonths;
   const schedule = couponSchedule(bond.maturity, bond.intervalMonths, asOf);
-  const couponAmt = 100 * bond.couponRate / freq;
+  // Book2.xlsx's coupon column already holds the per-payment rate (e.g. 0.0325 for a
+  // 6.5%-annual bond paid semi-annually), not the annualized rate — confirmed 31.08.2026
+  // by cross-checking 4 ISINs against Cbonds/BondBloX (raw value x2 == published coupon).
+  // Dividing by `freq` again (correct only if couponRate were annual) silently halved
+  // every semi-annual bond's coupon cashflow and understated YTM.
+  const couponAmt = 100 * bond.couponRate;
   const cashflows = schedule.map((d, i) => ({
     t: yearsBetween(asOf, d),
     amount: couponAmt + (i === schedule.length - 1 ? 100 : 0),
@@ -58,18 +63,21 @@ function bondCashflows(bond, asOf) {
  * Kotasyon "temiz fiyat" (accrued hariç) ama alıcı gerçekte temiz fiyat + accrued ödüyor.
  * YTM, gelecek nakit akışlarının bugünkü değerini KİRLİ fiyata eşitler; temiz fiyatla
  * karşılaştırmak getiriyi sistematik olarak şişirir. Etki, kuponu büyük ve kupon tarihine
- * yakın bonolarda dramatik: ANZ'nin %20 kuponlu satırı (bir sonraki kupona ~5 hafta, yani
- * ~11 aylık accrued) düzeltmeden önce %27,5 getiri veriyordu — par fiyatlı bir bononun
- * getirisi kuponuna eşit olmalı, yani ~%20.
+ * yakın bonolarda dramatik: bu düzeltme 28.08.2026'da bulundu ve tek başına uygulanınca
+ * portföy ortalaması %5,59 -> %4,57'ye düştü (Elmas'ın %7,39'undan daha da uzağa) - o an
+ * "girdi kolonlarının anlamı belirsiz" denip tablo elle bırakıldı. 31.08.2026'da asıl
+ * ikinci hata bulundu: couponRate zaten dönem-başı oran, `bondCashflows` bunu ayrıca
+ * frekansa bölüyordu (bkz. yukarısı) - iki düzeltme birlikte uygulanınca %6,97'ye
+ * çıkıyor, hedefe çok daha yakın.
  */
 function accruedInterest(bond, asOf) {
-  const freq = 12 / bond.intervalMonths;
   const schedule = couponSchedule(bond.maturity, bond.intervalMonths, asOf);
   if (schedule.length === 0) return 0;
   const donemYil = bond.intervalMonths / 12;
   const sonrakiKupona = yearsBetween(asOf, schedule[0]);
   const gecenOran = Math.min(Math.max(1 - sonrakiKupona / donemYil, 0), 1);
-  return (100 * bond.couponRate / freq) * gecenOran;
+  // couponRate is already the per-period rate (see bondCashflows) - no /freq here either.
+  return (100 * bond.couponRate) * gecenOran;
 }
 
 function bondYTM(bond, asOf) {

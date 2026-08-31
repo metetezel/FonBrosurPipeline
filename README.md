@@ -211,10 +211,11 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   Teyitli istisnalar `fetch_kap_fund_info.js` içinde (JET'in yöneticisi Farshad Mirzazadeh,
   KAP eksik; Farshad'ın tecrübesi 10 yıl).
 - **ANZ/UANZ "Fon'un Güncel Bilgileri" tablosu şu an elle.** Hesap
-  (`compute_anz_table.js`) Elmas Öztürk'ün rakamlarını üretemiyor ve fark bizim
-  matematiğimizde değil girdide — Book2.xlsx'in fiyat/kupon kolonları beklenen anlamda
-  görünmüyor. `update_anz_guncel_bilgiler.js` varsayılan olarak sadece raporlar; yazması
-  için `--yaz` gerekir. Detay aşağıda.
+  (`compute_anz_table.js`) hâlâ Elmas Öztürk'ün rakamlarını tam üretemiyor — 31.08.2026'da
+  iki gerçek girdi hatası daha düzeltildi (kupon dönem/yıl karışıklığı, satır 25'in bozuk
+  verisi) ve sonuç hedefe epey yaklaştı ama tam örtüşmüyor, muhtemelen kısmen Elmas'ın
+  referansının bayat olmasından. `update_anz_guncel_bilgiler.js` varsayılan olarak sadece
+  raporlar; yazması için `--yaz` gerekir. Detay aşağıda.
 - **Mevduat Eşleniği** piyasa verisi değil, aritmetik: net getiri ÷ (1 − mevduat stopajı
   0,25). Yayımlanmış tabloyla birebir doğrulandı (5,40 ÷ 0,75 = 7,20).
 
@@ -223,15 +224,35 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
 `bond_ytm.js` standart YTM çözücüsüdür (bisection) ve tahakkuk etmiş faizi hesaba katar:
 YTM, nakit akışlarının bugünkü değerini **kirli** fiyata eşitler. (Bu 28.08.2026'da
 düzeltilen gerçek bir hataydı — temiz fiyat kullanılıyordu ve %20 kuponlu bir kâğıt %27,5
-getiri veriyordu.) Düzeltme sonrası portföy ortalaması **%4,57**; Elmas'ın rakamı **%7,39**.
+getiri veriyordu.)
 
-Fark girdiden geliyor: Book2.xlsx'te Hazine'nin 2035 vadeli USD kâğıdı %3,25 kupon + 97,93
-fiyatla duruyor, bu ~%3,5 USD getiri demek — piyasa ~%7. Yani fiyat kolonu piyasa fiyatı
-olmayabilir (maliyet/itfa edilmiş maliyet) ya da kupon kolonu gerçek kupon değil.
-**Farshad'a sorulacak:** Book2'nin fiyat ve kupon kolonları tam olarak ne?
+**31.08.2026 güncellemesi — ikinci gerçek hata bulundu:** Book2.xlsx'in kupon kolonu (5)
+zaten **dönem başı** oranı tutuyor (6 ayda bir ödenen bir bononun yıllık %6,5 kuponu için
+0,0325 yazıyor), ama `bondCashflows()`/`accruedInterest()` bunu yıllık oran sanıp ayrıca
+frekansa bölüyordu. 4 ISIN Cbonds/BondBloX ile bağımsız doğrulandı (Hazine US900123DN78:
+kayıtlı 3,25% → gerçek yıllık 6,5%; TAV XS2729164462: 4,25% → 8,5%; Yapı Kredi
+XS2445343689: 4,63% → 9,25%; Akbank XS3298828966: 3,98% → 7,95% — hepsinde kayıtlı × 2 =
+yayımlanmış kupon). Ayrıca satır 25'in (XS3183303018) issuer'ı boş, kuponu "%20" olarak
+kayıtlı — gerçekte Türk Eximbank %6,375 03.10.2030 (aynı kaynaklarla doğrulandı), veri
+girişi hatası, floater değil. İkisi de düzeltildi (`bond_ytm.js`, `compute_anz_table.js`'de
+`COUPON_OVERRIDES`).
 
-Netleşince `compute_anz_table.js` kalibre edilip `--yaz` ile otomatiğe alınabilir.
-`compute_anz_ytm.js` bono bazında YTM basar (inceleme aracı).
+İki düzeltme birlikte (accrued interest + kupon dönemi + satır 25) portföy ortalamasını
+**%4,57 → %6,28**'e çıkardı — 28.08'deki tek-başına-accrued-interest halinden çok daha iyi,
+ama hâlâ Elmas'ın **%7,39**'undan ~1,1 puan uzak. **Önemli metodolojik not:** bu karşılaştırma
+tam adil olmayabilir — Elmas'ın elimizdeki en taze rakamı 09.07.2026 tarihli, oysa
+Book2.xlsx'in bugünkü (31.08.2026 çalıştırma anında 27.08.2026) satırlarıyla
+karşılaştırıyoruz; 7-8 haftalık piyasa hareketi bu farkın bir kısmını (belki tamamını)
+açıklayabilir. Yani kalan fark artık kesin biçimde "bizim matematiğimiz hâlâ yanlış" demek
+değil — ayrıca Mete'nin ayrıca öğrendiği bir bilgi de var: **ANZ/UANZ'nin gerçek fon
+fiyatlaması Bloomberg Terminal kullanıyor**, yani Book2.xlsx'in fiyat kolonu (13) zaten
+Bloomberg'in birebir aynısı olmayabilir (gecikmeli/farklı kaynak) — bu da kalan farka
+katkıda bulunan üçüncü bir olası faktör.
+
+**Farshad'a sorulacak (hâlâ geçerli):** Book2'nin fiyat ve kupon kolonları tam olarak ne,
+Bloomberg'le ne sıklıkta senkronize?  Netleşince (ya da Elmas'tan **aynı tarihli** taze bir
+referans rakamı gelince) `compute_anz_table.js` tam kalibre edilip `--yaz` ile otomatiğe
+alınabilir. `compute_anz_ytm.js` bono bazında YTM basar (inceleme aracı).
 
 ---
 
@@ -252,7 +273,9 @@ klasördeki asıl dosyaları çağırır, kod kopyası taşımaz.
 
 ## Açık işler
 
-- **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın).
+- **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın). 31.08.2026: iki hata
+  daha düzeltildi, kalan ~1,1 puan fark için ya Farshad'ın cevabı ya da Elmas'tan aynı
+  tarihli taze bir referans rakamı lazım.
 
 ---
 

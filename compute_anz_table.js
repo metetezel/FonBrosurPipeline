@@ -26,6 +26,13 @@ const YONETIM_KOMISYONU = { ANZ: 0.0075, UANZ: 0.0075 }; // from data/<kod>_stat
 const STOPAJ_ORANI = 0.175; // from data/<kod>_static.json taxTable, "Eurobond Fonu Alırsa" / 1. Stopaj
 const MEVDUAT_STOPAJI = 0.25; // from the same taxTable, "Döviz Mevduatında" / 1. Stopaj
 
+// Book2.xlsx row 25 (XS3183303018) has bad data: issuer blank, coupon recorded as 0.20
+// (20%/period - not a real bond, and the "par bond should yield ~its coupon" sanity check
+// in bond_ytm.js's accruedInterest() comment was validating against this same bad number).
+// Confirmed 31.08.2026 via Cbonds/BondBloX: this ISIN is Türk Eximbank 6.375% 03.10.2030,
+// semi-annual, so the per-period rate is 0.031875. Override until Farshad's file is fixed.
+const COUPON_OVERRIDES = { XS3183303018: 0.031875 };
+
 async function computeAnzTable(fundCode) {
   const wb = new ExcelJS.Workbook();
   await wb.xlsx.readFile('\\\\atafiles\\Ata.Portföy\\Farshad\\Book2.xlsx');
@@ -43,7 +50,8 @@ async function computeAnzTable(fundCode) {
       if (v && typeof v === 'object' && v.result !== undefined) v = v.result;
       return v;
     };
-    const couponRate = get(5);
+    const isin = get(4);
+    const couponRate = COUPON_OVERRIDES[isin] ?? get(5);
     const intervalMonths = get(6);
     const maturity = parseTRDate(get(3));
     const price = get(13);
