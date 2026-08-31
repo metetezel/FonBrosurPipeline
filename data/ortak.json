@@ -10,7 +10,9 @@
   },
   "cta": {
     "primary": "ATA YATIRIM'DA HESAP AÇ",
+    "primaryUrl": "https://atayatirim.com.tr/hesap-ac",
     "secondary": "BAŞKA BANKA/ARACI KURUM MÜŞTERİSİYİM",
+    "secondaryUrl": "https://www.ataportfoy.com.tr/Fonlari-Nereden-Alabilirim.html",
     "note": "Fon'a TEFAS vasıtası ile tüm banka ve aracı kurumlardan yatırım yapabilirsiniz."
   },
   "infoOrtak": {
