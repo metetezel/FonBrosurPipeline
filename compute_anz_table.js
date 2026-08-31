@@ -33,6 +33,23 @@ const MEVDUAT_STOPAJI = 0.25; // from the same taxTable, "Döviz Mevduatında" /
 // semi-annual, so the per-period rate is 0.031875. Override until Farshad's file is fixed.
 const COUPON_OVERRIDES = { XS3183303018: 0.031875 };
 
+function cellVal(row, c) {
+  let v = row.getCell(c).value;
+  if (v && typeof v === 'object' && v.result !== undefined) v = v.result;
+  return v;
+}
+
+// Book2.xlsx's row numbers are NOT stable across days - 31.08.2026: Farshad's sheet grew a
+// new "VADELİ DÖVİZ MEVDUATI" section above the eurobond block, shifting every eurobond row
+// down by 4 (was 15-27, now 19-31) and breaking a previous hardcoded range. Find sections by
+// their column-1 label instead of by row number.
+function findRowByLabel(ws, label, maxRow = 60) {
+  for (let r = 1; r <= maxRow; r++) {
+    if (cellVal(ws.getRow(r), 1) === label) return r;
+  }
+  throw new Error(`Book2.xlsx ANZ sekmesinde "${label}" satırı bulunamadı`);
+}
+
 async function computeAnzTable(fundCode) {
   const wb = new ExcelJS.Workbook();
   await wb.xlsx.readFile('\\\\atafiles\\Ata.Portföy\\Farshad\\Book2.xlsx');
@@ -42,14 +59,11 @@ async function computeAnzTable(fundCode) {
   const m = /(\d{2})\/(\d{2})\/(\d{4})/.exec(reportDateCell);
   const asOf = new Date(Date.UTC(+m[3], +m[2] - 1, +m[1]));
 
+  const bondSectionStart = findRowByLabel(ws, 'J.YABANCI TAHVİL') + 1;
   const bonds = [];
-  for (let r = 15; r <= 27; r++) {
+  for (let r = bondSectionStart; cellVal(ws.getRow(r), 4); r++) {
     const row = ws.getRow(r);
-    const get = c => {
-      let v = row.getCell(c).value;
-      if (v && typeof v === 'object' && v.result !== undefined) v = v.result;
-      return v;
-    };
+    const get = c => cellVal(row, c);
     const isin = get(4);
     const couponRate = COUPON_OVERRIDES[isin] ?? get(5);
     const intervalMonths = get(6);
@@ -66,11 +80,21 @@ async function computeAnzTable(fundCode) {
   const eurobondYield = bonds.reduce((s, b) => s + b.ytm * b.marketValue, 0) / eurobondMV;
   const eurobondVade = bonds.reduce((s, b) => s + b.duration * b.marketValue, 0) / eurobondMV;
 
-  // Row 40 "FON PORTFÖY DEĞERİ" = eurobonds + VIOP teminat (rows 32-34); teminat earns ~0%.
-  const teminatRow = ws.getRow(34).getCell(15).value;
-  const fonPortfoyDegeri = eurobondMV + teminatRow;
+  // "FON PORTFÖY DEĞERİ" is the sheet's own grand total across every asset category (eurobonds,
+  // VIOP teminat, and - new as of 31.08.2026 - a ~19,2M USD "VADELİ DÖVİZ MEVDUATI" position at
+  // Türkiye Finans Katılım). Reading it directly (rather than re-summing named categories
+  // ourselves) means a new category Farshad adds later doesn't silently fall out of the total.
+  // Caveat: the yield numerator below still only weights the eurobonds - every non-eurobond
+  // category (teminat, and now this deposit) is implicitly treated as earning 0%. That's
+  // roughly right for teminat (idle margin) but is a real simplification for an actual
+  // interest-bearing deposit - it understates fonOrtalamaGetiri/fonOrtalamaVade by whatever the
+  // deposit's own yield is, weighted by its ~7% portfolio share. Not fixed yet: the deposit
+  // row's "price" column isn't a clean-price-per-100 like the bonds, its convention needs
+  // checking before it can be folded into the yield average.
+  const fonPortfoyDegeriRow = findRowByLabel(ws, 'FON PORTFÖY DEĞERİ');
+  const fonPortfoyDegeri = cellVal(ws.getRow(fonPortfoyDegeriRow), 15);
 
-  const fonOrtalamaGetiri = (eurobondYield * eurobondMV) / fonPortfoyDegeri; // teminat contributes 0
+  const fonOrtalamaGetiri = (eurobondYield * eurobondMV) / fonPortfoyDegeri;
   const fonOrtalamaVade = (eurobondVade * eurobondMV) / fonPortfoyDegeri;
 
   const komisyon = YONETIM_KOMISYONU[fundCode];

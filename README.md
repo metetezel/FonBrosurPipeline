@@ -252,7 +252,21 @@ katkıda bulunan üçüncü bir olası faktör.
 **Farshad'a sorulacak (hâlâ geçerli):** Book2'nin fiyat ve kupon kolonları tam olarak ne,
 Bloomberg'le ne sıklıkta senkronize?  Netleşince (ya da Elmas'tan **aynı tarihli** taze bir
 referans rakamı gelince) `compute_anz_table.js` tam kalibre edilip `--yaz` ile otomatiğe
-alınabilir. `compute_anz_ytm.js` bono bazında YTM basar (inceleme aracı).
+alınabilir. `compute_anz_ytm.js` bono bazında YTM basar (inceleme aracı, aynı sabit-satır
+kısıtı var, düzeltilmedi).
+
+**31.08.2026 — satır numaraları güvenilir değilmiş:** Bir günden ertesi güne Book2.xlsx'e
+yeni bir bölüm eklendi ("VADELİ DÖVİZ MEVDUATI" — Türkiye Finans Katılım'da ~19,2M USD'lik
+yeni bir vadeli mevduat pozisyonu), bu da eurobond satırlarını 15-27'den 19-31'e kaydırıp
+sabit aralığı kırdı (`compute_anz_table.js` çöktü). Düzeltme: satır aralığı artık
+"J.YABANCI TAHVİL" etiketinden dinamik bulunuyor, portföy toplamı da tek tek kategori
+toplayarak değil doğrudan "FON PORTFÖY DEĞERİ" satırından okunuyor (yeni bir kategori
+eklenirse sessizce dışarıda kalmasın diye). **Bilinen eksik:** yeni mevduat pozisyonunun
+kendi getirisi hâlâ modellenmiyor — payı (~%7) portföy değerine giriyor ama getiri
+payına girmiyor, yani `fonunOrtalamaGetirisi`'ni gerçekte olması gerekenden biraz düşük
+gösteriyor (bugün %5,68 çıktı, dünkü hesaptan daha uzak). Mevduat satırının "fiyat"
+kolonu (`4809,17` gibi) temiz-fiyat-100 formatında değil, anlamı netleşmeden getiriye
+katılamaz.
 
 ---
 
