@@ -118,20 +118,20 @@
     },
     {
       "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 18
-    },
-    {
-      "label": "Yatırım Fonu",
-      "pct": 13
+      "pct": 23
     },
     {
       "label": "Devlet Tahvili",
       "pct": 10
     },
     {
+      "label": "Yatırım Fonu",
+      "pct": 8
+    },
+    {
       "label": "Finansman Bonosu",
       "pct": 3
     }
   ],
-  "portfoyDagilimTarihi": "2026-08-28"
+  "portfoyDagilimTarihi": "2026-08-31"
 }

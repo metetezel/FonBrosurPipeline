@@ -84,7 +84,7 @@
   "assetAllocation": [
     {
       "label": "Yabancı Hisse Senedi",
-      "pct": 71
+      "pct": 67
     },
     {
       "label": "Hisse Senedi",
@@ -95,9 +95,13 @@
       "pct": 11
     },
     {
+      "label": "Vadeli Mevduat (TL)",
+      "pct": 4
+    },
+    {
       "label": "Finansman Bonosu",
       "pct": 1
     }
   ],
-  "portfoyDagilimTarihi": "2026-08-28"
+  "portfoyDagilimTarihi": "2026-08-31"
 }
