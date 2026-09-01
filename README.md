@@ -271,6 +271,42 @@ referans rakamı gelince) `compute_anz_table.js` tam kalibre edilip `--yaz` ile 
 alınabilir. `compute_anz_ytm.js` bono bazında YTM basar (inceleme aracı, aynı sabit-satır
 kısıtı var, düzeltilmedi).
 
+**01.09.2026 — Elmas'tan gerçekten taze bir referans geldi (aynı gün, 16:37 mail/tablo) ve
+iki gerçek hata daha bulunup düzeltildi:**
+
+1. **Garanti Bankası tahvili (XS2913414384, 03.01.2035 vade) `intervalMonths=12` (yıllık
+   ödeme) olarak kayıtlıydı — listede bu şekilde işaretli TEK kâğıt, geri kalan hepsi 6
+   aylık.** Cbonds ile doğrulandı: bu Garanti'nin %8,125 03.01.2035 USD kâğıdı, ve
+   Book2.xlsx'in ham kupon hücresi (0,0406) tam olarak %8,125'in yarısı — yani sheet'in
+   "kupon kolonu dönem-başı oranı tutuyor" kuralı bu kâğıt için de geçerli, hatalı olan
+   frekans alanı. Yıllık sanılınca kupon yılda 1 kez ödeniyormuş gibi hesaplanıp bu
+   kâğıdın YTM'i %3,68 çıkıyordu (komşularına göre bariz düşük); 6 aylık düzeltilince
+   %7,68'e çıktı. `compute_anz_table.js`'de `INTERVAL_OVERRIDES`.
+2. **"VADELİ DÖVİZ MEVDUATI" pozisyonunun kendi getirisi artık modelleniyor.** ~400.000
+   USD'lik bu mevduatın (Türkiye Finans Katılım, %4,7 oran) "fiyat" kolonu (13) bononkilerle
+   aynı formatta değildi — çözüldü: zaten FX-çevrilmiş + o ana kadar tahakkuk etmiş faiz
+   dahil TL değeri (100 USD nominal x (1+tahakkuk) x USD/TRY). Kolon 5 (%4,7) direkt oran,
+   vade basit — YTM çözücüsüne gerek yok. Önceden bu pozisyon portföy toplamına (payda)
+   giriyor ama getiri ortalamasına (pay) hiç girmiyordu, yani ~%7'lik payı sessizce %0
+   getiri varsayıyordu.
+
+İkisi birlikte `fonunOrtalamaGetirisi`'ni **%5,67 → %6,32**'ye, `eurobondlarinOrtalamaGetirisi`'ni
+**%6,26 → %6,60**'a çıkardı (31.08.2026 verili Book2.xlsx ile) — Elmas'ın aynı günkü tablosuna
+(Eurobondların Ort. Getirisi %7,67, Fonun Ort. Getirisi %7,45, Ort. Vade 2,82 yıl) doğru
+yönde, anlamlı bir adım ama hâlâ tam örtüşmüyor (~1-1,5 puan / ~0,5 yıl fark kalıyor).
+**Önemli:** bu sefer "referans bayat" savunması geçerli değil — Elmas'ın tablosu bugünkü
+Book2.xlsx'in rapor tarihinden (31.08.2026) sadece 1 gün sonrasına ait, haftalarca eski
+değil. Yani kalan fark artık muhtemelen gerçekten metodolojik/veri kaynaklı (Bloomberg'in
+Book2.xlsx'ten farklı fiyatlaması ihtimali hâlâ geçerli en olası aday) — daha fazla
+tek-tek bono doğrulaması (Cbonds ile denendi, XS3272983563 için sonuç bulunamadı, diğer
+"issuer boş" satırlar aksi kanıt çıkmadı) `--yaz`'ı tetikleyecek kadar yakınlaştırmadı.
+Tablo hâlâ elle: **`data/anz_static.json`/`uanz_static.json`'ın `guncelBilgiler.rows`'u bu
+oturumda Elmas'ın 01.09.2026 rakamlarıyla güncellendi** (Ortalama Getiri %7,45, Yönetim
+Kom. Sonrası %6,70, Net Getiri %5,52, Mevduat Eşliği %7,37, Ort. Vade 2,82), ANZ/UANZ
+yeniden render edildi (`out/ANZ_Brosur_Modern.pdf`, `out/UANZ_Brosur_Modern.pdf`) ama
+**`Brosurler\01.09.2026\` yayın klasörüne henüz kopyalanmadı** — o klasördeki ANZ.pdf/
+UANZ.pdf (saat 11:25'te üretilmiş) hâlâ eski (31.07.2026 kaynaklı) rakamları taşıyor.
+
 **31.08.2026 — satır numaraları güvenilir değilmiş:** Bir günden ertesi güne Book2.xlsx'e
 yeni bir bölüm eklendi ("VADELİ DÖVİZ MEVDUATI" — Türkiye Finans Katılım'da ~19,2M USD'lik
 yeni bir vadeli mevduat pozisyonu), bu da eurobond satırlarını 15-27'den 19-31'e kaydırıp

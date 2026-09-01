@@ -33,6 +33,16 @@ const MEVDUAT_STOPAJI = 0.25; // from the same taxTable, "Döviz Mevduatında" /
 // semi-annual, so the per-period rate is 0.031875. Override until Farshad's file is fixed.
 const COUPON_OVERRIDES = { XS3183303018: 0.031875 };
 
+// XS2913414384 (Garanti Bankası, matures 03.01.2035) is recorded with intervalMonths=12
+// (annual pay) - the only eurobond in the sheet marked that way, every other position is
+// semi-annual. Confirmed 01.09.2026 via Cbonds: this is Garanti's 8.125% 03jan2035 USD
+// note. The sheet's raw coupon cell (0.0406) is exactly half of 8.125%, the same
+// "coupon column holds the per-payment rate" convention used for every semi-annual bond
+// here (see bondCashflows() below) - so the interval field, not the coupon field, is the
+// data-entry error this time. Treating it as annual paid this bond's 4.06% coupon only
+// once a year instead of twice, understating its YTM by ~4 points (3.68% -> 7.68%).
+const INTERVAL_OVERRIDES = { XS2913414384: 6 };
+
 function cellVal(row, c) {
   let v = row.getCell(c).value;
   if (v && typeof v === 'object' && v.result !== undefined) v = v.result;
@@ -66,7 +76,7 @@ async function computeAnzTable(fundCode) {
     const get = c => cellVal(row, c);
     const isin = get(4);
     const couponRate = COUPON_OVERRIDES[isin] ?? get(5);
-    const intervalMonths = get(6);
+    const intervalMonths = INTERVAL_OVERRIDES[isin] ?? get(6);
     const maturity = parseTRDate(get(3));
     const price = get(13);
     const marketValue = get(15);
@@ -80,22 +90,44 @@ async function computeAnzTable(fundCode) {
   const eurobondYield = bonds.reduce((s, b) => s + b.ytm * b.marketValue, 0) / eurobondMV;
   const eurobondVade = bonds.reduce((s, b) => s + b.duration * b.marketValue, 0) / eurobondMV;
 
+  // "VADELİ DÖVİZ MEVDUATI" (new as of 31.08.2026): a USD term deposit at Türkiye Finans
+  // Katılım. Column 13 ("price") here isn't a clean-price-per-100 like the bonds' - it's
+  // already FX-converted and includes accrued interest (100 face x (1 + accrued) x
+  // USD/TRY), confirmed 01.09.2026 by reconstructing it from columns 5 (rate, 0.047),
+  // 3 (maturity) and 15 (market value: matches face x price/100 to 6 sig figs). Unlike a
+  // bond it has one cashflow (principal + simple interest at maturity), so its own "yield"
+  // is just the stated rate and its "duration" is the time to maturity - no YTM solve
+  // needed. Previously this position's ~7% portfolio share was implicitly earning 0% in
+  // the yield average (only silently included via the denominator below), understating
+  // fonOrtalamaGetiri/fonOrtalamaVade.
+  const depositItems = [];
+  const depositSectionStart = findRowByLabel(ws, 'VADELİ DÖVİZ MEVDUATI') + 1;
+  for (let r = depositSectionStart; cellVal(ws.getRow(r), 2); r++) {
+    const row = ws.getRow(r);
+    const get = c => cellVal(row, c);
+    depositItems.push({
+      yield: get(5),
+      duration: yearsBetween(asOf, parseTRDate(get(3))),
+      marketValue: get(15),
+    });
+  }
+
+  const yieldedItems = [...bonds.map(b => ({ yield: b.ytm, duration: b.duration, marketValue: b.marketValue })), ...depositItems];
+  const yieldedMV = yieldedItems.reduce((s, b) => s + b.marketValue, 0);
+  const yieldedYield = yieldedItems.reduce((s, b) => s + b.yield * b.marketValue, 0) / yieldedMV;
+  const yieldedVade = yieldedItems.reduce((s, b) => s + b.duration * b.marketValue, 0) / yieldedMV;
+
   // "FON PORTFÖY DEĞERİ" is the sheet's own grand total across every asset category (eurobonds,
-  // VIOP teminat, and - new as of 31.08.2026 - a ~19,2M USD "VADELİ DÖVİZ MEVDUATI" position at
-  // Türkiye Finans Katılım). Reading it directly (rather than re-summing named categories
-  // ourselves) means a new category Farshad adds later doesn't silently fall out of the total.
-  // Caveat: the yield numerator below still only weights the eurobonds - every non-eurobond
-  // category (teminat, and now this deposit) is implicitly treated as earning 0%. That's
-  // roughly right for teminat (idle margin) but is a real simplification for an actual
-  // interest-bearing deposit - it understates fonOrtalamaGetiri/fonOrtalamaVade by whatever the
-  // deposit's own yield is, weighted by its ~7% portfolio share. Not fixed yet: the deposit
-  // row's "price" column isn't a clean-price-per-100 like the bonds, its convention needs
-  // checking before it can be folded into the yield average.
+  // the deposit above, and VIOP teminat). Reading it directly (rather than re-summing named
+  // categories ourselves) means a new category Farshad adds later doesn't silently fall out of
+  // the total. Remaining simplification: VIOP teminat (idle margin, a small residual of
+  // fonPortfoyDegeri not covered by yieldedMV) is still implicitly treated as earning 0%,
+  // which is roughly right for margin cash.
   const fonPortfoyDegeriRow = findRowByLabel(ws, 'FON PORTFÖY DEĞERİ');
   const fonPortfoyDegeri = cellVal(ws.getRow(fonPortfoyDegeriRow), 15);
 
-  const fonOrtalamaGetiri = (eurobondYield * eurobondMV) / fonPortfoyDegeri;
-  const fonOrtalamaVade = (eurobondVade * eurobondMV) / fonPortfoyDegeri;
+  const fonOrtalamaGetiri = (yieldedYield * yieldedMV) / fonPortfoyDegeri;
+  const fonOrtalamaVade = (yieldedVade * yieldedMV) / fonPortfoyDegeri;
 
   const komisyon = YONETIM_KOMISYONU[fundCode];
   const komisyonSonrasi = fonOrtalamaGetiri - komisyon;
