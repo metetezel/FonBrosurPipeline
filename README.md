@@ -179,6 +179,19 @@ sayfa CSS'i), grafikler `lib/charts.js` (kütüphanesiz, elle SVG — tamamen de
 **Temel kural: her broşür tek A4 sayfasına sığar.** Yeni blok eklenince taşma kontrol
 edilmeli.
 
+**Aylık getiri tablosu her Ocak'ta 1 satır büyür — bu da zamanla taşmaya yol açar.**
+`render_a.js`'te sağ kolon (`.col-right`) sabit yükseklikli `.main-grid` içinde; tek esnek
+öğe büyüme grafiği (`.chart-section`, `flex:1.1`), geri kalan bloklar (strateji, tablo,
+"Neden Yatırım", performans tablosu) sabit boyutta. Yıllar arttıkça performans tablosu
+büyür, grafik önce küçülerek bunu karşılar, ama sonsuza kadar değil. **01.09.2026'da AAV
+(2012'den beri 15 satır) bu sınırı aştı**: tablonun son satırı + kapanış notu footer'ın
+üstüne taşıyordu (Mete "AAV tablo da kayma var" diye fark etti). Düzeltme: tablo hücre
+dolgusu (2.5px→1.3px), kart iç boşluğu (6px→5px), not üst boşluğu (3px→1px) sıkılaştırıldı
+— 10 render_a fonunun tamamında (özellikle en uzun geçmişli AYA, 17 yıl) Playwright ile
+taşma kalmadığı doğrulandı (commit `f0a5c70`). Bu sadece birkaç yıllık nefes payı satın
+alıyor; AAV muhtemelen 2029-2030 civarı yeniden taşacak, o zaman ya tekrar sıkıştırma ya da
+eski yılları katlayıp özetleyen bir tasarım değişikliği gerekir.
+
 **Renk kuralı:** tüm fonlarda fon = teal, karşılaştırma ölçütü = turuncu.
 
 `assets/logo_hires_crop.png` gerçek Ata Portföy logosu. PDF'ten logo çıkarırken
@@ -352,6 +365,10 @@ klasördeki asıl dosyaları çağırır, kod kopyası taşımaz.
   fark ~1-1,2 puanda oturdu, kısa vadede kapanması beklenmiyor — tablo artık **ayda ~1**
   Elmas'ın gönderdiği taze rakamla elle güncelleniyor, haftalık turdan bağımsız (yukarı
   bakın, "karar" notu).
+- **Aylık getiri tablosu taşması (render_a.js):** 01.09.2026'da AAV için sıkıştırıldı
+  (yukarı, "Render" bölümü) ama kalıcı çözüm değil — her yıl 1 satır daha ekleniyor. AAV en
+  uzun geçmişliyken en riskli olan AYA'yı (17 satır) geçmişti; sıradaki en riskliler AAL/DGH.
+  Birkaç yıl içinde tekrar taşma görülürse bu not güncellenmeli.
 
 ## 01.09.2026 — proje klasörü temizliği
 
