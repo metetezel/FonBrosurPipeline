@@ -303,9 +303,18 @@ tek-tek bono doğrulaması (Cbonds ile denendi, XS3272983563 için sonuç buluna
 Tablo hâlâ elle: **`data/anz_static.json`/`uanz_static.json`'ın `guncelBilgiler.rows`'u bu
 oturumda Elmas'ın 01.09.2026 rakamlarıyla güncellendi** (Ortalama Getiri %7,45, Yönetim
 Kom. Sonrası %6,70, Net Getiri %5,52, Mevduat Eşliği %7,37, Ort. Vade 2,82), ANZ/UANZ
-yeniden render edildi (`out/ANZ_Brosur_Modern.pdf`, `out/UANZ_Brosur_Modern.pdf`) ama
-**`Brosurler\01.09.2026\` yayın klasörüne henüz kopyalanmadı** — o klasördeki ANZ.pdf/
-UANZ.pdf (saat 11:25'te üretilmiş) hâlâ eski (31.07.2026 kaynaklı) rakamları taşıyor.
+yeniden render edildi ve `Brosurler\01.09.2026\` yayın klasörüne kopyalandı (aynı gün
+içinde, commit `8375d0b`).
+
+**01.09.2026, karar — otomatik hesabı zorlamak yerine aylık elle güncelleme:** Aynı
+haftalık tur içinde tekrar hesaplandığında fark hâlâ ~1-1,2 puan civarında duruyor
+(bkz. yukarı tablo). Kök neden (muhtemelen Bloomberg-vs-Book2.xlsx fiyat farkı) kısa
+vadede kapatılması zor görünüyor. **Mete'nin kararı: bu tabloyu haftalık turda otomatik
+kalibre etmeye ÇALIŞMAYALIM — `update_anz_guncel_bilgiler.js` rapor modunda kalmaya
+devam etsin (`--yaz` tetiklenmeyecek), Elmas'tan yaklaşık AYDA BİR gelecek taze rakamla
+elle güncellenecek.** Haftalık tur bu satırlara dokunmuyor zaten (rapor modu varsayılan),
+yani bu karar mevcut davranışı değiştirmiyor, sadece "ne zaman düzelir" beklentisini
+haftalıktan aylığa çekiyor.
 
 **31.08.2026 — satır numaraları güvenilir değilmiş:** Bir günden ertesi güne Book2.xlsx'e
 yeni bir bölüm eklendi ("VADELİ DÖVİZ MEVDUATI" — Türkiye Finans Katılım'da ~19,2M USD'lik
@@ -339,9 +348,20 @@ klasördeki asıl dosyaları çağırır, kod kopyası taşımaz.
 
 ## Açık işler
 
-- **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın). 31.08.2026: iki hata
-  daha düzeltildi, kalan ~1,1 puan fark için ya Farshad'ın cevabı ya da Elmas'tan aynı
-  tarihli taze bir referans rakamı lazım.
+- **ANZ getiri tablosu:** Farshad'dan kolon tanımları (yukarı bakın). 01.09.2026 itibarıyla
+  fark ~1-1,2 puanda oturdu, kısa vadede kapanması beklenmiyor — tablo artık **ayda ~1**
+  Elmas'ın gönderdiği taze rakamla elle güncelleniyor, haftalık turdan bağımsız (yukarı
+  bakın, "karar" notu).
+
+## 01.09.2026 — proje klasörü temizliği
+
+Yerel depoda 28.08.2026'nın piksel-doğrulama sürecinden kalma 47 debug PNG, geçmişte
+üretilmiş 15 kök `*_Brosur_Modern.pdf` ve artık `compute_anz_table.js` ile aynı işi yapan
+ama satır kaymasına karşı düzeltilmemiş `compute_anz_ytm.js` silindi (commit `c765ae6`).
+Ağ klasöründeki `Brosurler\29.08.2026\` ve `\31.08.2026\` (bilinen fiyat/net varlık
+hatalarını taşıyan eski PDF setleri) de silindi. Aynı gün tam haftalık tur elle
+çalıştırılıp veri commit `33fc7d8` ile push'landı — pipeline'ın kendisinde bir değişiklik
+yok, sadece rutin bir çalıştırma.
 
 ---
 
