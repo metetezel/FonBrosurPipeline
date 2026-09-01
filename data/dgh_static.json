@@ -60,7 +60,7 @@
     "Repo satışları ve mevduat ile fonda sabit getiri hedeflenirken; özel sektör tahvil ve bonoları ile mevduat üzeri getiri hedeflenir.",
     "Fon, serbest fon yapısında olduğu için sadece nitelikli yatırımcılar yatırım yapabilmektedir."
   ],
-  "benchmarkText": "Eşik Değeri: KYD Repo Net Endeksi",
+  "benchmarkText": "Karşılaştırma Ölçütü: KYD Repo Net Endeksi",
   "comparisonTable": {
     "columns": [
       "Fon",
