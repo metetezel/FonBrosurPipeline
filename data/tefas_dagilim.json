@@ -1,47 +1,47 @@
 {
-  "cekildi": "2026-08-31T14:34:45.089Z",
-  "tarih": "2026-08-31",
+  "cekildi": "2026-09-01T14:17:40.635Z",
+  "tarih": "2026-09-01",
   "fonlar": {
     "AAL": [
       {
         "kod": "tr",
         "label": "Ters Repo",
-        "pct": 36.57
+        "pct": 35.85
       },
       {
         "kod": "vmtl",
         "label": "Vadeli Mevduat (TL)",
-        "pct": 25.78
+        "pct": 25.95
       },
       {
         "kod": "dt",
         "label": "Devlet Tahvili",
-        "pct": 10.21
+        "pct": 10.12
       },
       {
         "kod": "fb",
         "label": "Finansman Bonosu",
-        "pct": 9.67
+        "pct": 9.59
       },
       {
         "kod": "khtl",
         "label": "Katılma Hesabı (TL)",
-        "pct": 5.32
+        "pct": 5.28
       },
       {
         "kod": "vdm",
         "label": "Varlığa Dayalı Menkul Kıymet",
-        "pct": 3.56
+        "pct": 3.53
       },
       {
         "kod": "hb",
         "label": "Hazine Bonosu",
-        "pct": 3.43
+        "pct": 3.41
       },
       {
         "kod": "ost",
         "label": "Özel Sektör Tahvili",
-        "pct": 2.74
+        "pct": 2.72
       },
       {
         "kod": "kkstl",
@@ -49,80 +49,80 @@
         "pct": 1.47
       },
       {
+        "kod": "tpp",
+        "label": "Takasbank Para Piyasası",
+        "pct": 1.26
+      },
+      {
         "kod": "osks",
         "label": "Özel Sektör Kira Sertifikası",
         "pct": 0.78
       },
       {
-        "kod": "tpp",
-        "label": "Takasbank Para Piyasası",
-        "pct": 0.42
-      },
-      {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 0.05
+        "pct": 0.04
       }
     ],
     "AAS": [
       {
         "kod": "yhs",
         "label": "Yabancı Hisse Senedi",
-        "pct": 69.32
+        "pct": 69.09
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 30.31
+        "pct": 30.53
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 0.37
+        "pct": 0.38
       }
     ],
     "AAV": [
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 86.82
+        "pct": 86.91
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 9.65
+        "pct": 9.45
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 3.53
+        "pct": 3.64
       }
     ],
     "AED": [
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 55.21
+        "pct": 54.31
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 22.85
+        "pct": 23.5
       },
       {
         "kod": "dt",
         "label": "Devlet Tahvili",
-        "pct": 10.39
+        "pct": 10.55
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 8.36
+        "pct": 8.39
       },
       {
         "kod": "fb",
         "label": "Finansman Bonosu",
-        "pct": 3.19
+        "pct": 3.25
       }
     ],
     "ANZ": [
@@ -146,44 +146,54 @@
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 88.25
+        "pct": 84.94
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 10.79
+        "pct": 10.72
+      },
+      {
+        "kod": "tr",
+        "label": "Ters Repo",
+        "pct": 3.35
       },
       {
         "kod": "osks",
         "label": "Özel Sektör Kira Sertifikası",
         "pct": 0.96
+      },
+      {
+        "kod": "vint",
+        "label": "Vadeli İşlemler Nakit Teminatı",
+        "pct": 0.03
       }
     ],
     "DGH": [
       {
         "kod": "vmtl",
         "label": "Vadeli Mevduat (TL)",
-        "pct": 69.3
+        "pct": 70.9
       },
       {
         "kod": "tr",
         "label": "Ters Repo",
-        "pct": 21.58
+        "pct": 20.04
       },
       {
         "kod": "khtl",
         "label": "Katılma Hesabı (TL)",
-        "pct": 6.28
+        "pct": 6.24
       },
       {
         "kod": "fb",
         "label": "Finansman Bonosu",
-        "pct": 1.02
+        "pct": 1.01
       },
       {
         "kod": "vdm",
         "label": "Varlığa Dayalı Menkul Kıymet",
-        "pct": 1.02
+        "pct": 1.01
       },
       {
         "kod": "ost",
@@ -195,139 +205,139 @@
       {
         "kod": "yhs",
         "label": "Yabancı Hisse Senedi",
-        "pct": 66.66
+        "pct": 66.99
       },
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 23.47
+        "pct": 22.97
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 6.07
+        "pct": 6.15
       },
       {
         "kod": "vmtl",
         "label": "Vadeli Mevduat (TL)",
-        "pct": 3.66
+        "pct": 3.73
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 0.14
+        "pct": 0.16
       }
     ],
     "PKF": [
       {
         "kod": "km",
         "label": "Kıymetli Madenler",
-        "pct": 80.09
+        "pct": 82.12
       },
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 8.8
+        "pct": 8.79
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 7.84
+        "pct": 5.69
       },
       {
         "kod": "kkstl",
         "label": "Kamu Kira Sertifikası (TL)",
-        "pct": 3.27
+        "pct": 3.4
       }
     ],
     "PKP": [
       {
         "kod": "khtl",
         "label": "Katılma Hesabı (TL)",
-        "pct": 81.68
+        "pct": 81.33
       },
       {
         "kod": "osks",
         "label": "Özel Sektör Kira Sertifikası",
-        "pct": 18.32
+        "pct": 18.67
       }
     ],
     "RTG": [
       {
         "kod": "yhs",
         "label": "Yabancı Hisse Senedi",
-        "pct": 65.97
+        "pct": 66.35
       },
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 21.11
+        "pct": 20.43
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 12.57
+        "pct": 12.86
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 0.35
+        "pct": 0.36
       }
     ],
     "TLZ": [
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 87.91
+        "pct": 85.47
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 12.09
+        "pct": 14.53
       }
     ],
     "URA": [
       {
         "kod": "yhs",
         "label": "Yabancı Hisse Senedi",
-        "pct": 67.43
+        "pct": 66.45
       },
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 16.71
+        "pct": 16.34
       },
       {
         "kod": "yyf",
         "label": "Yatırım Fonu",
-        "pct": 10.64
+        "pct": 10.72
       },
       {
         "kod": "vmtl",
         "label": "Vadeli Mevduat (TL)",
-        "pct": 3.74
+        "pct": 4.93
       },
       {
         "kod": "fb",
         "label": "Finansman Bonosu",
-        "pct": 1.46
+        "pct": 1.47
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 0.02
+        "pct": 0.09
       }
     ],
     "YLC": [
       {
         "kod": "yhs",
         "label": "Yabancı Hisse Senedi",
-        "pct": 67.87
+        "pct": 69.66
       },
       {
         "kod": "hs",
         "label": "Hisse Senedi",
-        "pct": 31.08
+        "pct": 29.29
       },
       {
         "kod": "yyf",

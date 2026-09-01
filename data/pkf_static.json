@@ -76,7 +76,7 @@
   "assetAllocation": [
     {
       "label": "Kıymetli Madenler",
-      "pct": 80
+      "pct": 82
     },
     {
       "label": "Hisse Senedi",
@@ -84,7 +84,7 @@
     },
     {
       "label": "Yatırım Fonu",
-      "pct": 8
+      "pct": 6
     },
     {
       "label": "Kamu Kira Sertifikası (TL)",
@@ -93,5 +93,5 @@
   ],
   "chartNote": null,
   "netVarlikNotu": "Yayımlanan 31.07.2026 broşüründeki 85.552.765 TL YLC ile birebir aynıydı ve pay adedi hesabıyla tutarsız çıktı (o değer 19,7 mn pay ima ediyor, TEFAS 83,3 mn gösteriyor). Mete kararı (28.08.2026): TEFAS baz alınacak, yayımlanan rakam güncellenmemiş/takılmış kabul edildi. Bu değer TEFAS 2026-08-28 verisidir.",
-  "portfoyDagilimTarihi": "2026-08-31"
+  "portfoyDagilimTarihi": "2026-09-01"
 }

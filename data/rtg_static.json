@@ -81,11 +81,11 @@
   "assetAllocation": [
     {
       "label": "Yabancı Hisse Senedi",
-      "pct": 66
+      "pct": 67
     },
     {
       "label": "Hisse Senedi",
-      "pct": 21
+      "pct": 20
     },
     {
       "label": "Yatırım Fonu",
@@ -93,5 +93,5 @@
     }
   ],
   "chartNote": null,
-  "portfoyDagilimTarihi": "2026-08-31"
+  "portfoyDagilimTarihi": "2026-09-01"
 }

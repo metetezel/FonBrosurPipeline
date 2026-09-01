@@ -114,15 +114,15 @@
   "assetAllocation": [
     {
       "label": "Hisse Senedi",
-      "pct": 56
+      "pct": 54
     },
     {
       "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 23
+      "pct": 24
     },
     {
       "label": "Devlet Tahvili",
-      "pct": 10
+      "pct": 11
     },
     {
       "label": "Yatırım Fonu",
@@ -133,5 +133,5 @@
       "pct": 3
     }
   ],
-  "portfoyDagilimTarihi": "2026-08-31"
+  "portfoyDagilimTarihi": "2026-09-01"
 }

@@ -69,14 +69,14 @@
     "items": [
       {
         "label": "Yabancı Hisse Senedi",
-        "pct": 70
+        "pct": 69
       },
       {
         "label": "Yatırım Fonu",
-        "pct": 30
+        "pct": 31
       }
     ]
   },
   "extraNote": "*20.01.2025 fon dönüşümü itibariyle",
-  "portfoyDagilimTarihi": "2026-08-31"
+  "portfoyDagilimTarihi": "2026-09-01"
 }

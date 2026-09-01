@@ -239,9 +239,9 @@
       "yatirimciSayi": 4815
     },
     "TLZ": {
-      "netVarlik": 77889356.72,
+      "netVarlik": 76715539.36,
       "payAdet": 3811445,
-      "fiyat": 20.43565,
+      "fiyat": 20.127678,
       "yatirimciSayi": 874
     },
     "YLC": {
@@ -249,6 +249,12 @@
       "payAdet": 18755921,
       "fiyat": 3.969068,
       "yatirimciSayi": 1344
+    },
+    "URA": {
+      "netVarlik": 676142150.3,
+      "payAdet": 346377325,
+      "fiyat": 1.952039,
+      "yatirimciSayi": 9244
     }
   }
 }
