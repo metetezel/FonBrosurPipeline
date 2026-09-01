@@ -59,11 +59,11 @@ function comparisonTableHTML(columns, rows) {
 function extraCss() {
   return `
   .monthly-table, .comparison-table { width:100%; border-collapse:collapse; font-size:6.6px; }
-  .monthly-table th, .monthly-table td { padding:2.5px 2px; text-align:center; border-bottom:1px solid var(--line); }
+  .monthly-table th, .monthly-table td { padding:1.3px 2px; text-align:center; border-bottom:1px solid var(--line); }
   .monthly-table thead th { background:var(--teal); color:#fff; font-weight:700; font-size:6.8px; }
   .monthly-table .yr-cell { font-weight:700; text-align:left; padding-left:4px; }
   .monthly-table .ybb-cell { font-weight:700; color:var(--orange); }
-  .monthly-note { font-size:6px; color:var(--muted); font-style:italic; margin-top:3px; }
+  .monthly-note { font-size:6px; color:var(--muted); font-style:italic; margin-top:1px; }
   .comparison-table { font-size:8.2px; }
   .comparison-table th, .comparison-table td { padding:5px 6px; text-align:center; border-bottom:1px solid var(--line); }
   .comparison-table td { white-space:nowrap; }
@@ -239,7 +239,7 @@ function renderPageHtml(s, monthly, chartHtml, chart2Html) {
 <title>${s.fundCode} Fon Bilgi Kartı</title>
 <style>${B.pageCss()}${extraCss()}
   .col-right { gap:4px; }
-  .card { padding:6px 8px; }
+  .card { padding:5px 8px; }
   .card-title { margin:-6px -8px 6px -8px; }
   .card-title.light { margin:-1px 0 5px 0; }
   .comparison-table { font-size:7px; }
