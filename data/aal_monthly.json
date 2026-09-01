@@ -209,13 +209,13 @@
         0.027,
         0.025,
         0.031,
-        null,
+        0.02014437973079275,
         null,
         null,
         null,
         null
       ],
-      "ybb": 0.227
+      "ybb": 0.24975172024827552
     }
   ],
   "growth": [
@@ -913,10 +913,15 @@
       "date": "2026-07-01",
       "fundIndex": 1107.7142624751186,
       "benchIndex": 1093.4178404199417
+    },
+    {
+      "date": "2026-08-01",
+      "fundIndex": 1130.0284792116324,
+      "benchIndex": 1128.6497377973938
     }
   ],
-  "lastDate": "2026-08-28",
-  "lastPrice": 3.513154,
+  "lastDate": "2026-09-01",
+  "lastPrice": 3.527634,
   "benchmarkApproximate": false,
   "benchmarkAvailable": [
     "TKISA",

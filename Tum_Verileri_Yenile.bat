@@ -5,10 +5,15 @@ REM ============================================================
 REM Haftalik broşur turunun tek adimda calistirilabilir hali.
 REM NE ZAMAN: her persembe ogleden sonra.
 REM IKI TARIH VAR: brosurun basligindaki rozet = PDF'i urettigimiz gun (yayin
-REM tarihi); rakamlarin ait oldugu gun = HER ZAMAN T-1 (bugunun verisi arsive
-REM yazilir ama hesaba katilmaz). Bilgi kartindaki "Birim Fiyat (tarih)" satiri
-REM veri tarihini gosterir. Adimlar ikisini de gun adiyla basiyor.
-REM Sira onemli: once veri, sonra render.
+REM tarihi); rakamlarin ait oldugu gun = arsivde gercekten mevcut en son gun
+REM (TEFAS bugunu henuz yayinlamadiysa kendiliginden bir onceki gune duser).
+REM Bilgi kartindaki "Birim Fiyat (tarih)" satiri veri tarihini gosterir.
+REM Adimlar ikisini de gun adiyla basiyor.
+REM Sira onemli: once fiyat arsivi + tum extract adimlari (rapor tarihini
+REM ilerletir; UANZ ozel - kendi lastDate'i extract_anz_uanz_chart.js'ten gelir),
+REM SONRA net varlik (8. adim fetch_tefas_net_varlik.js reportDateFor'un o an
+REM diskte ne yaziyorsa onu kullanir - extract'lardan once calisirsa bir tur
+REM geriden bir net varlik yazar, 01.09.2026'da tam bu yuzden duzeltildi).
 REM
 REM ON KOSUL YOK: Excel'e ihtiyac kalmadi. Arsiv data/*.json dosyalarinda
 REM ve ilk adim onu dogrudan TEFAS/Borsa Istanbul/Nasdaq'tan buyutuyor.
@@ -33,28 +38,28 @@ echo [3/12] Portfoy dagilimi TEFAS'tan aliniyor...
 call node fetch_tefas_dagilim.js --yaz
 if errorlevel 1 goto hata
 
-echo [4/12] Net Varlik Tutarlari TEFAS'tan aliniyor...
-call node fetch_tefas_net_varlik.js
-if errorlevel 1 goto hata
-
-echo [5/12] USD/TRY kuru tazeleniyor...
+echo [4/12] USD/TRY kuru tazeleniyor...
 call node fetch_usdtry.js
 if errorlevel 1 goto hata
 
-echo [6/12] 14 fonun fiyat/benchmark serisi arşivden cekiliyor...
+echo [5/12] 14 fonun fiyat/benchmark serisi arşivden cekiliyor...
 for %%F in (AAL AAS AAV AED ANZ AYA DGH JET PKF PKP RTG TLZ URA YLC) do (
   echo    %%F
   call node extract_fund.js %%F
 )
 
-echo [7/12] Aylik izgara fonlari (AAL DGH AYA AAV AED TLZ)...
+echo [6/12] Aylik izgara fonlari (AAL DGH AYA AAV AED TLZ)...
 call node build_monthly_data.js
 if errorlevel 1 goto hata
 
-echo [8/12] Ozel bloklar: AYA temettu grafigi, ANZ/UANZ grafigi ve Guncel Bilgiler tablosu...
+echo [7/12] Ozel bloklar: AYA temettu grafigi, ANZ/UANZ grafigi ve Guncel Bilgiler tablosu...
 call node extract_aya_dividend.js
 call node extract_anz_uanz_chart.js
 call node update_anz_guncel_bilgiler.js
+
+echo [8/12] Net Varlik Tutarlari TEFAS'tan aliniyor (UANZ'in rapor tarihi extract_anz_uanz_chart.js'e bagli, o yuzden bu adim en sonda)...
+call node fetch_tefas_net_varlik.js
+if errorlevel 1 goto hata
 
 echo [9/12] 15 PDF uretiliyor...
 call node render_b2.js JET RTG PKF PKP URA

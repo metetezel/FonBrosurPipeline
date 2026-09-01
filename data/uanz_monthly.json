@@ -6386,10 +6386,20 @@
       "date": "2026-08-28",
       "fundIndex": 126.96005629582588,
       "benchIndex": 110.03913032190486
+    },
+    {
+      "date": "2026-08-31",
+      "fundIndex": 126.35184043076042,
+      "benchIndex": 110.0473996613417
+    },
+    {
+      "date": "2026-09-01",
+      "fundIndex": 126.58030738103238,
+      "benchIndex": 110.0473996613417
     }
   ],
-  "lastDate": "2026-08-28",
-  "lastPrice": 21.485668,
+  "lastDate": "2026-09-01",
+  "lastPrice": 21.98781,
   "benchmarkAvailable": [
     "MEVUS"
   ],

@@ -170,5 +170,85 @@
       "fiyat": 3.971692,
       "yatirimciSayi": 1344
     }
+  },
+  "2026-09-01": {
+    "AAL": {
+      "netVarlik": 1906922598.56,
+      "payAdet": 540567019,
+      "fiyat": 3.527634,
+      "yatirimciSayi": 4450
+    },
+    "AAS": {
+      "netVarlik": 17421478.42,
+      "payAdet": 1352715,
+      "fiyat": 12.878898,
+      "yatirimciSayi": 150
+    },
+    "AAV": {
+      "netVarlik": 122343253.28,
+      "payAdet": 1953705,
+      "fiyat": 62.62115,
+      "yatirimciSayi": 1972
+    },
+    "AED": {
+      "netVarlik": 66470396.49,
+      "payAdet": 568505,
+      "fiyat": 116.921374,
+      "yatirimciSayi": 1387
+    },
+    "ANZ": {
+      "netVarlik": 260242106.38,
+      "payAdet": 11835745,
+      "fiyat": 21.98781,
+      "yatirimciSayi": 158
+    },
+    "AYA": {
+      "netVarlik": 1082530540.87,
+      "payAdet": 57594298,
+      "fiyat": 18.795794,
+      "yatirimciSayi": 9608
+    },
+    "DGH": {
+      "netVarlik": 4036066815.67,
+      "payAdet": 369751361,
+      "fiyat": 10.915624,
+      "yatirimciSayi": 259
+    },
+    "JET": {
+      "netVarlik": 520046196.09,
+      "payAdet": 222356542,
+      "fiyat": 2.338794,
+      "yatirimciSayi": 17051
+    },
+    "PKF": {
+      "netVarlik": 397287735.65,
+      "payAdet": 82806234,
+      "fiyat": 4.7978,
+      "yatirimciSayi": 1556
+    },
+    "PKP": {
+      "netVarlik": 530379966.85,
+      "payAdet": 416991356,
+      "fiyat": 1.271921,
+      "yatirimciSayi": 95
+    },
+    "RTG": {
+      "netVarlik": 248320638.15,
+      "payAdet": 43636837,
+      "fiyat": 5.69062,
+      "yatirimciSayi": 4815
+    },
+    "TLZ": {
+      "netVarlik": 77889356.72,
+      "payAdet": 3811445,
+      "fiyat": 20.43565,
+      "yatirimciSayi": 874
+    },
+    "YLC": {
+      "netVarlik": 74443531.22,
+      "payAdet": 18755921,
+      "fiyat": 3.969068,
+      "yatirimciSayi": 1344
+    }
   }
 }

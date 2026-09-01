@@ -61,6 +61,13 @@ async function fetchAll() {
       continue;
     }
     const r = info[0];
+    if (!(r.portBuyukluk > 0) || !(r.sonFiyat > 0)) {
+      // TEFAS bugünün değerini henüz hesaplamadıysa 0 ile dolduruyor (URA, 01.09.2026'da
+      // görüldü) - sıfır net varlık/fiyat asla gerçek olamaz, sessizce loglanırsa bir
+      // sonraki lookup'ı bozar.
+      console.warn(`  ${code}: TEFAS bugünü henüz yayınlamamış (0 değer), atlandı`);
+      continue;
+    }
     // fonBilgiGetir carries no date of its own; the price series gives the value date.
     const seri = await post('fonFiyatBilgiGetir', { fonKodu: code, dil: 'TR', periyod: 1 });
     const son = seri[seri.length - 1];

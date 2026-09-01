@@ -17,13 +17,14 @@
 //   node fetch_arsiv.js --sadece-fiyat | --sadece-bench
 //   node fetch_arsiv.js --dene       hicbir dosyaya yazmadan ne eklenecegini raporlar
 //
-// NOT: bugunun verisi de arsive yaziliyor ama BROSURDE KULLANILMIYOR - brosurler her
-// zaman T-1 tarihli (bkz. lib/arsiv.js kesimTarihi). Script hem arsivin son gununu hem
-// brosurun tasiyacagi tarihi gun adiyla basiyor.
+// NOT: brosurler arsivde gercekten mevcut olan en son gune gore uretilir (bkz.
+// lib/arsiv.js kesimFiltresi) - TEFAS bugunu henuz yayinlamadiysa kendiliginden bir
+// onceki gune duser. Script hem arsivin son gununu hem brosurun tasiyacagi tarihi gun
+// adiyla basiyor.
 const fs = require('fs');
 const path = require('path');
 const { isoToTRUzun } = require('./lib/static');
-const { kesimTarihi } = require('./lib/arsiv');
+const { kesimFiltresi } = require('./lib/arsiv');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const FIYAT_PATH = path.join(DATA_DIR, 'fiyat_arsiv.json');
@@ -66,7 +67,12 @@ async function tefasFiyat(fonKodu, periyod) {
   });
   const json = await res.json();
   if (json.faultCode) throw new Error(`TEFAS ${fonKodu}: ${json.faultString}`);
-  return (json.resultList || []).map(r => [r.tarih, Number(r.fiyat)]);
+  // TEFAS bugünün fiyatı henüz hesaplanmadıysa satırı 0 fiyatla dolduruyor (URA,
+  // 01.09.2026'da görüldü) - bugünün satırı artık okuma anında atılmadığı için (bkz.
+  // lib/arsiv.js kesimFiltresi) bu sahte 0'ın arşive girmemesi burada engellenmeli.
+  return (json.resultList || [])
+    .filter(r => Number(r.fiyat) > 0)
+    .map(r => [r.tarih, Number(r.fiyat)]);
 }
 
 async function bistEndeks(kod) {
@@ -145,14 +151,13 @@ async function main() {
     }
     if (!dene) fs.writeFileSync(FIYAT_PATH, JSON.stringify(fiyat));
     const sonGun = Object.values(fiyat).map(a => a[a.length - 1][0]).sort().pop();
-    // Broşür tarihi her zaman T-1: bugünün satırı arşive girse de okuma anında dışarıda
-    // bırakılıyor (bkz. lib/arsiv.js kesimTarihi), böylece hafta hafta kaymıyor.
-    const kesim = kesimTarihi();
+    // Broşür rapor tarihi: arşivde gerçekten mevcut en son gün (bkz. lib/arsiv.js
+    // kesimFiltresi) - TEFAS bugünü henüz yayınlamadıysa bir önceki güne düşer.
     const raporGunu = Object.values(fiyat)
-      .map(a => { const r = a.filter(([d]) => d < kesim); return r.length ? r[r.length - 1][0] : null; })
+      .map(a => { const r = a.filter(([d]) => kesimFiltresi(d)); return r.length ? r[r.length - 1][0] : null; })
       .filter(Boolean).sort().pop();
     console.log(`  toplam ${toplam} yeni fiyat satırı — arşivin son günü: ${isoToTRUzun(sonGun)}`);
-    console.log(`  >>> Broşür tarihi (T-1): ${isoToTRUzun(raporGunu)}`);
+    console.log(`  >>> Broşür tarihi: ${isoToTRUzun(raporGunu)}`);
   }
 
   if (!sadeceFiyat) {

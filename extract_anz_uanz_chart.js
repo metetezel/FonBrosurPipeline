@@ -12,6 +12,7 @@
 // (100 -> 714 over 5 years) against a pure-USD deposit index (100 -> 110), which is not a
 // meaningful comparison.
 const { fiyatSerisi, benchSerisi } = require('./lib/arsiv');
+const { fmtTRNumber } = require('./lib/blocks');
 const fs = require('fs');
 const path = require('path');
 
@@ -82,19 +83,42 @@ async function main() {
   const anzGrowth = buildGrowth({ fundInUSD: true });
   const uanzGrowth = buildGrowth({ fundInUSD: true });
 
+  // ANZ'nin gerçek TL fiyatı (fon fiyatı, USD'ye çevrilmemiş) - hem *_monthly.json'un
+  // bilgi kartında gösterdiği "Birim Fiyat (tarih)" satırı hem de *_static.json'daki
+  // elle girilmiş "Birim Fiyat (TL)"/"(USD)" satırları buradan besleniyor. Öncesinde
+  // *_monthly.json'un lastPrice alanı hiç güncellenmiyordu (sadece growth/lastDate
+  // yenileniyordu) - Mete'nin 01.09.2026'da fark ettiği gibi kart tarihi güncel
+  // görünürken fiyat haftalarca 31.07.2026'da donmuş kalmıştı.
+  const lastDate = cleanPrice[cleanPrice.length - 1].date;
+  const lastPriceTL = cleanPrice[cleanPrice.length - 1].price;
+  const lastFx = fxLookup(lastDate);
+  const lastPriceUSD = lastFx != null ? lastPriceTL / lastFx : null;
+
   const outDir = path.join(__dirname, 'data');
   for (const [code, growth] of [['anz', anzGrowth], ['uanz', uanzGrowth]]) {
     const existing = JSON.parse(fs.readFileSync(path.join(outDir, `${code}_monthly.json`), 'utf-8'));
     existing.fundCode = code.toUpperCase();
     existing.growth = growth;
-    existing.lastDate = growth[growth.length - 1].date;
+    existing.lastDate = lastDate;
+    existing.lastPrice = lastPriceTL;
     existing.benchmarkAvailable = ['MEVUS'];
     existing.fxAdjustment = 'fund price / USD/TRY (USD terms)';
     fs.writeFileSync(path.join(outDir, `${code}_monthly.json`), JSON.stringify(existing, null, 2));
+
+    const staticPath = path.join(outDir, `${code}_static.json`);
+    const s = JSON.parse(fs.readFileSync(staticPath, 'utf-8'));
+    const setRow = (label, value) => {
+      const row = (s.info || []).find(r => Array.isArray(r) && r[0] === label);
+      if (row) row[1] = value;
+    };
+    setRow('Birim Fiyat (TL)', `${fmtTRNumber(lastPriceTL, 6)} TL`);
+    if (lastPriceUSD != null) setRow('Birim Fiyat (USD)', `${fmtTRNumber(lastPriceUSD, 6)} USD`);
+    fs.writeFileSync(staticPath, JSON.stringify(s, null, 2));
   }
 
   console.log('ANZ  last point:', JSON.stringify(anzGrowth[anzGrowth.length - 1]));
   console.log('UANZ last point:', JSON.stringify(uanzGrowth[uanzGrowth.length - 1]));
+  console.log(`Birim Fiyat (${lastDate}): ${fmtTRNumber(lastPriceTL, 6)} TL / ${lastPriceUSD != null ? fmtTRNumber(lastPriceUSD, 6) : '-'} USD`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

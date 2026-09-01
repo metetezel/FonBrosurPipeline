@@ -1,7 +1,7 @@
 // Üretilen 15 PDF'i ağ klasöründeki tarihli yayın klasörüne temiz isimlerle kopyalar:
 //   out/AAL_Brosur_Modern.pdf -> .../Brosurler/27.08.2026/AAL.pdf
-// Klasör adı ve broşür başlığı yayın gününden (PDF'i ürettiğimiz gün), veriler T-1'den
-// gelir — bkz. lib/static.js yayinTarihi / lib/arsiv.js kesimTarihi.
+// Klasör adı ve broşür başlığı yayın gününden (PDF'i ürettiğimiz gün) gelir, veriler
+// arşivdeki en son günden — bkz. lib/static.js yayinTarihi / lib/arsiv.js kesimFiltresi.
 //
 // Kullanım:
 //   node export_pdfs.js                 varsayılan ağ klasörüne
@@ -27,7 +27,7 @@ function main() {
     process.exit(1);
   }
   console.log(`Hedef kök   : ${kok}`);
-  const veriIso = reportDateFor('AAL').iso;   // serinin son günü (T-1)
+  const veriIso = reportDateFor('AAL').iso;   // serinin son günü
   const iso = yayinTarihi().iso;              // rozet ve klasör adı: yayın günü
 
   // Broşür haftalık üretiliyor (perşembe öğleden sonra), o yüzden tarihe kısıt yok:
@@ -39,7 +39,7 @@ function main() {
     console.warn('fetch_arsiv.js çalıştı mı? (Uzun bir tatil haftasıysa normal olabilir.)');
   }
   console.log(`Yayın tarihi (broşür başlığı): ${isoToTRUzun(iso)}`);
-  console.log(`Veri tarihi  (T-1)            : ${isoToTRUzun(veriIso)}`);
+  console.log(`Veri tarihi                   : ${isoToTRUzun(veriIso)}`);
   // Haftalik uretim yilda ~52 klasor demek; hepsi tek bir Brosurler/ altinda toplaniyor.
   const trTarih = iso.split('-').reverse().join('.'); // 27.08.2026
   const hedef = path.join(kok, 'Brosurler', trTarih);

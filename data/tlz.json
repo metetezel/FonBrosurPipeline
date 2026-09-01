@@ -2,9 +2,9 @@
   "fundCode": "TLZ",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 1.42237,
-  "lastDate": "2026-08-28",
-  "lastPrice": 20.424399,
-  "priceRowCount": 1277,
+  "lastDate": "2026-09-01",
+  "lastPrice": 20.43565,
+  "priceRowCount": 1279,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6404,6 +6404,16 @@
       "date": "2026-08-28",
       "fundIndex": 1435.9413514064556,
       "benchIndex": 1182.7187631809481
+    },
+    {
+      "date": "2026-08-31",
+      "fundIndex": 1447.3736088359572,
+      "benchIndex": 1157.8797735310343
+    },
+    {
+      "date": "2026-09-01",
+      "fundIndex": 1436.7323551537224,
+      "benchIndex": 1157.8797735310343
     }
   ]
 }

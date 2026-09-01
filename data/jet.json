@@ -2,9 +2,9 @@
   "fundCode": "JET",
   "inceptionDate": "2024-04-29",
   "inceptionPrice": 1.00392,
-  "lastDate": "2026-08-28",
-  "lastPrice": 2.395854,
-  "priceRowCount": 584,
+  "lastDate": "2026-09-01",
+  "lastPrice": 2.338794,
+  "priceRowCount": 586,
   "droppedZeroRows": 10,
   "benchmarkComponents": [
     {
@@ -2946,6 +2946,16 @@
       "date": "2026-08-28",
       "fundIndex": 238.6498924217069,
       "benchIndex": 232.52511274554146
+    },
+    {
+      "date": "2026-08-31",
+      "fundIndex": 237.8772212925333,
+      "benchIndex": 227.29705243893636
+    },
+    {
+      "date": "2026-09-01",
+      "fundIndex": 232.96617260339468,
+      "benchIndex": 227.29705243893636
     }
   ]
 }

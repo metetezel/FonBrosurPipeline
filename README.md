@@ -25,11 +25,11 @@ On iki adım sırayla çalışır ve sonunda 15 PDF ağ klasöründeki yayın kl
 | 1 | Arşivi büyütür: fiyatlar TEFAS'tan, endeksler Borsa İstanbul / Nasdaq / Yahoo'dan | `fetch_arsiv.js` |
 | 2 | Kart bilgilerini KAP'tan tazeler (risk değeri, yönetim ücreti, kurucu, denetçi) | `fetch_kap_fund_info.js` |
 | 3 | Portföy dağılımını TEFAS'tan çeker (enstrüman kırılımı → pasta grafikleri) | `fetch_tefas_dagilim.js` |
-| 4 | Net Varlık Tutarı'nı TEFAS'tan yazar | `fetch_tefas_net_varlik.js` |
-| 5 | USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi) | `fetch_usdtry.js` |
-| 6 | 14 fonun fiyat serisi + bileşik karşılaştırma ölçütü | `extract_fund.js` |
-| 7 | Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ) | `build_monthly_data.js` |
-| 8 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
+| 4 | USD/TRY kurunu tazeler (ANZ/UANZ grafiğinin para birimi çevrimi) | `fetch_usdtry.js` |
+| 5 | 14 fonun fiyat serisi + bileşik karşılaştırma ölçütü | `extract_fund.js` |
+| 6 | Aylık ızgara fonları (AAL, DGH, AYA, AAV, AED, TLZ) | `build_monthly_data.js` |
+| 7 | Özel bloklar: AYA temettü grafiği, ANZ/UANZ grafiği, ANZ YTM tablosu (rapor) | `extract_aya_dividend.js`, `extract_anz_uanz_chart.js`, `update_anz_guncel_bilgiler.js` |
+| 8 | Net Varlık Tutarı'nı TEFAS'tan yazar — **en son burada**: UANZ'ın rapor tarihi 7. adımdan gelir, önce çalışırsa bir tur geriden bir değer yazar | `fetch_tefas_net_varlik.js` |
 | 9 | 15 PDF — her aile tek Chromium oturumunda; bir render çökerse tur durur | `render_b2.js`, `render_a.js` |
 | 10 | Yayın klasörüne kopyalama | `export_pdfs.js` |
 | 11 | Geçen tura göre ne değişti + veri sağlık kontrolü | `tur_ozeti.js` |
@@ -53,12 +53,24 @@ başlatılır.
 | | Ne | Nereden |
 |---|---|---|
 | **Yayın tarihi** | Broşürün başlığındaki rozet ve yayın klasörünün adı | PDF'i ürettiğimiz gün (`lib/static.js` → `yayinTarihi`) |
-| **Veri tarihi** | Serilerin bittiği gün — bilgi kartındaki "Birim Fiyat (28.08.2026)" satırı bunu yazar | Her zaman **T-1** (`lib/arsiv.js` → `kesimTarihi`) |
+| **Veri tarihi** | Serilerin bittiği gün — bilgi kartındaki "Birim Fiyat (28.08.2026)" satırı bunu yazar | Arşivde gerçekten mevcut **en son gün** (`lib/arsiv.js` → `kesimFiltresi`) |
 
-Veri tarafında bugünün satırları okuma anında dışarıda bırakılır. TEFAS o günün fiyatını
-bazen yayınlamış oluyor bazen olmuyor; kesim olmasaydı rakamlar kimi hafta bugünün kimi
-hafta dünün olurdu. Kesim **arşivde değil okumada**: bugünün verisi yine kaydedilir,
-gelecek hafta T-1 olarak kullanılır.
+**01.09.2026'ya kadar bu her zaman T-1'di** (bugünün satırı arşivde olsa bile okuma
+anında atılırdı) — TEFAS o günün fiyatını bazen erken bazen geç yayınladığı için,
+tur ne zaman çalışırsa çalışsın öngörülebilir kalsın diye. Ama bu, arşivde o günün
+verisi ZATEN VARSA bile onu görmezden geliyordu: Mete pazartesi (31.08) üretilen bir
+broşürde rozet "31 Ağustos" derken fiyatın cumadan (3 gün geriden) göründüğünü fark
+etti, halbuki pazartesinin fiyatı o an arşivde hazırdı. Artık kesim yok: veri tarihi
+her zaman arşivdeki gerçek son gün. TEFAS bugünü henüz yayınlamadıysa (ya da URA'da
+görüldüğü gibi 0 gibi geçersiz bir değerle doldurduysa — `fetch_arsiv.js`/
+`fetch_tefas_net_varlik.js` artık `fiyat > 0` şartı arıyor) arşivde o günün satırı
+zaten olmaz, sonuç kendiliğinden bir önceki iş gününe düşer — aynı güvenlik,
+gereksiz gecikme olmadan.
+
+**Adım sırası bu yüzden önemli** (bkz. yukarıdaki tablo): net varlık (8. adım) en
+sonda, çünkü `reportDateFor()` o an diskte yazan `data/<kod>.json`'un `lastDate`'ini
+kullanıyor — fiyat/extract adımlarından (1, 5-7) önce çalışırsa net varlık bir tur
+geriden yazılır.
 
 Yeniden üretim için: `YAYIN_TARIHI=2026-08-27` (rozet ve klasör adı),
 `RAPOR_TARIHI=2026-08-26` (veri kesimi, o gün dahil).
@@ -181,6 +193,10 @@ sayfayı yüksek zoom'da render edip ilgili bölgeyi kırpmak.
   yeni snapshot yazılır ve hangi tarihten geldiği çıktıda belirtilir. TEFAS geçmişe dönük
   fon büyüklüğü vermediği için her çalıştırma `data/tefas_net_varlik_log.json`'a snapshot
   biriktirir. UANZ'ın TEFAS'ta kaydı yok (ANZ'nin pay sınıfı), ANZ'nin değerini alır.
+  TEFAS bugünün fiyatını/net varlığını henüz hesaplamadıysa 0 ile dolduruyor (URA'da
+  01.09.2026'da görüldü) — `fetch_arsiv.js` ve `fetch_tefas_net_varlik.js` artık böyle
+  sıfır değerleri sessizce reddediyor, aksi halde arşive/loga sızıp bir sonraki lookup'ı
+  bozardı.
 - **Portföy dağılımı: en yenisi.** Net varlıkta olduğu gibi, dağılım için broşürün T-1
   kesimi değil TEFAS'ın **son yayınladığı gün** geçerlidir (Mete, 29.08.2026): dağılım
   günlük oynayan bir bilgi değil, T-1'de veri yayınlanmadı diye pastanın boş kalması daha
