@@ -2,9 +2,9 @@
   "fundCode": "AED",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 11.119739,
-  "lastDate": "2026-09-01",
-  "lastPrice": 116.921374,
-  "priceRowCount": 1279,
+  "lastDate": "2026-09-03",
+  "lastPrice": 115.664291,
+  "priceRowCount": 1281,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6434,7 +6434,17 @@
     {
       "date": "2026-09-01",
       "fundIndex": 1051.4758844609573,
-      "benchIndex": 1038.8835203459328
+      "benchIndex": 1031.2019648630417
+    },
+    {
+      "date": "2026-09-02",
+      "fundIndex": 1046.6898188887349,
+      "benchIndex": 1019.9230846922552
+    },
+    {
+      "date": "2026-09-03",
+      "fundIndex": 1040.1709158821084,
+      "benchIndex": 1021.2872986789373
     }
   ]
 }

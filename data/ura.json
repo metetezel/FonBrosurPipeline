@@ -2,9 +2,9 @@
   "fundCode": "URA",
   "inceptionDate": "2024-12-11",
   "inceptionPrice": 1.001115,
-  "lastDate": "2026-09-01",
-  "lastPrice": 1.952039,
-  "priceRowCount": 431,
+  "lastDate": "2026-09-03",
+  "lastPrice": 1.917627,
+  "priceRowCount": 433,
   "droppedZeroRows": 22,
   "benchmarkComponents": [
     {
@@ -2180,7 +2180,17 @@
     {
       "date": "2026-09-01",
       "fundIndex": 194.98649006357914,
-      "benchIndex": 149.61606907463337
+      "benchIndex": 149.0402537142967
+    },
+    {
+      "date": "2026-09-02",
+      "fundIndex": 190.6569175369463,
+      "benchIndex": 149.01356672421966
+    },
+    {
+      "date": "2026-09-03",
+      "fundIndex": 191.5491227281581,
+      "benchIndex": 150.30267205975636
     }
   ]
 }
