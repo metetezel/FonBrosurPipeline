@@ -1,5 +1,5 @@
 {
-  "cekildi": "2026-09-09T11:25:51.748Z",
+  "cekildi": "2026-09-09T11:39:55.036Z",
   "fonlar": {
     "AAL": {
       "fonUnvan": "ATA PORTFÖY PARA PİYASASI (TL) FONU",
@@ -406,5 +406,8 @@
         }
       ]
     }
+  },
+  "sirketPersoneli": {
+    "riskYoneticisi": "ELMAS ÖZTÜRK"
   }
 }

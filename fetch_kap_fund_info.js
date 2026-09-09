@@ -25,6 +25,10 @@ const path = require('path');
 const { loadStatic } = require('./lib/static');
 
 const KAP_URL = 'https://www.kap.org.tr/tr/fon-bilgileri/genel/';
+// Sirket geneli personel (Risk Yoneticisi dahil) fon sayfalarinda degil, KAP'in
+// sirket profil sayfasinda - 08.09.2026 bildirimiyle (Risk Yonetimi: Elmas Ozturk)
+// fark edildi, o zamana kadar hic cekilmiyordu.
+const SIRKET_URL = 'https://www.kap.org.tr/tr/sirket-bilgileri/genel/2300-ata-portfoy-yonetimi-a-s';
 const FUND_OIDS = {
   AAL: '33E5FED7E36300EAE0530A4A622B2AEA',
   AAS: '33E5FED7E74300EAE0530A4A622B2AEA',
@@ -46,8 +50,8 @@ const DATA_DIR = path.join(__dirname, 'data');
 const OUT_FILE = path.join(DATA_DIR, 'kap_fund_info.json');
 const NOISE = ['$undefined', 'Bilgi', 'Görüntüle', 'İhraç Sıra Numarası'];
 
-async function fetchTokens(oid) {
-  const res = await fetch(KAP_URL + oid, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+async function fetchTokens(url) {
+  const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
   if (!res.ok) throw new Error('KAP HTTP ' + res.status);
   let h = await res.text();
   h = h.replace(/\\u([0-9a-fA-F]{4})/g, (m, c) => String.fromCharCode(parseInt(c, 16)));
@@ -95,6 +99,19 @@ function parseManagers(toks) {
     out.push({ ad, goreveAtanma: tarih, tecrubeYil: Number(m[1]) });
   }
   return out;
+}
+
+// Sirket personel tablosunda satirlar "AD SOYAD" hemen ardindan "GOREV" seklinde
+// geliyor (bkz. ELMAS ÖZTÜRK / RİSK YÖNETİMİ). Ayni desen "Risk yönetim sistemi" gibi
+// birim/kurum tablosu satirlarinda da tetiklenebilir ama onlarin "adi" Baslik-Buyuk
+// yazildigi icin (ör. "Ata Portföy Yönetimi A.Ş.") TAMAMEN BUYUK harf sarti onlari eler.
+function parseRiskYoneticisi(toks) {
+  for (let i = 1; i < toks.length; i++) {
+    if (!/RİSK\s*Y[ÖO]NET/i.test(toks[i])) continue;
+    const ad = toks[i - 1];
+    if (ad && ad.length < 45 && ad === ad.toLocaleUpperCase('tr-TR') && /^[A-ZÇĞİÖŞÜ]/.test(ad)) return ad;
+  }
+  return null;
 }
 
 function parseBenchmark(toks) {
@@ -217,13 +234,26 @@ function yoneticiKontrolu(code, s, kap) {
   return satirlar;
 }
 
+// Risk Yoneticisi sirket geneli (data/ortak.json -> managerOrtak), fon bazli degil.
+// Isim burada da otomatik YAZILMIYOR (JET/AYA'daki gibi ayni icerik karari) - sadece
+// KAP'in sirket sayfasindaki isimle uyusmuyorsa raporlanir.
+function sirketRiskKontrolu(sirketPersoneli) {
+  if (!sirketPersoneli || !sirketPersoneli.riskYoneticisi) return [];
+  const ortak = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'ortak.json'), 'utf-8'));
+  const brosur = (ortak.managerOrtak || []).find(m => m.role === 'Risk Yöneticisi');
+  if (!brosur) return [];
+  const kapAd = baslikBuyuk(sirketPersoneli.riskYoneticisi);
+  if (norm(kapAd) === norm(brosur.name)) return [];
+  return [{ code: 'ORTAK', ad: 'Risk Yöneticisi', mevcut: brosur.name, kapDeger: kapAd }];
+}
+
 // tur_ozeti.js'in cagirdigi offline kontrol: data/kap_fund_info.json'u (adim 2'de zaten
 // yazildi) yeniden fetch etmeden okur, sadece "KONTROL ET" statusundeki (isim/tecrube
 // uyusmazligi) satirlari dondurur. Boylece bu uyari konsolda kaybolmak yerine haftalik
 // tur ozetinde de gorunur.
 function pendingManagerChecks() {
   if (!fs.existsSync(OUT_FILE)) return [];
-  const { fonlar } = JSON.parse(fs.readFileSync(OUT_FILE, 'utf-8'));
+  const { fonlar, sirketPersoneli } = JSON.parse(fs.readFileSync(OUT_FILE, 'utf-8'));
   const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
   const sonuc = [];
   for (const file of files) {
@@ -235,6 +265,7 @@ function pendingManagerChecks() {
       if (durum === 'KONTROL ET') sonuc.push({ code, ad, mevcut, kapDeger });
     }
   }
+  sonuc.push(...sirketRiskKontrolu(sirketPersoneli));
   return sonuc;
 }
 
@@ -298,14 +329,15 @@ function compare(all, { yaz }) {
 async function main() {
   const args = process.argv.slice(2);
   if (args[0] === '--dump') {
-    const toks = await fetchTokens(FUND_OIDS[args[1]] || FUND_OIDS.AAL);
+    const url = args[1] === 'SIRKET' ? SIRKET_URL : KAP_URL + (FUND_OIDS[args[1]] || FUND_OIDS.AAL);
+    const toks = await fetchTokens(url);
     toks.forEach((t, i) => console.log(String(i).padStart(4), '|', t.slice(0, 120)));
     return;
   }
   const all = {};
   for (const [code, oid] of Object.entries(FUND_OIDS)) {
     try {
-      const toks = await fetchTokens(oid);
+      const toks = await fetchTokens(KAP_URL + oid);
       all[code] = extract(toks);
       const k = all[code];
       console.log(`${code.padEnd(5)} risk=${k.riskDegeri ?? '-'} ücret=${k.yonetimUcretiYillik ?? '-'} ölçüt=${k.karsilastirmaOlcutu.length} yönetici=${k.yoneticiler.length}`);
@@ -313,9 +345,23 @@ async function main() {
       console.warn(`${code}: HATA ${e.message}`);
     }
   }
-  fs.writeFileSync(OUT_FILE, JSON.stringify({ cekildi: new Date().toISOString(), fonlar: all }, null, 2));
+  let sirketPersoneli = null;
+  try {
+    const sToks = await fetchTokens(SIRKET_URL);
+    sirketPersoneli = { riskYoneticisi: parseRiskYoneticisi(sToks) };
+    console.log(`Şirket sayfası: Risk Yöneticisi = ${sirketPersoneli.riskYoneticisi ? baslikBuyuk(sirketPersoneli.riskYoneticisi) : '(bulunamadı)'}`);
+  } catch (e) {
+    console.warn(`Şirket sayfası: HATA ${e.message}`);
+  }
+  fs.writeFileSync(OUT_FILE, JSON.stringify({ cekildi: new Date().toISOString(), fonlar: all, sirketPersoneli }, null, 2));
   console.log(`\nYazıldı: ${OUT_FILE}`);
   compare(all, { yaz: args.includes('--yaz') });
+  const sirketFark = sirketRiskKontrolu(sirketPersoneli);
+  console.log(`\nŞİRKET GENELİ (data/ortak.json)`);
+  if (!sirketFark.length) console.log('   Risk Yöneticisi: aynı');
+  else for (const { ad, mevcut, kapDeger } of sirketFark) {
+    console.log(`   ${ad}\n      broşür: ${mevcut}\n      KAP   : ${kapDeger}   [KONTROL ET]`);
+  }
 }
 
 module.exports = { pendingManagerChecks };
