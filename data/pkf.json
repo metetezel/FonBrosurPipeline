@@ -2,9 +2,9 @@
   "fundCode": "PKF",
   "inceptionDate": "2023-04-13",
   "inceptionPrice": 0.965556,
-  "lastDate": "2026-09-03",
-  "lastPrice": 4.689236,
-  "priceRowCount": 848,
+  "lastDate": "2026-09-09",
+  "lastPrice": 4.788151,
+  "priceRowCount": 852,
   "droppedZeroRows": 12,
   "benchmarkComponents": [
     {
@@ -4266,6 +4266,26 @@
       "date": "2026-09-03",
       "fundIndex": 485.65137599476367,
       "benchIndex": 515.8768337204062
+    },
+    {
+      "date": "2026-09-04",
+      "fundIndex": 498.88478762495396,
+      "benchIndex": 518.5587929550094
+    },
+    {
+      "date": "2026-09-07",
+      "fundIndex": 501.5523698262969,
+      "benchIndex": 512.8356209620007
+    },
+    {
+      "date": "2026-09-08",
+      "fundIndex": 495.3449618665308,
+      "benchIndex": 514.4397031929168
+    },
+    {
+      "date": "2026-09-09",
+      "fundIndex": 495.89573261416217,
+      "benchIndex": 514.4397031929168
     }
   ]
 }

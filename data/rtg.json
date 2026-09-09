@@ -2,9 +2,9 @@
   "fundCode": "RTG",
   "inceptionDate": "2022-11-02",
   "inceptionPrice": 0.979529,
-  "lastDate": "2026-09-03",
-  "lastPrice": 5.621755,
-  "priceRowCount": 964,
+  "lastDate": "2026-09-09",
+  "lastPrice": 5.867831,
+  "priceRowCount": 968,
   "droppedZeroRows": 15,
   "benchmarkComponents": [
     {
@@ -4845,7 +4845,27 @@
     {
       "date": "2026-09-03",
       "fundIndex": 573.9243044361117,
-      "benchIndex": 260.15281655305256
+      "benchIndex": 261.8030124759558
+    },
+    {
+      "date": "2026-09-04",
+      "fundIndex": 571.014232350446,
+      "benchIndex": 258.0947666442888
+    },
+    {
+      "date": "2026-09-07",
+      "fundIndex": 585.7955200917993,
+      "benchIndex": 254.8804804305433
+    },
+    {
+      "date": "2026-09-08",
+      "fundIndex": 590.4887961459028,
+      "benchIndex": 249.442472235845
+    },
+    {
+      "date": "2026-09-09",
+      "fundIndex": 599.046174232718,
+      "benchIndex": 249.442472235845
     }
   ]
 }

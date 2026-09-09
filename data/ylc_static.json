@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "75.711.285 TL"
+      "81.233.458 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -110,16 +110,20 @@
   "assetAllocation": [
     {
       "label": "Yabancı Hisse Senedi",
-      "pct": 69
+      "pct": 63
     },
     {
       "label": "Hisse Senedi",
-      "pct": 30
+      "pct": 29
+    },
+    {
+      "label": "Vadeli İşlemler Nakit Teminatı",
+      "pct": 7
     },
     {
       "label": "Diğer",
       "pct": 1
     }
   ],
-  "portfoyDagilimTarihi": "2026-09-03"
+  "portfoyDagilimTarihi": "2026-09-09"
 }
