@@ -88,8 +88,8 @@ function parseManagers(toks) {
   // "<Ad Soyad>", "<gg/aa/yyyy>", "<son 5 yıl>", "<N Yıl>", "<lisanslar>" tekrarlari
   const out = [];
   for (let i = 0; i < toks.length; i++) {
-    // KAP bazi fonlarda "22 Yıl", bazilarinda "17 yıl" yaziyor
-    const m = /^(\d{1,2}) [Yy]ıl$/.exec(toks[i]);
+    // KAP bazi fonlarda "22 Yıl", bazilarinda "17 yıl", JET'te ise "10yıl" (bosluksuz) yaziyor
+    const m = /^(\d{1,2})\s*[Yy]ıl$/.exec(toks[i]);
     if (!m) continue;
     // ismin 3 token onceden gelmesi beklenir (ad, tarih, isler, tecrube)
     const ad = toks[i - 3];
@@ -185,13 +185,14 @@ const ORTAK_ALANLAR = ['Kurucu', 'Denetçi', 'Portföy Yöneticisi'];
 
 // KAP ile broşür arasında Mete'nin teyit ettiği, KAP tarafı eksik olan durumlar.
 // Buraya girenler "KONTROL ET" diye raporlanmıyor; her hafta aynı uyarıyı üretmesinler.
-const TEYITLI_ISTISNALAR = {
-  JET: {
-    ad: 'Farshad Mirzazadeh',
-    not: 'Mete teyit etti (28.08.2026): JET\'in fon yöneticisi Farshad Mirzazadeh (CFA, 10 yıl). '
-       + 'KAP bu fonda sadece Batuhan Özşahin listeliyor — eksik olan KAP tarafı.',
-  },
-};
+// NOT: JET'in 28.08.2026'da buraya eklenen istisnasi (Farshad Mirzazadeh, "KAP'ta
+// sadece Batuhan Özşahin listeliyor") 09.09.2026'da kaldirildi - o eksiklik gercek
+// degildi, parseManagers() JET'in "10yıl" (bosluksuz) tokenini eslemedigi icin
+// Farshad'i hic gormüyordu. Regex duzeltilince Farshad dogrudan bulunuyor; istisna
+// artik gereksiz VE yanlis bilgi tasiyordu (KAP hicbir zaman Farshad'i "eksik"
+// birakmamis). Ayni sirada JET'in gorunen ikinci ismi gercekten degismis: KAP
+// 03.09.2026'da Batuhan Özşahin yerine Samet Zağlı'yi eklemis (bkz. managers).
+const TEYITLI_ISTISNALAR = {};
 
 // Tecrübe yılı KAP'ta fon sayfaları arasında tutarsız (Farshad: AAV'de 10, URA'da 9).
 // Mete'nin teyit ettiği doğru değerler burada; broşür bunlarla uyuşuyorsa KAP'ın farklı

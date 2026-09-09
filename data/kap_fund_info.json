@@ -1,5 +1,5 @@
 {
-  "cekildi": "2026-09-09T11:57:01.415Z",
+  "cekildi": "2026-09-09T12:03:43.351Z",
   "fonlar": {
     "AAL": {
       "fonUnvan": "ATA PORTFÖY PARA PİYASASI (TL) FONU",
@@ -228,6 +228,11 @@
         }
       ],
       "yoneticiler": [
+        {
+          "ad": "Farshad Mirzazadeh",
+          "goreveAtanma": "07/10/2025",
+          "tecrubeYil": 10
+        },
         {
           "ad": "Samet Zağlı",
           "goreveAtanma": "03/09/2026",
