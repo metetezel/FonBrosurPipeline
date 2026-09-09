@@ -17,6 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { reportDateFor, isoToTRUzun } = require('./lib/static');
+const { pendingManagerChecks } = require('./fetch_kap_fund_info');
 
 const KODLAR = ['AAL','AAS','AAV','AED','ANZ','AYA','DGH','JET','PKF','PKP','RTG','TLZ','UANZ','URA','YLC'];
 const SNAPSHOT = path.join(__dirname, 'data', 'brosur_metin.json');
@@ -93,6 +94,22 @@ function saglik(raporIso) {
   console.log('     Veri gun icinde oturuyor: turu ogleden sonra tekrar calistirmak yeterli.');
 }
 
+// Adim 2'de fetch_kap_fund_info.js --yaz zaten calisip data/kap_fund_info.json'u
+// yazdi; buradaki "isim otomatik yazilmaz" / tecrube uyusmazligi uyarilari sadece
+// konsola basiliyordu ve turun sonunda kayboluyordu (09.09.2026, AYA vakasi: KAP
+// yoneticiyi Batuhan Ozsahin'den Samet Zagli'ya cevirmisti, hic fark edilmedi).
+// Artik ayni uyarilar Mete'nin zaten okudugu haftalik ozette de goruniyor.
+function yoneticiKontrolRaporu() {
+  const bekleyen = pendingManagerChecks();
+  console.log(NL + '-- KAP YONETICI KONTROLU (isim/tecrube otomatik yazilmaz)');
+  if (!bekleyen.length) { console.log('   fark yok'); return; }
+  for (const { code, ad, mevcut, kapDeger } of bekleyen) {
+    console.log('   ' + code + ' - ' + ad);
+    console.log('      broşür: ' + mevcut);
+    console.log('      KAP   : ' + kapDeger);
+  }
+}
+
 function main() {
   const yazma = process.argv.includes('--yazma');
   const raporIso = reportDateFor('AAL').iso;
@@ -136,6 +153,7 @@ function main() {
   }
 
   saglik(raporIso);
+  yoneticiKontrolRaporu();
 
   if (yazma) {
     console.log(NL + '(--yazma: snapshot guncellenmedi)');

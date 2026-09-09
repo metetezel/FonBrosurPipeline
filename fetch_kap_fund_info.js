@@ -183,6 +183,61 @@ const TEYITLI_TECRUBE = {
   'Farshad Mirzazadeh': '10 yıl',  // Mete teyit etti (28.08.2026), CFA sahibi
 };
 
+// Yoneticiler: KAP her fonun KENDI portfoy yoneticilerini yaziyor, brosurlerde ise
+// hepsinde ayni isim var. Ismi otomatik degistirmiyoruz (bu bir icerik karari) -
+// sadece ayni kisiyse tecrube yilini hizalayip, farkli isimleri rapora dusuyoruz.
+function yoneticiKontrolu(code, s, kap) {
+  const satirlar = [];
+  const kapAdlar = kap.yoneticiler.map(y => `${y.ad} (${y.tecrubeYil} yıl)`).join(', ') || '(KAP\'ta yok)';
+  const brosurYonetici = (s.managers || []).find(m => m.role === 'Fon Yöneticisi');
+  if (!brosurYonetici) return satirlar;
+  const kapYon = kap.yoneticiler.find(y => norm(y.ad) === norm(brosurYonetici.name));
+  if (kapYon) {
+    const kapTec = kapYon.tecrubeYil + ' yıl';
+    const teyitli = TEYITLI_TECRUBE[kapYon.ad];
+    if (teyitli && norm(brosurYonetici.experience) === norm(teyitli)) {
+      satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
+    } else if (norm(brosurYonetici.experience) !== norm(kapTec)) {
+      // Tecrube yili otomatik YAZILMIYOR: KAP'in kendisi fon sayfalari arasinda
+      // tutarsiz (ayni kisi AAV sayfasinda 10 yil, URA sayfasinda 9 yil) - otomatik
+      // yazmak brosurler arasinda ayni kisiyi farkli gostermeye yol acardi.
+      satirlar.push([`Fon Yöneticisi tecrübe (${kapYon.ad}) - bilgi`, brosurYonetici.experience, kapTec, 'KONTROL ET']);
+    } else satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
+  } else {
+    const istisna = TEYITLI_ISTISNALAR[code];
+    if (!kap.yoneticiler.length) {
+      // KAP bu fon icin hic yonetici listelemiyor - celiski degil, dogrulanamiyor
+      satirlar.push(['Fon Yöneticisi (KAP listelemiyor, doğrulanamadı)', brosurYonetici.name, '—', 'ayni']);
+    } else if (istisna && norm(istisna.ad) === norm(brosurYonetici.name)) {
+      satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar + ' — teyitli istisna, KAP eksik', 'ayni']);
+    } else {
+      satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
+    }
+  }
+  return satirlar;
+}
+
+// tur_ozeti.js'in cagirdigi offline kontrol: data/kap_fund_info.json'u (adim 2'de zaten
+// yazildi) yeniden fetch etmeden okur, sadece "KONTROL ET" statusundeki (isim/tecrube
+// uyusmazligi) satirlari dondurur. Boylece bu uyari konsolda kaybolmak yerine haftalik
+// tur ozetinde de gorunur.
+function pendingManagerChecks() {
+  if (!fs.existsSync(OUT_FILE)) return [];
+  const { fonlar } = JSON.parse(fs.readFileSync(OUT_FILE, 'utf-8'));
+  const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
+  const sonuc = [];
+  for (const file of files) {
+    const s = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf-8'));
+    const code = s.fundCode;
+    const kap = fonlar[ALIASES[code] || code];
+    if (!kap) continue;
+    for (const [ad, mevcut, kapDeger, durum] of yoneticiKontrolu(code, s, kap)) {
+      if (durum === 'KONTROL ET') sonuc.push({ code, ad, mevcut, kapDeger });
+    }
+  }
+  return sonuc;
+}
+
 function compare(all, { yaz }) {
   const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('_static.json')).sort();
   const ortakPath = path.join(DATA_DIR, 'ortak.json');
@@ -224,36 +279,7 @@ function compare(all, { yaz }) {
       if (yaz) { uygula(kapDeger); yazilan++; satirlar.push([ad, mevcut, kapDeger, 'YAZILDI']); }
       else satirlar.push([ad, mevcut, kapDeger, 'FARKLI']);
     }
-    // Yoneticiler: KAP her fonun KENDI portfoy yoneticilerini yaziyor, brosurlerde ise
-    // hepsinde ayni isim var. Ismi otomatik degistirmiyoruz (bu bir icerik karari) -
-    // sadece ayni kisiyse tecrube yilini hizalayip, farkli isimleri rapora dusuyoruz.
-    const kapAdlar = kap.yoneticiler.map(y => `${y.ad} (${y.tecrubeYil} yıl)`).join(', ') || '(KAP\'ta yok)';
-    const brosurYonetici = (s.managers || []).find(m => m.role === 'Fon Yöneticisi');
-    if (brosurYonetici) {
-      const kapYon = kap.yoneticiler.find(y => norm(y.ad) === norm(brosurYonetici.name));
-      if (kapYon) {
-        const kapTec = kapYon.tecrubeYil + ' yıl';
-        const teyitli = TEYITLI_TECRUBE[kapYon.ad];
-        if (teyitli && norm(brosurYonetici.experience) === norm(teyitli)) {
-          satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
-        } else if (norm(brosurYonetici.experience) !== norm(kapTec)) {
-          // Tecrube yili otomatik YAZILMIYOR: KAP'in kendisi fon sayfalari arasinda
-          // tutarsiz (ayni kisi AAV sayfasinda 10 yil, URA sayfasinda 9 yil) - otomatik
-          // yazmak brosurler arasinda ayni kisiyi farkli gostermeye yol acardi.
-          satirlar.push([`Fon Yöneticisi tecrübe (${kapYon.ad}) - bilgi`, brosurYonetici.experience, kapTec, 'KONTROL ET']);
-        } else satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
-      } else {
-        const istisna = TEYITLI_ISTISNALAR[code];
-        if (!kap.yoneticiler.length) {
-          // KAP bu fon icin hic yonetici listelemiyor - celiski degil, dogrulanamiyor
-          satirlar.push(['Fon Yöneticisi (KAP listelemiyor, doğrulanamadı)', brosurYonetici.name, '—', 'ayni']);
-        } else if (istisna && norm(istisna.ad) === norm(brosurYonetici.name)) {
-          satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar + ' — teyitli istisna, KAP eksik', 'ayni']);
-        } else {
-          satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
-        }
-      }
-    }
+    satirlar.push(...yoneticiKontrolu(code, s, kap));
     const kotu = satirlar.filter(r => r[3] !== 'ayni');
     console.log(`\n${code}  (${kotu.length ? kotu.length + ' fark' : 'hepsi ayni'})`);
     for (const [ad, mevcut, kapDeger, durum] of satirlar) {
@@ -292,4 +318,8 @@ async function main() {
   compare(all, { yaz: args.includes('--yaz') });
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
+module.exports = { pendingManagerChecks };
+
+if (require.main === module) {
+  main().catch(e => { console.error(e); process.exit(1); });
+}
