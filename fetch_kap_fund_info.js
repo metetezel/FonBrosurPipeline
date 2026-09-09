@@ -198,6 +198,8 @@ const TEYITLI_ISTISNALAR = {
 // yazdığı sayfa raporlanmıyor.
 const TEYITLI_TECRUBE = {
   'Farshad Mirzazadeh': '10 yıl',  // Mete teyit etti (28.08.2026), CFA sahibi
+  'Suna Tanrıverdi Fidan': '22 yıl',  // Mete teyit etti (09.09.2026); sadece AAL sayfasi 23 yaziyor
+  'Etem Öztekin': '21 yıl',  // Mete teyit etti (09.09.2026); AAL 20, AED 28 yaziyor - PKF'nin 21'i dogru
 };
 
 // Yoneticiler: KAP her fonun KENDI portfoy yoneticilerini yaziyor, brosurlerde ise
@@ -206,29 +208,32 @@ const TEYITLI_TECRUBE = {
 function yoneticiKontrolu(code, s, kap) {
   const satirlar = [];
   const kapAdlar = kap.yoneticiler.map(y => `${y.ad} (${y.tecrubeYil} yıl)`).join(', ') || '(KAP\'ta yok)';
-  const brosurYonetici = (s.managers || []).find(m => m.role === 'Fon Yöneticisi');
-  if (!brosurYonetici) return satirlar;
-  const kapYon = kap.yoneticiler.find(y => norm(y.ad) === norm(brosurYonetici.name));
-  if (kapYon) {
-    const kapTec = kapYon.tecrubeYil + ' yıl';
-    const teyitli = TEYITLI_TECRUBE[kapYon.ad];
-    if (teyitli && norm(brosurYonetici.experience) === norm(teyitli)) {
-      satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
-    } else if (norm(brosurYonetici.experience) !== norm(kapTec)) {
-      // Tecrube yili otomatik YAZILMIYOR: KAP'in kendisi fon sayfalari arasinda
-      // tutarsiz (ayni kisi AAV sayfasinda 10 yil, URA sayfasinda 9 yil) - otomatik
-      // yazmak brosurler arasinda ayni kisiyi farkli gostermeye yol acardi.
-      satirlar.push([`Fon Yöneticisi tecrübe (${kapYon.ad}) - bilgi`, brosurYonetici.experience, kapTec, 'KONTROL ET']);
-    } else satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
-  } else {
-    const istisna = TEYITLI_ISTISNALAR[code];
-    if (!kap.yoneticiler.length) {
-      // KAP bu fon icin hic yonetici listelemiyor - celiski degil, dogrulanamiyor
-      satirlar.push(['Fon Yöneticisi (KAP listelemiyor, doğrulanamadı)', brosurYonetici.name, '—', 'ayni']);
-    } else if (istisna && norm(istisna.ad) === norm(brosurYonetici.name)) {
-      satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar + ' — teyitli istisna, KAP eksik', 'ayni']);
+  // Bazi fonlarda birden fazla Fon Yoneticisi var (09.09.2026'dan itibaren) - hepsi
+  // ayri ayri kontrol edilir, sadece ilki degil.
+  const brosurYoneticileri = (s.managers || []).filter(m => m.role === 'Fon Yöneticisi');
+  for (const brosurYonetici of brosurYoneticileri) {
+    const kapYon = kap.yoneticiler.find(y => norm(y.ad) === norm(brosurYonetici.name));
+    if (kapYon) {
+      const kapTec = kapYon.tecrubeYil + ' yıl';
+      const teyitli = TEYITLI_TECRUBE[kapYon.ad];
+      if (teyitli && norm(brosurYonetici.experience) === norm(teyitli)) {
+        satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
+      } else if (norm(brosurYonetici.experience) !== norm(kapTec)) {
+        // Tecrube yili otomatik YAZILMIYOR: KAP'in kendisi fon sayfalari arasinda
+        // tutarsiz (ayni kisi AAV sayfasinda 10 yil, URA sayfasinda 9 yil) - otomatik
+        // yazmak brosurler arasinda ayni kisiyi farkli gostermeye yol acardi.
+        satirlar.push([`Fon Yöneticisi tecrübe (${kapYon.ad}) - bilgi`, brosurYonetici.experience, kapTec, 'KONTROL ET']);
+      } else satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar, 'ayni']);
     } else {
-      satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
+      const istisna = TEYITLI_ISTISNALAR[code];
+      if (!kap.yoneticiler.length) {
+        // KAP bu fon icin hic yonetici listelemiyor - celiski degil, dogrulanamiyor
+        satirlar.push(['Fon Yöneticisi (KAP listelemiyor, doğrulanamadı)', brosurYonetici.name, '—', 'ayni']);
+      } else if (istisna && norm(istisna.ad) === norm(brosurYonetici.name)) {
+        satirlar.push(['Fon Yöneticisi', brosurYonetici.name, kapAdlar + ' — teyitli istisna, KAP eksik', 'ayni']);
+      } else {
+        satirlar.push(['Fon Yöneticisi (isim otomatik yazılmaz)', brosurYonetici.name, kapAdlar, 'KONTROL ET']);
+      }
     }
   }
   return satirlar;
