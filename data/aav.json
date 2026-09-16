@@ -2,9 +2,9 @@
   "fundCode": "AAV",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 4.480865,
-  "lastDate": "2026-09-09",
-  "lastPrice": 63.901907,
-  "priceRowCount": 1285,
+  "lastDate": "2026-09-16",
+  "lastPrice": 62.256867,
+  "priceRowCount": 1290,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6443,7 +6443,32 @@
     {
       "date": "2026-09-09",
       "fundIndex": 1426.106499526319,
-      "benchIndex": 1163.6303169916619
+      "benchIndex": 1171.7270692060608
+    },
+    {
+      "date": "2026-09-10",
+      "fundIndex": 1433.7149411999692,
+      "benchIndex": 1162.7096784659811
+    },
+    {
+      "date": "2026-09-11",
+      "fundIndex": 1430.5786940691141,
+      "benchIndex": 1168.6386716848904
+    },
+    {
+      "date": "2026-09-14",
+      "fundIndex": 1438.0160080698706,
+      "benchIndex": 1149.9452483696182
+    },
+    {
+      "date": "2026-09-15",
+      "fundIndex": 1418.647024625826,
+      "benchIndex": 1122.195094253918
+    },
+    {
+      "date": "2026-09-16",
+      "fundIndex": 1389.3939451422884,
+      "benchIndex": 1122.195094253918
     }
   ]
 }

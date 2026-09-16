@@ -428,5 +428,91 @@
       "fiyat": 4.058774,
       "yatirimciSayi": 1344
     }
+  },
+  "2026-09-16": {
+    "AAL": {
+      "netVarlik": 1920243701.26,
+      "payAdet": 536309266,
+      "fiyat": 3.580478,
+      "yatirimciSayi": 4505
+    },
+    "AAS": {
+      "netVarlik": 17076541.44,
+      "payAdet": 1331218,
+      "fiyat": 12.827757,
+      "yatirimciSayi": 152
+    },
+    "AAV": {
+      "netVarlik": 136347083.48,
+      "payAdet": 2190073,
+      "fiyat": 62.256867,
+      "yatirimciSayi": 1943
+    },
+    "AED": {
+      "netVarlik": 66204251.89,
+      "payAdet": 577093,
+      "fiyat": 114.72023,
+      "yatirimciSayi": 1388
+    },
+    "ANZ": {
+      "netVarlik": 259011242.74,
+      "payAdet": 11834495,
+      "fiyat": 21.886125,
+      "yatirimciSayi": 156
+    },
+    "AYA": {
+      "netVarlik": 1048049327.57,
+      "payAdet": 56493490,
+      "fiyat": 18.551683,
+      "yatirimciSayi": 9381
+    },
+    "DGH": {
+      "netVarlik": 3250836962.35,
+      "payAdet": 293209574,
+      "fiyat": 11.087076,
+      "yatirimciSayi": 256
+    },
+    "JET": {
+      "netVarlik": 471748845.18,
+      "payAdet": 211003959,
+      "fiyat": 2.235735,
+      "yatirimciSayi": 16594
+    },
+    "PKF": {
+      "netVarlik": 384235458.85,
+      "payAdet": 81854992,
+      "fiyat": 4.694099,
+      "yatirimciSayi": 1532
+    },
+    "PKP": {
+      "netVarlik": 417901107.65,
+      "payAdet": 323504146,
+      "fiyat": 1.291795,
+      "yatirimciSayi": 102
+    },
+    "RTG": {
+      "netVarlik": 230154649.86,
+      "payAdet": 40985797,
+      "fiyat": 5.615473,
+      "yatirimciSayi": 4703
+    },
+    "TLZ": {
+      "netVarlik": 72984612.19,
+      "payAdet": 3861743,
+      "fiyat": 18.899397,
+      "yatirimciSayi": 870
+    },
+    "URA": {
+      "netVarlik": 592421393.99,
+      "payAdet": 326436211,
+      "fiyat": 1.814815,
+      "yatirimciSayi": 8810
+    },
+    "YLC": {
+      "netVarlik": 77756492.35,
+      "payAdet": 19645729,
+      "fiyat": 3.957934,
+      "yatirimciSayi": 1367
+    }
   }
 }

@@ -14,15 +14,15 @@
     ],
     [
       "Birim Fiyat (TL)",
-      "22,006372 TL"
+      "21,886125 TL"
     ],
     [
       "Birim Fiyat (USD)",
-      "0,453983 USD"
+      "0,449845 USD"
     ],
     [
       "Net Varlık Tutarı",
-      "260.426.778 TL"
+      "259.011.243 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -185,15 +185,19 @@
     "items": [
       {
         "label": "Kamu Dış Borçlanma Araçları",
-        "pct": 92
+        "pct": 90
       },
       {
         "label": "Vadeli Mevduat (Döviz)",
         "pct": 8
+      },
+      {
+        "label": "Vadeli İşlemler Nakit Teminatı",
+        "pct": 2
       }
     ]
   },
   "chartTitle": "ATA Eurobond Fonu vs. USD Mevduat",
   "chartCurrency": "USD",
-  "portfoyDagilimTarihi": "2026-09-09"
+  "portfoyDagilimTarihi": "2026-09-16"
 }
