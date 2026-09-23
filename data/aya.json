@@ -2,9 +2,9 @@
   "fundCode": "AYA",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 2.418386,
-  "lastDate": "2026-09-16",
-  "lastPrice": 18.551683,
-  "priceRowCount": 1290,
+  "lastDate": "2026-09-23",
+  "lastPrice": 18.514339,
+  "priceRowCount": 1295,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6468,7 +6468,32 @@
     {
       "date": "2026-09-16",
       "fundIndex": 767.1100891255574,
-      "benchIndex": 1035.5905740972603
+      "benchIndex": 992.2893860066634
+    },
+    {
+      "date": "2026-09-17",
+      "fundIndex": 738.4576738370137,
+      "benchIndex": 1039.7135728512658
+    },
+    {
+      "date": "2026-09-18",
+      "fundIndex": 766.0202300211794,
+      "benchIndex": 1034.994558247968
+    },
+    {
+      "date": "2026-09-21",
+      "fundIndex": 759.3873765395599,
+      "benchIndex": 1052.7301224469998
+    },
+    {
+      "date": "2026-09-22",
+      "fundIndex": 768.0547687589988,
+      "benchIndex": 1044.2382608221137
+    },
+    {
+      "date": "2026-09-23",
+      "fundIndex": 765.5659187573862,
+      "benchIndex": 1044.2382608221137
     }
   ]
 }
