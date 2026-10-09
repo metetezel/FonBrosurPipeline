@@ -1,5 +1,5 @@
 {
-  "cekildi": "2026-10-09T07:29:10.344Z",
+  "cekildi": "2026-10-09T07:42:17.010Z",
   "tarih": "2026-10-09",
   "fonlar": {
     "AAL": [
@@ -112,8 +112,8 @@
     ],
     "ANZ": [
       {
-        "kod": "osdb",
-        "label": "Özel Sektör Dış Borçlanma Araçları",
+        "kod": "kibd",
+        "label": "Kamu Dış Borçlanma Araçları",
         "pct": 84.64
       },
       {
@@ -337,8 +337,8 @@
     ],
     "UANZ": [
       {
-        "kod": "osdb",
-        "label": "Özel Sektör Dış Borçlanma Araçları",
+        "kod": "kibd",
+        "label": "Kamu Dış Borçlanma Araçları",
         "pct": 84.64
       },
       {

@@ -18,7 +18,7 @@
     ],
     [
       "Birim Fiyat (USD)",
-      "0,440760 USD"
+      "0,440727 USD"
     ],
     [
       "Net Varlık Tutarı",
@@ -184,7 +184,7 @@
     "title": "Fon Portföy Dağılımı",
     "items": [
       {
-        "label": "Özel Sektör Dış Borçlanma Araçları",
+        "label": "Kamu Dış Borçlanma Araçları",
         "pct": 85
       },
       {
