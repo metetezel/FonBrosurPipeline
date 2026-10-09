@@ -1,5 +1,5 @@
 {
-  "cekildi": "2026-09-23T08:51:05.391Z",
+  "cekildi": "2026-10-09T07:29:07.074Z",
   "fonlar": {
     "AAL": {
       "fonUnvan": "ATA PORTFÖY PARA PİYASASI (TL) FONU",
@@ -92,7 +92,7 @@
     },
     "AED": {
       "fonUnvan": "ATA PORTFÖY BİRİNCİ DEĞİŞKEN FON",
-      "riskDegeri": 5,
+      "riskDegeri": 6,
       "isin": "TRYATAM00010",
       "kurucu": "ATA PORTFÖY YÖNETİMİ A.Ş.",
       "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",

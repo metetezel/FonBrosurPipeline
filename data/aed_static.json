@@ -1,7 +1,7 @@
 {
   "fundCode": "AED",
   "fundName": "Ata Portföy Birinci Değişken Fon",
-  "riskLevel": 5,
+  "riskLevel": 6,
   "info": [
     [
       "Kuruluş Tarihi",
@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "59.561.388 TL"
+      "54.753.314 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -76,33 +76,33 @@
       {
         "label": "Haftalık",
         "values": [
-          "%0,38",
-          "%0,53",
-          "%0,60"
+          "-%0,36",
+          "-%0,30",
+          "%0,39"
         ]
       },
       {
         "label": "Aylık",
         "values": [
-          "-%1,25",
-          "-%4,91",
-          "%3,10"
+          "-%6,63",
+          "-%8,98",
+          "%2,92"
         ]
       },
       {
         "label": "Yıllık",
         "values": [
-          "%32,92",
-          "%25,38",
-          "%45,69"
+          "%29,01",
+          "%21,65",
+          "%45,46"
         ]
       },
       {
         "label": "Kuruluştan Beri**",
         "values": [
-          "%1809,98",
-          "%2955,54",
-          "%561,19"
+          "%1676,28",
+          "%2829,52",
+          "%582,16"
         ]
       }
     ]
@@ -119,28 +119,20 @@
   "assetAllocation": [
     {
       "label": "Hisse Senedi",
-      "pct": 56
+      "pct": 59
     },
     {
       "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 19
+      "pct": 28
     },
     {
-      "label": "Ters Repo",
-      "pct": 13
-    },
-    {
-      "label": "Yatırım Fonu",
-      "pct": 7
+      "label": "Devlet Tahvili",
+      "pct": 9
     },
     {
       "label": "Finansman Bonosu",
       "pct": 4
-    },
-    {
-      "label": "Diğer",
-      "pct": 1
     }
   ],
-  "portfoyDagilimTarihi": "2026-09-23"
+  "portfoyDagilimTarihi": "2026-10-09"
 }

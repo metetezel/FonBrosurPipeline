@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "375.546.877 TL"
+      "353.253.271 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -81,26 +81,22 @@
   "assetAllocation": [
     {
       "label": "Kıymetli Madenler",
-      "pct": 82
+      "pct": 83
     },
     {
       "label": "Hisse Senedi",
       "pct": 9
     },
     {
+      "label": "Katılma Hesabı (TL)",
+      "pct": 4
+    },
+    {
       "label": "Yatırım Fonu",
       "pct": 4
-    },
-    {
-      "label": "Kamu Kira Sertifikası (TL)",
-      "pct": 4
-    },
-    {
-      "label": "Diğer",
-      "pct": 1
     }
   ],
   "chartNote": null,
   "netVarlikNotu": "Yayımlanan 31.07.2026 broşüründeki 85.552.765 TL YLC ile birebir aynıydı ve pay adedi hesabıyla tutarsız çıktı (o değer 19,7 mn pay ima ediyor, TEFAS 83,3 mn gösteriyor). Mete kararı (28.08.2026): TEFAS baz alınacak, yayımlanan rakam güncellenmemiş/takılmış kabul edildi. Bu değer TEFAS 2026-08-28 verisidir.",
-  "portfoyDagilimTarihi": "2026-09-23"
+  "portfoyDagilimTarihi": "2026-10-09"
 }

@@ -174,12 +174,12 @@
         0.0357,
         0.0337,
         0.03396950513477304,
-        null,
+        0.031245557854593597,
         null,
         null,
         null
       ],
-      "ybb": 0.30207195199719306
+      "ybb": 0.3427559165041649
     }
   ],
   "growth": [
@@ -712,10 +712,15 @@
       "date": "2026-08-01",
       "fundIndex": 992.4542811782046,
       "benchIndex": 644.8476883407045
+    },
+    {
+      "date": "2026-09-01",
+      "fundIndex": 1023.4640688387973,
+      "benchIndex": 661.6375447816058
     }
   ],
-  "lastDate": "2026-09-23",
-  "lastPrice": 11.166047,
+  "lastDate": "2026-10-09",
+  "lastPrice": 11.348276,
   "benchmarkApproximate": false,
   "benchmarkAvailable": [
     "REPNT"

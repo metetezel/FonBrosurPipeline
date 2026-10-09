@@ -2,9 +2,9 @@
   "fundCode": "DGH",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 1.920647,
-  "lastDate": "2026-09-23",
-  "lastPrice": 11.166047,
-  "priceRowCount": 1295,
+  "lastDate": "2026-10-09",
+  "lastPrice": 11.348276,
+  "priceRowCount": 1307,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6493,7 +6493,67 @@
     {
       "date": "2026-09-23",
       "fundIndex": 581.3690386624925,
-      "benchIndex": 391.2376966140707
+      "benchIndex": 391.5717070772018
+    },
+    {
+      "date": "2026-09-24",
+      "fundIndex": 581.9561845565584,
+      "benchIndex": 391.9065491164611
+    },
+    {
+      "date": "2026-09-25",
+      "fundIndex": 582.5405709638471,
+      "benchIndex": 392.91631452074563
+    },
+    {
+      "date": "2026-09-28",
+      "fundIndex": 584.3013317907976,
+      "benchIndex": 393.25367865069387
+    },
+    {
+      "date": "2026-09-29",
+      "fundIndex": 584.8866553822749,
+      "benchIndex": 393.59124145476716
+    },
+    {
+      "date": "2026-09-30",
+      "fundIndex": 585.4684385001514,
+      "benchIndex": 393.9296441626265
+    },
+    {
+      "date": "2026-10-01",
+      "fundIndex": 586.0737553543156,
+      "benchIndex": 394.26741991680984
+    },
+    {
+      "date": "2026-10-02",
+      "fundIndex": 586.6744904191139,
+      "benchIndex": 395.28244245258236
+    },
+    {
+      "date": "2026-10-05",
+      "fundIndex": 588.4817459949694,
+      "benchIndex": 395.62137813054954
+    },
+    {
+      "date": "2026-10-06",
+      "fundIndex": 589.0808149545439,
+      "benchIndex": 395.9604196887391
+    },
+    {
+      "date": "2026-10-07",
+      "fundIndex": 589.6821748088015,
+      "benchIndex": 396.30049030751627
+    },
+    {
+      "date": "2026-10-08",
+      "fundIndex": 590.270101689691,
+      "benchIndex": 396.6405763919439
+    },
+    {
+      "date": "2026-10-09",
+      "fundIndex": 590.8569351890275,
+      "benchIndex": 396.6405763919439
     }
   ]
 }

@@ -2,9 +2,9 @@
   "fundCode": "AAL",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 0.698606,
-  "lastDate": "2026-09-23",
-  "lastPrice": 3.603955,
-  "priceRowCount": 1295,
+  "lastDate": "2026-10-09",
+  "lastPrice": 3.662446,
+  "priceRowCount": 1307,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6500,7 +6500,67 @@
     {
       "date": "2026-09-23",
       "fundIndex": 515.8780485710115,
-      "benchIndex": 447.0163033538138
+      "benchIndex": 447.4815214009936
+    },
+    {
+      "date": "2026-09-24",
+      "fundIndex": 516.4324383128688,
+      "benchIndex": 447.9261305224824
+    },
+    {
+      "date": "2026-09-25",
+      "fundIndex": 516.9397342708194,
+      "benchIndex": 448.85636106513715
+    },
+    {
+      "date": "2026-09-28",
+      "fundIndex": 518.4564690254593,
+      "benchIndex": 449.5535006889588
+    },
+    {
+      "date": "2026-09-29",
+      "fundIndex": 519.0041310839014,
+      "benchIndex": 449.98455180803455
+    },
+    {
+      "date": "2026-09-30",
+      "fundIndex": 519.5144330280588,
+      "benchIndex": 450.4890550545427
+    },
+    {
+      "date": "2026-10-01",
+      "fundIndex": 520.0157170135957,
+      "benchIndex": 450.9317853647833
+    },
+    {
+      "date": "2026-10-02",
+      "fundIndex": 520.60846886514,
+      "benchIndex": 451.969568288957
+    },
+    {
+      "date": "2026-10-05",
+      "fundIndex": 522.1206230693696,
+      "benchIndex": 452.71893050899337
+    },
+    {
+      "date": "2026-10-06",
+      "fundIndex": 522.6608417333948,
+      "benchIndex": 453.21405840272485
+    },
+    {
+      "date": "2026-10-07",
+      "fundIndex": 523.2155177596528,
+      "benchIndex": 453.6827098388776
+    },
+    {
+      "date": "2026-10-08",
+      "fundIndex": 523.7259628460105,
+      "benchIndex": 454.298144961202
+    },
+    {
+      "date": "2026-10-09",
+      "fundIndex": 524.2505790102003,
+      "benchIndex": 454.298144961202
     }
   ]
 }
