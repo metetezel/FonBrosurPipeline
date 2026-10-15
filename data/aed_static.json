@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "54.753.314 TL"
+      "54.505.233 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -76,25 +76,25 @@
       {
         "label": "Haftalık",
         "values": [
-          "-%0,36",
-          "-%0,30",
-          "%0,39"
+          "-%0,03",
+          "%0,00",
+          "%0,59"
         ]
       },
       {
         "label": "Aylık",
         "values": [
-          "-%6,63",
-          "-%8,98",
-          "%2,92"
+          "-%5,74",
+          "-%6,48",
+          "%2,91"
         ]
       },
       {
         "label": "Yıllık",
         "values": [
-          "%29,01",
-          "%21,65",
-          "%45,46"
+          "%31,14",
+          "%22,44",
+          "%45,38"
         ]
       },
       {
@@ -119,11 +119,11 @@
   "assetAllocation": [
     {
       "label": "Hisse Senedi",
-      "pct": 59
+      "pct": 57
     },
     {
       "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 28
+      "pct": 30
     },
     {
       "label": "Devlet Tahvili",
@@ -134,5 +134,5 @@
       "pct": 4
     }
   ],
-  "portfoyDagilimTarihi": "2026-10-09"
+  "portfoyDagilimTarihi": "2026-10-15"
 }

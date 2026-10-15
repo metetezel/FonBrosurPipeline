@@ -2,9 +2,9 @@
   "fundCode": "YLC",
   "inceptionDate": "2022-02-11",
   "inceptionPrice": 1.018844,
-  "lastDate": "2026-10-09",
-  "lastPrice": 3.701643,
-  "priceRowCount": 1170,
+  "lastDate": "2026-10-15",
+  "lastPrice": 3.716273,
+  "priceRowCount": 1174,
   "droppedZeroRows": 15,
   "benchmarkComponents": [
     {
@@ -5875,7 +5875,27 @@
     {
       "date": "2026-10-09",
       "fundIndex": 363.3179367989603,
-      "benchIndex": 267.83509903490807
+      "benchIndex": 271.19050019489174
+    },
+    {
+      "date": "2026-10-12",
+      "fundIndex": 366.2238772569697,
+      "benchIndex": 269.6608522646753
+    },
+    {
+      "date": "2026-10-13",
+      "fundIndex": 361.5771403669256,
+      "benchIndex": 270.70348978753714
+    },
+    {
+      "date": "2026-10-14",
+      "fundIndex": 365.65352497536423,
+      "benchIndex": 266.6594118315419
+    },
+    {
+      "date": "2026-10-15",
+      "fundIndex": 364.7538779243927,
+      "benchIndex": 266.6594118315419
     }
   ]
 }
