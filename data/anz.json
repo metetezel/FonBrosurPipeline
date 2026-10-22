@@ -2,9 +2,9 @@
   "fundCode": "ANZ",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 3.004563,
-  "lastDate": "2026-10-15",
-  "lastPrice": 21.86988,
-  "priceRowCount": 1311,
+  "lastDate": "2026-10-22",
+  "lastPrice": 21.996588,
+  "priceRowCount": 1316,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6573,7 +6573,32 @@
     {
       "date": "2026-10-15",
       "fundIndex": 727.8888810119807,
-      "benchIndex": 110.42308568798501
+      "benchIndex": 110.43153131178968
+    },
+    {
+      "date": "2026-10-16",
+      "fundIndex": 729.7896565989796,
+      "benchIndex": 110.45686818320371
+    },
+    {
+      "date": "2026-10-19",
+      "fundIndex": 732.0949502473405,
+      "benchIndex": 110.46531380700837
+    },
+    {
+      "date": "2026-10-20",
+      "fundIndex": 733.5919399926046,
+      "benchIndex": 110.47375943081303
+    },
+    {
+      "date": "2026-10-21",
+      "fundIndex": 732.6591254701598,
+      "benchIndex": 110.4822050546177
+    },
+    {
+      "date": "2026-10-22",
+      "fundIndex": 732.1060666725909,
+      "benchIndex": 110.4822050546177
     }
   ]
 }
