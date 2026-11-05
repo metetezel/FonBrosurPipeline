@@ -2,9 +2,9 @@
   "fundCode": "AYA",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 2.418386,
-  "lastDate": "2026-10-22",
-  "lastPrice": 16.267559,
-  "priceRowCount": 1316,
+  "lastDate": "2026-11-05",
+  "lastPrice": 15.978151,
+  "priceRowCount": 1325,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6598,7 +6598,52 @@
     {
       "date": "2026-10-22",
       "fundIndex": 672.6618083300184,
-      "benchIndex": 951.9697929708934
+      "benchIndex": 921.8173329654971
+    },
+    {
+      "date": "2026-10-23",
+      "fundIndex": 653.5247474968843,
+      "benchIndex": 917.343879317401
+    },
+    {
+      "date": "2026-10-26",
+      "fundIndex": 649.7776616305255,
+      "benchIndex": 921.2007021224348
+    },
+    {
+      "date": "2026-10-27",
+      "fundIndex": 651.7955777117467,
+      "benchIndex": 916.3861915921141
+    },
+    {
+      "date": "2026-10-28",
+      "fundIndex": 650.6831415663174,
+      "benchIndex": 908.9526673679807
+    },
+    {
+      "date": "2026-10-30",
+      "fundIndex": 650.7843661020202,
+      "benchIndex": 878.9563356242251
+    },
+    {
+      "date": "2026-11-02",
+      "fundIndex": 630.3114556567893,
+      "benchIndex": 893.2628381389511
+    },
+    {
+      "date": "2026-11-03",
+      "fundIndex": 638.9593307271875,
+      "benchIndex": 897.3749230727254
+    },
+    {
+      "date": "2026-11-04",
+      "fundIndex": 645.4282732367786,
+      "benchIndex": 925.7629821407457
+    },
+    {
+      "date": "2026-11-05",
+      "fundIndex": 660.6948187758281,
+      "benchIndex": 925.7629821407457
     }
   ]
 }

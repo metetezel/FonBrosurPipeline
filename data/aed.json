@@ -2,9 +2,9 @@
   "fundCode": "AED",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 11.119739,
-  "lastDate": "2026-10-22",
-  "lastPrice": 107.757642,
-  "priceRowCount": 1316,
+  "lastDate": "2026-11-05",
+  "lastPrice": 106.555994,
+  "priceRowCount": 1325,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6619,7 +6619,52 @@
     {
       "date": "2026-10-22",
       "fundIndex": 969.0662883364439,
-      "benchIndex": 914.2125149477606
+      "benchIndex": 896.4531520940097
+    },
+    {
+      "date": "2026-10-23",
+      "fundIndex": 946.1066037611134,
+      "benchIndex": 890.3795861920036
+    },
+    {
+      "date": "2026-10-26",
+      "fundIndex": 936.6129636675826,
+      "benchIndex": 891.7296081472284
+    },
+    {
+      "date": "2026-10-27",
+      "fundIndex": 937.5994976141078,
+      "benchIndex": 890.806578556706
+    },
+    {
+      "date": "2026-10-28",
+      "fundIndex": 937.9351080092798,
+      "benchIndex": 891.8292906555595
+    },
+    {
+      "date": "2026-10-30",
+      "fundIndex": 938.0092014749627,
+      "benchIndex": 874.3704122762861
+    },
+    {
+      "date": "2026-11-02",
+      "fundIndex": 916.6993487886721,
+      "benchIndex": 880.6234895153553
+    },
+    {
+      "date": "2026-11-03",
+      "fundIndex": 928.3811877239206,
+      "benchIndex": 882.7264452760398
+    },
+    {
+      "date": "2026-11-04",
+      "fundIndex": 932.9611783154263,
+      "benchIndex": 909.6599619460569
+    },
+    {
+      "date": "2026-11-05",
+      "fundIndex": 958.2598476457047,
+      "benchIndex": 909.6599619460569
     }
   ]
 }

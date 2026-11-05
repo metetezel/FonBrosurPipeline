@@ -301,11 +301,11 @@
         -0.017,
         0.0636192819049588,
         -0.0888257091380883,
-        null,
+        -0.10395150622156346,
         null,
         null
       ],
-      "ybb": -0.0331905980490933
+      "ybb": -0.133691891611059
     }
   ],
   "growth": [
@@ -1288,10 +1288,15 @@
       "date": "2026-09-01",
       "fundIndex": 3682.285037457518,
       "benchIndex": 3268.774760458948
+    },
+    {
+      "date": "2026-10-01",
+      "fundIndex": 3299.5059614766824,
+      "benchIndex": 2945.672493893648
     }
   ],
-  "lastDate": "2026-10-22",
-  "lastPrice": 16.267559,
+  "lastDate": "2026-11-05",
+  "lastPrice": 15.978151,
   "benchmarkApproximate": false,
   "benchmarkAvailable": [
     "XU100_CFNNTLTL"

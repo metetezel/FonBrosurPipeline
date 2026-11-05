@@ -2,9 +2,9 @@
   "fundCode": "AAV",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 4.480865,
-  "lastDate": "2026-10-22",
-  "lastPrice": 58.054098,
-  "priceRowCount": 1316,
+  "lastDate": "2026-11-05",
+  "lastPrice": 57.532091,
+  "priceRowCount": 1325,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6598,7 +6598,52 @@
     {
       "date": "2026-10-22",
       "fundIndex": 1295.6002468273427,
-      "benchIndex": 937.5567794685443
+      "benchIndex": 908.6661691703708
+    },
+    {
+      "date": "2026-10-23",
+      "fundIndex": 1260.4281539390274,
+      "benchIndex": 900.2940365335323
+    },
+    {
+      "date": "2026-10-26",
+      "fundIndex": 1246.974590843509,
+      "benchIndex": 903.1257097433569
+    },
+    {
+      "date": "2026-10-27",
+      "fundIndex": 1252.4298991377782,
+      "benchIndex": 903.0510852989845
+    },
+    {
+      "date": "2026-10-28",
+      "fundIndex": 1247.574028675267,
+      "benchIndex": 904.2174978099348
+    },
+    {
+      "date": "2026-10-30",
+      "fundIndex": 1250.2430445907207,
+      "benchIndex": 871.3482690373446
+    },
+    {
+      "date": "2026-11-02",
+      "fundIndex": 1207.056115281313,
+      "benchIndex": 887.715761980468
+    },
+    {
+      "date": "2026-11-03",
+      "fundIndex": 1231.372380109644,
+      "benchIndex": 892.7265500794913
+    },
+    {
+      "date": "2026-11-04",
+      "fundIndex": 1237.3520960796632,
+      "benchIndex": 929.5403296453719
+    },
+    {
+      "date": "2026-11-05",
+      "fundIndex": 1283.9505541898718,
+      "benchIndex": 929.5403296453719
     }
   ]
 }

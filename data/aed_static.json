@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "52.943.086 TL"
+      "51.524.405 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -76,33 +76,33 @@
       {
         "label": "Haftalık",
         "values": [
-          "-%2,13",
-          "-%2,13",
-          "%0,59"
+          "%2,17",
+          "%1,94",
+          "%0,58"
         ]
       },
       {
         "label": "Aylık",
         "values": [
-          "-%6,69",
-          "-%6,51",
-          "%2,89"
+          "-%4,63",
+          "-%3,46",
+          "%2,97"
         ]
       },
       {
         "label": "Yıllık",
         "values": [
-          "%27,02",
-          "%18,12",
-          "%45,30"
+          "%24,57",
+          "%16,63",
+          "%45,10"
         ]
       },
       {
         "label": "Kuruluştan Beri**",
         "values": [
-          "%1676,28",
-          "%2829,52",
-          "%582,16"
+          "%1573,17",
+          "%2739,35",
+          "%602,98"
         ]
       }
     ]
@@ -119,20 +119,24 @@
   "assetAllocation": [
     {
       "label": "Hisse Senedi",
-      "pct": 59
+      "pct": 62
     },
     {
-      "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 28
+      "label": "Takasbank Para Piyasası",
+      "pct": 17
     },
     {
       "label": "Devlet Tahvili",
-      "pct": 9
+      "pct": 10
+    },
+    {
+      "label": "Vadeli İşlemler Nakit Teminatı",
+      "pct": 7
     },
     {
       "label": "Finansman Bonosu",
       "pct": 4
     }
   ],
-  "portfoyDagilimTarihi": "2026-10-22"
+  "portfoyDagilimTarihi": "2026-11-05"
 }
