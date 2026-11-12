@@ -2,9 +2,9 @@
   "fundCode": "AAS",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 3.412894,
-  "lastDate": "2026-11-05",
-  "lastPrice": 13.167509,
-  "priceRowCount": 1325,
+  "lastDate": "2026-11-12",
+  "lastPrice": 12.93154,
+  "priceRowCount": 1330,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6643,6 +6643,31 @@
     {
       "date": "2026-11-05",
       "fundIndex": 385.8165240408873,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-11-06",
+      "fundIndex": 384.3021494368122,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-11-09",
+      "fundIndex": 371.99995077491417,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-11-10",
+      "fundIndex": 376.55494134889625,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-11-11",
+      "fundIndex": 378.3022560911648,
+      "benchIndex": null
+    },
+    {
+      "date": "2026-11-12",
+      "fundIndex": 378.9024798309001,
       "benchIndex": null
     }
   ]

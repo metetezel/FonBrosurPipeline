@@ -2,9 +2,9 @@
   "fundCode": "PKP",
   "inceptionDate": "2026-01-15",
   "inceptionPrice": 1.001046,
-  "lastDate": "2026-11-05",
-  "lastPrice": 1.330247,
-  "priceRowCount": 202,
+  "lastDate": "2026-11-12",
+  "lastPrice": 1.337877,
+  "priceRowCount": 207,
   "droppedZeroRows": 45,
   "benchmarkComponents": [
     {
@@ -1028,7 +1028,32 @@
     {
       "date": "2026-11-05",
       "fundIndex": 132.88570155617222,
-      "benchIndex": 128.81773351448692
+      "benchIndex": 128.92622899532512
+    },
+    {
+      "date": "2026-11-06",
+      "fundIndex": 133.00337846612442,
+      "benchIndex": 129.2522626064098
+    },
+    {
+      "date": "2026-11-09",
+      "fundIndex": 133.36599916487356,
+      "benchIndex": 129.36074360337412
+    },
+    {
+      "date": "2026-11-10",
+      "fundIndex": 133.47568443408193,
+      "benchIndex": 129.46931472222053
+    },
+    {
+      "date": "2026-11-11",
+      "fundIndex": 133.56239373615196,
+      "benchIndex": 129.57797757226842
+    },
+    {
+      "date": "2026-11-12",
+      "fundIndex": 133.64790429211044,
+      "benchIndex": 129.57797757226842
     }
   ]
 }
