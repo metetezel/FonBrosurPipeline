@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "55.258.738 TL"
+      "53.103.394 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -83,12 +83,12 @@
   "assetAllocation": [
     {
       "label": "Hisse Senedi",
-      "pct": 89
+      "pct": 86
     },
     {
       "label": "Yatırım Fonu",
-      "pct": 11
+      "pct": 14
     }
   ],
-  "portfoyDagilimTarihi": "2026-11-12"
+  "portfoyDagilimTarihi": "2026-11-19"
 }
