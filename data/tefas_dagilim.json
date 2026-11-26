@@ -1,5 +1,5 @@
 {
-  "cekildi": "2026-11-26T06:57:58.504Z",
+  "cekildi": "2026-11-26T08:10:55.079Z",
   "tarih": "2026-11-26",
   "fonlar": {
     "AAL": [
@@ -109,17 +109,17 @@
       {
         "kod": "kibd",
         "label": "Kamu Dış Borçlanma Araçları",
-        "pct": 72.2
+        "pct": 72.29
       },
       {
         "kod": "vmd",
         "label": "Vadeli Mevduat (Döviz)",
-        "pct": 24.02
+        "pct": 24.05
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 3.78
+        "pct": 3.66
       }
     ],
     "AYA": [
@@ -319,17 +319,17 @@
       {
         "kod": "kibd",
         "label": "Kamu Dış Borçlanma Araçları",
-        "pct": 72.2
+        "pct": 72.29
       },
       {
         "kod": "vmd",
         "label": "Vadeli Mevduat (Döviz)",
-        "pct": 24.02
+        "pct": 24.05
       },
       {
         "kod": "vint",
         "label": "Vadeli İşlemler Nakit Teminatı",
-        "pct": 3.78
+        "pct": 3.66
       }
     ]
   }
