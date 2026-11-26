@@ -13,7 +13,7 @@
     ],
     [
       "Net Varlık Tutarı",
-      "230.459.850 TL"
+      "220.292.995 TL"
     ],
     [
       "Yönetim Komisyonu",
@@ -74,22 +74,22 @@
       {
         "label": "Haftalık",
         "values": [
-          "-%1,42",
-          "-%2,83"
+          "-%5,89",
+          "-%6,51"
         ]
       },
       {
         "label": "Aylık",
         "values": [
-          "-%1,96",
-          "%0,43"
+          "-%3,10",
+          "-%4,42"
         ]
       },
       {
         "label": "Yılbaşından Beri",
         "values": [
-          "%10,80",
-          "%3,40"
+          "%4,27",
+          "-%3,98"
         ]
       },
       {
@@ -124,12 +124,8 @@
     },
     {
       "label": "Vadeli İşlemler Nakit Teminatı",
-      "pct": 11
-    },
-    {
-      "label": "Ters Repo",
-      "pct": 8
+      "pct": 19
     }
   ],
-  "portfoyDagilimTarihi": "2026-11-19"
+  "portfoyDagilimTarihi": "2026-11-26"
 }

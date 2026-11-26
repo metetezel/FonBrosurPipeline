@@ -2,9 +2,9 @@
   "fundCode": "DGH",
   "inceptionDate": "2021-08-02",
   "inceptionPrice": 1.920647,
-  "lastDate": "2026-11-19",
-  "lastPrice": 11.816898,
-  "priceRowCount": 1335,
+  "lastDate": "2026-11-26",
+  "lastPrice": 11.897601,
+  "priceRowCount": 1340,
   "droppedZeroRows": 0,
   "benchmarkComponents": [
     {
@@ -6693,7 +6693,32 @@
     {
       "date": "2026-11-19",
       "fundIndex": 615.2561090090995,
-      "benchIndex": 410.55294494715014
+      "benchIndex": 410.8933106029514
+    },
+    {
+      "date": "2026-11-20",
+      "fundIndex": 615.8565316791686,
+      "benchIndex": 411.9181228954596
+    },
+    {
+      "date": "2026-11-23",
+      "fundIndex": 617.661288097188,
+      "benchIndex": 412.26105941823204
+    },
+    {
+      "date": "2026-11-24",
+      "fundIndex": 618.2491108465011,
+      "benchIndex": 412.60629675392533
+    },
+    {
+      "date": "2026-11-25",
+      "fundIndex": 618.8482318718641,
+      "benchIndex": 412.9645073910165
+    },
+    {
+      "date": "2026-11-26",
+      "fundIndex": 619.4579743180293,
+      "benchIndex": 412.9645073910165
     }
   ]
 }

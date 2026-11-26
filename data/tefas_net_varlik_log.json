@@ -1116,5 +1116,91 @@
       "fiyat": 3.532314,
       "yatirimciSayi": 1106
     }
+  },
+  "2026-11-26": {
+    "AAL": {
+      "netVarlik": 1177340898.65,
+      "payAdet": 311343358,
+      "fiyat": 3.781487,
+      "yatirimciSayi": 3999
+    },
+    "AAS": {
+      "netVarlik": 8143838.21,
+      "payAdet": 659183,
+      "fiyat": 12.354442,
+      "yatirimciSayi": 112
+    },
+    "AAV": {
+      "netVarlik": 220292995.08,
+      "payAdet": 4068515,
+      "fiyat": 54.145799,
+      "yatirimciSayi": 1663
+    },
+    "AED": {
+      "netVarlik": 49594887.63,
+      "payAdet": 480552,
+      "fiyat": 103.203995,
+      "yatirimciSayi": 1190
+    },
+    "ANZ": {
+      "netVarlik": 231669936.97,
+      "payAdet": 10319061,
+      "fiyat": 22.45068,
+      "yatirimciSayi": 115
+    },
+    "AYA": {
+      "netVarlik": 590779551.37,
+      "payAdet": 39651703,
+      "fiyat": 14.899223,
+      "yatirimciSayi": 7741
+    },
+    "DGH": {
+      "netVarlik": 2170716990.91,
+      "payAdet": 182449981,
+      "fiyat": 11.897601,
+      "yatirimciSayi": 184
+    },
+    "JET": {
+      "netVarlik": 310730141.01,
+      "payAdet": 153348813,
+      "fiyat": 2.026296,
+      "yatirimciSayi": 13536
+    },
+    "PKF": {
+      "netVarlik": 276321986.03,
+      "payAdet": 64835863,
+      "fiyat": 4.261869,
+      "yatirimciSayi": 1243
+    },
+    "PKP": {
+      "netVarlik": 283759601.64,
+      "payAdet": 209729339,
+      "fiyat": 1.35298,
+      "yatirimciSayi": 43
+    },
+    "RTG": {
+      "netVarlik": 144891255.47,
+      "payAdet": 33150850,
+      "fiyat": 4.370665,
+      "yatirimciSayi": 3687
+    },
+    "TLZ": {
+      "netVarlik": 49496496.96,
+      "payAdet": 3310772,
+      "fiyat": 14.950138,
+      "yatirimciSayi": 704
+    },
+    "URA": {
+      "netVarlik": 293681612.76,
+      "payAdet": 222941493,
+      "fiyat": 1.317304,
+      "yatirimciSayi": 6271
+    },
+    "YLC": {
+      "netVarlik": 59421379.36,
+      "payAdet": 17657543,
+      "fiyat": 3.365212,
+      "yatirimciSayi": 1100
+    }
   }
 }
